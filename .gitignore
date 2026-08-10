@@ -1,0 +1,26 @@
+tmp/
+private-sources/
+
+# Generated Python files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated MATLAB files
+*.asv
+
+# LaTeX and rendered-paper build products
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# Local environments and editor state
+.venv/
+.idea/
+.vscode/
