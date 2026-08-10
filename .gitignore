@@ -24,3 +24,6 @@ __pycache__/
 .venv/
 .idea/
 .vscode/
+
+# Local Git worktrees
+.worktrees/
