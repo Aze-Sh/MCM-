@@ -1,0 +1,172 @@
+{
+  "passed": false,
+  "checkers": [
+    {
+      "checker": "ai_usage",
+      "passed": false,
+      "issue_count": 4,
+      "metadata": {
+        "required_fields": [
+          "工具与模型",
+          "使用目的",
+          "关键提示词",
+          "关键回复",
+          "采纳情况",
+          "人工修改"
+        ],
+        "log": "AI工具使用详情.md"
+      }
+    },
+    {
+      "checker": "citations",
+      "passed": false,
+      "issue_count": 1,
+      "metadata": {
+        "cited": [
+          "SOURCE-404"
+        ],
+        "registered": [
+          "SOURCE-001"
+        ]
+      }
+    },
+    {
+      "checker": "code_bundle",
+      "passed": false,
+      "issue_count": 2,
+      "metadata": {
+        "files_checked": 1
+      }
+    },
+    {
+      "checker": "package",
+      "passed": false,
+      "issue_count": 2,
+      "metadata": {
+        "target": "tests\\fixtures\\checkers\\invalid"
+      }
+    },
+    {
+      "checker": "paper",
+      "passed": false,
+      "issue_count": 2,
+      "metadata": {
+        "files_checked": 1,
+        "max_pages": 30,
+        "max_bytes": 20971520
+      }
+    }
+  ],
+  "issues": [
+    {
+      "checker": "ai_usage",
+      "code": "ai.missing_field",
+      "severity": "error",
+      "path": "AI工具使用详情.md",
+      "message": "AI 使用记录缺少字段：人工修改。",
+      "source_ids": [
+        "OFF-CUMCM-AI-RULES"
+      ]
+    },
+    {
+      "checker": "ai_usage",
+      "code": "ai.missing_field",
+      "severity": "error",
+      "path": "AI工具使用详情.md",
+      "message": "AI 使用记录缺少字段：关键回复。",
+      "source_ids": [
+        "OFF-CUMCM-AI-RULES"
+      ]
+    },
+    {
+      "checker": "ai_usage",
+      "code": "ai.missing_field",
+      "severity": "error",
+      "path": "AI工具使用详情.md",
+      "message": "AI 使用记录缺少字段：关键提示词。",
+      "source_ids": [
+        "OFF-CUMCM-AI-RULES"
+      ]
+    },
+    {
+      "checker": "ai_usage",
+      "code": "ai.missing_field",
+      "severity": "error",
+      "path": "AI工具使用详情.md",
+      "message": "AI 使用记录缺少字段：采纳情况。",
+      "source_ids": [
+        "OFF-CUMCM-AI-RULES"
+      ]
+    },
+    {
+      "checker": "citations",
+      "code": "citation.unregistered_source",
+      "severity": "error",
+      "path": "sources.yaml",
+      "message": "来源编号 SOURCE-404 未在 sources.yaml 登记。",
+      "source_ids": [
+        "OFF-CUMCM-NATIONAL-JUDGING"
+      ]
+    },
+    {
+      "checker": "code_bundle",
+      "code": "code.absolute_path",
+      "severity": "error",
+      "path": "code\\analysis.py",
+      "message": "代码中检测到绝对路径，无法保证换机复现。",
+      "source_ids": [
+        "OFF-CUMCM-2026-RULES"
+      ]
+    },
+    {
+      "checker": "code_bundle",
+      "code": "code.missing_entry",
+      "severity": "error",
+      "path": "code",
+      "message": "代码包缺少 main.py、main.m、run.py 或 run.m 入口。",
+      "source_ids": [
+        "OFF-CUMCM-2026-RULES"
+      ]
+    },
+    {
+      "checker": "package",
+      "code": "package.invalid_structure",
+      "severity": "error",
+      "path": "tests\\fixtures\\checkers\\invalid",
+      "message": "提交目录必须在顶层包含论文、AI 使用记录和带运行入口的 code 目录。",
+      "source_ids": [
+        "OFF-CUMCM-2026-RULES"
+      ]
+    },
+    {
+      "checker": "package",
+      "code": "package.temporary_file",
+      "severity": "error",
+      "path": "scratch.tmp",
+      "message": "提交包包含临时或缓存文件。",
+      "source_ids": [
+        "OFF-CUMCM-2026-RULES"
+      ]
+    },
+    {
+      "checker": "paper",
+      "code": "paper.contents_page",
+      "severity": "error",
+      "path": "paper.tex",
+      "message": "检测到目录命令或目录页标题。",
+      "source_ids": [
+        "OFF-CUMCM-2026-FORMAT"
+      ]
+    },
+    {
+      "checker": "paper",
+      "code": "paper.identity",
+      "severity": "error",
+      "path": "paper.tex",
+      "message": "检测到可能泄露身份的字段：学校名称。",
+      "source_ids": [
+        "OFF-CUMCM-2026-RULES"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+先给出机制或统计关系，再给出可计算形式。一个可复现的基本表达为
+\begin{equation}
+  \hat{\theta}=\arg\min_{\theta\in\Omega}
+  \left[J(\theta)=\sum_{t=1}^{n}w_t\bigl(y_t-f(x_t;\theta)\bigr)^2\right],
+  \label{eq:objective}
+\end{equation}
+其中 $w_t$ 为样本权重，$\Omega$ 为可行域。应说明每个参数的来源、估计方法与约束依据，并与至少一个基线模型比较。

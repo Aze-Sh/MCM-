@@ -1,0 +1,10 @@
+id: CUMCM-2023-D
+year: 2023
+problem: D
+tasks: [估计连续生产下的合理种羊数量和栏位缺口, 制定112栏最大出栏计划, 在繁殖不确定性下设计预案集]
+deliverables: [周期容量边界, 日历化生产计划, 栏位占用表, 随机场景下期望损失]
+data_risks: [周期端点计数, 羊只取整与分栏上取整, 批次同步假设, 随机变量依赖]
+method_families: [离散事件仿真, 整数规划, 周期调度, 随机规划, 鲁棒预案]
+failure_paths: [用平均占栏替代峰值约束, 忽略上取整, 只给稳态比例不提供计划, 预案能预知未来]
+transferable_rules: [先做容量上下界, 再排具体批次, 逐日检查栏位, 随机场景决策必须满足信息时序]
+evidence: [{id: 2023D-statement, kind: official, claim: 官方问题明确区分确定性连续生产、具体排程和不可预知随机结果下的预案集。, source_ids: [OFF-CUMCM-2023-PROBLEMS], location: D题问题1至3, confidence: high}]

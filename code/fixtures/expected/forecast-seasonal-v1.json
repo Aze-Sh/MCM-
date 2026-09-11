@@ -1,0 +1,1 @@
+{"method":"time-series","values":{"best_model":"drift","forecast":[9.0,10.0]},"diagnostics":{"leakage_safe":true}}

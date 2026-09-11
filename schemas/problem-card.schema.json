@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "year", "problem", "tasks", "deliverables", "method_families", "evidence"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^CUMCM-20[0-9]{2}-[A-E]$"},
+    "year": {"type": "integer", "minimum": 2021, "maximum": 2025},
+    "problem": {"enum": ["A", "B", "C", "D", "E"]},
+    "tasks": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "deliverables": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "data_risks": {"type": "array", "items": {"type": "string"}},
+    "method_families": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "failure_paths": {"type": "array", "items": {"type": "string"}},
+    "transferable_rules": {"type": "array", "items": {"type": "string"}},
+    "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "evidence.schema.json"}}
+  },
+  "additionalProperties": false
+}
+

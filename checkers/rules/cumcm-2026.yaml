@@ -1,0 +1,42 @@
+version: 2026.2
+checkers:
+  paper:
+    source_ids: [OFF-CUMCM-2026-FORMAT, OFF-CUMCM-2026-RULES]
+    max_pages:
+      value: 30
+      source_ids: [OFF-CUMCM-2026-FORMAT]
+    max_bytes:
+      value: 20971520
+      source_ids: [OFF-CUMCM-2026-FORMAT]
+    forbid_contents:
+      value: true
+      source_ids: [OFF-CUMCM-2026-FORMAT]
+    anonymous:
+      value: true
+      source_ids: [OFF-CUMCM-2026-RULES]
+  citations:
+    source_ids: [OFF-CUMCM-NATIONAL-JUDGING]
+    source_registration:
+      value: true
+      source_ids: [OFF-CUMCM-NATIONAL-JUDGING]
+  ai_usage:
+    source_ids: [OFF-CUMCM-2026-AI-RULES]
+    required_fields:
+      value: [工具与模型, 使用目的, 主要提示方式, 使用过程, 采纳情况, 人工修改, 人工核验]
+      source_ids: [OFF-CUMCM-2026-AI-RULES]
+  code_bundle:
+    source_ids: [OFF-CUMCM-2026-RULES]
+    entry:
+      value: [main.py, main.m, run.py, run.m]
+      source_ids: [OFF-CUMCM-2026-RULES]
+    portable_paths:
+      value: true
+      source_ids: [OFF-CUMCM-2026-RULES]
+  package:
+    source_ids: [OFF-CUMCM-2026-RULES]
+    structure:
+      value: true
+      source_ids: [OFF-CUMCM-2026-RULES]
+    temporary_files:
+      value: forbidden
+      source_ids: [OFF-CUMCM-2026-RULES]

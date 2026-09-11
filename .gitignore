@@ -5,9 +5,11 @@ private-sources/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+*.egg-info/
 
 # Generated MATLAB files
 *.asv
+validation/output/
 
 # LaTeX and rendered-paper build products
 *.aux

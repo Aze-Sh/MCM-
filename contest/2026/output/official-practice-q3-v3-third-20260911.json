@@ -1,0 +1,64 @@
+{
+  "kind": "practice-user-confirmed",
+  "problem": 3,
+  "strategy": "coverage600-nearest-resume-adaptive8-grid20-stop16-v3",
+  "clear_fraction": 1.0,
+  "source_count": 15,
+  "official_case_code": "8BS5-GQWW-6BTJ-8Z73",
+  "source_type_counts": {
+    "omnidirectional": 15,
+    "directional": 0
+  },
+  "note": "Case code and source counts verified from the simulator-generated result.json; the HTTP action API itself does not expose the source total.",
+  "action_log": "logs\\practice-20260911-105710-64620a.jsonl",
+  "official_behavior_logs": [
+    "logs/official-practice/q3-third-v3/practice-p3-8370179810596454304-8BS5-GQWW-6BTJ-8Z73.jlog",
+    "logs/official-practice/q3-third-v3/practice-p3-8370179810596454304-8BS5-GQWW-6BTJ-8Z73.psum",
+    "logs/official-practice/q3-third-v3/practice-p3-8370179810596454304-8BS5-GQWW-6BTJ-8Z73.result.json"
+  ],
+  "cleared_count": 15,
+  "detected_channels": [
+    1,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    17,
+    19,
+    20
+  ],
+  "coverage_complete": true,
+  "coverage_points_completed": 61,
+  "coverage_points_total": 61,
+  "completion_certified": true,
+  "all_detected_cleared": true,
+  "virtual_time_s": 16282.90165,
+  "accounted_time_s": 16282.901644307783,
+  "average_clear_time_s": 1085.5267766666666,
+  "stop_reason": "coverage_finished",
+  "program_runtime_s": 4.4322640000009415,
+  "moving_distance_m": 66684.508222,
+  "counts": {
+    "measure": 499,
+    "no_signal": 420,
+    "direction": 79,
+    "near": 0,
+    "switch": 376,
+    "clear": 15,
+    "successful_clear": 15,
+    "failed_clear": 0
+  },
+  "time_components_s": {
+    "movement": 13336.901644,
+    "channel_switch": 376.0,
+    "measurement": 2495.0,
+    "clearance": 75.0
+  }
+}

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cumcm-toolkit"
+version = "0.1.0"
+description = "Source-traceable Python and MATLAB toolkit for CUMCM 2026"
+requires-python = ">=3.10"
+dependencies = [
+  "jsonschema>=4.21",
+  "matplotlib>=3.8",
+  "networkx>=3.2",
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "pillow>=10.2",
+  "pydantic>=2.6",
+  "pypdf>=4.0",
+  "pyyaml>=6.0",
+  "scikit-learn>=1.4",
+  "scipy>=1.12",
+  "seaborn>=0.13",
+  "simpy>=4.1",
+  "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+optimization = ["ortools>=9.9", "pyomo>=6.7"]
+sensitivity = ["salib>=1.5"]
+test = ["pytest>=8.0", "reportlab>=4.0"]
+
+[tool.setuptools]
+package-dir = {"" = "code/python"}
+
+[tool.setuptools.packages.find]
+where = ["code/python"]
+include = ["cumcm_py*", "cumcm_checkers*"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+pythonpath = ["code/python", "."]
+testpaths = ["tests"]

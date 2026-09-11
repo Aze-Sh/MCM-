@@ -1,0 +1,12 @@
+id: topsis-basic-v1
+method_id: ahp-entropy-topsis
+input: decision.csv
+properties:
+  - {path: method, comparison: exact}
+  - {path: values.ranking, comparison: exact}
+  - {path: values.weights, comparison: numeric}
+  - {path: diagnostics.feasible, comparison: exact}
+absolute_tolerance: 1.0e-6
+relative_tolerance: 1.0e-6
+seed: 0
+

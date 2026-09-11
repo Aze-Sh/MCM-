@@ -1,0 +1,10 @@
+{
+  "created_local": "2026-09-11T11:08:54+08:00",
+  "problem": "2026 CUMCM B",
+  "strategy": "coverage600-nearest-resume-adaptive8-grid20-stop16-v3",
+  "b_tests": "29 passed",
+  "repository_tests": "86 passed",
+  "synthetic_stress": "100/100 cleared",
+  "official_practice": "82/82 cleared across 6 runs",
+  "formal_runs_started": 0
+}

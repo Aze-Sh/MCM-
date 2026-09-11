@@ -1,0 +1,100 @@
+results:
+  - id: synthetic-baseline-20260911
+    description: 问题 3、问题 4 合成模拟早期回归（各 12 局）
+    script: python/main.py simulate
+    inputs: [python/b_simulation.py, python/b_strategy.py, python/b_client.py]
+    parameters: {cases: 12, seed: 20260911, strategy: coverage600-adaptive8-grid20-v1}
+    output: output/synthetic-baseline-20260911.json
+    status: verified-synthetic-only
+  - id: synthetic-stress-20260911
+    description: 问题 3、问题 4 合成压力回归（各 50 局）
+    script: python/main.py simulate
+    inputs: [python/b_simulation.py, python/b_strategy.py, python/b_client.py]
+    parameters: {cases: 50, seed: 20261001, strategy: coverage600-adaptive8-grid20-v1}
+    output: output/synthetic-stress-20260911.json
+    status: verified-synthetic-only
+  - id: synthetic-stress-route-v2-20260911
+    description: 最近未完成覆盖点续扫策略的新旧同种子压力对照（问题 3、4 各 50 局）
+    script: python/main.py simulate
+    inputs: [python/b_simulation.py, python/b_strategy.py, python/b_client.py]
+    parameters: {cases: 50, seed: 20261001, strategy: coverage600-nearest-resume-adaptive8-grid20-v2}
+    output: output/synthetic-stress-route-v2-20260911.json
+    compared_with: output/synthetic-stress-20260911.json
+    observed: {all_passed: true, q3_mean_virtual_reduction_pct: 12.70, q4_mean_virtual_reduction_pct: 9.99, q3_mean_distance_reduction_pct: 10.30, q4_mean_distance_reduction_pct: 8.56}
+    status: verified-synthetic-only
+  - id: synthetic-stress-stop16-v3-20260911
+    description: 达到题面数量上限16个源后立即停止的同种子压力对照（问题 3、4 各 50 局）
+    script: python/main.py simulate
+    inputs: [python/b_simulation.py, python/b_strategy.py, python/b_client.py]
+    parameters: {cases: 50, seed: 20261001, strategy: coverage600-nearest-resume-adaptive8-grid20-stop16-v3}
+    output: output/synthetic-stress-stop16-v3-20260911.json
+    compared_with: output/synthetic-stress-route-v2-20260911.json
+    observed: {all_passed: true, q3_overall_mean_reduction_pct: 2.61, q4_overall_mean_reduction_pct: 1.54, q3_count16_mean_reduction_pct: 32.59, q4_count16_mean_reduction_pct: 19.60}
+    status: verified-synthetic-only
+  - id: official-practice-q3-first-20260911
+    description: 问题 3 官方演练首次实机接入；案例编码来自模拟器界面
+    script: python/main.py practice --problem 3 --confirm-practice
+    inputs: [python/b_strategy.py, python/b_client.py]
+    parameters: {strategy: coverage600-adaptive8-grid20-v1, case_code: AFYH-6GTT-GWWB-ZDPW}
+    output: output/official-practice-q3-首次.json
+    action_log: logs/practice-20260911-085512-bfd14d.jsonl
+    official_behavior_logs: logs/official-practice/q3-first/
+    checksums: logs/official-practice/q3-first/SHA256SUMS.txt
+    observed: {source_count: 11, cleared_count: 11, clear_fraction: 1.0, omnidirectional: 11, directional: 0, virtual_time_s: 16929.531418, moving_distance_m: 63817.657082, program_runtime_s: 6.2097659, accepted_requests: 717, rejected_requests: 0}
+    status: verified-official-practice
+  - id: official-practice-q3-second-v2-20260911
+    description: 问题 3 官方演练第二次实机接入，验证最近未完成覆盖点续扫策略
+    script: python/main.py practice --problem 3 --confirm-practice
+    inputs: [python/b_strategy.py, python/b_client.py]
+    parameters: {strategy: coverage600-nearest-resume-adaptive8-grid20-v2, case_code: FYKN-VY2Y-C99F-6BZN}
+    output: output/official-practice-q3-v2-second-20260911.json
+    action_log: logs/practice-20260911-091328-c86a95.jsonl
+    official_behavior_logs: logs/official-practice/q3-second-v2/
+    checksums: logs/official-practice/q3-second-v2/SHA256SUMS.txt
+    observed: {source_count: 15, cleared_count: 15, clear_fraction: 1.0, omnidirectional: 15, directional: 0, virtual_time_s: 16696.588548, moving_distance_m: 68812.942725, program_runtime_s: 4.3678824, accepted_requests: 515, rejected_requests: 0}
+    status: verified-official-practice
+  - id: official-practice-q4-first-v2-20260911
+    description: 问题 4 官方演练首次实机接入，验证混合全向与定向源
+    script: python/main.py practice --problem 4 --confirm-practice
+    inputs: [python/b_strategy.py, python/b_client.py]
+    parameters: {strategy: coverage600-nearest-resume-adaptive8-grid20-v2, case_code: 77QS-523V-UX4E-UCGC}
+    output: output/official-practice-q4-v2-first-20260911.json
+    action_log: logs/practice-20260911-091822-34d01f.jsonl
+    official_behavior_logs: logs/official-practice/q4-first-v2/
+    checksums: logs/official-practice/q4-first-v2/SHA256SUMS.txt
+    observed: {source_count: 14, cleared_count: 14, clear_fraction: 1.0, omnidirectional: 11, directional: 3, virtual_time_s: 15927.931031, moving_distance_m: 62894.655132, program_runtime_s: 5.3016614, accepted_requests: 583, rejected_requests: 0}
+    status: verified-official-practice
+  - id: official-practice-q4-second-v2-20260911
+    description: 问题 4 官方演练第二次实机接入，包含高比例定向源
+    script: python/main.py practice --problem 4 --confirm-practice
+    inputs: [python/b_strategy.py, python/b_client.py]
+    parameters: {strategy: coverage600-nearest-resume-adaptive8-grid20-v2, case_code: UC47-56D3-EHEC-RTK3}
+    output: output/official-practice-q4-v2-second-20260911.json
+    action_log: logs/practice-20260911-092331-d666f3.jsonl
+    official_behavior_logs: logs/official-practice/q4-second-v2/
+    checksums: logs/official-practice/q4-second-v2/SHA256SUMS.txt
+    observed: {source_count: 16, cleared_count: 16, clear_fraction: 1.0, omnidirectional: 7, directional: 9, virtual_time_s: 17598.383071, moving_distance_m: 73056.915321, program_runtime_s: 5.4064419, accepted_requests: 525, rejected_requests: 0}
+    status: verified-official-practice
+  - id: official-practice-q4-third-v3-20260911
+    description: 问题 4 官方演练第三次实机接入，验证v3常规覆盖完成分支
+    script: python/main.py practice --problem 4 --confirm-practice
+    inputs: [python/b_strategy.py, python/b_client.py]
+    parameters: {strategy: coverage600-nearest-resume-adaptive8-grid20-stop16-v3, case_code: F6QC-7NFR-B6ES-WJMF}
+    output: output/official-practice-q4-v3-third-20260911.json
+    action_log: logs/practice-20260911-093245-8db618.jsonl
+    official_behavior_logs: logs/official-practice/q4-third-v3/
+    checksums: logs/official-practice/q4-third-v3/SHA256SUMS.txt
+    observed: {source_count: 11, cleared_count: 11, clear_fraction: 1.0, omnidirectional: 5, directional: 6, virtual_time_s: 16538.538737, moving_distance_m: 60907.69369, program_runtime_s: 6.6447234, accepted_requests: 749, rejected_requests: 0}
+    status: verified-official-practice
+  - id: official-practice-q3-third-v3-20260911
+    description: 问题 3 官方演练第三次实机接入，验证v3常规覆盖完成分支
+    script: python/main.py practice --problem 3 --confirm-practice
+    inputs: [python/b_strategy.py, python/b_client.py]
+    parameters: {strategy: coverage600-nearest-resume-adaptive8-grid20-stop16-v3, case_code: 8BS5-GQWW-6BTJ-8Z73}
+    output: output/official-practice-q3-v3-third-20260911.json
+    action_log: logs/practice-20260911-105710-64620a.jsonl
+    official_behavior_logs: logs/official-practice/q3-third-v3/
+    checksums: logs/official-practice/q3-third-v3/SHA256SUMS.txt
+    observed: {source_count: 15, cleared_count: 15, clear_fraction: 1.0, omnidirectional: 15, directional: 0, virtual_time_s: 16282.90165, moving_distance_m: 66684.508222, program_runtime_s: 4.432264, accepted_requests: 516, rejected_requests: 0}
+    status: verified-official-practice
+# 每个正文数字/表/图登记生成脚本、输入、参数、随机种子和输出路径。

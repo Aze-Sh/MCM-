@@ -1,0 +1,10 @@
+id: CUMCM-2021-D
+year: 2021
+problem: D
+tasks: [尾坯离线最优切割, 报废段出现后的在线重规划, 比较不同目标规格]
+deliverables: [最小损失切割序列, 实时调整规则, 不同规格的可复算表]
+data_risks: [时间与长度状态错位, 二次切割损失重复计数, 浮点长度导致伪可行]
+method_families: [动态规划, 整数规划, 滚动时域优化, 在线算法]
+failure_paths: [只穷举一个给定尾长, 异常后从头规划而忽略已执行决策, 忽略切割机节拍]
+transferable_rules: [定义最小充分状态, 字典序目标先损失后偏差, 以事件触发滚动重算, 枚举小例验证]
+evidence: [{id: 2021D-statement, kind: official, claim: 官方问题明确采用切割损失优先、目标规格次优的层级目标并要求在线调整。, source_ids: [OFF-CUMCM-2021-PROBLEMS], location: D题任务和附录, confidence: high}]

@@ -1,0 +1,14 @@
+source_id: SOURCE-UNIQUE-ID
+title: 完整标题
+authors: []
+publisher: 发布机构或期刊
+year: 2026
+url: https://example.org/source
+accessed_at: 2026-08-11
+evidence_level: official  # official | primary | secondary | background
+used_for:
+  - 该来源支撑的具体事实、参数或方法
+paper_citation_key: source_unique_id
+license_or_terms: 待核验
+local_copy: null
+notes: 记录版本、页码、表号、接口参数与任何不确定性

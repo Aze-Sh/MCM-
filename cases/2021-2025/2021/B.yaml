@@ -1,0 +1,10 @@
+id: CUMCM-2021-B
+year: 2021
+problem: B
+tasks: [分析温度与转化率和选择性的关系, 估计催化剂组合影响, 优化收率, 设计五次追加实验]
+deliverables: [探索与显著性结果, 可解释响应模型, 有约束最优工艺, 序贯实验设计]
+data_risks: [组合试验不平衡, 温度与配方混杂, 小样本外推, 把相关性写成化学因果]
+method_families: [探索性数据分析, 回归与方差分析, 响应面优化, 实验设计]
+failure_paths: [逐组高阶多项式过拟合, 不保留乘积定义的一致性, 最优点远离观测域, 五次实验无信息增益理由]
+transferable_rules: [先画数据覆盖域, 基线和交互项逐步比较, 最优值同时给不确定性, 新实验瞄准模型分歧和边界]
+evidence: [{id: 2021B-statement, kind: official, claim: 官方任务从关系分析推进到条件优化并要求追加实验设计。, source_ids: [OFF-CUMCM-2021-PROBLEMS], location: B题问题1至4, confidence: high}]

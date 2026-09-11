@@ -1,0 +1,10 @@
+id: CUMCM-2024-B
+year: 2024
+problem: B
+tasks: [设计抽样接收拒收方案, 对两部件一成品制定检测拆解决策, 推广到多工序多零件, 纳入抽样估计误差]
+deliverables: [抽样方案与错误概率, 决策树或动态策略, 通用递推模型, 参数不确定下策略]
+data_risks: [合格品定义和条件概率, 拆解后的状态遗漏, 重复检测成本, 缺陷率估计误差]
+method_families: [二项与序贯检验, 决策树, 动态规划, 马尔可夫决策, 贝叶斯与鲁棒决策]
+failure_paths: [把置信区间当验收概率, 期望成本漏状态, 枚举策略不检查重复回路, 点估计策略无稳健性]
+transferable_rules: [先画状态转移, 每条边标概率成本, 小系统全枚举对照, 以参数区间画策略分区]
+evidence: [{id: 2024B-statement, kind: official, claim: 官方任务从统计抽检推进到生产决策、通用多阶段系统和估计误差下的重决策。, source_ids: [OFF-CUMCM-2024-PROBLEMS], location: B题问题1至4, confidence: high}]

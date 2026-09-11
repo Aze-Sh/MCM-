@@ -1,0 +1,10 @@
+id: CUMCM-2024-A
+year: 2024
+problem: A
+tasks: [计算盘入过程位置速度, 找到首次碰撞时刻, 求可盘入调头空间的最小螺距, 优化调头曲线, 求龙头最大速度]
+deliverables: [逐时位置速度表, 碰撞时刻, 最小螺距, 可行调头轨迹, 全把手速度约束下限速]
+data_risks: [厘米米混用, 螺线弧长反解误差, 连接点递归误差, 碰撞几何过度简化]
+method_families: [参数曲线, 非线性方程, 碰撞检测, 几何优化, 数值微分]
+failure_paths: [把把手当等弧长点, 只检测点不检测板凳矩形, 粗时间步漏掉首次碰撞, 速度由差分噪声主导]
+transferable_rules: [弧长参数化, 逐节约束求点, 连续时间根查找, 多精度碰撞复算, 解析导数优先]
+evidence: [{id: 2024A-statement, kind: official, claim: 官方题面形成运动学、碰撞、几何可行域、轨迹优化和速度约束的连续任务链。, source_ids: [OFF-CUMCM-2024-PROBLEMS], location: A题问题1至5, confidence: high}]

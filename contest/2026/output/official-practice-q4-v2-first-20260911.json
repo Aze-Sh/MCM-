@@ -1,0 +1,62 @@
+{
+  "kind": "practice-user-confirmed",
+  "problem": 4,
+  "strategy": "coverage600-nearest-resume-adaptive8-grid20-v2",
+  "clear_fraction": 1.0,
+  "source_count": 14,
+  "official_case_code": "77QS-523V-UX4E-UCGC",
+  "source_type_counts": {
+    "omnidirectional": 11,
+    "directional": 3
+  },
+  "note": "Case code and source counts verified from the simulator-generated result.json; the HTTP action API itself does not expose the source total.",
+  "action_log": "logs\\practice-20260911-091822-34d01f.jsonl",
+  "official_behavior_logs": [
+    "logs/official-practice/q4-first-v2/practice-p4-4468336167229583164-77QS-523V-UX4E-UCGC.jlog",
+    "logs/official-practice/q4-first-v2/practice-p4-4468336167229583164-77QS-523V-UX4E-UCGC.psum",
+    "logs/official-practice/q4-first-v2/practice-p4-4468336167229583164-77QS-523V-UX4E-UCGC.result.json"
+  ],
+  "cleared_count": 14,
+  "detected_channels": [
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    15,
+    18,
+    19,
+    20
+  ],
+  "coverage_complete": true,
+  "coverage_points_completed": 61,
+  "coverage_points_total": 61,
+  "all_detected_cleared": true,
+  "virtual_time_s": 15927.931031,
+  "accounted_time_s": 15927.931026453298,
+  "average_clear_time_s": 1137.7093593571428,
+  "stop_reason": "coverage_finished",
+  "program_runtime_s": 5.30166139999983,
+  "moving_distance_m": 62894.655132,
+  "counts": {
+    "measure": 567,
+    "no_signal": 490,
+    "direction": 77,
+    "near": 0,
+    "switch": 444,
+    "clear": 14,
+    "successful_clear": 14,
+    "failed_clear": 0
+  },
+  "time_components_s": {
+    "movement": 12578.931026,
+    "channel_switch": 444.0,
+    "measurement": 2835.0,
+    "clearance": 70.0
+  }
+}

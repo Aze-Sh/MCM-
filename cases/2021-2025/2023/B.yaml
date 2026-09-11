@@ -1,0 +1,10 @@
+id: CUMCM-2023-B
+year: 2023
+problem: B
+tasks: [建立坡面覆盖宽度与重叠率模型, 推广到任意测线方向, 设计平面坡海域最短测线, 为真实地形布线]
+deliverables: [几何公式与数表, 完全覆盖测线, 长度漏测与过重叠指标]
+data_risks: [海里米换算, 坡向和测线方向符号, 插值地形误差, 覆盖多边形近似]
+method_families: [解析几何, 空间插值, 路径覆盖, 组合与非线性优化, 栅格验证]
+failure_paths: [把坡面当水平, 仅用中心水深, 只优化测线间距忽略方向, 漏测面积算法无分辨率收敛]
+transferable_rules: [先用二维剖面验证公式, 明确方向约定, 优化与覆盖验证分离, 报栅格或多边形精度敏感性]
+evidence: [{id: 2023B-statement, kind: official, claim: 官方任务从解析覆盖模型扩展到真实地形下的多目标布线与覆盖评价。, source_ids: [OFF-CUMCM-2023-PROBLEMS], location: B题问题1至4, confidence: high}]

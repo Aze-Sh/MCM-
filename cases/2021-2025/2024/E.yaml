@@ -1,0 +1,10 @@
+id: CUMCM-2024-E
+year: 2024
+problem: E
+tasks: [分时段估计交叉口各转向流量, 优化两主路信号配时, 识别巡游车辆并估停车需求, 评价临时管控效果]
+deliverables: [转向流估计, 信号配时与速度指标, 巡游车辆规则, 停车位估计, 准实验效果]
+data_risks: [车牌隐私, 摄像点间车辆出现消失, 转向不可观测, 节假日与管控混杂]
+method_families: [轨迹匹配, 交通流模型, 信号优化, 异常/序列识别, 因果与准实验]
+failure_paths: [按最近时间硬匹配车牌, 将缺失当驶离道路, 以相关前后差直接宣称管控因果, 平均速度忽略排队]
+transferable_rules: [先做数据覆盖审计, 匹配给置信度, 仿真配时前校准基线, 管控评价设置对照与安慰剂]
+evidence: [{id: 2024E-statement, kind: official, claim: 官方任务覆盖隐变量转向估计、信号优化、巡游识别和政策效果评价。, source_ids: [OFF-CUMCM-2024-PROBLEMS], location: E题问题1至4, confidence: high}]

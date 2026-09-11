@@ -1,0 +1,4 @@
+sources:
+  - source_id: SOURCE-001
+    title: Known source
+    url: https://example.org/source

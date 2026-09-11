@@ -1,0 +1,3981 @@
+{
+  "kind": "synthetic-not-official",
+  "created_utc": "2026-09-10T16:34:15.522730+00:00",
+  "strategy": "coverage600-adaptive8-grid20-v1",
+  "assumptions": "Uniform-area disk positions, uniform radii, random channels, 60% directional probability in Q4; coordinate-hashed fixed bounded error. Not official distributions.",
+  "all_passed": true,
+  "runs": [
+    {
+      "cleared_count": 16,
+      "detected_channels": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18585.619051,
+      "accounted_time_s": 18585.619050689835,
+      "average_clear_time_s": 1161.6011906875,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260911,
+      "source_count": 16,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.1283344000003126,
+      "counts": {
+        "measure": 541,
+        "clear": 16,
+        "successful_clear": 16,
+        "switch": 401
+      },
+      "moving_distance_m": 76998.09525344921,
+      "synthetic_truth": [
+        {
+          "channel": 20,
+          "position": [
+            -381.315548233161,
+            371.1893396961813
+          ],
+          "radius": 1296.5314855249426,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            1378.176858927537,
+            -465.5059437239368
+          ],
+          "radius": 1242.8991112306617,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            -158.25510879391985,
+            -1408.4622202772846
+          ],
+          "radius": 1303.1442624244385,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            1188.0182156842088,
+            -258.21558609715544
+          ],
+          "radius": 1376.4923312895505,
+          "direction": null
+        },
+        {
+          "channel": 3,
+          "position": [
+            875.7721938916214,
+            1354.9418911797222
+          ],
+          "radius": 1462.9671832454392,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            -580.9084509962444,
+            -332.61177082057407
+          ],
+          "radius": 1012.4548460538279,
+          "direction": null
+        },
+        {
+          "channel": 16,
+          "position": [
+            1089.8458249126322,
+            -984.1053144378179
+          ],
+          "radius": 1027.7566036651167,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            -802.4030137190521,
+            -346.47507344899896
+          ],
+          "radius": 1092.3763849455277,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            -897.4201449441199,
+            1296.6371533843278
+          ],
+          "radius": 1277.9896229969888,
+          "direction": null
+        },
+        {
+          "channel": 6,
+          "position": [
+            -1447.9989980137188,
+            189.681670651089
+          ],
+          "radius": 1278.8760798458916,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            -515.477281025088,
+            -1220.4951920553203
+          ],
+          "radius": 1329.821238905451,
+          "direction": null
+        },
+        {
+          "channel": 5,
+          "position": [
+            60.316998132323675,
+            -768.7329672112257
+          ],
+          "radius": 1340.4643085378414,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            -972.8743108158079,
+            -471.1680664029587
+          ],
+          "radius": 1346.190446076793,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            553.1262473696271,
+            -647.1139528838667
+          ],
+          "radius": 1398.444721563562,
+          "direction": null
+        },
+        {
+          "channel": 10,
+          "position": [
+            1250.1968102785045,
+            -825.4549719457477
+          ],
+          "radius": 1164.468673470814,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            -893.4493067121183,
+            12.374314478451748
+          ],
+          "radius": 1271.2447571167468,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 10,
+      "detected_channels": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        12,
+        14,
+        15,
+        16,
+        18
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 17023.990254,
+      "accounted_time_s": 17023.990254188673,
+      "average_clear_time_s": 1702.3990254,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260912,
+      "source_count": 10,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.10954549999951269,
+      "counts": {
+        "measure": 831,
+        "clear": 10,
+        "successful_clear": 10,
+        "switch": 724
+      },
+      "moving_distance_m": 60474.95127094336,
+      "synthetic_truth": [
+        {
+          "channel": 14,
+          "position": [
+            -427.50735067042945,
+            -1125.633686392884
+          ],
+          "radius": 1027.8122971135035,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            -691.0402790454327,
+            1200.4210440356337
+          ],
+          "radius": 1345.563843808216,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            276.9344848969061,
+            -1289.449159910401
+          ],
+          "radius": 1226.1140532424326,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            1662.9669251408636,
+            -668.3339583273234
+          ],
+          "radius": 1052.779199459847,
+          "direction": null
+        },
+        {
+          "channel": 16,
+          "position": [
+            1636.1702353537412,
+            740.8379907888882
+          ],
+          "radius": 1115.221571651782,
+          "direction": null
+        },
+        {
+          "channel": 2,
+          "position": [
+            161.51304538891995,
+            1341.640858796762
+          ],
+          "radius": 1165.036738521453,
+          "direction": null
+        },
+        {
+          "channel": 18,
+          "position": [
+            -289.0279347740033,
+            -1515.7936268527042
+          ],
+          "radius": 1462.1915374181503,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -650.3513165925405,
+            -1648.4554952907617
+          ],
+          "radius": 1263.3235637973596,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            1254.2611275603135,
+            1027.1230011354935
+          ],
+          "radius": 1157.8915232923023,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            335.89281066004935,
+            -104.84774991879765
+          ],
+          "radius": 1366.2109830717213,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 10,
+      "detected_channels": [
+        1,
+        6,
+        7,
+        8,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18050.161967,
+      "accounted_time_s": 18050.161966935386,
+      "average_clear_time_s": 1805.0161967,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260913,
+      "source_count": 10,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.11195849999967322,
+      "counts": {
+        "measure": 843,
+        "clear": 10,
+        "successful_clear": 10,
+        "switch": 732
+      },
+      "moving_distance_m": 65265.809834676955,
+      "synthetic_truth": [
+        {
+          "channel": 20,
+          "position": [
+            1465.2251318781202,
+            -783.4597417760255
+          ],
+          "radius": 1344.5941922595148,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            769.4856983376653,
+            1279.9052277682804
+          ],
+          "radius": 1028.4013654787109,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            1108.472894330199,
+            -622.074419880522
+          ],
+          "radius": 1245.4361223782923,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -30.570732491189254,
+            630.6549092689281
+          ],
+          "radius": 1411.558319190604,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            -1018.9313538416367,
+            1061.658255335121
+          ],
+          "radius": 1486.4678912353666,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            305.3633951299121,
+            1179.9300970085067
+          ],
+          "radius": 1265.1886065066067,
+          "direction": null
+        },
+        {
+          "channel": 6,
+          "position": [
+            -256.46734859455984,
+            -1352.3371326738322
+          ],
+          "radius": 1431.0777386611614,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            856.2667461122543,
+            -859.0019284328572
+          ],
+          "radius": 1499.2474759556626,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            1209.947038432763,
+            360.4592020784551
+          ],
+          "radius": 1480.3164658326014,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            669.9490233060654,
+            1420.9737109793996
+          ],
+          "radius": 1437.1866318870912,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 13,
+      "detected_channels": [
+        1,
+        4,
+        5,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 17909.009827,
+      "accounted_time_s": 17909.00982712859,
+      "average_clear_time_s": 1377.6161405384617,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260914,
+      "source_count": 13,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.11965719999898283,
+      "counts": {
+        "measure": 722,
+        "clear": 13,
+        "successful_clear": 13,
+        "switch": 603
+      },
+      "moving_distance_m": 68155.04913564296,
+      "synthetic_truth": [
+        {
+          "channel": 20,
+          "position": [
+            -78.01402059017312,
+            -439.37156271907
+          ],
+          "radius": 1081.5030050991754,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            193.1947042262274,
+            -833.8597859842936
+          ],
+          "radius": 1047.681896021808,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            576.7076976151735,
+            -889.3634374277701
+          ],
+          "radius": 1236.216418038766,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            -1168.9899547736502,
+            273.3677256759414
+          ],
+          "radius": 1391.925136468077,
+          "direction": null
+        },
+        {
+          "channel": 18,
+          "position": [
+            -539.4768677157235,
+            -24.143383868775953
+          ],
+          "radius": 1161.6881051783816,
+          "direction": null
+        },
+        {
+          "channel": 16,
+          "position": [
+            1101.8109445931393,
+            -743.6483500632598
+          ],
+          "radius": 1436.9672906912438,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            -340.8100047929561,
+            1365.0105184673903
+          ],
+          "radius": 1189.401201858366,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            1184.9397367676997,
+            1201.0886708737116
+          ],
+          "radius": 1365.3725067811768,
+          "direction": null
+        },
+        {
+          "channel": 5,
+          "position": [
+            -1613.6157553423577,
+            -460.49326381525515
+          ],
+          "radius": 1049.2001454716324,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            -999.4531796897278,
+            310.76798375274626
+          ],
+          "radius": 1429.253534547567,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            -66.69972439576686,
+            1062.6048614078268
+          ],
+          "radius": 1264.7713266956184,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            623.3635052880998,
+            125.63072354237454
+          ],
+          "radius": 1005.6910849164324,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            -486.06205459189493,
+            -1003.4649521996541
+          ],
+          "radius": 1390.6127606858436,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 15,
+      "detected_channels": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18750.579976,
+      "accounted_time_s": 18750.579976255267,
+      "average_clear_time_s": 1250.0386650666667,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260915,
+      "source_count": 15,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.13394809999954305,
+      "counts": {
+        "measure": 642,
+        "clear": 15,
+        "successful_clear": 15,
+        "switch": 509
+      },
+      "moving_distance_m": 74782.89988127635,
+      "synthetic_truth": [
+        {
+          "channel": 19,
+          "position": [
+            205.22766115569783,
+            572.2072520471233
+          ],
+          "radius": 1324.6374987538902,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            -950.3244269051444,
+            26.30950005218796
+          ],
+          "radius": 1326.021569672871,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            534.9970515834453,
+            497.7682860533666
+          ],
+          "radius": 1151.8402391703733,
+          "direction": null
+        },
+        {
+          "channel": 20,
+          "position": [
+            -761.7496352665208,
+            -283.3590882692523
+          ],
+          "radius": 1066.7219098559697,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            213.37899589356195,
+            -556.5239132847861
+          ],
+          "radius": 1233.1877542612135,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            526.3280229495714,
+            837.3086705449812
+          ],
+          "radius": 1402.791121351257,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            537.8642736496632,
+            -331.5668168974919
+          ],
+          "radius": 1166.7236544527652,
+          "direction": null
+        },
+        {
+          "channel": 18,
+          "position": [
+            -1178.7942479367568,
+            -997.0630459260395
+          ],
+          "radius": 1033.0869956056797,
+          "direction": null
+        },
+        {
+          "channel": 5,
+          "position": [
+            -1178.4174364949952,
+            -594.5669439597903
+          ],
+          "radius": 1083.4675585855312,
+          "direction": null
+        },
+        {
+          "channel": 3,
+          "position": [
+            -425.06012062340477,
+            1214.1153295778997
+          ],
+          "radius": 1184.402464848971,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            710.5270966084915,
+            -901.8371970468866
+          ],
+          "radius": 1368.0380722087007,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            -498.1931689930735,
+            1491.2987721959073
+          ],
+          "radius": 1197.707554935982,
+          "direction": null
+        },
+        {
+          "channel": 16,
+          "position": [
+            -405.0437798292927,
+            -142.30255823407083
+          ],
+          "radius": 1390.8715889284285,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            -243.2484275130516,
+            -516.6555338448394
+          ],
+          "radius": 1400.6227101501686,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            1489.0785129128587,
+            519.068737750306
+          ],
+          "radius": 1468.4956947343346,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 15,
+      "detected_channels": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18507.80418,
+      "accounted_time_s": 18507.804180125462,
+      "average_clear_time_s": 1233.8536119999999,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260916,
+      "source_count": 15,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.13675050000165356,
+      "counts": {
+        "measure": 593,
+        "clear": 15,
+        "successful_clear": 15,
+        "switch": 463
+      },
+      "moving_distance_m": 75024.02090062732,
+      "synthetic_truth": [
+        {
+          "channel": 2,
+          "position": [
+            -1149.9218215747849,
+            -299.35464326797216
+          ],
+          "radius": 1226.664818070684,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            -1001.2622289045886,
+            576.0969362386448
+          ],
+          "radius": 1407.9824179600298,
+          "direction": null
+        },
+        {
+          "channel": 6,
+          "position": [
+            -20.286151109290593,
+            -1725.9002335223918
+          ],
+          "radius": 1023.1077254016514,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            723.7757783620616,
+            -1426.2878971392497
+          ],
+          "radius": 1473.479913908076,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -969.4590396658592,
+            -180.99633909510328
+          ],
+          "radius": 1356.59451961198,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            499.26831340185333,
+            -605.1569107064059
+          ],
+          "radius": 1473.4229298251598,
+          "direction": null
+        },
+        {
+          "channel": 17,
+          "position": [
+            628.6308090724957,
+            -887.6931462089861
+          ],
+          "radius": 1494.633111908287,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            -1037.5963453201703,
+            685.0899189648384
+          ],
+          "radius": 1303.9390593719058,
+          "direction": null
+        },
+        {
+          "channel": 10,
+          "position": [
+            -391.915996897201,
+            -84.8008796603457
+          ],
+          "radius": 1151.7041426235276,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            467.7056123745024,
+            420.6249178885645
+          ],
+          "radius": 1375.1016280664883,
+          "direction": null
+        },
+        {
+          "channel": 16,
+          "position": [
+            -269.1825118954085,
+            1393.6853808279354
+          ],
+          "radius": 1246.9303082531808,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            -604.957559172682,
+            -228.29761149647848
+          ],
+          "radius": 1037.7246042367058,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            -759.8255347339075,
+            -1381.9971159238628
+          ],
+          "radius": 1330.353011066376,
+          "direction": null
+        },
+        {
+          "channel": 20,
+          "position": [
+            629.1525931150572,
+            1077.0664986412207
+          ],
+          "radius": 1459.7713941544014,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            1689.183182161087,
+            92.31258021674667
+          ],
+          "radius": 1176.8463603305697,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 14,
+      "detected_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        18,
+        19
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18968.809937,
+      "accounted_time_s": 18968.809937259426,
+      "average_clear_time_s": 1354.9149955,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260917,
+      "source_count": 14,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.14915060000021185,
+      "counts": {
+        "measure": 749,
+        "clear": 14,
+        "successful_clear": 14,
+        "switch": 620
+      },
+      "moving_distance_m": 72669.04968629712,
+      "synthetic_truth": [
+        {
+          "channel": 5,
+          "position": [
+            493.8675432955402,
+            -670.0462927538948
+          ],
+          "radius": 1448.7668039914552,
+          "direction": null
+        },
+        {
+          "channel": 10,
+          "position": [
+            1620.3325557884286,
+            214.11568577190806
+          ],
+          "radius": 1361.5998839407857,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            175.99964970533722,
+            -323.7003522515038
+          ],
+          "radius": 1386.148664907423,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            171.6290212262498,
+            -608.6030199720021
+          ],
+          "radius": 1435.3705645527898,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            1267.342073355127,
+            10.062424587118315
+          ],
+          "radius": 1490.7740651348695,
+          "direction": null
+        },
+        {
+          "channel": 3,
+          "position": [
+            743.4674100137343,
+            1211.5897974008597
+          ],
+          "radius": 1401.396687192046,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            -37.2554178083079,
+            1406.04582430259
+          ],
+          "radius": 1100.8949257994896,
+          "direction": null
+        },
+        {
+          "channel": 6,
+          "position": [
+            377.847723994105,
+            1170.4928232768366
+          ],
+          "radius": 1191.4844233618028,
+          "direction": null
+        },
+        {
+          "channel": 18,
+          "position": [
+            -349.27453894448064,
+            813.2644523014951
+          ],
+          "radius": 1153.1943258763608,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            -591.379143808861,
+            26.395587978836897
+          ],
+          "radius": 1051.2199366873692,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            1731.658512168515,
+            332.5026930710648
+          ],
+          "radius": 1136.1060257944794,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            -1255.5517544876716,
+            484.52831240321615
+          ],
+          "radius": 1498.0085757792326,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            -273.2499110590012,
+            1469.1108518277708
+          ],
+          "radius": 1150.572380009247,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            523.8245692852827,
+            284.8904294888844
+          ],
+          "radius": 1190.6845489655116,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 12,
+      "detected_channels": [
+        2,
+        3,
+        5,
+        6,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        19
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18328.11333,
+      "accounted_time_s": 18328.113330217053,
+      "average_clear_time_s": 1527.3427775,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260918,
+      "source_count": 12,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.12068269999872427,
+      "counts": {
+        "measure": 818,
+        "clear": 12,
+        "successful_clear": 12,
+        "switch": 699
+      },
+      "moving_distance_m": 67395.56665108528,
+      "synthetic_truth": [
+        {
+          "channel": 5,
+          "position": [
+            128.17870779833552,
+            622.8882352776951
+          ],
+          "radius": 1430.3173387292936,
+          "direction": null
+        },
+        {
+          "channel": 2,
+          "position": [
+            431.2592498747906,
+            950.6405603403912
+          ],
+          "radius": 1426.9668817633574,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            89.20965433117995,
+            964.3246994656396
+          ],
+          "radius": 1314.0450260021194,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -224.26657530921403,
+            1249.5181219128617
+          ],
+          "radius": 1112.1972228123868,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            1328.9792814335572,
+            -60.180910913700664
+          ],
+          "radius": 1032.422034277398,
+          "direction": null
+        },
+        {
+          "channel": 16,
+          "position": [
+            490.68978400526174,
+            516.5800007225853
+          ],
+          "radius": 1322.9625359093593,
+          "direction": null
+        },
+        {
+          "channel": 3,
+          "position": [
+            -516.5368757887422,
+            497.6068504134576
+          ],
+          "radius": 1209.472396453841,
+          "direction": null
+        },
+        {
+          "channel": 6,
+          "position": [
+            -67.72647319637748,
+            436.4589992765606
+          ],
+          "radius": 1273.577713376888,
+          "direction": null
+        },
+        {
+          "channel": 17,
+          "position": [
+            709.7502191760739,
+            171.07839971639663
+          ],
+          "radius": 1279.1909747730642,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            47.899204268793376,
+            -1319.0638212777865
+          ],
+          "radius": 1068.6661789516093,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            152.60520437524772,
+            257.51188234565655
+          ],
+          "radius": 1253.113913233572,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            -374.51214614671875,
+            218.7183434227706
+          ],
+          "radius": 1310.3448558318016,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 15,
+      "detected_channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18479.365113,
+      "accounted_time_s": 18479.365112668613,
+      "average_clear_time_s": 1231.9576742,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260919,
+      "source_count": 15,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.15284200000132842,
+      "counts": {
+        "measure": 578,
+        "clear": 15,
+        "successful_clear": 15,
+        "switch": 444
+      },
+      "moving_distance_m": 75351.82556334307,
+      "synthetic_truth": [
+        {
+          "channel": 4,
+          "position": [
+            1738.8140560011354,
+            258.4214916947663
+          ],
+          "radius": 1001.8972755830846,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -1477.911366624814,
+            0.6631581435325724
+          ],
+          "radius": 1482.3526763066618,
+          "direction": null
+        },
+        {
+          "channel": 5,
+          "position": [
+            855.6314072710932,
+            127.57554481678483
+          ],
+          "radius": 1412.5270938518368,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            -386.3771938609578,
+            -1261.3466977051798
+          ],
+          "radius": 1162.5305506271134,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            455.54350776929107,
+            337.35462251282286
+          ],
+          "radius": 1431.8505004203816,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            53.80294223946508,
+            202.1114119698503
+          ],
+          "radius": 1129.3274654268798,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            -261.8942433179717,
+            -1609.7226839439895
+          ],
+          "radius": 1182.758342367356,
+          "direction": null
+        },
+        {
+          "channel": 18,
+          "position": [
+            -16.25618714182696,
+            -907.1011737903273
+          ],
+          "radius": 1342.019232462536,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            -1069.384555385794,
+            -482.4468993694935
+          ],
+          "radius": 1381.4489196943098,
+          "direction": null
+        },
+        {
+          "channel": 2,
+          "position": [
+            776.3704869820294,
+            353.3695692839698
+          ],
+          "radius": 1041.3243504141415,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            631.3032357949909,
+            1445.0477860183075
+          ],
+          "radius": 1220.9604596686727,
+          "direction": null
+        },
+        {
+          "channel": 17,
+          "position": [
+            190.32995502931334,
+            -1670.54328809435
+          ],
+          "radius": 1109.6069279381293,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            766.9684853679674,
+            -110.84166781676639
+          ],
+          "radius": 1364.6577186424215,
+          "direction": null
+        },
+        {
+          "channel": 3,
+          "position": [
+            759.7096114374403,
+            -981.7172187349511
+          ],
+          "radius": 1275.3654452466626,
+          "direction": null
+        },
+        {
+          "channel": 16,
+          "position": [
+            1488.737796501709,
+            477.33733594772576
+          ],
+          "radius": 1478.859709720055,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 14,
+      "detected_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        12,
+        14,
+        15,
+        17,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18495.612477,
+      "accounted_time_s": 18495.61247679229,
+      "average_clear_time_s": 1321.1151769285714,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260920,
+      "source_count": 14,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.1355161000010412,
+      "counts": {
+        "measure": 763,
+        "clear": 14,
+        "successful_clear": 14,
+        "switch": 638
+      },
+      "moving_distance_m": 69863.06238396149,
+      "synthetic_truth": [
+        {
+          "channel": 9,
+          "position": [
+            1189.377542004581,
+            1180.619641007594
+          ],
+          "radius": 1093.8077764630063,
+          "direction": null
+        },
+        {
+          "channel": 5,
+          "position": [
+            468.2437144538393,
+            1082.5648131289774
+          ],
+          "radius": 1246.6259931102811,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            1000.8910680210713,
+            -739.0548346511915
+          ],
+          "radius": 1161.498917988438,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            -1440.05743228589,
+            -211.27367700678033
+          ],
+          "radius": 1249.9408362654485,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -1175.64787410886,
+            -361.01207700158744
+          ],
+          "radius": 1310.0471616420402,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            -207.41436278134705,
+            260.66883824223197
+          ],
+          "radius": 1281.9560344378579,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            -1037.713632218977,
+            -803.3179364446337
+          ],
+          "radius": 1337.1111948376001,
+          "direction": null
+        },
+        {
+          "channel": 6,
+          "position": [
+            316.98844102539323,
+            876.0274756044931
+          ],
+          "radius": 1147.1739790933955,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            1279.3006125294849,
+            757.7859766623945
+          ],
+          "radius": 1109.7397754273995,
+          "direction": null
+        },
+        {
+          "channel": 3,
+          "position": [
+            -208.45599069219162,
+            1767.5235923537018
+          ],
+          "radius": 1351.2280273911042,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            1522.6087013669078,
+            766.0694537800028
+          ],
+          "radius": 1004.0568466546489,
+          "direction": null
+        },
+        {
+          "channel": 20,
+          "position": [
+            -888.5826214922101,
+            296.7783175435708
+          ],
+          "radius": 1042.448969822353,
+          "direction": null
+        },
+        {
+          "channel": 17,
+          "position": [
+            -1403.5602687977198,
+            -499.22337140525536
+          ],
+          "radius": 1146.3731339818075,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            416.778740013082,
+            1376.9208813928324
+          ],
+          "radius": 1354.7562614487497,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 16,
+      "detected_channels": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        17,
+        18,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18741.241732,
+      "accounted_time_s": 18741.241732178565,
+      "average_clear_time_s": 1171.32760825,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260921,
+      "source_count": 16,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.1509122000006755,
+      "counts": {
+        "measure": 589,
+        "clear": 16,
+        "successful_clear": 16,
+        "switch": 447
+      },
+      "moving_distance_m": 76346.20866089281,
+      "synthetic_truth": [
+        {
+          "channel": 8,
+          "position": [
+            -1250.3048916046514,
+            842.9092003579689
+          ],
+          "radius": 1282.6216712542177,
+          "direction": null
+        },
+        {
+          "channel": 2,
+          "position": [
+            1651.6234676544204,
+            292.0453372382831
+          ],
+          "radius": 1422.6122634562216,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            -807.1307046707033,
+            -988.0248951496235
+          ],
+          "radius": 1212.2532867522584,
+          "direction": null
+        },
+        {
+          "channel": 3,
+          "position": [
+            945.8259768319472,
+            -175.99080575438666
+          ],
+          "radius": 1268.1692902599327,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            -1366.01795679558,
+            -80.6182587124851
+          ],
+          "radius": 1062.7217629364832,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            -1382.373087578337,
+            -937.1514213645287
+          ],
+          "radius": 1028.1539643775288,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -675.5718190086432,
+            -391.0568620216103
+          ],
+          "radius": 1371.452560870192,
+          "direction": null
+        },
+        {
+          "channel": 17,
+          "position": [
+            -1357.463572026723,
+            53.065351920428434
+          ],
+          "radius": 1091.3442843516616,
+          "direction": null
+        },
+        {
+          "channel": 18,
+          "position": [
+            -387.7432927878373,
+            -1494.719916444542
+          ],
+          "radius": 1336.1888682025447,
+          "direction": null
+        },
+        {
+          "channel": 6,
+          "position": [
+            -1042.010635274504,
+            795.4462785255205
+          ],
+          "radius": 1191.3534516301622,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            538.5619752081889,
+            -578.7222423864292
+          ],
+          "radius": 1357.7428387137322,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            -146.7635513218835,
+            -1190.2031222869518
+          ],
+          "radius": 1403.7242438188262,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            -1070.216028886301,
+            -949.4938948372574
+          ],
+          "radius": 1143.161016222566,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            521.4428295586246,
+            581.5304576551664
+          ],
+          "radius": 1092.3085410837782,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            1112.5338973137777,
+            20.963664534581607
+          ],
+          "radius": 1226.7378261639415,
+          "direction": null
+        },
+        {
+          "channel": 20,
+          "position": [
+            176.4603779161542,
+            1582.5306440945753
+          ],
+          "radius": 1479.6436778710497,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 15,
+      "detected_channels": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18374.18697,
+      "accounted_time_s": 18374.18696950527,
+      "average_clear_time_s": 1224.945798,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 3,
+      "seed": 20260922,
+      "source_count": 15,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.1334470000001602,
+      "counts": {
+        "measure": 603,
+        "clear": 15,
+        "successful_clear": 15,
+        "switch": 473
+      },
+      "moving_distance_m": 74055.93484752637,
+      "synthetic_truth": [
+        {
+          "channel": 12,
+          "position": [
+            -360.2635372585294,
+            -256.30532357697984
+          ],
+          "radius": 1076.0979274745448,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            1019.8734806755581,
+            -830.4217972522041
+          ],
+          "radius": 1270.090146619113,
+          "direction": null
+        },
+        {
+          "channel": 17,
+          "position": [
+            -1257.2190611529807,
+            1083.0975617008933
+          ],
+          "radius": 1144.8913996588954,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            -340.22604881072715,
+            845.8673934891373
+          ],
+          "radius": 1195.4728574784947,
+          "direction": null
+        },
+        {
+          "channel": 3,
+          "position": [
+            443.6852276150465,
+            -997.1115849293932
+          ],
+          "radius": 1057.4316945632756,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            -1154.2840245010036,
+            19.681188927441326
+          ],
+          "radius": 1121.6764638928223,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            -289.5928842721688,
+            1533.5173045382217
+          ],
+          "radius": 1384.4616786302192,
+          "direction": null
+        },
+        {
+          "channel": 20,
+          "position": [
+            -190.92270098931667,
+            -743.6349622502979
+          ],
+          "radius": 1386.3146287714453,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            1645.3938161228264,
+            218.307828217217
+          ],
+          "radius": 1442.1774144127635,
+          "direction": null
+        },
+        {
+          "channel": 18,
+          "position": [
+            -466.3055980956264,
+            -471.67249474651857
+          ],
+          "radius": 1076.9589623230095,
+          "direction": null
+        },
+        {
+          "channel": 2,
+          "position": [
+            -1540.6827139242505,
+            -800.2068361448755
+          ],
+          "radius": 1419.6243591759744,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            -338.2030966950097,
+            -1683.524371036503
+          ],
+          "radius": 1131.8917762405404,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            -1651.0201418138865,
+            274.36842963648263
+          ],
+          "radius": 1175.1212033878098,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            381.3183428513971,
+            -145.54129854420023
+          ],
+          "radius": 1263.0789180833565,
+          "direction": null
+        },
+        {
+          "channel": 6,
+          "position": [
+            797.7685998177363,
+            -1599.3372757472603
+          ],
+          "radius": 1406.9179701617338,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 16,
+      "detected_channels": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18226.926566,
+      "accounted_time_s": 18226.9265655834,
+      "average_clear_time_s": 1139.182910375,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260911,
+      "source_count": 16,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.1332510000011098,
+      "counts": {
+        "measure": 564,
+        "clear": 16,
+        "successful_clear": 16,
+        "switch": 429
+      },
+      "moving_distance_m": 74489.632827917,
+      "synthetic_truth": [
+        {
+          "channel": 20,
+          "position": [
+            -381.315548233161,
+            371.1893396961813
+          ],
+          "radius": 1474.0786198744754,
+          "direction": 235.11858201396504
+        },
+        {
+          "channel": 12,
+          "position": [
+            -914.5363985253671,
+            -858.8419042797909
+          ],
+          "radius": 1303.1442624244385,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            1188.0182156842088,
+            -258.21558609715544
+          ],
+          "radius": 1401.6735284054669,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            640.7641703662964,
+            -321.76130943568046
+          ],
+          "radius": 1012.4548460538279,
+          "direction": 209.79423356395804
+        },
+        {
+          "channel": 3,
+          "position": [
+            1089.8458249126322,
+            -984.1053144378179
+          ],
+          "radius": 1282.436852072943,
+          "direction": 84.87728588298961
+        },
+        {
+          "channel": 11,
+          "position": [
+            84.79737026003001,
+            -769.0308059135231
+          ],
+          "radius": 1329.1173201280435,
+          "direction": 200.15252855783194
+        },
+        {
+          "channel": 16,
+          "position": [
+            -1164.982890751778,
+            -442.3209218993629
+          ],
+          "radius": 1329.821238905451,
+          "direction": 247.10318989926373
+        },
+        {
+          "channel": 9,
+          "position": [
+            60.316998132323675,
+            -768.7329672112257
+          ],
+          "radius": 1180.3215696671662,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            -482.0643553100556,
+            -1272.8645969271276
+          ],
+          "radius": 1398.444721563562,
+          "direction": 310.5224529731832
+        },
+        {
+          "channel": 6,
+          "position": [
+            1250.1968102785045,
+            -825.4549719457477
+          ],
+          "radius": 1248.8979187804712,
+          "direction": 88.71164303590851
+        },
+        {
+          "channel": 8,
+          "position": [
+            -1139.5175453331356,
+            677.617731464034
+          ],
+          "radius": 1086.044614792424,
+          "direction": 276.4752723289256
+        },
+        {
+          "channel": 5,
+          "position": [
+            64.30862619818794,
+            -260.3593599622292
+          ],
+          "radius": 1489.8828295645474,
+          "direction": 234.42902811983635
+        },
+        {
+          "channel": 14,
+          "position": [
+            -1300.4149161348814,
+            354.4958364480586
+          ],
+          "radius": 1424.5419615780456,
+          "direction": 54.06645576300646
+        },
+        {
+          "channel": 13,
+          "position": [
+            -311.4890778608651,
+            -1577.5840758832492
+          ],
+          "radius": 1132.1031441516116,
+          "direction": null
+        },
+        {
+          "channel": 10,
+          "position": [
+            -1283.7294723300126,
+            -34.44891778580888
+          ],
+          "radius": 1404.6951081015777,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            -807.2726835678793,
+            1478.0210689915727
+          ],
+          "radius": 1414.89612534665,
+          "direction": 273.3373017897796
+        }
+      ]
+    },
+    {
+      "cleared_count": 10,
+      "detected_channels": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        12,
+        14,
+        15,
+        16,
+        18
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 16877.440359,
+      "accounted_time_s": 16877.440358662072,
+      "average_clear_time_s": 1687.7440359,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260912,
+      "source_count": 10,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.10399250000045868,
+      "counts": {
+        "measure": 801,
+        "clear": 10,
+        "successful_clear": 10,
+        "switch": 693
+      },
+      "moving_distance_m": 60647.20179331036,
+      "synthetic_truth": [
+        {
+          "channel": 14,
+          "position": [
+            -427.50735067042945,
+            -1125.633686392884
+          ],
+          "radius": 1166.566006129624,
+          "direction": 213.17192780297668
+        },
+        {
+          "channel": 7,
+          "position": [
+            -1456.4968926530378,
+            -343.3227484005187
+          ],
+          "radius": 1226.1140532424326,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            1662.9669251408636,
+            -668.3339583273234
+          ],
+          "radius": 1033.833943864922,
+          "direction": 358.432663072626
+        },
+        {
+          "channel": 1,
+          "position": [
+            -795.9874044370567,
+            -336.2139739527558
+          ],
+          "radius": 1367.464115167747,
+          "direction": 118.82645173544604
+        },
+        {
+          "channel": 16,
+          "position": [
+            1358.1933288607026,
+            -698.6787293860078
+          ],
+          "radius": 1345.096797585706,
+          "direction": null
+        },
+        {
+          "channel": 2,
+          "position": [
+            489.695170693615,
+            -1211.0059179071923
+          ],
+          "radius": 1019.1075664994047,
+          "direction": 113.6818967704576
+        },
+        {
+          "channel": 18,
+          "position": [
+            -193.56312704833866,
+            -1745.4263665646456
+          ],
+          "radius": 1070.8462928715057,
+          "direction": 25.067488656685146
+        },
+        {
+          "channel": 12,
+          "position": [
+            -683.6416414198579,
+            -291.57017757216653
+          ],
+          "radius": 1038.60324653328,
+          "direction": 155.42661600204602
+        },
+        {
+          "channel": 15,
+          "position": [
+            577.691939083089,
+            1588.7182419979338
+          ],
+          "radius": 1485.197772905672,
+          "direction": 289.27251991290103
+        },
+        {
+          "channel": 8,
+          "position": [
+            -418.3594744807776,
+            -1237.3124125204104
+          ],
+          "radius": 1435.9464972512403,
+          "direction": 319.9951008182899
+        }
+      ]
+    },
+    {
+      "cleared_count": 10,
+      "detected_channels": [
+        1,
+        6,
+        7,
+        8,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 17319.311234,
+      "accounted_time_s": 17319.31123423164,
+      "average_clear_time_s": 1731.9311234000002,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260913,
+      "source_count": 10,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.0999431000000186,
+      "counts": {
+        "measure": 855,
+        "clear": 10,
+        "successful_clear": 10,
+        "switch": 748
+      },
+      "moving_distance_m": 61231.55617115822,
+      "synthetic_truth": [
+        {
+          "channel": 20,
+          "position": [
+            1465.2251318781202,
+            -783.4597417760255
+          ],
+          "radius": 1344.1767950640092,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            682.6936800153787,
+            254.55608420970296
+          ],
+          "radius": 1245.4361223782923,
+          "direction": 330.698881938108
+        },
+        {
+          "channel": 8,
+          "position": [
+            -30.570732491189254,
+            630.6549092689281
+          ],
+          "radius": 1334.157307864624,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            1081.6277141387638,
+            -185.72388809157584
+          ],
+          "radius": 1265.1886065066067,
+          "direction": 75.49031841421518
+        },
+        {
+          "channel": 13,
+          "position": [
+            -256.46734859455984,
+            -1352.3371326738322
+          ],
+          "radius": 1227.0180638192955,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            1683.4263517845202,
+            -15.919789171734367
+          ],
+          "radius": 1480.3164658326014,
+          "direction": 16.58948917243025
+        },
+        {
+          "channel": 6,
+          "position": [
+            669.9490233060654,
+            1420.9737109793996
+          ],
+          "radius": 1367.0838986640006,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            1762.8735036174912,
+            140.48887793119076
+          ],
+          "radius": 1070.3416591108194,
+          "direction": null
+        },
+        {
+          "channel": 14,
+          "position": [
+            -243.7366094118281,
+            -332.3008668660542
+          ],
+          "radius": 1422.3428517694556,
+          "direction": 29.272890739578298
+        },
+        {
+          "channel": 15,
+          "position": [
+            -414.11323617861586,
+            1288.4792020559844
+          ],
+          "radius": 1357.618524578657,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 13,
+      "detected_channels": [
+        1,
+        4,
+        5,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18594.068179,
+      "accounted_time_s": 18594.06817901503,
+      "average_clear_time_s": 1430.312936846154,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260914,
+      "source_count": 13,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.12733849999858649,
+      "counts": {
+        "measure": 748,
+        "clear": 13,
+        "successful_clear": 13,
+        "switch": 619
+      },
+      "moving_distance_m": 70850.34089507518,
+      "synthetic_truth": [
+        {
+          "channel": 20,
+          "position": [
+            -78.01402059017312,
+            -439.37156271907
+          ],
+          "radius": 1393.1174269680691,
+          "direction": 81.40514849142572
+        },
+        {
+          "channel": 15,
+          "position": [
+            -317.5537717409429,
+            456.22175339895466
+          ],
+          "radius": 1236.216418038766,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -1168.9899547736502,
+            273.3677256759414
+          ],
+          "radius": 1045.002807682871,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            -570.2515049097149,
+            1147.9875533365494
+          ],
+          "radius": 1436.9672906912438,
+          "direction": 325.98329504588776
+        },
+        {
+          "channel": 18,
+          "position": [
+            -340.8100047929561,
+            1365.0105184673903
+          ],
+          "radius": 1063.038581903917,
+          "direction": 316.2995750080317
+        },
+        {
+          "channel": 16,
+          "position": [
+            1046.7943839514567,
+            -1127.7567830297967
+          ],
+          "radius": 1169.0560799564282,
+          "direction": 35.42410473957539
+        },
+        {
+          "channel": 19,
+          "position": [
+            762.6203397819992,
+            -939.6585124390161
+          ],
+          "radius": 1264.7713266956184,
+          "direction": 93.59174470827655
+        },
+        {
+          "channel": 11,
+          "position": [
+            623.3635052880998,
+            125.63072354237454
+          ],
+          "radius": 1339.1044572844046,
+          "direction": 138.13313680079426
+        },
+        {
+          "channel": 5,
+          "position": [
+            1585.5444473574769,
+            131.22307227823825
+          ],
+          "radius": 1393.9146547709297,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            -818.2498872996767,
+            926.7000447789505
+          ],
+          "radius": 1267.7165970610483,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            -416.93291944618704,
+            -1524.6861852713098
+          ],
+          "radius": 1317.9551103514414,
+          "direction": 133.00309309591853
+        },
+        {
+          "channel": 13,
+          "position": [
+            755.3726073605214,
+            -774.3649012169944
+          ],
+          "radius": 1327.7850702246128,
+          "direction": 149.35126056365522
+        },
+        {
+          "channel": 14,
+          "position": [
+            1586.4346085807829,
+            -735.2931901229276
+          ],
+          "radius": 1236.0250643281775,
+          "direction": 225.38596308877078
+        }
+      ]
+    },
+    {
+      "cleared_count": 15,
+      "detected_channels": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 19672.344419,
+      "accounted_time_s": 19672.34441948241,
+      "average_clear_time_s": 1311.4896279333334,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260915,
+      "source_count": 15,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.15548260000105074,
+      "counts": {
+        "measure": 752,
+        "clear": 16,
+        "successful_clear": 15,
+        "switch": 609
+      },
+      "moving_distance_m": 76126.72209741206,
+      "synthetic_truth": [
+        {
+          "channel": 19,
+          "position": [
+            205.22766115569783,
+            572.2072520471233
+          ],
+          "radius": 1139.4766521860474,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            -731.6041784788889,
+            -1034.6414811108966
+          ],
+          "radius": 1151.8402391703733,
+          "direction": 42.93551558697745
+        },
+        {
+          "channel": 7,
+          "position": [
+            -761.7496352665208,
+            -283.3590882692523
+          ],
+          "radius": 1404.1354406970474,
+          "direction": 39.4721624384841
+        },
+        {
+          "channel": 20,
+          "position": [
+            -393.6778352866312,
+            1164.5060796821524
+          ],
+          "radius": 1061.6102671197862,
+          "direction": 290.0096073729051
+        },
+        {
+          "channel": 11,
+          "position": [
+            -860.5910599816198,
+            1488.1253148946942
+          ],
+          "radius": 1305.86894841586,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -450.1013339568247,
+            -108.6854208028471
+          ],
+          "radius": 1255.3629845154992,
+          "direction": 60.09664218158241
+        },
+        {
+          "channel": 1,
+          "position": [
+            -673.4819589519014,
+            728.0644048242568
+          ],
+          "radius": 1368.0380722087007,
+          "direction": 308.233382181585
+        },
+        {
+          "channel": 18,
+          "position": [
+            -498.1931689930735,
+            1491.2987721959073
+          ],
+          "radius": 1276.8857219272682,
+          "direction": 20.478942406484634
+        },
+        {
+          "channel": 5,
+          "position": [
+            1283.719112715425,
+            940.6982172329975
+          ],
+          "radius": 1400.6227101501686,
+          "direction": null
+        },
+        {
+          "channel": 3,
+          "position": [
+            1489.0785129128587,
+            519.068737750306
+          ],
+          "radius": 1480.9803835751477,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            -630.6589441335301,
+            -586.5209475706008
+          ],
+          "radius": 1286.0797318711345,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            -1222.1297847484836,
+            538.5081370440685
+          ],
+          "radius": 1197.3240859097727,
+          "direction": null
+        },
+        {
+          "channel": 16,
+          "position": [
+            360.198977171463,
+            539.4122224757203
+          ],
+          "radius": 1414.5204501392454,
+          "direction": 194.11459198334663
+        },
+        {
+          "channel": 14,
+          "position": [
+            361.6411909717941,
+            806.2449468454072
+          ],
+          "radius": 1050.2301758504257,
+          "direction": null
+        },
+        {
+          "channel": 13,
+          "position": [
+            862.054229658043,
+            -22.918827626765633
+          ],
+          "radius": 1466.4150358075515,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 15,
+      "detected_channels": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18221.589084,
+      "accounted_time_s": 18221.589083914794,
+      "average_clear_time_s": 1214.7726056,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260916,
+      "source_count": 15,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.13595619999978226,
+      "counts": {
+        "measure": 573,
+        "clear": 15,
+        "successful_clear": 15,
+        "switch": 439
+      },
+      "moving_distance_m": 74212.945419574,
+      "synthetic_truth": [
+        {
+          "channel": 2,
+          "position": [
+            -1149.9218215747849,
+            -299.35464326797216
+          ],
+          "radius": 1208.451582232799,
+          "direction": 148.26819233050423
+        },
+        {
+          "channel": 13,
+          "position": [
+            1422.3100848216627,
+            -787.8832978275329
+          ],
+          "radius": 1023.1077254016514,
+          "direction": null
+        },
+        {
+          "channel": 6,
+          "position": [
+            723.7757783620616,
+            -1426.2878971392497
+          ],
+          "radius": 1150.0942136351357,
+          "direction": null
+        },
+        {
+          "channel": 4,
+          "position": [
+            -300.21509100833873,
+            -1274.7738484476038
+          ],
+          "radius": 1473.4229298251598,
+          "direction": 309.5234121919713
+        },
+        {
+          "channel": 12,
+          "position": [
+            628.6308090724957,
+            -887.6931462089861
+          ],
+          "radius": 1238.5732056927504,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            -894.6255274433291,
+            -720.2265033641448
+          ],
+          "radius": 1151.7041426235276,
+          "direction": 192.2091675654144
+        },
+        {
+          "channel": 17,
+          "position": [
+            467.7056123745024,
+            420.6249178885645
+          ],
+          "radius": 1310.9287292351587,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            -952.3837027901947,
+            36.75632422464053
+          ],
+          "radius": 1037.7246042367058,
+          "direction": 200.67539806631123
+        },
+        {
+          "channel": 10,
+          "position": [
+            -759.8255347339075,
+            -1381.9971159238628
+          ],
+          "radius": 1240.1088314689289,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            641.3721700565054,
+            -355.000494264015
+          ],
+          "radius": 1004.3445268919271,
+          "direction": null
+        },
+        {
+          "channel": 16,
+          "position": [
+            983.6437570351137,
+            -422.38533850968145
+          ],
+          "radius": 1473.8120043562894,
+          "direction": 265.11638335227804
+        },
+        {
+          "channel": 15,
+          "position": [
+            -1104.9446271042862,
+            442.3189428685184
+          ],
+          "radius": 1477.8109284510597,
+          "direction": 263.6389954881432
+        },
+        {
+          "channel": 14,
+          "position": [
+            -1494.4813881741552,
+            913.2771223010185
+          ],
+          "radius": 1089.6913022733509,
+          "direction": 34.67979500759541
+        },
+        {
+          "channel": 20,
+          "position": [
+            -274.23133753871,
+            -83.74539022880467
+          ],
+          "radius": 1371.1198116103765,
+          "direction": 355.4761896682419
+        },
+        {
+          "channel": 7,
+          "position": [
+            -578.2849893349129,
+            -557.2404415374668
+          ],
+          "radius": 1411.013233372677,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 14,
+      "detected_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        18,
+        19
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18546.975114,
+      "accounted_time_s": 18546.97511432823,
+      "average_clear_time_s": 1324.7839367142858,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260917,
+      "source_count": 14,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.1604157000001578,
+      "counts": {
+        "measure": 653,
+        "clear": 126,
+        "successful_clear": 14,
+        "switch": 527
+      },
+      "moving_distance_m": 71744.87557164118,
+      "synthetic_truth": [
+        {
+          "channel": 5,
+          "position": [
+            493.8675432955402,
+            -670.0462927538948
+          ],
+          "radius": 1412.241221950839,
+          "direction": null
+        },
+        {
+          "channel": 10,
+          "position": [
+            -43.622877907720444,
+            -256.60412745277387
+          ],
+          "radius": 1386.148664907423,
+          "direction": 298.5334402902504
+        },
+        {
+          "channel": 9,
+          "position": [
+            171.6290212262498,
+            -608.6030199720021
+          ],
+          "radius": 1247.8791949513338,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            63.556079966062164,
+            -7.401662883706476
+          ],
+          "radius": 1081.202066656767,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            -1238.7641940747012,
+            -1032.7215522506121
+          ],
+          "radius": 1233.4602394861272,
+          "direction": 72.64434657563248
+        },
+        {
+          "channel": 3,
+          "position": [
+            -597.4381241719249,
+            540.4182914093723
+          ],
+          "radius": 1153.1943258763608,
+          "direction": 113.24218207211374
+        },
+        {
+          "channel": 14,
+          "position": [
+            -591.379143808861,
+            26.395587978836897
+          ],
+          "radius": 1015.096249243587,
+          "direction": 345.46658262946505
+        },
+        {
+          "channel": 6,
+          "position": [
+            -875.325075399778,
+            -340.25440412226743
+          ],
+          "radius": 1344.5913902549182,
+          "direction": 358.5661745610475
+        },
+        {
+          "channel": 18,
+          "position": [
+            -300.4438901259662,
+            902.5305220978386
+          ],
+          "radius": 1190.6845489655116,
+          "direction": 28.540270756104217
+        },
+        {
+          "channel": 13,
+          "position": [
+            932.9717799606949,
+            -1397.8754446681078
+          ],
+          "radius": 1353.5026122317852,
+          "direction": 44.89221140828201
+        },
+        {
+          "channel": 12,
+          "position": [
+            103.96445109810693,
+            457.2737089061344
+          ],
+          "radius": 1294.550621418393,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            151.1584686241936,
+            -1327.379870099879
+          ],
+          "radius": 1025.9416866774711,
+          "direction": 199.19610204833924
+        },
+        {
+          "channel": 4,
+          "position": [
+            77.51753621655146,
+            -1747.3578507127997
+          ],
+          "radius": 1396.3086870888008,
+          "direction": 140.40985270933984
+        },
+        {
+          "channel": 11,
+          "position": [
+            1209.4233550342178,
+            -235.24874663491383
+          ],
+          "radius": 1343.9599307599433,
+          "direction": 305.08064491774167
+        }
+      ]
+    },
+    {
+      "cleared_count": 12,
+      "detected_channels": [
+        2,
+        3,
+        5,
+        6,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        19
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 17838.630678,
+      "accounted_time_s": 17838.630678261474,
+      "average_clear_time_s": 1486.5525565,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260918,
+      "source_count": 12,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.10244929999862507,
+      "counts": {
+        "measure": 799,
+        "clear": 12,
+        "successful_clear": 12,
+        "switch": 686
+      },
+      "moving_distance_m": 65488.15339130738,
+      "synthetic_truth": [
+        {
+          "channel": 5,
+          "position": [
+            128.17870779833552,
+            622.8882352776951
+          ],
+          "radius": 1168.1638912911822,
+          "direction": null
+        },
+        {
+          "channel": 2,
+          "position": [
+            466.85918586210215,
+            -610.2697761799624
+          ],
+          "radius": 1314.0450260021194,
+          "direction": 84.71461220226843
+        },
+        {
+          "channel": 14,
+          "position": [
+            -224.26657530921403,
+            1249.5181219128617
+          ],
+          "radius": 1496.3989090412445,
+          "direction": 196.6452969464508
+        },
+        {
+          "channel": 12,
+          "position": [
+            253.62987000415825,
+            381.79401666240545
+          ],
+          "radius": 1079.3862533376537,
+          "direction": 232.5330258547387
+        },
+        {
+          "channel": 11,
+          "position": [
+            -966.1890789098161,
+            539.5395284603946
+          ],
+          "radius": 1273.577713376888,
+          "direction": 98.82038939130331
+        },
+        {
+          "channel": 16,
+          "position": [
+            709.7502191760739,
+            171.07839971639663
+          ],
+          "radius": 1377.8884299709753,
+          "direction": 193.5804109303933
+        },
+        {
+          "channel": 3,
+          "position": [
+            657.006344056204,
+            115.32347322348805
+          ],
+          "radius": 1029.0273242841083,
+          "direction": 182.24201752817194
+        },
+        {
+          "channel": 6,
+          "position": [
+            -842.7276746882619,
+            -798.2746233378385
+          ],
+          "radius": 1159.7914942549075,
+          "direction": null
+        },
+        {
+          "channel": 17,
+          "position": [
+            -931.0660565545951,
+            315.6483672859159
+          ],
+          "radius": 1156.7036386968678,
+          "direction": 156.7576793433996
+        },
+        {
+          "channel": 19,
+          "position": [
+            36.805465034090155,
+            1205.8708024858865
+          ],
+          "radius": 1226.9704336814518,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            305.4119810526077,
+            -1534.1422857569894
+          ],
+          "radius": 1452.9060870496808,
+          "direction": 130.85843917308426
+        },
+        {
+          "channel": 13,
+          "position": [
+            -189.90588260528008,
+            -1153.1107639760899
+          ],
+          "radius": 1183.2965408108237,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 15,
+      "detected_channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18971.162797,
+      "accounted_time_s": 18971.1627973841,
+      "average_clear_time_s": 1264.7441864666666,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260919,
+      "source_count": 15,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.12838139999985287,
+      "counts": {
+        "measure": 708,
+        "clear": 17,
+        "successful_clear": 15,
+        "switch": 572
+      },
+      "moving_distance_m": 73890.81398692049,
+      "synthetic_truth": [
+        {
+          "channel": 4,
+          "position": [
+            1738.8140560011354,
+            258.4214916947663
+          ],
+          "radius": 1249.9642925509963,
+          "direction": 242.6913830419499
+        },
+        {
+          "channel": 12,
+          "position": [
+            210.75987959169635,
+            1755.342022405224
+          ],
+          "radius": 1268.562164775869,
+          "direction": 297.0195075733225
+        },
+        {
+          "channel": 5,
+          "position": [
+            -685.5336832110189,
+            1344.1596452561282
+          ],
+          "radius": 1431.8505004203816,
+          "direction": 36.52195058756547
+        },
+        {
+          "channel": 11,
+          "position": [
+            53.80294223946508,
+            202.1114119698503
+          ],
+          "radius": 1362.165575823968,
+          "direction": 295.5328570985482
+        },
+        {
+          "channel": 13,
+          "position": [
+            -27.636279285946586,
+            1087.8925933233006
+          ],
+          "radius": 1342.019232462536,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            -1069.384555385794,
+            -482.4468993694935
+          ],
+          "radius": 1112.2872199926933,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            407.4442066572056,
+            232.90687531855835
+          ],
+          "radius": 1092.22326817004,
+          "direction": null
+        },
+        {
+          "channel": 18,
+          "position": [
+            832.7884427288433,
+            -859.2363983853728
+          ],
+          "radius": 1109.6069279381293,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            766.9684853679674,
+            -110.84166781676639
+          ],
+          "radius": 1237.7974369245546,
+          "direction": null
+        },
+        {
+          "channel": 2,
+          "position": [
+            -1580.3845543946618,
+            -521.5339573339328
+          ],
+          "radius": 1024.691007611296,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            -1565.081134304687,
+            -808.4132371686587
+          ],
+          "radius": 1219.344936434986,
+          "direction": 289.6481390799919
+        },
+        {
+          "channel": 17,
+          "position": [
+            453.6816743125051,
+            1316.0897007365215
+          ],
+          "radius": 1384.102447219033,
+          "direction": 237.28281134378884
+        },
+        {
+          "channel": 15,
+          "position": [
+            -1372.4448781187002,
+            -278.7821558010387
+          ],
+          "radius": 1031.869386074099,
+          "direction": 132.8175401076522
+        },
+        {
+          "channel": 3,
+          "position": [
+            -359.87635605598035,
+            1092.1811455972047
+          ],
+          "radius": 1470.861474047704,
+          "direction": 143.74834053785867
+        },
+        {
+          "channel": 16,
+          "position": [
+            706.3381413673916,
+            388.23471518808776
+          ],
+          "radius": 1047.6849413764646,
+          "direction": null
+        }
+      ]
+    },
+    {
+      "cleared_count": 14,
+      "detected_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        12,
+        14,
+        15,
+        17,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18322.83308,
+      "accounted_time_s": 18322.83307989517,
+      "average_clear_time_s": 1308.7737914285715,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260920,
+      "source_count": 14,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.15480200000092736,
+      "counts": {
+        "measure": 702,
+        "clear": 51,
+        "successful_clear": 14,
+        "switch": 575
+      },
+      "moving_distance_m": 70284.16539947582,
+      "synthetic_truth": [
+        {
+          "channel": 9,
+          "position": [
+            1189.377542004581,
+            1180.619641007594
+          ],
+          "radius": 1092.513864406808,
+          "direction": 154.5776389722785
+        },
+        {
+          "channel": 5,
+          "position": [
+            -1251.866228652495,
+            175.97551225667985
+          ],
+          "radius": 1161.498917988438,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            -1440.05743228589,
+            -211.27367700678033
+          ],
+          "radius": 1273.708907584838,
+          "direction": 168.053071515298
+        },
+        {
+          "channel": 14,
+          "position": [
+            1384.7352676443877,
+            302.67779235062176
+          ],
+          "radius": 1265.7668656646244,
+          "direction": 203.00834479525776
+        },
+        {
+          "channel": 12,
+          "position": [
+            -641.6244101570412,
+            -1244.193152808346
+          ],
+          "radius": 1147.1739790933955,
+          "direction": 70.10746448627002
+        },
+        {
+          "channel": 4,
+          "position": [
+            1279.3006125294849,
+            757.7859766623945
+          ],
+          "radius": 1134.341955317893,
+          "direction": 351.9548388424887
+        },
+        {
+          "channel": 8,
+          "position": [
+            1201.666527721133,
+            -912.1157676791861
+          ],
+          "radius": 1135.4408094107964,
+          "direction": 2.9209295913472433
+        },
+        {
+          "channel": 6,
+          "position": [
+            1038.2142911887431,
+            613.0999369252645
+          ],
+          "radius": 1277.1939426066363,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            -626.5722917043081,
+            -745.5904180382983
+          ],
+          "radius": 1031.8184506265752,
+          "direction": 255.42450824309984
+        },
+        {
+          "channel": 3,
+          "position": [
+            1520.944090779011,
+            238.27082914357965
+          ],
+          "radius": 1239.3208190197442,
+          "direction": null
+        },
+        {
+          "channel": 19,
+          "position": [
+            -1183.381749521459,
+            457.8165976001633
+          ],
+          "radius": 1243.096362972908,
+          "direction": null
+        },
+        {
+          "channel": 20,
+          "position": [
+            894.5183614273867,
+            -1393.3612826783747
+          ],
+          "radius": 1436.7360800571253,
+          "direction": 224.37346360700272
+        },
+        {
+          "channel": 17,
+          "position": [
+            -475.8492190652698,
+            218.7555752222959
+          ],
+          "radius": 1260.3610413544063,
+          "direction": 339.6164777137346
+        },
+        {
+          "channel": 7,
+          "position": [
+            517.4692677896925,
+            -79.93706184796551
+          ],
+          "radius": 1228.4394535050399,
+          "direction": 100.45456447980996
+        }
+      ]
+    },
+    {
+      "cleared_count": 16,
+      "detected_channels": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        17,
+        18,
+        19,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18107.969116,
+      "accounted_time_s": 18107.969115802527,
+      "average_clear_time_s": 1131.74806975,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260921,
+      "source_count": 16,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.1278703999996651,
+      "counts": {
+        "measure": 638,
+        "clear": 16,
+        "successful_clear": 16,
+        "switch": 504
+      },
+      "moving_distance_m": 71669.84557901263,
+      "synthetic_truth": [
+        {
+          "channel": 8,
+          "position": [
+            -1250.3048916046514,
+            842.9092003579689
+          ],
+          "radius": 1013.9271823635538,
+          "direction": 312.5722842121594
+        },
+        {
+          "channel": 2,
+          "position": [
+            -1654.6674289491716,
+            -24.559453802050395
+          ],
+          "radius": 1212.2532867522584,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            945.8259768319472,
+            -175.99080575438666
+          ],
+          "radius": 1254.6909811092873,
+          "direction": 208.05604021397826
+        },
+        {
+          "channel": 3,
+          "position": [
+            409.04217969847684,
+            -489.0005307317471
+          ],
+          "radius": 1094.0312888846968,
+          "direction": 20.270854351820788
+        },
+        {
+          "channel": 19,
+          "position": [
+            -61.27433303570383,
+            -1373.6179614717098
+          ],
+          "radius": 1091.3442843516616,
+          "direction": 177.76135916587796
+        },
+        {
+          "channel": 14,
+          "position": [
+            -387.7432927878373,
+            -1494.719916444542
+          ],
+          "radius": 1265.203849698345,
+          "direction": null
+        },
+        {
+          "channel": 12,
+          "position": [
+            -839.023876741596,
+            761.4614967810901
+          ],
+          "radius": 1357.7428387137322,
+          "direction": 312.94141583033854
+        },
+        {
+          "channel": 17,
+          "position": [
+            -146.7635513218835,
+            -1190.2031222869518
+          ],
+          "radius": 1315.8797846941957,
+          "direction": null
+        },
+        {
+          "channel": 18,
+          "position": [
+            -319.4916019332901,
+            1375.550648127554
+          ],
+          "radius": 1092.3085410837782,
+          "direction": 48.11826924955977
+        },
+        {
+          "channel": 6,
+          "position": [
+            1112.5338973137777,
+            20.963664534581607
+          ],
+          "radius": 1116.1632022180531,
+          "direction": 281.7268338303004
+        },
+        {
+          "channel": 4,
+          "position": [
+            1160.882974524043,
+            1326.8163972700265
+          ],
+          "radius": 1172.635752669936,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            -533.9792648358591,
+            475.85586894175964
+          ],
+          "radius": 1075.888715109688,
+          "direction": 95.93588934265016
+        },
+        {
+          "channel": 9,
+          "position": [
+            103.92265985834916,
+            234.29887988624773
+          ],
+          "radius": 1005.1133700161586,
+          "direction": null
+        },
+        {
+          "channel": 1,
+          "position": [
+            512.9982772858006,
+            -1459.8999259002005
+          ],
+          "radius": 1174.0775485028412,
+          "direction": 230.15013140316543
+        },
+        {
+          "channel": 13,
+          "position": [
+            -665.2088689284425,
+            1374.7484618655783
+          ],
+          "radius": 1269.5910716952767,
+          "direction": 296.7371836538963
+        },
+        {
+          "channel": 20,
+          "position": [
+            674.2049299125548,
+            -1265.0771140594823
+          ],
+          "radius": 1223.3689937264253,
+          "direction": 333.30079554901454
+        }
+      ]
+    },
+    {
+      "cleared_count": 15,
+      "detected_channels": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        20
+      ],
+      "coverage_complete": true,
+      "coverage_points_completed": 61,
+      "coverage_points_total": 61,
+      "all_detected_cleared": true,
+      "virtual_time_s": 18558.659144,
+      "accounted_time_s": 18558.659144418805,
+      "average_clear_time_s": 1237.2439429333333,
+      "stop_reason": "coverage_finished",
+      "error": null,
+      "problem": 4,
+      "seed": 20260922,
+      "source_count": 15,
+      "clear_fraction": 1.0,
+      "program_runtime_s": 0.13279719999991357,
+      "counts": {
+        "measure": 646,
+        "clear": 15,
+        "successful_clear": 15,
+        "switch": 511
+      },
+      "moving_distance_m": 73713.29572209403,
+      "synthetic_truth": [
+        {
+          "channel": 12,
+          "position": [
+            -360.2635372585294,
+            -256.30532357697984
+          ],
+          "radius": 1445.6196394116403,
+          "direction": 192.1935864374288
+        },
+        {
+          "channel": 4,
+          "position": [
+            776.9851118643082,
+            -1070.7372628395174
+          ],
+          "radius": 1128.2786129101028,
+          "direction": 104.3218077544047
+        },
+        {
+          "channel": 17,
+          "position": [
+            -777.0694841517617,
+            635.1082432970194
+          ],
+          "radius": 1057.4316945632756,
+          "direction": 293.9876525327222
+        },
+        {
+          "channel": 1,
+          "position": [
+            -1154.2840245010036,
+            19.681188927441326
+          ],
+          "radius": 1139.8526826391092,
+          "direction": 270.6154846599164
+        },
+        {
+          "channel": 3,
+          "position": [
+            654.7019936457827,
+            1436.2022758093854
+          ],
+          "radius": 1386.3146287714453,
+          "direction": null
+        },
+        {
+          "channel": 9,
+          "position": [
+            1645.3938161228264,
+            218.307828217217
+          ],
+          "radius": 1067.8882489376117,
+          "direction": null
+        },
+        {
+          "channel": 11,
+          "position": [
+            808.4304127218353,
+            1172.3441201266226
+          ],
+          "radius": 1288.1203730503573,
+          "direction": null
+        },
+        {
+          "channel": 20,
+          "position": [
+            1392.69137118223,
+            -882.9363465702803
+          ],
+          "radius": 1131.8917762405404,
+          "direction": null
+        },
+        {
+          "channel": 15,
+          "position": [
+            -1651.0201418138865,
+            274.36842963648263
+          ],
+          "radius": 1470.9849753874773,
+          "direction": 18.509549797429734
+        },
+        {
+          "channel": 18,
+          "position": [
+            1300.5404151759853,
+            -115.52496558764213
+          ],
+          "radius": 1406.9179701617338,
+          "direction": null
+        },
+        {
+          "channel": 2,
+          "position": [
+            389.25404861694375,
+            -1545.4518376421006
+          ],
+          "radius": 1337.5295748121766,
+          "direction": null
+        },
+        {
+          "channel": 8,
+          "position": [
+            -5.372335073672938,
+            -176.8259214099018
+          ],
+          "radius": 1295.722200622808,
+          "direction": null
+        },
+        {
+          "channel": 7,
+          "position": [
+            -1005.7405350082369,
+            -803.0004889858911
+          ],
+          "radius": 1129.6024032230675,
+          "direction": 59.55388748086098
+        },
+        {
+          "channel": 13,
+          "position": [
+            -941.8592162646994,
+            -602.7002604605528
+          ],
+          "radius": 1236.1231803430314,
+          "direction": 223.60713411197867
+        },
+        {
+          "channel": 6,
+          "position": [
+            1190.0084454621663,
+            492.6925719951508
+          ],
+          "radius": 1374.1703505761423,
+          "direction": 342.071613699814
+        }
+      ]
+    }
+  ]
+}

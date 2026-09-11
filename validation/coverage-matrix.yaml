@@ -1,0 +1,100 @@
+version: 1
+requirements:
+  - id: R01-source-catalog
+    requirement: 全网资料目录、阅读状态与许可证审计可追溯
+    files: [sources/catalog.yaml, sources/learning-map.md, sources/repository-license-audit.md]
+    tests: [tests/content/test_catalog_notes.py, tests/content/test_repository_audit.py]
+    commands: [python -m pytest tests/content/test_catalog_notes.py tests/content/test_repository_audit.py -q]
+    evidence: [sources/reading-notes, sources/references.bib]
+    status: verified
+  - id: R02-official-rules
+    requirement: 2026 赛制、论文格式与 AI 使用要求均有官方来源
+    files: [rules/2026-rules.md, rules/2026-paper-format.md, rules/2026-ai-use.md, rules/submission-checklist.md]
+    tests: [tests/content/test_rules_provenance.py]
+    commands: [python -m pytest tests/content/test_rules_provenance.py -q]
+    evidence: [sources/reading-notes/OFF-CUMCM-2026-RULES.md, sources/reading-notes/OFF-CUMCM-2026-FORMAT.md, sources/reading-notes/OFF-CUMCM-2026-AI-RULES.md]
+    status: verified
+  - id: R03-problem-cards
+    requirement: 2021–2025 A–E 真题均形成结构化问题卡
+    files: [cases/2021-2025/index.yaml]
+    tests: [tests/content/test_problem_cards.py]
+    commands: [python -m pytest tests/content/test_problem_cards.py -q]
+    evidence: [cases/2021-2025]
+    status: verified
+  - id: R04-award-analysis
+    requirement: 获奖原因综合区分官方事实、论文观察与分析推断
+    files: [knowledge/award-patterns.md, validation/award-feature-review.md]
+    tests: [tests/content/test_knowledge_provenance.py]
+    commands: [python -m pytest tests/content/test_knowledge_provenance.py -q]
+    evidence: [cases/2021-2025/2025/award-papers.yaml]
+    status: verified
+  - id: R05-method-library
+    requirement: 13 个核心方法卡完整且包含选择、实现、验证和失败模式
+    files: [knowledge/methods/index.yaml]
+    tests: [tests/content/test_method_cards.py]
+    commands: [python -m pytest tests/content/test_method_cards.py -q]
+    evidence: [knowledge/methods]
+    status: verified
+  - id: R06-python-library
+    requirement: Python 建模函数通过单元测试
+    files: [code/python/cumcm_py]
+    tests: [tests/python]
+    commands: [python -m pytest tests/python -q]
+    evidence: [code/fixtures/expected]
+    status: verified
+  - id: R07-matlab-library
+    requirement: MATLAB 13 个方法入口已实现并通过实际运行测试
+    files: [code/matlab/+cumcm, tests/matlab/TestCore.m, environment/compatibility.md]
+    tests: [tests/matlab/TestCore.m]
+    commands: [matlab -batch "addpath('code/matlab'); results=runtests('tests/matlab'); assertSuccess(results)"]
+    evidence: [environment/compatibility.md, validation/logs/matlab.log, validation/preflight-2026-09-10/matlab.log]
+    status: verified
+  - id: R08-cross-language
+    requirement: Python/MATLAB 共享夹具和容差比较器可检测一致、错误与缺失结果
+    files: [code/fixtures/manifest.yaml, tools/compare_outputs.py, validation/cross-language.md]
+    tests: [tests/python/test_cross_language.py, tests/matlab/TestCore.m]
+    commands: [python tools/compare_outputs.py --expected-dir code/fixtures/expected --matlab-dir validation/output/matlab --manifest code/fixtures/manifest.yaml --json validation/cross-language-test-report.json]
+    evidence: [validation/cross-language-test-report.json, validation/preflight-2026-09-10/cross-language.json]
+    status: verified
+  - id: R09-workflows
+    requirement: 从读题到打包的八阶段工作流和安全项目初始化器可用
+    files: [workflows, tools/init_project.py, templates/project]
+    tests: [tests/content/test_workflows.py, tests/python/test_init_project.py]
+    commands: [python -m pytest tests/content/test_workflows.py tests/python/test_init_project.py -q]
+    evidence: [workflows/problem-intake.md, workflows/final-packaging.md]
+    status: verified
+  - id: R10-paper-and-figures
+    requirement: 匿名论文、引用、图形和 AI 披露模板通过编译及视觉检查
+    files: [templates/paper, templates/figures, templates/citations, templates/ai-usage]
+    tests: [tests/content/test_paper_template.py]
+    commands: [xelatex -interaction=nonstopmode -halt-on-error main.tex]
+    evidence: [validation/paper-template.md, validation/preflight-2026-09-10/latex-attempt.log, validation/preflight-2026-09-10/ai-details-latex-attempt.log]
+    status: verified
+  - id: R11-checkers
+    requirement: 论文、引用、AI、代码与提交包检查器有正反样例和稳定 JSON
+    files: [code/python/cumcm_checkers, checkers/rules/cumcm-2026.yaml]
+    tests: [tests/checkers]
+    commands: [python -m pytest tests/checkers -q]
+    evidence: [validation/valid-report.json, validation/invalid-report.json, validation/preflight-2026-09-10/repository-report.json]
+    status: verified
+  - id: R12-skill
+    requirement: CUMCM Assistant 离线自包含、按需路由并拒绝隐瞒 AI 使用
+    files: [skill/cumcm-assistant/SKILL.md, skill/cumcm-assistant/references/manifest.yaml, tools/build_skill_bundle.py]
+    tests: [tests/skill]
+    commands: [python -m pytest tests/skill -q]
+    evidence: [tests/skill/prompts.yaml]
+    status: verified
+  - id: R13-one-command-verification
+    requirement: 单一命令汇总全部验证组、退出码与日志
+    files: [tools/verify_repository.py, validation/coverage-matrix.yaml]
+    tests: [tests/python/test_verify_repository.py]
+    commands: [python tools/verify_repository.py --matlab auto --latex auto --json validation/repository-report.json]
+    evidence: [validation/repository-report.json]
+    status: verified
+  - id: R14-private-source-policy
+    requirement: 私有原件和临时目录不被 Git 跟踪
+    files: [.gitignore]
+    tests: [tools/verify_repository.py]
+    commands: [git ls-files private-sources tmp]
+    evidence: [validation/repository-report.json]
+    status: verified

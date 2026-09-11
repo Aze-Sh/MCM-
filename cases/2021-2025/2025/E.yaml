@@ -1,0 +1,10 @@
+id: CUMCM-2025-E
+year: 2025
+problem: E
+tasks: [识别起跳和落地并描述滞空运动, 分析训练前后姿态及体质因素, 预测新运动者成绩, 给出短期训练建议和理想成绩]
+deliverables: [关键事件检测, 运动学特征, 因素模型, 主体级预测, 可解释训练建议]
+data_risks: [像素坐标尺度, 视频帧率, 33关键点缺失抖动, 前后样本配对, 小样本个体泄漏]
+method_families: [姿态时序处理, 信号滤波, 运动学特征, 配对分析, 回归与可解释机器学习]
+failure_paths: [用单帧阈值判事件, 随机拆帧造成泄漏, 把相关特征写成训练因果, 理想成绩超出数据支持]
+transferable_rules: [按运动者分组验证, 事件检测给不确定帧区间, 特征先做物理定义, 建议只针对稳定可改变特征]
+evidence: [{id: 2025E-statement, kind: official, claim: 官方题面从姿态事件与运动描述推进到主体级因素、预测和训练建议。, source_ids: [OFF-CUMCM-2025-PROBLEMS], location: E题问题1至4, confidence: high}]

@@ -1,0 +1,9 @@
+{
+  "checker": "cross-language-manifest",
+  "passed": true,
+  "issues": [],
+  "metadata": {
+    "fixture_count": 13,
+    "compared_properties": 21
+  }
+}

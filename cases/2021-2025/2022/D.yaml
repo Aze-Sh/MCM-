@@ -1,0 +1,10 @@
+id: CUMCM-2022-D
+year: 2022
+problem: D
+tasks: [最小轮次完成主站全共享, 在可靠性阈值下安排副站传输, 提高阈值后联合设计]
+deliverables: [一般传输模型, 轮次下界与构造, 概率可靠性计算, 具体调度表]
+data_risks: [发送与接收成功率组合错误, 消息半段完整性遗漏, 同轮发送能力冲突, 独立性假设未声明]
+method_families: [图论广播, 组合设计, 概率可靠性, 整数规划与调度]
+failure_paths: [只给案例不证一般性, 把期望成功当概率阈值, 重复消息未计容量, 模拟次数不足]
+transferable_rules: [先给信息量下界, 再给达到下界的构造, 显式跟踪消息完整性, 解析概率和蒙特卡洛互验]
+evidence: [{id: 2022D-statement, kind: official, claim: 官方问题要求一般模型、最小或最大关系、具体传输表和可靠性指标。, source_ids: [OFF-CUMCM-2022-PROBLEMS], location: D题问题1至3, confidence: high}]

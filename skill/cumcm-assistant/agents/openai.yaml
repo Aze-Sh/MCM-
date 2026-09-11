@@ -1,0 +1,4 @@
+interface:
+  display_name: "CUMCM Assistant"
+  short_description: "CUMCM modeling, code, paper, and compliance toolkit"
+  default_prompt: "Use $cumcm-assistant to analyze this CUMCM task and choose a validated modeling workflow."

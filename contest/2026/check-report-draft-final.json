@@ -1,0 +1,75 @@
+{
+  "passed": false,
+  "checkers": [
+    {
+      "checker": "ai_usage",
+      "passed": false,
+      "issue_count": 2,
+      "metadata": {
+        "stage": "draft",
+        "ai_used": false,
+        "paper": "paper\\main.tex",
+        "manual_review_required": true
+      }
+    },
+    {
+      "checker": "citations",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "cited": [],
+        "registered": []
+      }
+    },
+    {
+      "checker": "code_bundle",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "files_checked": 4
+      }
+    },
+    {
+      "checker": "package",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "target": "C:\\Users\\37828\\Desktop\\国赛\\contest\\2026"
+      }
+    },
+    {
+      "checker": "paper",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "files_checked": 1,
+        "max_pages": 30,
+        "max_bytes": 20971520
+      }
+    }
+  ],
+  "issues": [
+    {
+      "checker": "ai_usage",
+      "code": "ai.declaration_missing",
+      "severity": "error",
+      "path": "paper\\main.tex",
+      "message": "需在参考文献前设置 AI工具使用声明，并明确已使用或未使用。",
+      "source_ids": [
+        "OFF-CUMCM-2026-AI-RULES"
+      ]
+    },
+    {
+      "checker": "ai_usage",
+      "code": "ai.placeholder",
+      "severity": "error",
+      "path": "paper\\main.tex",
+      "message": "AI 声明仍含待填写或待确认内容。",
+      "source_ids": [
+        "OFF-CUMCM-2026-AI-RULES"
+      ]
+    }
+  ],
+  "stage": "draft",
+  "scope": "仓库格式与工程预检；通过不等于数学正确或主办方验收。"
+}

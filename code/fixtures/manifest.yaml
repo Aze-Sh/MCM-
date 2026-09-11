@@ -1,0 +1,16 @@
+schema_version: 1
+fixtures:
+  - {id: audit-basic-v1, method_id: data-audit, input: audit.csv, properties: [values.missing, values.duplicate_key_rows], absolute_tolerance: 0, relative_tolerance: 0, seed: 0, derivation: hand-counted missing and duplicate rows}
+  - {id: fit-linear-v1, method_id: interpolation-fitting, input: fit.csv, properties: [values.best_model, values.coefficients], absolute_tolerance: 1.0e-8, relative_tolerance: 1.0e-8, seed: 0, derivation: y=2x+1}
+  - {id: regression-linear-v1, method_id: regression-inference, input: regression.csv, properties: [values.coefficients], absolute_tolerance: 1.0e-8, relative_tolerance: 1.0e-8, seed: 0, derivation: y=3x-2}
+  - {id: forecast-seasonal-v1, method_id: time-series, input: forecast.csv, properties: [values.best_model, values.forecast], absolute_tolerance: 1.0e-8, relative_tolerance: 1.0e-8, seed: 0, derivation: exact arithmetic trend}
+  - {id: lp-basic-v1, method_id: lp-milp, input: lp.csv, properties: [values.objective, diagnostics.success], absolute_tolerance: 1.0e-8, relative_tolerance: 1.0e-8, seed: 0, derivation: one-constraint LP checked at vertices}
+  - {id: nonlinear-basic-v1, method_id: nonlinear-multiobjective, input: nonlinear.csv, properties: [values.objective, diagnostics.success], absolute_tolerance: 1.0e-6, relative_tolerance: 1.0e-6, seed: 0, derivation: minimum of squared distance at x=2}
+  - {id: graph-shortest-v1, method_id: graph-flow-routing, input: graph.csv, properties: [values.path, values.cost], absolute_tolerance: 1.0e-8, relative_tolerance: 1.0e-8, seed: 0, derivation: three-edge graph by inspection}
+  - {id: monte-carlo-mean-v1, method_id: monte-carlo-des, input: monte-carlo.csv, properties: [values.mean], absolute_tolerance: 1.0e-12, relative_tolerance: 1.0e-12, seed: 7, derivation: deterministic supplied samples}
+  - {id: ode-decay-v1, method_id: ode-difference, input: ode.csv, properties: [values.y_final], absolute_tolerance: 1.0e-5, relative_tolerance: 1.0e-5, seed: 0, derivation: analytic exp(-1)}
+  - {id: topsis-basic-v1, method_id: ahp-entropy-topsis, input: topsis.csv, properties: [values.ranking, values.weights], absolute_tolerance: 1.0e-6, relative_tolerance: 1.0e-6, seed: 0, derivation: dominant alternative checked by hand}
+  - {id: ml-classification-v1, method_id: ml-clustering-pca, input: ml.csv, properties: [diagnostics.group_disjoint], absolute_tolerance: 0, relative_tolerance: 0, seed: 0, derivation: four two-row groups}
+  - {id: sensitivity-linear-v1, method_id: sensitivity-robustness, input: sensitivity.csv, properties: [values.derivatives], absolute_tolerance: 1.0e-6, relative_tolerance: 1.0e-6, seed: 0, derivation: derivatives of 2x-3y}
+  - {id: plot-line-v1, method_id: scientific-plotting, input: plot.csv, properties: [values.dpi, diagnostics.exists], absolute_tolerance: 0, relative_tolerance: 0, seed: 0, derivation: two-point line and export contract}
+

@@ -1,0 +1,59 @@
+{
+  "kind": "practice-user-confirmed",
+  "problem": 3,
+  "strategy": "coverage600-adaptive8-grid20-v1",
+  "clear_fraction": 1.0,
+  "source_count": 11,
+  "official_case_code": "AFYH-6GTT-GWWB-ZDPW",
+  "source_type_counts": {
+    "omnidirectional": 11,
+    "directional": 0
+  },
+  "note": "Case code and source counts verified from the simulator result page and its generated result.json; the HTTP action API itself does not expose the source total.",
+  "action_log": "logs\\practice-20260911-085512-bfd14d.jsonl",
+  "official_behavior_logs": [
+    "logs/official-practice/q3-first/practice-p3-8311323849999459176-AFYH-6GTT-GWWB-ZDPW.jlog",
+    "logs/official-practice/q3-first/practice-p3-8311323849999459176-AFYH-6GTT-GWWB-ZDPW.psum",
+    "logs/official-practice/q3-first/practice-p3-8311323849999459176-AFYH-6GTT-GWWB-ZDPW.result.json"
+  ],
+  "cleared_count": 11,
+  "detected_channels": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    10,
+    11,
+    12,
+    16,
+    17,
+    18
+  ],
+  "coverage_complete": true,
+  "coverage_points_completed": 61,
+  "coverage_points_total": 61,
+  "all_detected_cleared": true,
+  "virtual_time_s": 16929.531418,
+  "accounted_time_s": 16929.53141636475,
+  "average_clear_time_s": 1539.0483107272726,
+  "stop_reason": "coverage_finished",
+  "program_runtime_s": 6.209765900000093,
+  "moving_distance_m": 63817.657082,
+  "counts": {
+    "measure": 704,
+    "no_signal": 641,
+    "direction": 63,
+    "near": 0,
+    "switch": 591,
+    "clear": 11,
+    "successful_clear": 11,
+    "failed_clear": 0
+  },
+  "time_components_s": {
+    "movement": 12763.531416,
+    "channel_switch": 591.0,
+    "measurement": 3520.0,
+    "clearance": 55.0
+  }
+}

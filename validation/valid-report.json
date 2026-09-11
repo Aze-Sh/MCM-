@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "checkers": [
+    {
+      "checker": "ai_usage",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "required_fields": [
+          "工具与模型",
+          "使用目的",
+          "关键提示词",
+          "关键回复",
+          "采纳情况",
+          "人工修改"
+        ],
+        "log": "AI工具使用详情.md"
+      }
+    },
+    {
+      "checker": "citations",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "cited": [
+          "SOURCE-001"
+        ],
+        "registered": [
+          "SOURCE-001"
+        ]
+      }
+    },
+    {
+      "checker": "code_bundle",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "files_checked": 1
+      }
+    },
+    {
+      "checker": "package",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "target": "tests\\fixtures\\checkers\\valid"
+      }
+    },
+    {
+      "checker": "paper",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "files_checked": 1,
+        "max_pages": 30,
+        "max_bytes": 20971520
+      }
+    }
+  ],
+  "issues": []
+}

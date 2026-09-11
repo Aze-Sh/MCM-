@@ -1,0 +1,217 @@
+{
+  "checker": "repository",
+  "passed": true,
+  "issues": [],
+  "metadata": {
+    "groups": [
+      "cases",
+      "checkers",
+      "coverage",
+      "cross-language",
+      "git-policy",
+      "latex",
+      "matlab",
+      "methods",
+      "python",
+      "skill",
+      "skill-validator",
+      "sources"
+    ],
+    "results": [
+      {
+        "group": "cases",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "C:\\Users\\37828\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "-m",
+          "pytest",
+          "tests/content/test_problem_cards.py",
+          "tests/content/test_knowledge_provenance.py",
+          "-q",
+          "--basetemp",
+          "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\tmp\\verify\\pytest-cases",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\cases.log"
+      },
+      {
+        "group": "checkers",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "C:\\Users\\37828\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "-m",
+          "pytest",
+          "tests/checkers",
+          "-q",
+          "--basetemp",
+          "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\tmp\\verify\\pytest-checkers",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\checkers.log"
+      },
+      {
+        "group": "coverage",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "validate",
+          "validation/coverage-matrix.yaml"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\coverage.log"
+      },
+      {
+        "group": "cross-language",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "C:\\Users\\37828\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/compare_outputs.py",
+          "--expected-dir",
+          "code/fixtures/expected",
+          "--matlab-dir",
+          "validation/output/matlab",
+          "--manifest",
+          "code/fixtures/manifest.yaml",
+          "--json",
+          "validation/cross-language-test-report.json"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\cross-language.log"
+      },
+      {
+        "group": "git-policy",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "git",
+          "ls-files",
+          "private-sources",
+          "tmp"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\git-policy.log"
+      },
+      {
+        "group": "latex",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "C:\\Users\\37828\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "-c",
+          "import subprocess,sys; c=['xelatex','-interaction=nonstopmode','-halt-on-error','main.tex']; a=subprocess.run(c).returncode; b=subprocess.run(c).returncode if a==0 else a; sys.exit(b)"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\latex.log"
+      },
+      {
+        "group": "matlab",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "matlab",
+          "-batch",
+          "addpath('code/matlab'); results=runtests('tests/matlab'); disp(results); assertSuccess(results); run('tools/export_matlab_results.m')"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\matlab.log"
+      },
+      {
+        "group": "methods",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "C:\\Users\\37828\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "-m",
+          "pytest",
+          "tests/content/test_method_cards.py",
+          "tests/content/test_paper_template.py",
+          "tests/content/test_workflows.py",
+          "-q",
+          "--basetemp",
+          "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\tmp\\verify\\pytest-methods",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\methods.log"
+      },
+      {
+        "group": "python",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "C:\\Users\\37828\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "-m",
+          "pytest",
+          "tests\\python\\test_cross_language.py",
+          "tests\\python\\test_decision.py",
+          "tests\\python\\test_dynamics.py",
+          "tests\\python\\test_fit.py",
+          "tests\\python\\test_forecast.py",
+          "tests\\python\\test_graph.py",
+          "tests\\python\\test_imports.py",
+          "tests\\python\\test_init_project.py",
+          "tests\\python\\test_ml.py",
+          "tests\\python\\test_optimization.py",
+          "tests\\python\\test_plotting.py",
+          "tests\\python\\test_preprocess.py",
+          "tests\\python\\test_sensitivity.py",
+          "tests\\python\\test_simulation.py",
+          "-q",
+          "--basetemp",
+          "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\tmp\\verify\\pytest-python",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\python.log"
+      },
+      {
+        "group": "skill",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "C:\\Users\\37828\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "-m",
+          "pytest",
+          "tests/skill",
+          "-q",
+          "--basetemp",
+          "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\tmp\\verify\\pytest-skill",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\skill.log"
+      },
+      {
+        "group": "skill-validator",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "C:\\Users\\37828\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\Users\\37828\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py",
+          "skill/cumcm-assistant"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\skill-validator.log"
+      },
+      {
+        "group": "sources",
+        "status": "passed",
+        "returncode": 0,
+        "command": [
+          "C:\\Users\\37828\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "-m",
+          "pytest",
+          "tests/content/test_catalog_notes.py",
+          "tests/content/test_repository_audit.py",
+          "tests/content/test_rules_provenance.py",
+          "tests/content/test_schemas.py",
+          "-q",
+          "--basetemp",
+          "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\tmp\\verify\\pytest-sources",
+          "-p",
+          "no:cacheprovider"
+        ],
+        "output_path": "C:\\Users\\37828\\Desktop\\国赛\\.worktrees\\cumcm-build\\validation\\logs\\sources.log"
+      }
+    ]
+  }
+}

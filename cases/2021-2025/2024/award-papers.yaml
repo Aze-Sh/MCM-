@@ -1,0 +1,11 @@
+year: 2024
+official_display_index: OFF-CUMCM-2024-PAPERS
+causality_warning: 官方展示论文是正例样本，不等于唯一正确方法或充分获奖条件。
+papers:
+  A: [A163, A242, A178, A016, A053]
+  B: [B159, B195, B196]
+  C: [C038, C234, C063, C094]
+  D: [D033]
+  E: [E010, E218, E061]
+reading_scope: 已核对公开索引及题号；详细方法判断优先服从官方讲评。
+
