@@ -1,22 +1,105 @@
-结果应围绕题目所问组织，并用表格给出核心量、单位与不确定性。图~\ref{fig:workflow} 展示从数据到结论的最小闭环。
+\subsection{问题一结果}
+
+程序构造了一个确由三次示向楔形交得到的等边三角形可行域，顶点为
+$(0,0)$、$(40,0)$ 和 $(20,20\sqrt3)$。由式\eqref{eq:diameter}得
+$D=40\unit{m}$。若以底边为直径作半径 $20\unit{m}$ 的圆，第三个顶点位于圆外；该区域的最小包围圆圆心为
+$(20,20/\sqrt3)$，半径为
+\begin{equation}
+r_*=\frac{40}{\sqrt3}=23.094\unit{m}>\frac D2.
+\end{equation}
+因此问题一的覆盖判断为否。图\ref{fig:q1}同时给出直径圆与最小包围圆。
 \begin{figure}[htbp]
   \centering
-  \fbox{\parbox[c][36mm][c]{0.82\linewidth}{\centering
-  数据审计 $\rightarrow$ 候选模型比较 $\rightarrow$ 留出检验\\[4pt]
-  $\rightarrow$ 敏感性分析 $\rightarrow$ 可复现结论}}
-  \caption{建模与验证闭环示意图}
-  \label{fig:workflow}
+  \includegraphics[width=0.68\textwidth]{q1-region-counterexample.pdf}
+  \caption{直径圆不能覆盖定位区域的可行示向反例}
+  \label{fig:q1}
 \end{figure}
+
+\subsection{问题二结果}
+
+将 $R=1500\unit{m}$、$r_0=1000\unit{m}$、
+$\varepsilon=1^\circ$ 代入式\eqref{eq:second-point}，在以首次示向中央线为
+$x$ 轴的局部坐标中得到
+\begin{equation}
+S_2^\pm-S_1=(761.429,\ \pm648.248)\unit{m}.
+\end{equation}
+两个点到 $S_1,E_-,E_+$ 的最大距离均为 $1000\unit{m}$，故属于候选域
+$\mathcal C$，移动距离为 $1000\unit{m}$，对应 $200\unit{s}$。在示向角取
+$[-1^\circ,1^\circ]$ 的 321 个网格、距离取 $(5,1500]$ 的 401 个网格上，最小交会角为 $39.592^\circ$；中央线上点 $(750,0)$ 虽能保证接收，但最小交会角为 $0^\circ$。纯垂向点 $(0,1000)$ 到可能源的最大距离为
+$1817.239\unit{m}$，无法保证第二次收到信号。候选域和推荐点见图\ref{fig:q2}。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.72\textwidth]{q2-second-detector-region.pdf}
+  \caption{保证第二次接收的三圆盘候选域及对称推荐点}
+  \label{fig:q2}
+\end{figure}
+
+\subsection{问题三、四演练结果}
+
+截至本文稿冻结时，问题三、四各完成三轮官方演练。表\ref{tab:practice}中的“程序运行时间”为现实世界程序耗时，其余时间指标均为虚拟时间。六轮共清除 $82/82$ 个源，清除比例均为 1；全部请求被接受，没有清除失败。问题四三轮共包含 18 个定向源。
 
 \begin{table}[htbp]
   \centering
-  \caption{候选模型的留出集比较示例}
+  \caption{问题三、四官方演练结果（非正式成绩）}
+  \label{tab:practice}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{clrrrrr}
+    \toprule
+    问题 & 测试案例编码 & 源数 & 清除数 & 清除比例 & 平均定位清除时间/s & 程序运行时间/s \\
+    \midrule
+    3 & AFYH-6GTT-GWWB-ZDPW & 11 & 11 & 1.000 & 1539.048 & 6.210 \\
+    3 & FYKN-VY2Y-C99F-6BZN & 15 & 15 & 1.000 & 1113.106 & 4.368 \\
+    3 & 8BS5-GQWW-6BTJ-8Z73 & 15 & 15 & 1.000 & 1085.527 & 4.432 \\
+    4 & 77QS-523V-UX4E-UCGC & 14 & 14 & 1.000 & 1137.709 & 5.302 \\
+    4 & UC47-56D3-EHEC-RTK3 & 16 & 16 & 1.000 & 1099.899 & 5.406 \\
+    4 & F6QC-7NFR-B6ES-WJMF & 11 & 11 & 1.000 & 1503.504 & 6.645 \\
+    \bottomrule
+  \end{tabular}
+  }
+\end{table}
+
+图\ref{fig:practice}给出逐轮清除比例及虚拟时间构成。移动时间在六轮中均占主要部分，说明在保持覆盖证明的前提下，优化路线续接比减少定位计算更能改善总时间。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{q34-practice-summary.pdf}
+  \caption{六轮官方演练的清除比例与虚拟时间构成}
+  \label{fig:practice}
+\end{figure}
+
+同种子 100 局合成对照显示，从固定蛇形续扫改为“定位后前往最近未完成覆盖点”，问题三、四平均虚拟时间分别下降 $12.70\%$ 和 $9.99\%$，平均移动距离分别下降 $10.30\%$ 和 $8.56\%$，且仍为 100/100 全部清除。在 v3 中，达到题面上限 16 个源后立即结束；16 源子集相对 v2 的平均虚拟时间在问题三、四分别下降 $32.59\%$ 和 $19.60\%$。
+
+\subsection{正式测试结果表}
+
+正式测试尚未启动。为避免把演练数据冒充正式成绩，表\ref{tab:formal3}和表\ref{tab:formal4}只保留题目要求的结构；每轮完成后将从模拟器结果和原始日志自动填入。
+
+\begin{table}[htbp]
+  \centering
+  \caption{问题三正式测试结果}
+  \label{tab:formal3}
   \begin{tabular}{lccc}
     \toprule
-    模型 & 误差指标 & 稳定性指标 & 是否通过诊断 \\
+    测试案例编码 & 清除干扰源个数 & 平均定位清除时间/s & 程序运行时间/s \\
     \midrule
-    基线模型 & 1.00 & 0.84 & 是 \\
-    候选模型 & 0.82 & 0.91 & 是 \\
+    尚未执行（第1轮） & -- & -- & -- \\
+    尚未执行（第2轮） & -- & -- & -- \\
+    尚未执行（第3轮） & -- & -- & -- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \caption{问题四正式测试结果}
+  \label{tab:formal4}
+  \begin{tabular}{lccc}
+    \toprule
+    测试案例编码 & 清除干扰源个数 & 平均定位清除时间/s & 程序运行时间/s \\
+    \midrule
+    尚未执行（第1轮） & -- & -- & -- \\
+    尚未执行（第2轮） & -- & -- & -- \\
+    尚未执行（第3轮） & -- & -- & -- \\
     \bottomrule
   \end{tabular}
 \end{table}

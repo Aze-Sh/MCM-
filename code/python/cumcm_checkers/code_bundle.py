@@ -12,7 +12,7 @@ from cumcm_py.types import CheckReport
 from .reporting import issue, make_report, rule_sources
 
 
-ABSOLUTE_PATH = re.compile(r"(?i)(?:[A-Z]:[\\/]{1,2}|/(?:Users|home)/)")
+ABSOLUTE_PATH = re.compile(r"(?i)(?<![A-Z])(?:[A-Z]:[\\/]{1,2}|/(?:Users|home)/)")
 ENTRY_NAMES = ("main.py", "main.m", "run.py", "run.m")
 
 

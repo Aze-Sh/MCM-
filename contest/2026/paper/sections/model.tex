@@ -1,7 +1,98 @@
-先给出机制或统计关系，再给出可计算形式。一个可复现的基本表达为
+\subsection{问题一：有界误差下的交会定位}
+
+记 $u(\alpha)=(\cos\alpha,\sin\alpha)^\mathsf{T}$，二维叉积为
+$a\times b=a_xb_y-a_yb_x$。在检测点 $S_i$ 测得示向度
+$\theta_i$ 后，真实方位角落在
+$[\theta_i-\varepsilon,\theta_i+\varepsilon]$。因此候选点 $p$ 必须满足
 \begin{equation}
-  \hat{\theta}=\arg\min_{\theta\in\Omega}
-  \left[J(\theta)=\sum_{t=1}^{n}w_t\bigl(y_t-f(x_t;\theta)\bigr)^2\right],
-  \label{eq:objective}
+\begin{split}
+u(\theta_i-\varepsilon)\times(p-S_i)&\ge 0,\\
+u(\theta_i+\varepsilon)\times(p-S_i)&\le 0.
+\end{split}
+\label{eq:wedge}
 \end{equation}
-其中 $w_t$ 为样本权重，$\Omega$ 为可行域。应说明每个参数的来源、估计方法与约束依据，并与至少一个基线模型比较。
+每条观测给出两个线性半平面。将全部约束写成 $Ap\le b$，得到
+\begin{equation}
+\Omega=\{p\in\mathbb{R}^2:Ap\le b\}.
+\label{eq:region}
+\end{equation}
+先用线性规划判定式\eqref{eq:region}是否可行，再分别沿 $\pm x$、$\pm y$ 方向求线性目标；任一方向无界即判定定位区域无界。对于有界区域，枚举两条非平行边界线的交点并检查全部约束，去重后按凸包顺序得到顶点集
+$V=\{v_1,\ldots,v_m\}$。凸函数 $\|p-q\|_2$ 在紧凸多边形乘积
+$\Omega\times\Omega$ 上的最大值可在顶点对取得，故
+\begin{equation}
+D(\Omega)=\max_{1\le i<j\le m}\|v_i-v_j\|_2.
+\label{eq:diameter}
+\end{equation}
+直接枚举复杂度为 $O(m^2)$，规模较大时可在凸包上用旋转卡壳降至
+$O(m)$。空集、无界集与退化为线段或单点的情况分别返回状态，避免用人工大矩形产生虚假有限直径。
+
+仅知道直径 $D$ 不能保证存在半径 $D/2$ 的覆盖圆。我们进一步枚举由一个、两个或三个顶点支撑的圆，选取覆盖全部顶点的最小半径，得到最小包围圆 $(c_*,r_*)$。只有当 $r_*\le20\unit{m}$ 时，移动到 $c_*$ 才能在清除半径内覆盖整个定位区域。
+
+\subsection{问题二：保证接收的第二检测点}
+
+设首次检测点为 $S_1$，返回示向度 $\theta$。全向源的可能位置保守写为
+\begin{equation}
+\Omega_1=\{S_1+\rho u(\alpha):0\le\rho\le R,
+\ |\alpha-\theta|\le\varepsilon\},\qquad R=1500\unit{m}.
+\label{eq:first-sector}
+\end{equation}
+返回 \texttt{direction} 实际还说明 $\rho>5\unit{m}$，但在保证性设计中保留扇形顶点只会扩大可行域。记远端两点
+$E_\pm=S_1+R u(\theta\pm\varepsilon)$。要在未知实际接收半径下保证第二次收到信号，第二点 $S_2$ 到任一 $G\in\Omega_1$ 的距离必须不超过下界 $r_0=1000\unit{m}$。
+
+对固定 $S_2$，沿每条半径的距离平方是关于 $\rho$ 的凸二次函数，其最大值在 $\rho=0$ 或 $R$ 取得；在远端圆弧上，最大距离在两个端点之一取得。因此保证接收的候选区域恰为
+\begin{equation}
+\mathcal C=B(S_1,r_0)\cap B(E_-,r_0)\cap B(E_+,r_0).
+\label{eq:candidate}
+\end{equation}
+这一定义同时给出可计算判据：候选点到三个圆心的最大距离不超过
+$1000\unit{m}$。
+
+为避免两条示向线近似平行，在候选域上下两半分别取最大的横向基线。令
+$v(\theta)=(-\sin\theta,\cos\theta)^\mathsf{T}$，并记
+\begin{equation}
+q=\sqrt{r_0^2-(R/2)^2}.
+\end{equation}
+取首测点圆与相反侧远端点圆的上、下交点，得到对称推荐式
+\begin{equation}
+S_2^\pm=S_1+a,u(\theta)\pm d,v(\theta),
+\quad
+a=\frac R2\cos\varepsilon+q\sin\varepsilon,
+\quad
+d=q\cos\varepsilon-\frac R2\sin\varepsilon.
+\label{eq:second-point}
+\end{equation}
+若第二点返回示向度，则按式\eqref{eq:wedge}把新楔形与
+$\Omega_1$ 相交；若返回 \texttt{near}，则已进入 $5\unit{m}$ 邻域，可直接执行光学定位清除。对于其他参数，也可在 $\mathcal C$ 内离散搜索，使所有可能源位置下的最小交会角最大，或使更新后定位区域的最坏直径最小。
+
+\subsection{问题三：全向源的保证覆盖搜索}
+
+取边长 $h=600\unit{m}$ 的正方形网格。保留所有与半径
+$1800\unit{m}$ 源域相交方格的四个顶点，共得到 61 个去重覆盖点。任一源位于某个被保留方格中，它到该方格至少一个顶点的距离不超过
+\begin{equation}
+\sqrt{2}h=848.53\unit{m}<1000\unit{m}.
+\label{eq:grid-cover}
+\end{equation}
+全向源在该点必能被接收。机器狗在每个覆盖点扫描全部尚未清除的频道；定位清除产生绕行后，从当前位置选择最近的未完成覆盖点继续，覆盖点集合本身不改变。
+
+某频道首次返回正示向后，以半径 $1500\unit{m}$ 的示向扇形与源圆域外逼近作为初始定位区域。后续在最小包围圆中心两侧自适应插入检测点，每次只用正示向更新区域。若最小包围圆半径满足
+$r_*\le19.5\unit{m}$，则在圆心执行清除；$0.5\unit{m}$ 为数值裕量。最多八次自适应测量后仍未达到阈值时，以边长 $20\unit{m}$ 网格中心覆盖剩余多边形并按最近点顺序逐点清除，任一可行点到某网格中心的距离不超过
+$10\sqrt2\unit{m}<20\unit{m}$，故兜底过程有限且完备。
+
+记移动总距离为 $L$。检测和频道切换次数分别为 $N_m,N_s$，成功和失败清除次数分别为
+$N_c,N_f$。虚拟总时间按协议复算为
+\begin{equation}
+T=\frac L5+5N_m+N_s+5N_c+3N_f.
+\label{eq:time}
+\end{equation}
+当 61 个点全部完成时，覆盖证明给出无遗漏；当已清除 16 个源时，利用题面数量上界可立即结束。除此之外不以“已找到 10 个”作为停止条件。
+
+\subsection{问题四：混合源的发现完备性}
+
+定向源只在通过源点、法向由发射方向确定的闭半平面内辐射。对包含源
+$G$ 的覆盖方格，$G$ 位于四顶点的凸包内。任一通过 $G$ 的闭半平面至少包含一个方格顶点，否则四顶点都严格位于另一侧，其凸包也不可能包含
+$G$。结合式\eqref{eq:grid-cover}，至少一个顶点既在辐射半平面内又在
+$1000\unit{m}$ 距离内，因此同一 600 米覆盖点集仍能保证发现定向源。
+
+定向源的 \texttt{no\_signal} 可能由距离过远或位于背面导致，不能据此删去位置区域；算法只使用正示向相交定位。清除成功只由清除点与源的距离决定，与定向方向无关，故发现后的定位、最小包围圆清除和有限网格兜底与问题三共用。
+
+通信层依次执行 \texttt{enter}、\texttt{measure/clear} 和 \texttt{exit}。网络状态不确定时，重试严格复用同一请求内容与请求编号。

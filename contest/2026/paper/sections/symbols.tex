@@ -5,9 +5,17 @@
     \toprule
     符号 & 含义 & 单位 \\
     \midrule
-    $x_t$ & 时刻 $t$ 的状态量 & \unit{unit} \\
-    $\theta$ & 待估参数向量 & -- \\
-    $J(\theta)$ & 目标函数 & -- \\
+    $S_i$ & 第 $i$ 个检测点坐标 & \unit{m} \\
+    $G$ & 干扰源真实坐标 & \unit{m} \\
+    $\theta_i$ & 在 $S_i$ 测得的示向度 & $^\circ$ \\
+    $\varepsilon$ & 示向误差半宽，本文取 $1^\circ$ & $^\circ$ \\
+    $\Omega_k$ & 前 $k$ 次正示向观测的定位可行域 & \unit{m^2} \\
+    $D(\Omega)$ & 定位区域直径 & \unit{m} \\
+    $r_*(\Omega)$ & 定位区域最小包围圆半径 & \unit{m} \\
+    $R$ & 可能的最大有效接收半径，$1500$ & \unit{m} \\
+    $r_0$ & 保证有效的接收半径下界，$1000$ & \unit{m} \\
+    $h$ & 覆盖方格边长，本文取 $600$ & \unit{m} \\
+    $T$ & 一次测试的虚拟总时间 & \unit{s} \\
     \bottomrule
   \end{tabular}
 \end{table}

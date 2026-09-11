@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "coordinate_convention": "east-positive x, north-positive y, degrees CCW from east",
+    "problem": "2026 CUMCM B",
+    "questions": [
+      1,
+      2
+    ],
+    "script": "python/q1_q2_analysis.py",
+    "status": "verified-analytic-and-numeric"
+  },
+  "q1": {
+    "conclusion": "A circle whose diameter equals the region diameter is not guaranteed to cover the region; this feasible region is an equilateral triangle.",
+    "diameter_circle_covers_region": false,
+    "diameter_circle_radius_m": 20.0,
+    "diameter_m": 40.0,
+    "minimum_enclosing_center_m": [
+      20.0,
+      11.547005384
+    ],
+    "minimum_enclosing_radius_m": 23.094010768,
+    "minimum_radius_over_diameter": 0.577350269,
+    "observations_x_y_bearing_deg": [
+      [
+        -1000.0,
+        0.0,
+        1.0
+      ],
+      [
+        540.0,
+        -866.025403784,
+        121.0
+      ],
+      [
+        520.0,
+        900.666419936,
+        241.0
+      ]
+    ],
+    "region_status": "bounded",
+    "vertices_m": [
+      [
+        -0.0,
+        -0.0
+      ],
+      [
+        40.0,
+        0.0
+      ],
+      [
+        20.0,
+        34.641016151
+      ]
+    ]
+  },
+  "q2": {
+    "bearing_half_error_deg": 1.0,
+    "candidate_disc_centers_m": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1499.771542735,
+        -26.178609656
+      ],
+      [
+        1499.771542735,
+        26.178609656
+      ]
+    ],
+    "candidate_region": "intersection of three 1000 m discs centered at the first sensor and the two endpoints of the 1500 m bearing-sector arc",
+    "collinear_baseline_detector_m": [
+      750.0,
+      0.0
+    ],
+    "collinear_baseline_min_crossing_angle_deg": 0.0,
+    "first_sensor_m": [
+      0.0,
+      0.0
+    ],
+    "guaranteed_max_distance_m": 1000.0,
+    "guaranteed_receive_radius_m": 1000.0,
+    "maximum_possible_receive_range_m": 1500.0,
+    "measured_bearing_deg": 0.0,
+    "movement_distance_m": 1000.0,
+    "movement_time_s_at_5_mps": 200.0,
+    "perpendicular_only_detector_m": [
+      0.0,
+      1000.0
+    ],
+    "perpendicular_only_max_distance_m": 1817.238899901,
+    "recommended_detectors_m": [
+      [
+        761.42945317,
+        648.247782753
+      ],
+      [
+        761.42945317,
+        -648.247782753
+      ]
+    ],
+    "resolution_convergence": {
+      "angular": [
+        {
+          "angle_samples": 41,
+          "minimum_crossing_angle_deg": 39.592204558,
+          "radial_samples": 401,
+          "sampled_max_distance_m": 1000.0,
+          "worst_source_bearing_deg": 1.0,
+          "worst_source_range_m": 5.0001
+        },
+        {
+          "angle_samples": 81,
+          "minimum_crossing_angle_deg": 39.592204558,
+          "radial_samples": 401,
+          "sampled_max_distance_m": 1000.0,
+          "worst_source_bearing_deg": 1.0,
+          "worst_source_range_m": 5.0001
+        },
+        {
+          "angle_samples": 161,
+          "minimum_crossing_angle_deg": 39.592204558,
+          "radial_samples": 401,
+          "sampled_max_distance_m": 1000.0,
+          "worst_source_bearing_deg": 1.0,
+          "worst_source_range_m": 5.0001
+        },
+        {
+          "angle_samples": 321,
+          "minimum_crossing_angle_deg": 39.592204558,
+          "radial_samples": 401,
+          "sampled_max_distance_m": 1000.0,
+          "worst_source_bearing_deg": 1.0,
+          "worst_source_range_m": 5.0001
+        }
+      ],
+      "final_change_deg": 0.0,
+      "radial": [
+        {
+          "angle_samples": 321,
+          "minimum_crossing_angle_deg": 39.592204558,
+          "radial_samples": 101,
+          "sampled_max_distance_m": 1000.0,
+          "worst_source_bearing_deg": 1.0,
+          "worst_source_range_m": 5.0001
+        },
+        {
+          "angle_samples": 321,
+          "minimum_crossing_angle_deg": 39.592204558,
+          "radial_samples": 201,
+          "sampled_max_distance_m": 1000.0,
+          "worst_source_bearing_deg": 1.0,
+          "worst_source_range_m": 5.0001
+        },
+        {
+          "angle_samples": 321,
+          "minimum_crossing_angle_deg": 39.592204558,
+          "radial_samples": 401,
+          "sampled_max_distance_m": 1000.0,
+          "worst_source_bearing_deg": 1.0,
+          "worst_source_range_m": 5.0001
+        }
+      ]
+    },
+    "sampled_min_crossing_angle_deg": 39.592204558,
+    "selected_detector_m": [
+      761.42945317,
+      648.247782753
+    ],
+    "worst_sampled_source": {
+      "bearing_deg": 1.0,
+      "range_m": 5.0001
+    }
+  }
+}

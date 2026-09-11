@@ -97,4 +97,20 @@ results:
     checksums: logs/official-practice/q3-third-v3/SHA256SUMS.txt
     observed: {source_count: 15, cleared_count: 15, clear_fraction: 1.0, omnidirectional: 15, directional: 0, virtual_time_s: 16282.90165, moving_distance_m: 66684.508222, program_runtime_s: 4.432264, accepted_requests: 516, rejected_requests: 0}
     status: verified-official-practice
+  - id: q1-q2-geometry-20260911
+    description: 问题1定位区域直径与覆盖圆反例、问题2保证接收候选域及第二检测点设计
+    script: python/q1_q2_analysis.py
+    inputs: [python/b_geometry.py]
+    parameters: {bearing_half_error_deg: 1.0, maximum_receive_range_m: 1500.0, guaranteed_receive_radius_m: 1000.0, final_angle_samples: 321, final_radial_samples: 401}
+    output: output/q1-q2-geometry-20260911.json
+    observed: {q1_diameter_m: 40.0, q1_minimum_enclosing_radius_m: 23.094010768, diameter_circle_covers_region: false, q2_guaranteed_max_distance_m: 1000.0, q2_minimum_crossing_angle_deg: 39.592204558, resolution_change_deg: 0.0}
+    status: verified-analytic-and-numeric
+  - id: preformal-verification-20260911
+    description: B题正式测试前自动化放行检查；不启动正式测试
+    script: manual-orchestration-of-repository-checks
+    inputs: [releases/formal-v3-20260911/SHA256SUMS.txt, checkers/rules/cumcm-2026.yaml, paper/main.tex, tests/]
+    parameters: {stage: preformal, formal_runs_started: 0}
+    output: output/preformal-verification-20260911.json
+    observed: {b_tests_passed: 38, repository_tests_passed: 87, draft_checker_passed: true, paper_pages: 9, formal_release_hashes_match: true}
+    status: verified-preformal-blocked-by-public-github-and-human-gates
 # 每个正文数字/表/图登记生成脚本、输入、参数、随机种子和输出路径。

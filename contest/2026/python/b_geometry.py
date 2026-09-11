@@ -116,3 +116,152 @@ def enclosing_circle(points):
             continue
         consider(p[i] + np.linalg.solve(matrix, [u @ u, v @ v]))
     return best_center, best_radius
+
+
+def _point(point, name='point'):
+    value = np.asarray(point, dtype=float)
+    if value.shape != (2,) or not np.isfinite(value).all():
+        raise ValueError(f'{name} must be a finite 2D point')
+    return value
+
+
+def _unit_vector(bearing_deg):
+    if not math.isfinite(bearing_deg):
+        raise ValueError('Bearing must be finite')
+    angle = math.radians(bearing_deg)
+    return np.array([math.cos(angle), math.sin(angle)])
+
+
+def first_bearing_sector(
+        sensor, bearing_deg, error_deg=1.0, max_range=1500.0,
+        arc_samples=181):
+    """Return a counter-clockwise polygonal sampling of the first feasible sector.
+
+    The received direction value implies an unknown source lies within the bearing
+    wedge and no farther than the largest possible receive radius.  The first point
+    is included conservatively; a ``direction`` response in fact excludes the inner
+    five-metre ``near`` disc.
+    """
+    sensor = _point(sensor, 'sensor')
+    if not math.isfinite(error_deg) or not 0 < error_deg < 90:
+        raise ValueError('Bearing half-width must be between 0 and 90 degrees')
+    if not math.isfinite(max_range) or max_range <= 0:
+        raise ValueError('Maximum range must be positive and finite')
+    if not isinstance(arc_samples, int) or arc_samples < 2:
+        raise ValueError('arc_samples must be an integer of at least 2')
+    angles = np.deg2rad(np.linspace(
+        bearing_deg - error_deg, bearing_deg + error_deg, arc_samples))
+    arc = sensor + max_range * np.column_stack((np.cos(angles), np.sin(angles)))
+    return np.vstack((sensor, arc))
+
+
+def second_detector_candidate_disks(
+        sensor, bearing_deg, error_deg=1.0, max_range=1500.0,
+        minimum_receive_radius=1000.0):
+    """Return the three discs whose intersection guarantees a second reception.
+
+    For a sector narrower than 180 degrees, the farthest sector point from a fixed
+    detector is the apex or one of the two far arc endpoints.  Covering these three
+    points by the guaranteed receive radius therefore covers the whole sector.
+    """
+    sensor = _point(sensor, 'sensor')
+    if not math.isfinite(error_deg) or not 0 < error_deg < 90:
+        raise ValueError('Bearing half-width must be between 0 and 90 degrees')
+    if not math.isfinite(max_range) or max_range <= 0:
+        raise ValueError('Maximum range must be positive and finite')
+    if not math.isfinite(minimum_receive_radius) or minimum_receive_radius <= 0:
+        raise ValueError('Minimum receive radius must be positive and finite')
+    lower = sensor + max_range * _unit_vector(bearing_deg - error_deg)
+    upper = sensor + max_range * _unit_vector(bearing_deg + error_deg)
+    return np.vstack((sensor, lower, upper)), float(minimum_receive_radius)
+
+
+def second_detector_candidate(point, centers, radius, tolerance=1e-9):
+    point = _point(point)
+    centers = np.asarray(centers, dtype=float)
+    if centers.ndim != 2 or centers.shape[1] != 2 or not len(centers):
+        raise ValueError('centers must be a nonempty finite (n,2) array')
+    if not np.isfinite(centers).all() or not math.isfinite(radius) or radius <= 0:
+        raise ValueError('Finite centers and a positive radius are required')
+    return bool(np.max(np.linalg.norm(centers - point, axis=1)) <= radius + tolerance)
+
+
+def recommended_second_detectors(
+        sensor, bearing_deg, error_deg=1.0, max_range=1500.0,
+        minimum_receive_radius=1000.0):
+    """Return the two symmetric robust second-detection points.
+
+    Each point is the outer intersection of the guaranteed-radius disc about the
+    first sensor and the disc about the opposite far-sector endpoint.  This uses
+    the largest available transverse baseline while retaining guaranteed reception
+    for every source position in the first feasible sector.
+    """
+    sensor = _point(sensor, 'sensor')
+    if max_range > 2 * minimum_receive_radius:
+        raise ValueError('The first feasible sector cannot be covered at this radius')
+    centers, radius = second_detector_candidate_disks(
+        sensor, bearing_deg, error_deg, max_range, minimum_receive_radius)
+    half_range = max_range / 2
+    height = math.sqrt(max(0.0, radius ** 2 - half_range ** 2))
+    eps = math.radians(error_deg)
+    along = half_range * math.cos(eps) + height * math.sin(eps)
+    transverse = -half_range * math.sin(eps) + height * math.cos(eps)
+    forward = _unit_vector(bearing_deg)
+    left = np.array([-forward[1], forward[0]])
+    points = np.vstack((
+        sensor + along * forward + transverse * left,
+        sensor + along * forward - transverse * left,
+    ))
+    if not all(second_detector_candidate(point, centers, radius) for point in points):
+        raise ValueError('No symmetric robust recommendation for these parameters')
+    return points
+
+
+def intersection_angle_deg(sensor1, sensor2, source):
+    """Return the acute crossing angle between the two bearing lines."""
+    sensor1 = _point(sensor1, 'sensor1')
+    sensor2 = _point(sensor2, 'sensor2')
+    source = _point(source, 'source')
+    first = source - sensor1
+    second = source - sensor2
+    scale = np.linalg.norm(first) * np.linalg.norm(second)
+    if scale == 0:
+        raise ValueError('Source must differ from both detector positions')
+    cosine = abs(float(first @ second)) / scale
+    return math.degrees(math.acos(max(-1.0, min(1.0, cosine))))
+
+
+def clip_polygon_halfplanes(points, a, b, tolerance=1e-9):
+    """Clip a convex polygon by normalized or unnormalized ``A x <= b`` rows."""
+    polygon = _points(points).copy()
+    a = np.asarray(a, dtype=float)
+    b = np.asarray(b, dtype=float)
+    if a.ndim != 2 or a.shape[1] != 2 or b.shape != (len(a),):
+        raise ValueError('A(m,2) and b(m) are required')
+    if not np.isfinite(a).all() or not np.isfinite(b).all():
+        raise ValueError('Halfplanes must be finite')
+    for normal, bound in zip(a, b):
+        if np.linalg.norm(normal) == 0:
+            if bound < -tolerance:
+                return np.empty((0, 2))
+            continue
+        output = []
+        previous = polygon[-1]
+        previous_inside = normal @ previous <= bound + tolerance
+        for current in polygon:
+            current_inside = normal @ current <= bound + tolerance
+            if current_inside != previous_inside:
+                edge = current - previous
+                denominator = normal @ edge
+                if abs(denominator) > 1e-15:
+                    fraction = (bound - normal @ previous) / denominator
+                    output.append(previous + fraction * edge)
+            if current_inside:
+                output.append(current)
+            previous, previous_inside = current, current_inside
+        if not output:
+            return np.empty((0, 2))
+        polygon = np.asarray(output, dtype=float)
+    if len(polygon) > 1 and np.linalg.norm(polygon[0] - polygon[-1]) <= tolerance:
+        polygon = polygon[:-1]
+    return polygon

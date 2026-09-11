@@ -65,7 +65,7 @@ files:
   sha256: 531fca7701db35799c53435e3796360bbc27e17c6059e0c0ae024983aa99302b
 - source: code/python/cumcm_checkers/code_bundle.py
   destination: assets/code/python/cumcm_checkers/code_bundle.py
-  sha256: f4399b1fac79354af1c87238088f94520b1904c18b24289618e22850eb5e358e
+  sha256: 4aa11d28cf2b8929c68183a3ffa20a72a080e98a334f748559853ccb2bec4516
 - source: code/python/cumcm_checkers/documents.py
   destination: assets/code/python/cumcm_checkers/documents.py
   sha256: 13d8300d5f02122813bf1d58b9defa386c7955f9f22a84eaee1e6052a1db913e

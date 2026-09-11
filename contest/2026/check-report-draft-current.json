@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "checkers": [
+    {
+      "checker": "ai_usage",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "stage": "draft",
+        "ai_used": true,
+        "paper": "paper\\main.tex",
+        "manual_review_required": true
+      }
+    },
+    {
+      "checker": "citations",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "cited": [],
+        "registered": [
+          "USER-CUMCM-2026-B",
+          "USER-CUMCM-2026-B-ANNEX1",
+          "USER-CUMCM-2026-B-ANNEX2"
+        ]
+      }
+    },
+    {
+      "checker": "code_bundle",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "files_checked": 22
+      }
+    },
+    {
+      "checker": "package",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "target": "contest\\2026"
+      }
+    },
+    {
+      "checker": "paper",
+      "passed": true,
+      "issue_count": 0,
+      "metadata": {
+        "files_checked": 2,
+        "max_pages": 30,
+        "max_bytes": 20971520
+      }
+    }
+  ],
+  "issues": [],
+  "stage": "draft",
+  "scope": "仓库格式与工程预检；通过不等于数学正确或主办方验收。"
+}
