@@ -47,7 +47,7 @@ python -m cumcm_checkers.cli check $project --rules checkers/rules/cumcm-2026.ya
 
 ## 资料与证据
 
-[资料目录](sources/catalog.yaml) 为每个来源记录 `full-read`、`partial-read`、`metadata-only`、`blocked` 或 `dead-link` 状态。仓库严格区分官方事实、论文可观察特征和分析推断；[获奖特征综合](knowledge/award-patterns.md) 是复核框架，不是因果保证。
+[资料目录](sources/catalog.yaml) 为每个来源记录 `full-read`、`partial-read`、`metadata-only`、`blocked` 或 `dead-link` 状态。仓库严格区分官方事实、论文可观察特征和分析推断；[获奖特征综合](knowledge/award-patterns.md) 是复核框架，[官方展示论文结构与排版基准](knowledge/award-paper-structure-layout.md) 记录逐页观察和当前稿差距，两者都不是获奖因果保证。
 
 ## CUMCM Assistant Skill
 
