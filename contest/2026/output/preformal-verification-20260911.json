@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-11T20:07:34.6032095+08:00",
+  "generated_at": "2026-09-12T02:45:39.0361767+08:00",
   "stage": "preformal",
   "problem": "B",
   "formal_runs_started": 0,
@@ -65,11 +65,11 @@
   },
   "human_only_gates": [
     {"id": "team-math-review", "status": "pending", "requirement": "队员独立复算四问的关键证明并记录 AI 草稿的采纳、修改和核验"},
-    {"id": "github-private", "status": "failed-public", "requirement": "匿名访问仓库主页返回 HTTP 200；必须立即在 GitHub Settings > General > Danger Zone 将仓库改为 Private"},
+    {"id": "github-private", "status": "pass", "requirement": "2026-09-12 匿名访问仓库主页返回 HTTP 404，确认未登录用户不可访问"},
     {"id": "simulator-ready", "status": "pending-per-run", "requirement": "确认登录、联网、服务器时间、接口就绪和页面题号"},
     {"id": "attempt-count", "status": "pending-per-run", "requirement": "核对题号、轮次和剩余正式测试次数"},
     {"id": "team-authorization", "status": "pending-per-run", "requirement": "对准确的问题号和轮次给出明确正式测试授权"},
     {"id": "post-run-upload", "status": "pending-per-run", "requirement": "确认结果与行为日志上传完成后再离开模拟器"}
   ],
-  "release_decision": "blocked-until-public-github-repository-is-private-and-human-gates-complete"
+  "release_decision": "automated-gates-pass-human-gates-pending"
 }

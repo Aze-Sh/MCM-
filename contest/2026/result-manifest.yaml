@@ -112,5 +112,5 @@ results:
     parameters: {stage: preformal, formal_runs_started: 0}
     output: output/preformal-verification-20260911.json
     observed: {b_tests_passed: 38, repository_tests_passed: 87, draft_checker_passed: true, paper_pages: 9, formal_release_hashes_match: true}
-    status: verified-preformal-blocked-by-public-github-and-human-gates
+    status: verified-preformal-human-gates-pending
 # 每个正文数字/表/图登记生成脚本、输入、参数、随机种子和输出路径。
