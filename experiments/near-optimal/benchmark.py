@@ -24,8 +24,14 @@ class OfflineIO:
     def __init__(self, send):
         self._send = send;self.pending = None;self.deadline = math.inf
         self.serial = 0;self.events = [];self.counts = Counter()
+        self.wall_deadline = math.inf
+
+    def check_wall_time(self):
+        if time.monotonic() >= self.wall_deadline:
+            raise TimeoutError('Offline wall time limit exceeded')
 
     def call(self,path,point=None,channel=None):
+        self.check_wall_time()
         self.serial += 1
         request = dict(arena_id='default',robot_id='offline-v8',request_id=f'offline-{self.serial}')
         if point is not None:
@@ -37,6 +43,7 @@ class OfflineIO:
         return reply
 
     def record(self,event):
+        self.check_wall_time()
         self.counts[event['event']] += 1;self.events.append(event)
 
 
@@ -98,8 +105,14 @@ def run_case(case, algorithm='v8', planning_seconds=.20, extra_actions=640,
     if 'saved_v7_s' in case:
         result['saved_v7_s'] = case['saved_v7_s']
     def expired(*_): raise TimeoutError('Offline wall time limit exceeded')
-    previous = signal.signal(signal.SIGALRM,expired)
-    signal.alarm(wall_limit);started = time.perf_counter()
+    # Windows has no SIGALRM: check cooperatively at action/event boundaries.
+    # POSIX retains the hard alarm, including during long geometry operations.
+    has_alarm = hasattr(signal, 'SIGALRM')
+    previous = signal.signal(signal.SIGALRM,expired) if has_alarm else None
+    if has_alarm:
+        signal.alarm(wall_limit)
+    io.wall_deadline = time.monotonic() + wall_limit if wall_limit > 0 else math.inf
+    started = time.perf_counter()
     try:
         result['summary'] = solver.run()
         if algorithm=='v8':
@@ -118,7 +131,8 @@ def run_case(case, algorithm='v8', planning_seconds=.20, extra_actions=640,
         result['traceback'] = traceback.format_exc()
         result['summary'] = solver.summary()
     finally:
-        signal.alarm(0);signal.signal(signal.SIGALRM,previous)
+        if has_alarm:
+            signal.alarm(0);signal.signal(signal.SIGALRM,previous)
     result.update(wall_s=time.perf_counter()-started,cleared_count=len(world.cleared),
                   virtual_time_s=world.virtual_time,average_clear_time_s=world.virtual_time/len(case['sources']),
                   counts=world.counts,event_counts=dict(io.counts))
