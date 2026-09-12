@@ -113,4 +113,20 @@ results:
     output: output/preformal-verification-20260911.json
     observed: {b_tests_passed: 38, repository_tests_passed: 87, draft_checker_passed: true, paper_pages: 9, formal_release_hashes_match: true}
     status: verified-preformal-human-gates-pending
+  - id: paper-evidence-20260912
+    description: 问题二参数敏感性、问题三四策略消融和问题四定向比例压力分析
+    script: python/b_paper_analysis.py
+    inputs: [output/synthetic-stress-20260911.json, output/synthetic-stress-route-v2-20260911.json, output/synthetic-stress-stop16-v3-20260911.json]
+    parameters: {seed: 20261001, q3_cases: 50, q4_cases: 50, directional_bins: [less_than_0.5, 0.5_to_less_than_0.7, at_least_0.7]}
+    output: output/paper-evidence-20260912.json
+    figures: [figures/final/q2-parameter-sensitivity.pdf, figures/final/q34-strategy-ablation.pdf, figures/final/q4-directional-stress.pdf]
+    observed: {all_reports_passed: true, paired_inputs_verified: true, q3_v1_to_v2_time_reduction_pct: 12.70, q4_v1_to_v2_time_reduction_pct: 9.99, q3_source16_v2_to_v3_reduction_pct: 32.59, q4_source16_v2_to_v3_reduction_pct: 19.60, q4_directional_stress_all_cleared: true}
+    status: verified-synthetic-only
+  - id: paper-expansion-verification-20260912
+    description: 18页论文、AI详情和仓库草稿门最终复核
+    script: pytest + xelatex + cumcm_checkers.cli
+    inputs: [paper/main.tex, paper/sections/robustness.tex, paper/sections/evaluation.tex, AI工具使用详情.tex, tests/]
+    output: check-report-draft-current.json
+    observed: {b_tests_passed: 40, repository_tests_passed: 87, draft_checker_passed: true, draft_checker_count: 5, paper_pages: 18, ai_detail_pages: 5, visual_pages_checked: 23, formal_runs_started: 0}
+    status: verified-preformal-human-gates-pending
 # 每个正文数字/表/图登记生成脚本、输入、参数、随机种子和输出路径。

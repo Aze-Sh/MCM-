@@ -16,6 +16,9 @@ def test_all_paper_figures_export_png_pdf_and_svg(tmp_path):
         'q34-algorithm-flow',
         'q34-coverage-directional-proof',
         'q34-practice-summary',
+        'q2-parameter-sensitivity',
+        'q34-strategy-ablation',
+        'q4-directional-stress',
     }
     assert set(outputs) == expected_stems
     for stem, paths in outputs.items():
@@ -26,3 +29,5 @@ def test_all_paper_figures_export_png_pdf_and_svg(tmp_path):
             assert path.stat().st_size > 500
             assert path.stat().st_size < 2 * 1024 * 1024
         assert paths[1].read_bytes().startswith(b'%PDF')
+        svg_lines = paths[2].read_text(encoding='utf-8').splitlines()
+        assert not any(line.endswith((' ', '\t')) for line in svg_lines)

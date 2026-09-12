@@ -13,6 +13,7 @@ import numpy as np
 
 import b_geometry as geometry
 import b_strategy as strategy
+import b_paper_analysis
 import q1_q2_analysis
 
 
@@ -330,18 +331,163 @@ def _coverage_directional_figure():
     return fig
 
 
+def _parameter_sensitivity_figure(evidence):
+    error_rows = evidence['q2_sensitivity']['error_sweep_at_1500_m']
+    range_rows = evidence['q2_sensitivity']['range_sweep_at_1_deg']
+    operating = evidence['q2_sensitivity']['operating_point']
+    errors = np.array([row['error_deg'] for row in error_rows])
+    error_baselines = np.array([row['transverse_baseline_m'] for row in error_rows])
+    error_angles = np.array([row['minimum_crossing_angle_deg'] for row in error_rows])
+    ranges = np.array([row['max_range_m'] for row in range_rows]) / 1000.0
+    range_baselines = np.array([row['transverse_baseline_m'] for row in range_rows])
+    range_angles = np.array([row['minimum_crossing_angle_deg'] for row in range_rows])
+
+    fig, axes = plt.subplots(2, 2, figsize=(7.2, 4.4), sharex='col')
+    panels = (
+        (axes[0, 0], errors, error_baselines, 'Transverse baseline (m)'),
+        (axes[1, 0], errors, error_angles, 'Worst crossing angle (deg)'),
+        (axes[0, 1], ranges, range_baselines, 'Transverse baseline (m)'),
+        (axes[1, 1], ranges, range_angles, 'Worst crossing angle (deg)'),
+    )
+    for ax, x_values, y_values, ylabel in panels:
+        ax.plot(x_values, y_values, marker='o', markersize=3.2,
+                linewidth=1.25, color=COLORS['blue'])
+        ax.set_ylabel(ylabel)
+        ax.grid(alpha=0.22, linewidth=0.5)
+        ax.tick_params(which='both', top=True, right=True)
+    axes[1, 0].set_xlabel(r'Bearing half-error $\varepsilon$ (deg)')
+    axes[1, 1].set_xlabel(r'Range ratio $R/r_0$')
+    axes[0, 0].axvline(operating['error_deg'], color=COLORS['vermillion'],
+                       linestyle='--', linewidth=0.9)
+    axes[1, 0].axvline(operating['error_deg'], color=COLORS['vermillion'],
+                       linestyle='--', linewidth=0.9)
+    axes[0, 1].axvline(operating['max_range_m'] / 1000.0,
+                       color=COLORS['vermillion'], linestyle='--', linewidth=0.9)
+    axes[1, 1].axvline(operating['max_range_m'] / 1000.0,
+                       color=COLORS['vermillion'], linestyle='--', linewidth=0.9)
+    axes[0, 0].text(operating['error_deg'] + 0.08, max(error_baselines) - 12,
+                    'operating point', color=COLORS['vermillion'], fontsize=7)
+    axes[0, 1].text(operating['max_range_m'] / 1000.0 + 0.025,
+                    max(range_baselines) - 45, 'operating point',
+                    color=COLORS['vermillion'], fontsize=7)
+    fig.tight_layout(w_pad=1.4, h_pad=0.8)
+    return fig
+
+
+def _strategy_ablation_figure(evidence):
+    ablation = evidence['strategy_ablation']
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.25))
+    problems = ['Q3', 'Q4']
+    versions = ['v1', 'v2', 'v3']
+    x = np.arange(len(problems))
+    width = 0.22
+    for index, (version, color) in enumerate(zip(
+            versions, (COLORS['gray'], COLORS['blue'], COLORS['green']))):
+        values = [ablation[key]['versions'][version]['mean_virtual_time_s'] / 1000
+                  for key in ('q3', 'q4')]
+        axes[0].bar(x + (index - 1) * width, values, width,
+                    label=version, color=color)
+    axes[0].set_xticks(x, problems)
+    axes[0].set_ylabel('Mean virtual time (ks)')
+    axes[0].set_title('All 50 paired cases per problem')
+    axes[0].legend(ncol=3, loc='upper center')
+    for index, key in enumerate(('q3', 'q4')):
+        reduction = ablation[key]['v1_to_v2_virtual_time_reduction_percent']
+        v1_time = ablation[key]['versions']['v1']['mean_virtual_time_s'] / 1000
+        v2_time = ablation[key]['versions']['v2']['mean_virtual_time_s'] / 1000
+        axes[0].text(index, (v1_time + v2_time) / 2,
+                     f'v1→v2  −{reduction:.2f}%',
+                     ha='center', va='center', fontsize=7.2,
+                     color=COLORS['blue'],
+                     bbox={'facecolor': 'white', 'edgecolor': 'none',
+                           'alpha': 0.82, 'pad': 1.5})
+
+    x = np.arange(len(problems))
+    for index, (version, color) in enumerate((
+            ('v2', COLORS['blue']), ('v3', COLORS['green']))):
+        values = [ablation[key][f'source16_{version}_mean_virtual_time_s'] / 1000
+                  for key in ('q3', 'q4')]
+        axes[1].bar(x + (index - 0.5) * 0.3, values, 0.3,
+                    label=version, color=color)
+    axes[1].set_xticks(x, problems)
+    axes[1].set_ylabel('Mean virtual time (ks)')
+    axes[1].set_title('Four 16-source paired cases')
+    axes[1].legend(ncol=2, loc='upper center')
+    for index, key in enumerate(('q3', 'q4')):
+        reduction = ablation[key]['source16_v2_to_v3_reduction_percent']
+        top = ablation[key]['source16_v2_mean_virtual_time_s'] / 1000
+        axes[1].text(index, top + 0.35, f'v2→v3  −{reduction:.2f}%',
+                     ha='center', va='bottom', fontsize=7.2,
+                     color=COLORS['green'],
+                     bbox={'facecolor': 'white', 'edgecolor': 'none',
+                           'alpha': 0.82, 'pad': 1.5})
+    for ax in axes:
+        ax.set_ylim(0, 20)
+        ax.grid(axis='y', alpha=0.22, linewidth=0.5)
+        ax.tick_params(which='both', top=True, right=True)
+    fig.text(0.5, 0.005, 'Every displayed group retained a 100% clear fraction.',
+             ha='center', fontsize=7.2, color=COLORS['gray'])
+    fig.tight_layout(w_pad=1.8, rect=(0, 0.04, 1, 1))
+    return fig
+
+
+def _directional_stress_figure(evidence):
+    stress = evidence['q4_directional_stress']
+    rows = stress['runs']
+    fractions = np.array([row['directional_fraction'] for row in rows])
+    times = np.array([row['virtual_time_s'] for row in rows]) / 1000.0
+    source_counts = np.array([row['source_count'] for row in rows])
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.2),
+                             gridspec_kw={'width_ratios': [1.35, 0.85]})
+    scatter = axes[0].scatter(
+        100 * fractions, times, c=source_counts, cmap='viridis',
+        s=28, edgecolor='white', linewidth=0.35)
+    axes[0].axvline(50, color='#999999', linestyle='--', linewidth=0.8)
+    axes[0].axvline(70, color='#999999', linestyle='--', linewidth=0.8)
+    axes[0].set_xlabel('Directional-source fraction (%)')
+    axes[0].set_ylabel('Virtual time (ks)')
+    axes[0].grid(alpha=0.22, linewidth=0.5)
+    cbar = fig.colorbar(scatter, ax=axes[0], pad=0.02)
+    cbar.set_label('Source count')
+
+    bins = stress['bins']
+    labels = ['<50%', '50–70%', '≥70%']
+    means = [item['mean_virtual_time_s'] / 1000 for item in bins]
+    bars = axes[1].bar(labels, means,
+                       color=(COLORS['blue'], COLORS['orange'], COLORS['green']))
+    axes[1].set_ylabel('Mean virtual time (ks)')
+    axes[1].set_ylim(0, max(means) * 1.25)
+    axes[1].grid(axis='y', alpha=0.22, linewidth=0.5)
+    for bar, item in zip(bars, bins):
+        axes[1].text(bar.get_x() + bar.get_width() / 2,
+                     bar.get_height() + 0.25,
+                     f"n={item['count']}\nall clear",
+                     ha='center', va='bottom', fontsize=7.2)
+    axes[1].set_title('Directional-ratio strata')
+    for ax in axes:
+        ax.tick_params(which='both', top=True, right=True)
+    fig.tight_layout(w_pad=1.5)
+    return fig
+
+
 def build_all(output_dir=None):
     setup_paper_style()
     output_dir = Path(output_dir) if output_dir else PROJECT_ROOT / 'figures' / 'final'
     report_path = PROJECT_ROOT / 'output' / 'q1-q2-geometry-20260911.json'
     report = (json.loads(report_path.read_text(encoding='utf-8'))
               if report_path.exists() else q1_q2_analysis.build_report())
+    evidence_path = PROJECT_ROOT / 'output' / 'paper-evidence-20260912.json'
+    evidence = (json.loads(evidence_path.read_text(encoding='utf-8'))
+                if evidence_path.exists() else b_paper_analysis.build_report())
     figures = {
         'q1-region-counterexample': _q1_figure(report),
         'q2-second-detector-region': _q2_figure(report),
         'q34-algorithm-flow': _algorithm_flow_figure(),
         'q34-coverage-directional-proof': _coverage_directional_figure(),
         'q34-practice-summary': _practice_figure(_load_practice_results()),
+        'q2-parameter-sensitivity': _parameter_sensitivity_figure(evidence),
+        'q34-strategy-ablation': _strategy_ablation_figure(evidence),
+        'q4-directional-stress': _directional_stress_figure(evidence),
     }
     outputs = {}
     for name, figure in figures.items():

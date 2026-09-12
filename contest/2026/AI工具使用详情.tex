@@ -101,6 +101,16 @@
 {自动验证结果见兼容性记录；参赛队逐页签认尚未完成。}
 {\path{paper/sections/analysis.tex}、\path{paper/sections/model.tex}、\path{figures/final/q34-*}。}
 
+\record{记录 08：敏感性、消融和压力分析}
+{Codex，GPT-6。}
+{补足工作稿中的参数稳健性、策略贡献拆分、定向源压力覆盖和模型评价，使篇幅增长对应新增证据。}
+{用户询问 12 页是否偏少并要求继续比赛进度；同时要求只使用模拟测试，不启动正式测试。}
+{从三份固定种子合成报告派生问题二参数扫描、v1/v2/v3 同案例消融和问题四定向比例分层；先建立自动测试，再实现分析脚本和三张图；据可复算 JSON 增写正文、局限与改进。}
+{分析脚本、稳定 JSON、图表和论文新章节进入工作稿；正式结果仍为空。}
+{队员须核对参数扫描范围、配对样本口径、分层样本量和“相关不等于因果”的解释，并记录实际修改。}
+{自动测试、论文编译和逐页渲染由工具执行；参赛队对新增图表与文字的逐项签认尚未完成。}
+{\path{python/b_paper_analysis.py}、\path{output/paper-evidence-20260912.json}、\path{paper/sections/robustness.tex}、\path{paper/sections/evaluation.tex}。}
+
 \section*{最终人工复核（尚待完成）}
 
 \begin{itemize}

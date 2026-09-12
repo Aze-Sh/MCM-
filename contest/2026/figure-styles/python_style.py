@@ -48,6 +48,7 @@ def setup_paper_style() -> str:
             "pdf.fonttype": 42,
             "ps.fonttype": 42,
             "svg.fonttype": "none",
+            "svg.hashsalt": "cumcm-2026-b",
         }
     )
     return chosen
@@ -63,4 +64,7 @@ def export_figure(fig, output_stem: str | Path, *, include_svg: bool = True) -> 
     if include_svg:
         outputs.append(stem.with_suffix(".svg"))
         fig.savefig(outputs[-1], format="svg", bbox_inches="tight", pad_inches=0.03)
+        svg_text = outputs[-1].read_text(encoding="utf-8")
+        normalized = "\n".join(line.rstrip() for line in svg_text.splitlines()) + "\n"
+        outputs[-1].write_text(normalized, encoding="utf-8", newline="\n")
     return outputs
