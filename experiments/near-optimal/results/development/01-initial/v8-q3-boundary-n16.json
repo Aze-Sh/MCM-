@@ -1,0 +1,274 @@
+{
+  "name": "q3-boundary-n16",
+  "algorithm": "v8",
+  "problem": 3,
+  "seed": 16,
+  "source_count": 16,
+  "source_truth": [
+    {
+      "channel": 1,
+      "position": [
+        1799.989953667948,
+        0.40840477253450913
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 2,
+      "position": [
+        1662.8175871796086,
+        689.2036505026539
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 3,
+      "position": [
+        1272.4963165221375,
+        1273.0738880903934
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 4,
+      "position": [
+        688.4490168820047,
+        1663.1301666599045
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 5,
+      "position": [
+        -0.4084047725345334,
+        1799.989953667948
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 6,
+      "position": [
+        -689.2036505026539,
+        1662.8175871796086
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 7,
+      "position": [
+        -1273.0738880903937,
+        1272.4963165221375
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 8,
+      "position": [
+        -1663.1301666599043,
+        688.4490168820048
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 9,
+      "position": [
+        -1799.989953667948,
+        -0.40840477253442314
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 10,
+      "position": [
+        -1662.8175871796088,
+        -689.2036505026537
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 11,
+      "position": [
+        -1272.4963165221375,
+        -1273.0738880903934
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 12,
+      "position": [
+        -688.4490168820041,
+        -1663.1301666599047
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 13,
+      "position": [
+        0.40840477253431295,
+        -1799.989953667948
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 14,
+      "position": [
+        689.2036505026529,
+        -1662.817587179609
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 15,
+      "position": [
+        1273.0738880903934,
+        -1272.4963165221377
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 16,
+      "position": [
+        1663.1301666599038,
+        -688.4490168820057
+      ],
+      "radius": 1000.0,
+      "direction": null
+    }
+  ],
+  "noise": "fixed extreme +/-1 degree",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 90,
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "problem": 3,
+    "reason": "certified_all_cleared",
+    "completion_certified": true,
+    "exit_confirmed": true,
+    "virtual_time_s": 4321.966384,
+    "moving_distance_m": 14554.831918844284,
+    "average_clear_time_s": 270.122899,
+    "measures": 219,
+    "clear_attempts": 25,
+    "switches": 209,
+    "initial_fallback_upper_s": 41637.117,
+    "fallback_used": false,
+    "budget_guard_checks": 260,
+    "planner": {
+      "decisions": 64,
+      "rollout_candidates": 103,
+      "rollout_timeouts": 5,
+      "continuous_clears": 12,
+      "radio_events": 23
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "cleared_channels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "unknown_channels": [],
+    "pending_channels": [],
+    "absent_channels": [
+      17,
+      18,
+      19,
+      20
+    ],
+    "extra_actions_remaining": 480,
+    "completion_rank": 480,
+    "rank_receipts": 244,
+    "absence_certificates": [
+      {
+        "channel": 17,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 18,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 19,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 20,
+        "basis": "source_count_upper_bound"
+      }
+    ]
+  },
+  "replay": {
+    "verified": true,
+    "actions": 244,
+    "virtual_time_s": 4321.966384
+  },
+  "error": null,
+  "wall_s": 6.136674916371703,
+  "cleared_count": 16,
+  "virtual_time_s": 4321.966383768856,
+  "average_clear_time_s": 270.1228989855535,
+  "counts": {
+    "measure": 219,
+    "clear": 25,
+    "successful_clear": 16,
+    "switch": 209
+  },
+  "event_counts": {
+    "v8_started": 1,
+    "event_selected": 64,
+    "evidence_observation": 244,
+    "rank_receipt": 244,
+    "discovered": 16,
+    "cleared": 16,
+    "completion_checked": 1
+  },
+  "log_sha256": "f0fd5007063760f870accca8264f9164f9ecda58b341f5faf52f25e90968730d"
+}

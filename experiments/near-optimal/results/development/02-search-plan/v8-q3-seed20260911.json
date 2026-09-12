@@ -1,0 +1,280 @@
+{
+  "name": "q3-seed20260911",
+  "algorithm": "v8",
+  "problem": 3,
+  "seed": 20260911,
+  "source_count": 16,
+  "source_truth": [
+    {
+      "channel": 20,
+      "position": [
+        -381.315548233161,
+        371.1893396961813
+      ],
+      "radius": 1296.5314855249426,
+      "direction": null
+    },
+    {
+      "channel": 12,
+      "position": [
+        1378.176858927537,
+        -465.5059437239368
+      ],
+      "radius": 1242.8991112306617,
+      "direction": null
+    },
+    {
+      "channel": 1,
+      "position": [
+        -158.25510879391985,
+        -1408.4622202772846
+      ],
+      "radius": 1303.1442624244385,
+      "direction": null
+    },
+    {
+      "channel": 15,
+      "position": [
+        1188.0182156842088,
+        -258.21558609715544
+      ],
+      "radius": 1376.4923312895505,
+      "direction": null
+    },
+    {
+      "channel": 3,
+      "position": [
+        875.7721938916214,
+        1354.941891179722
+      ],
+      "radius": 1462.9671832454392,
+      "direction": null
+    },
+    {
+      "channel": 11,
+      "position": [
+        -580.9084509962444,
+        -332.61177082057407
+      ],
+      "radius": 1012.4548460538279,
+      "direction": null
+    },
+    {
+      "channel": 16,
+      "position": [
+        1089.8458249126322,
+        -984.1053144378179
+      ],
+      "radius": 1027.7566036651167,
+      "direction": null
+    },
+    {
+      "channel": 9,
+      "position": [
+        -802.4030137190521,
+        -346.47507344899896
+      ],
+      "radius": 1092.3763849455277,
+      "direction": null
+    },
+    {
+      "channel": 7,
+      "position": [
+        -897.4201449441199,
+        1296.6371533843278
+      ],
+      "radius": 1277.9896229969888,
+      "direction": null
+    },
+    {
+      "channel": 6,
+      "position": [
+        -1447.9989980137188,
+        189.681670651089
+      ],
+      "radius": 1278.8760798458916,
+      "direction": null
+    },
+    {
+      "channel": 8,
+      "position": [
+        -515.477281025088,
+        -1220.4951920553203
+      ],
+      "radius": 1329.821238905451,
+      "direction": null
+    },
+    {
+      "channel": 5,
+      "position": [
+        60.316998132323675,
+        -768.7329672112257
+      ],
+      "radius": 1340.4643085378414,
+      "direction": null
+    },
+    {
+      "channel": 14,
+      "position": [
+        -972.8743108158079,
+        -471.1680664029587
+      ],
+      "radius": 1346.190446076793,
+      "direction": null
+    },
+    {
+      "channel": 13,
+      "position": [
+        553.1262473696271,
+        -647.1139528838667
+      ],
+      "radius": 1398.444721563562,
+      "direction": null
+    },
+    {
+      "channel": 10,
+      "position": [
+        1250.1968102785045,
+        -825.4549719457477
+      ],
+      "radius": 1164.468673470814,
+      "direction": null
+    },
+    {
+      "channel": 19,
+      "position": [
+        -893.4493067121183,
+        12.374314478451748
+      ],
+      "radius": 1271.2447571167468,
+      "direction": null
+    }
+  ],
+  "noise": "repository fixed coordinate hash",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 90,
+  "saved_v7_s": 3403.516921692843,
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "problem": 3,
+    "reason": "certified_all_cleared",
+    "completion_certified": true,
+    "exit_confirmed": true,
+    "virtual_time_s": 4148.917306,
+    "moving_distance_m": 17694.58652885789,
+    "average_clear_time_s": 259.307331625,
+    "measures": 89,
+    "clear_attempts": 21,
+    "switches": 70,
+    "initial_fallback_upper_s": 41638.717,
+    "fallback_used": false,
+    "budget_guard_checks": 116,
+    "planner": {
+      "decisions": 63,
+      "rollout_candidates": 118,
+      "rollout_timeouts": 14,
+      "continuous_clears": 13,
+      "radio_events": 36
+    },
+    "search_plan": {
+      "proofs": 77,
+      "deletions": 0,
+      "replacements": 0
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [
+      1,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      20
+    ],
+    "cleared_channels": [
+      1,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      20
+    ],
+    "unknown_channels": [],
+    "pending_channels": [],
+    "absent_channels": [
+      2,
+      4,
+      17,
+      18
+    ],
+    "extra_actions_remaining": 621,
+    "completion_rank": 621,
+    "rank_receipts": 110,
+    "absence_certificates": [
+      {
+        "channel": 2,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 4,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 17,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 18,
+        "basis": "source_count_upper_bound"
+      }
+    ]
+  },
+  "replay": {
+    "verified": true,
+    "actions": 110,
+    "virtual_time_s": 4148.917306
+  },
+  "error": null,
+  "wall_s": 7.910620698239654,
+  "cleared_count": 16,
+  "virtual_time_s": 4148.917305771578,
+  "average_clear_time_s": 259.3073316107236,
+  "counts": {
+    "measure": 89,
+    "clear": 21,
+    "successful_clear": 16,
+    "switch": 70
+  },
+  "event_counts": {
+    "v8_started": 1,
+    "event_selected": 63,
+    "evidence_observation": 110,
+    "rank_receipt": 110,
+    "discovered": 16,
+    "cleared": 16,
+    "completion_checked": 1
+  },
+  "log_sha256": "58eaddd60161ff713e1b93e3036ff8eb9e08ad311e37a238116a2f5d7326f253"
+}

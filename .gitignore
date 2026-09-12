@@ -9,7 +9,7 @@ __pycache__/
 
 # Generated MATLAB files
 *.asv
-validation/output/
+toolkit/validation/output/
 
 # LaTeX and rendered-paper build products
 *.aux
@@ -29,3 +29,7 @@ validation/output/
 
 # Local Git worktrees
 .worktrees/
+
+# Local run output; curate reproducible evidence separately.
+solutions/adaptive/results/runs/
+solutions/baseline/output/simulate-*.json
