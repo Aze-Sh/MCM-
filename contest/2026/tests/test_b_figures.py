@@ -13,6 +13,8 @@ def test_all_paper_figures_export_png_pdf_and_svg(tmp_path):
     expected_stems = {
         'q1-region-counterexample',
         'q2-second-detector-region',
+        'q34-algorithm-flow',
+        'q34-coverage-directional-proof',
         'q34-practice-summary',
     }
     assert set(outputs) == expected_stems

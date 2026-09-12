@@ -24,9 +24,9 @@ D(\Omega)=\max_{1\le i<j\le m}\|v_i-v_j\|_2.
 \label{eq:diameter}
 \end{equation}
 直接枚举复杂度为 $O(m^2)$，规模较大时可在凸包上用旋转卡壳降至
-$O(m)$。空集、无界集与退化为线段或单点的情况分别返回状态，避免用人工大矩形产生虚假有限直径。
+$O(m)$\cite{orourke1998}。空集、无界集与退化为线段或单点的情况分别返回状态，避免用人工大矩形产生虚假有限直径。
 
-仅知道直径 $D$ 不能保证存在半径 $D/2$ 的覆盖圆。我们进一步枚举由一个、两个或三个顶点支撑的圆，选取覆盖全部顶点的最小半径，得到最小包围圆 $(c_*,r_*)$。只有当 $r_*\le20\unit{m}$ 时，移动到 $c_*$ 才能在清除半径内覆盖整个定位区域。
+仅知道直径 $D$ 不能保证存在半径 $D/2$ 的覆盖圆。我们进一步枚举由一个、两个或三个顶点支撑的圆，选取覆盖全部顶点的最小半径，得到最小包围圆 $(c_*,r_*)$；该问题也可用随机增量算法在线性期望时间内求解\cite{welzl1991}。只有当 $r_*\le20\unit{m}$ 时，移动到 $c_*$ 才能在清除半径内覆盖整个定位区域。
 
 \subsection{问题二：保证接收的第二检测点}
 
@@ -54,7 +54,7 @@ q=\sqrt{r_0^2-(R/2)^2}.
 \end{equation}
 取首测点圆与相反侧远端点圆的上、下交点，得到对称推荐式
 \begin{equation}
-S_2^\pm=S_1+a,u(\theta)\pm d,v(\theta),
+S_2^\pm=S_1+a\,u(\theta)\pm d\,v(\theta),
 \quad
 a=\frac R2\cos\varepsilon+q\sin\varepsilon,
 \quad
@@ -86,6 +86,24 @@ T=\frac L5+5N_m+N_s+5N_c+3N_f.
 \end{equation}
 当 61 个点全部完成时，覆盖证明给出无遗漏；当已清除 16 个源时，利用题面数量上界可立即结束。除此之外不以“已找到 10 个”作为停止条件。
 
+将覆盖点访问、单源定位和清除看作离散状态之间的规划过程\cite{lavalle2006}，可写成如下有限步骤：
+\begin{enumerate}
+  \item 从当前位置选择最近的未完成覆盖点，依次扫描尚未清除的频道；
+  \item 频道返回正示向时，建立“示向楔形与源圆域”的初始交集；返回无信号时只继续扫描，不删除定向源候选位置；
+  \item 在当前可行域上自适应选择下一检测点，用新的正示向相交更新；
+  \item 若 $r_*\le19.5\unit{m}$，移动到最小包围圆圆心清除；八次后仍不满足时，执行 $20\unit{m}$ 网格兜底；
+  \item 清除成功后继续最近未完成覆盖点；清除数达到 16 或全部 61 个覆盖点完成时退出并保存日志。
+\end{enumerate}
+
+图\ref{fig:algorithm-flow}展示外层覆盖与内层定位之间的控制关系。流程中的每个循环要么完成一个覆盖点，要么清除一个频道对应的源；覆盖点和频道数均有限，单源自适应测量又有八次上限，因此算法必在有限步内终止。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{q34-algorithm-flow.pdf}
+  \caption{问题三、四共用的覆盖搜索、定位与清除流程}
+  \label{fig:algorithm-flow}
+\end{figure}
+
 \subsection{问题四：混合源的发现完备性}
 
 定向源只在通过源点、法向由发射方向确定的闭半平面内辐射。对包含源
@@ -94,5 +112,14 @@ $G$。结合式\eqref{eq:grid-cover}，至少一个顶点既在辐射半平面�
 $1000\unit{m}$ 距离内，因此同一 600 米覆盖点集仍能保证发现定向源。
 
 定向源的 \texttt{no\_signal} 可能由距离过远或位于背面导致，不能据此删去位置区域；算法只使用正示向相交定位。清除成功只由清除点与源的距离决定，与定向方向无关，故发现后的定位、最小包围圆清除和有限网格兜底与问题三共用。
+
+图\ref{fig:coverage-proof}左侧给出源圆域与 61 个覆盖点，右侧放大一个边长 $600\unit{m}$ 的方格。任意辐射半平面至少包含一个着色顶点，该顶点到方格内源点的距离不超过对角线 $848.53\unit{m}$，因而同时满足方向和距离条件。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{q34-coverage-directional-proof.pdf}
+  \caption{600 米方格覆盖及定向源可接收见证点}
+  \label{fig:coverage-proof}
+\end{figure}
 
 通信层依次执行 \texttt{enter}、\texttt{measure/clear} 和 \texttt{exit}。网络状态不确定时，重试严格复用同一请求内容与请求编号。

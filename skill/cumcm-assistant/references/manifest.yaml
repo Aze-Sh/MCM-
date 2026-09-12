@@ -212,7 +212,7 @@ files:
   sha256: 601e291705a20fd0b30cfb75a52871b82215cb0fba4f8e5244d779a665c09587
 - source: knowledge/award-patterns.md
   destination: references/award-patterns/award-patterns.md
-  sha256: 4ee703517df64a3cb43aa7b5ce19a2cf2623befed18e70d5b41ca5e67f91073a
+  sha256: d680f682a016516ab4001575bb826c9f151d1f666aeab070086d40234b849fd4
 - source: knowledge/model-selection.md
   destination: references/award-patterns/model-selection.md
   sha256: 2dea5c98f743e1fb178fc973369ccc15b848ab702c00fd206278c5315d610e52
@@ -311,10 +311,10 @@ files:
   sha256: ba0163016858f373d0ee916f458ff8c8695c3560d58dbcc4deafd91fce9e2262
 - source: workflows/writing-and-figures.md
   destination: references/workflows/writing-and-figures.md
-  sha256: 7f17133e835698a4cc18d415de54e100c7357a5cd4cd0fa095cd6b14620150c1
+  sha256: 9ae0bbe91db0865acbe02c909a84f4412335baa44a5f0b54d3c25b72154b754f
 - source: validation/paper-template.md
   destination: references/writing/paper-template-validation.md
   sha256: 962bb389273fd9fa892561bf97490ca3c73ffa211d3b0f0cc26c4b53cbcb07f6
 - source: workflows/writing-and-figures.md
   destination: references/writing/writing-and-figures.md
-  sha256: 7f17133e835698a4cc18d415de54e100c7357a5cd4cd0fa095cd6b14620150c1
+  sha256: 9ae0bbe91db0865acbe02c909a84f4412335baa44a5f0b54d3c25b72154b754f

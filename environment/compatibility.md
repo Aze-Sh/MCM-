@@ -44,3 +44,18 @@ matlab -batch "addpath('code/matlab'); results=runtests('tests/matlab'); assertS
 | XeLaTeX 新编译 | 环境阻塞 | 当前受限环境的 MiKTeX 首次设置在注册表/用户设置阶段返回拒绝访问；论文和 AI 详情模板尝试日志分别见 `validation/preflight-2026-09-10/latex-attempt.log` 与 `validation/preflight-2026-09-10/ai-details-latex-attempt.log`。仓库已有的 2026-08-11 编译产物不能替代本次新编译。 |
 
 XeLaTeX 的剩余动作是在普通 Windows 用户环境完成一次 `templates\paper\main.tex` 和 `templates\ai-usage\AI工具使用详情.tex` 的双遍编译，再用 `pdftoppm` 查看页面；完成前不要把模板 PDF 当作可提交论文。
+
+## 2026-09-12 B 题工作稿复核
+
+| 组件 | 本次状态 | 证据 |
+|---|---|---|
+| 仓库专用 Python | 通过 | 重新建立 `.venv`：Python 3.11.15、pip 24.0；`pip check` 为 `No broken requirements found`。 |
+| B 题单元测试 | 通过 | `python -m pytest contest/2026/tests -q`：**38 passed**。 |
+| 仓库完整测试 | 通过 | 重建 `cumcm-assistant` 的 106 文件资源包后，`python -m pytest -q`：**87 passed**。 |
+| 本地合成模拟 | 通过 | 固定种子 20260912--20260921，问题三、四各 10 局，共 20 局全部清除；报告位于忽略目录 `tmp/synthetic-paper-regression-20260912.json`。 |
+| B 题论文 XeLaTeX | 通过 | 双遍编译为 A4、12 页，交叉引用已解析；12 页以 120 dpi 全部渲染并检查，无裁切、重叠或字体缺失。 |
+| AI 详情 XeLaTeX | 通过 | 7 条实际记录编译为 4 页工作稿并逐页渲染；最终人工复核项保持未勾选。 |
+| 2026 草稿检查器 | 通过 | `ai_usage`、`citations`、`code_bundle`、`package`、`paper` 五项均为 PASS，0 个问题。 |
+| MATLAB | 沿用上次通过证据 | 本轮只修改 Python 绘图与论文，不改 MATLAB；最近一次普通用户环境结果仍为 **13 Passed / 0 Failed / 0 Incomplete**。 |
+
+正式测试在本轮仍为 **0 次**，没有调用模拟器正式入口。

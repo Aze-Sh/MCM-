@@ -8,10 +8,11 @@ import sys
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.patches import Circle, Polygon
+from matplotlib.patches import Circle, FancyArrowPatch, FancyBboxPatch, Polygon
 import numpy as np
 
 import b_geometry as geometry
+import b_strategy as strategy
 import q1_q2_analysis
 
 
@@ -175,6 +176,160 @@ def _practice_figure(results):
     return fig
 
 
+def _algorithm_flow_figure():
+    fig, ax = plt.subplots(figsize=(7.2, 4.7))
+    ax.set_xlim(0, 12)
+    ax.set_ylim(0, 8)
+    ax.axis('off')
+
+    def box(x, y, width, height, text, color, *, decision=False):
+        if decision:
+            vertices = np.array([
+                [x + width / 2, y + height], [x + width, y + height / 2],
+                [x + width / 2, y], [x, y + height / 2],
+            ])
+            patch = Polygon(vertices, closed=True, facecolor=color,
+                            edgecolor='#333333', linewidth=1.1)
+        else:
+            patch = FancyBboxPatch(
+                (x, y), width, height,
+                boxstyle='round,pad=0.03,rounding_size=0.08',
+                facecolor=color, edgecolor='#333333', linewidth=1.1)
+        ax.add_patch(patch)
+        ax.text(x + width / 2, y + height / 2, text,
+                ha='center', va='center', fontsize=8.3)
+
+    def arrow(x1, y1, x2, y2, label=None, *, bend=0.0):
+        patch = FancyArrowPatch(
+            (x1, y1), (x2, y2), arrowstyle='-|>', mutation_scale=9,
+            linewidth=1.0, color='#444444',
+            connectionstyle=f'arc3,rad={bend}')
+        ax.add_patch(patch)
+        if label:
+            ax.text((x1 + x2) / 2, (y1 + y2) / 2 + 0.14,
+                    label, ha='center', va='bottom', fontsize=7.5)
+
+    box(0.5, 6.4, 1.9, 0.8, '最近未完成\n覆盖点', '#DCEAF7')
+    box(3.2, 6.4, 2.0, 0.8, '扫描未清除\n频道', '#DCEAF7')
+    box(6.2, 6.25, 2.0, 1.1, '正示向？', '#FCE9C3', decision=True)
+    box(9.1, 6.4, 2.4, 0.8, '初始化示向扇形\n与源域交集', '#E8DDF3')
+
+    box(9.1, 4.45, 2.4, 0.8, '自适应测量\n并相交可行域', '#E8DDF3')
+    box(6.2, 4.3, 2.0, 1.1, '$r_*\\leq19.5$ m？', '#FCE9C3', decision=True)
+    box(3.3, 4.45, 1.8, 0.8, '执行清除', '#CDEBDD')
+    box(0.5, 4.45, 2.1, 0.8, '有限 20 m 网格\n覆盖剩余区域', '#F9D9D5')
+
+    box(2.9, 2.05, 2.6, 1.1, '已清除 16 个\n或覆盖全完成？', '#FCE9C3', decision=True)
+    box(6.3, 2.2, 2.1, 0.8, '退出并保存\n日志与结果', '#CDEBDD')
+
+    arrow(2.4, 6.8, 3.2, 6.8)
+    arrow(5.2, 6.8, 6.2, 6.8)
+    arrow(8.2, 6.8, 9.1, 6.8, '是')
+    arrow(10.3, 6.4, 10.3, 5.25)
+    arrow(9.1, 4.85, 8.2, 4.85)
+    arrow(6.2, 4.85, 5.1, 4.85, '是')
+    arrow(2.6, 4.85, 3.3, 4.85)
+    arrow(4.2, 4.45, 4.2, 3.15)
+    arrow(5.5, 2.6, 6.3, 2.6, '是')
+
+    # The finite fallback sits on its own lower rail so its label and path do
+    # not cross the direct successful-localisation branch.
+    ax.plot([7.2, 7.2, 1.55], [4.3, 3.72, 3.72], color='#444444', linewidth=1.0)
+    arrow(1.55, 3.72, 1.55, 4.45)
+    ax.text(4.4, 3.82, '否：8 次后兜底', ha='center', va='bottom', fontsize=7.5)
+
+    # A negative directional response only advances the channel scan.  Route
+    # this branch through the clear gap below the top row, away from the title.
+    ax.plot([7.2, 7.2, 4.2], [6.25, 5.82, 5.82], color='#444444', linewidth=1.0)
+    arrow(4.2, 5.82, 4.2, 6.4, '否')
+
+    # An unfinished coverage pass returns along the outside of the diagram.
+    ax.plot([4.2, 4.2, 0.18, 0.18], [2.05, 1.15, 1.15, 6.8],
+            color='#444444', linewidth=1.0)
+    arrow(0.18, 6.8, 0.5, 6.8, '否')
+
+    ax.text(6.0, 7.75, '覆盖搜索、定位与清除的有限流程',
+            ha='center', va='top', fontsize=10, fontweight='bold')
+    ax.text(6.0, 0.35,
+            '只用正示向缩小可行域；无信号不用于排除定向源位置',
+            ha='center', va='center', fontsize=8, color=COLORS['gray'])
+    return fig
+
+
+def _coverage_directional_figure():
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.45),
+                             gridspec_kw={'width_ratios': [1.05, 0.95]})
+
+    ax = axes[0]
+    points = np.asarray(strategy.coverage_points(600.0))
+    ax.add_patch(Circle((0, 0), 1800, facecolor='#F7F7F7',
+                        edgecolor='#333333', linewidth=1.2))
+    ax.scatter(points[:, 0], points[:, 1], s=11, facecolor='white',
+               edgecolor=COLORS['blue'], linewidth=0.7, zorder=3)
+    source = np.array([180.0, 240.0])
+    ax.scatter(*source, marker='*', s=85, color=COLORS['vermillion'], zorder=5)
+    ax.add_patch(Circle(source, 1000, fill=False, edgecolor=COLORS['green'],
+                        linestyle='--', linewidth=1.1))
+    cell = np.array([[0, 0], [600, 0], [600, 600], [0, 600]])
+    ax.add_patch(Polygon(cell, closed=True, fill=False, edgecolor=COLORS['orange'],
+                         linewidth=2.0, zorder=4))
+    ax.text(source[0] + 75, source[1] + 55, '$G$', color=COLORS['vermillion'])
+    ax.text(-1750, 1560, '61 coverage points', fontsize=8, color=COLORS['blue'])
+    ax.text(-1750, 1370, '$R=1800$ m', fontsize=8)
+    ax.set_xlabel('$x$ (m)')
+    ax.set_ylabel('$y$ (m)')
+    ax.set_aspect('equal')
+    ax.set_xlim(-2050, 2050)
+    ax.set_ylim(-2050, 2050)
+    ax.tick_params(which='both', top=True, right=True)
+
+    ax = axes[1]
+    square = np.array([[0, 0], [600, 0], [600, 600], [0, 600]])
+    g = np.array([230.0, 270.0])
+    direction = np.array([0.82, 0.57])
+    normal = np.array([-direction[1], direction[0]])
+    span = 1200.0
+    boundary_a = g - span * normal
+    boundary_b = g + span * normal
+    half_plane = np.array([
+        boundary_a, boundary_b,
+        boundary_b + span * direction,
+        boundary_a + span * direction,
+    ])
+    ax.add_patch(Polygon(half_plane, closed=True, facecolor='#CDEBDD',
+                         edgecolor='none', alpha=0.8))
+    ax.add_patch(Polygon(square, closed=True, fill=False, edgecolor='#222222',
+                         linewidth=1.8))
+    in_half_plane = ((square - g) @ direction) >= -1e-9
+    for vertex in square:
+        ax.plot([g[0], vertex[0]], [g[1], vertex[1]], color='#AAAAAA',
+                linestyle='--', linewidth=0.8)
+    ax.scatter(square[~in_half_plane, 0], square[~in_half_plane, 1], s=28,
+               facecolor='white', edgecolor='#333333', zorder=4)
+    ax.scatter(square[in_half_plane, 0], square[in_half_plane, 1], s=34,
+               facecolor=COLORS['green'], edgecolor='#222222', zorder=5)
+    witness = square[in_half_plane][np.argmin(
+        np.linalg.norm(square[in_half_plane] - g, axis=1))]
+    ax.plot([g[0], witness[0]], [g[1], witness[1]], color=COLORS['vermillion'],
+            linewidth=2.0, zorder=4)
+    ax.scatter(*g, marker='*', s=90, color=COLORS['vermillion'], zorder=6)
+    ax.add_patch(FancyArrowPatch(
+        g, g + 250 * direction, arrowstyle='-|>', mutation_scale=10,
+        color=COLORS['green'], linewidth=1.4))
+    ax.plot([boundary_a[0], boundary_b[0]], [boundary_a[1], boundary_b[1]],
+            color=COLORS['green'], linewidth=1.2)
+    ax.text(g[0] - 42, g[1] - 55, '$G$')
+    ax.text(430, 430, 'radiating half-plane', fontsize=8, color=COLORS['green'])
+    ax.text(25, 635, r'$h=600$ m,  $d_{max}=600\sqrt{2}=848.53$ m', fontsize=8)
+    ax.set_aspect('equal')
+    ax.set_xlim(-90, 760)
+    ax.set_ylim(-70, 760)
+    ax.axis('off')
+
+    fig.tight_layout(w_pad=1.0)
+    return fig
+
+
 def build_all(output_dir=None):
     setup_paper_style()
     output_dir = Path(output_dir) if output_dir else PROJECT_ROOT / 'figures' / 'final'
@@ -184,6 +339,8 @@ def build_all(output_dir=None):
     figures = {
         'q1-region-counterexample': _q1_figure(report),
         'q2-second-detector-region': _q2_figure(report),
+        'q34-algorithm-flow': _algorithm_flow_figure(),
+        'q34-coverage-directional-proof': _coverage_directional_figure(),
         'q34-practice-summary': _practice_figure(_load_practice_results()),
     }
     outputs = {}
