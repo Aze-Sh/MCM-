@@ -45,11 +45,13 @@ python solve_questions.py --problem 2 输入.json --output 结果.json
 {"observations":[{"x":0,"y":0,"bearing_deg":45},{"x":100,"y":0,"bearing_deg":135}]}
 ```
 
-第二题输入包含 `first`、`bearing_deg`，以及给定的 `movement_m` 或希望达到的 `target_diameter_m`；可选 `current` 和 `query`。例如：
+第二题输入包含 `first`、`bearing_deg`，以及必填的 `movement_m`（相对于首次测点的移动距离，要求大于5米且小于1000米）；可选 `current` 和 `query`。例如：
 
 ```json
 {"first":[0,0],"bearing_deg":30,"movement_m":900}
 ```
+
+程序在给定移动距离下优化第二测点的角度，并输出全局坐标、解析直径上界和实际计算间隙。若给定当前位置`current`，会选择两侧对称点中离当前位置较近的一个。
 
 这两个入口均不连接模拟器。第二题报告的是解析直径界下的计算结果及剩余间隙，不是物理问题精确最优的证明。
 

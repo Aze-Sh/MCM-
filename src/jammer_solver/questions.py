@@ -227,94 +227,6 @@ def jdyh(rho, tol=0.02, jdmax=1024):
     )
 
 
-def zxdj(target=163.0, jdmax=6000, tol=0.1):
-    seed = jdyh(900.0)
-    if seed["diameter_upper_m"] > target:
-        seed = jdyh(999.0)
-    if seed["diameter_upper_m"] > target:
-        raise ValueError(
-            "No initial feasible design for this target; choose a larger diameter target"
-        )
-    best = (
-        seed["movement_m"],
-        math.atan2(seed["b_m"], seed["a_m"]),
-        seed["diameter_upper_m"],
-    )
-    heap = []
-    serial = 0
-    nodes = 0
-
-    def add(r0, r1, t0, t1):
-        nonlocal serial
-        r1 = min(r1, 2000 * math.cos(t0 + eps))
-        t1 = min(t1, math.acos(r0 / 2000) - eps)
-        if r0 >= r1 or t0 >= t1 or r0 >= best[0]:
-            return
-        dists = []
-        for r in (5.0, 1500.0):
-            rho = max(r0, min(r1, r * math.cos(t0 + eps)))
-            dists.append(
-                math.sqrt(
-                    max(0.0, r * r + rho * rho - 2 * r * rho * math.cos(t0 + eps))
-                )
-            )
-        lb = djsj(max(dists), r1 * math.sin(t1 - eps)) - 1e-06
-        if lb > target:
-            return
-        serial += 1
-        heapq.heappush(heap, (r0, serial, (r0, r1, t0, t1)))
-
-    add(5.0001, best[0], eps + 1e-08, math.pi / 2 - eps - 1e-08)
-    stoplb = None
-    while heap and nodes < jdmax:
-        lower, _, (r0, r1, t0, t1) = heapq.heappop(heap)
-        if best[0] - lower <= tol:
-            stoplb = lower
-            break
-        if lower >= best[0]:
-            continue
-        nodes += 1
-        rm = (r0 + r1) / 2
-        tm = (t0 + t1) / 2
-        for rho, theta in ((rm, tm), (r1, tm), (rm, min(t1, max(t0, best[1])))):
-            if rho < best[0] and rho < 1000 and (theta <= math.acos(rho / 2000) - eps):
-                bound = zjsj(rho, theta)[0]
-                if bound <= target - 1e-05:
-                    best = (rho, theta, bound)
-        if (r1 - r0) / 1000 > (t1 - t0) / (math.pi / 2):
-            add(r0, rm, t0, t1)
-            add(rm, r1, t0, t1)
-        else:
-            add(r0, r1, t0, tm)
-            add(r0, r1, tm, t1)
-    lower = min(
-        [best[0]] + ([stoplb] if stoplb is not None else []) + [x[0] for x in heap]
-    )
-    rho, theta, bound = best
-    a, b = (rho * math.cos(theta), rho * math.sin(theta))
-    return dict(
-        movement_m=rho,
-        a_m=a,
-        b_m=b,
-        diameter_upper_m=bound,
-        target_diameter_m=target,
-        movement_lower_m=lower,
-        movement_gap_m=rho - lower,
-        nodes=nodes,
-        reception_margin_m=1000
-        - max(
-            rho,
-            max(
-                (
-                    math.dist((a, b), (1000 * math.cos(eps), s * 1000 * math.sin(eps)))
-                    for s in (-1, 1)
-                )
-            ),
-        ),
-        scope="global_movement_bound_for_the_analytic_strip_criterion_not_exact_physical_diameter",
-    )
-
-
 def main():
     parser = argparse.ArgumentParser(description="前两问的离线几何计算；不连接任何接口")
     parser.add_argument(
@@ -327,11 +239,11 @@ def main():
     if args.problem == 1:
         result = jhqy(data["observations"], data.get("epsilon_deg", 1.005))
     else:
-        design = (
-            jdyh(data["movement_m"])
-            if "movement_m" in data
-            else zxdj(data.get("target_diameter_m", 163.0))
-        )
+        if "movement_m" not in data:
+            parser.error("第二问需要 movement_m，表示从首次测点出发的移动距离（米）")
+        design = jdyh(float(data["movement_m"]))
+        if not math.isfinite(design["diameter_upper_m"]):
+            parser.error("该移动预算下未得到有限的解析直径上界，请增大 movement_m")
         theta = math.radians(data["bearing_deg"])
         u = (math.cos(theta), math.sin(theta))
         v = (-u[1], u[0])
@@ -358,9 +270,7 @@ def main():
             ),
             guaranteed_diameter_bound_m=design["diameter_upper_m"],
             optimization=design,
-            selection_status="Minimum movement for the requested analytic diameter bound; remaining radius gap is reported"
-            if "movement_m" not in data
-            else "Analytic diameter bound optimized over the full feasible angle interval at the chosen movement radius",
+            selection_status="Analytic diameter bound optimized over the full feasible angle interval at the chosen movement radius",
             rule="movement_m is measured from first; nearest symmetric side if current supplied",
             scope="全向信号；首次方向有效；半径1000至1500米",
         )

@@ -557,64 +557,6 @@
       "mean_move_fraction": 0.7400505505574889
     }
   },
-  "q2_minimum": {
-    "movement_m": 886.3433853149415,
-    "a_m": 651.5212558171261,
-    "b_m": 600.9364774333691,
-    "diameter_upper_m": 162.9997924174132,
-    "target_diameter_m": 163.0,
-    "movement_lower_m": 886.2614456268311,
-    "movement_gap_m": 0.08193968811042396,
-    "nodes": 3065,
-    "reception_margin_m": 113.65661468505846,
-    "scope": "global_movement_bound_for_the_analytic_strip_criterion_not_exact_physical_diameter"
-  },
-  "q2_frontier": [
-    {
-      "movement_m": 600.0,
-      "a_m": 315.49697346065943,
-      "b_m": 510.35444520172837,
-      "diameter_upper_m": 271.6727008385158,
-      "angle_family_lower_m": 271.6529312656073,
-      "optimization_gap_m": 0.01976957290850123,
-      "reception_margin_m": 135.70490782678837,
-      "nodes": 910,
-      "scope": "entire_feasible_angle_interval_at_fixed_movement_radius"
-    },
-    {
-      "movement_m": 800.0,
-      "a_m": 539.4644276493663,
-      "b_m": 590.7437103354903,
-      "diameter_upper_m": 187.6977532390461,
-      "angle_family_lower_m": 187.67751777829722,
-      "optimization_gap_m": 0.02023546074889282,
-      "reception_margin_m": 200.0,
-      "nodes": 1024,
-      "scope": "entire_feasible_angle_interval_at_fixed_movement_radius"
-    },
-    {
-      "movement_m": 900.0,
-      "a_m": 664.6325787716436,
-      "b_m": 606.8472091353432,
-      "diameter_upper_m": 159.49871795417005,
-      "angle_family_lower_m": 159.4762897306041,
-      "optimization_gap_m": 0.022428223565952976,
-      "reception_margin_m": 100.0,
-      "nodes": 1024,
-      "scope": "entire_feasible_angle_interval_at_fixed_movement_radius"
-    },
-    {
-      "movement_m": 999.0,
-      "a_m": 763.8888073745751,
-      "b_m": 643.7972429017145,
-      "diameter_upper_m": 137.23703808274485,
-      "angle_family_lower_m": 137.21714003302407,
-      "optimization_gap_m": 0.01989804972077991,
-      "reception_margin_m": 1.0,
-      "nodes": 186,
-      "scope": "entire_feasible_angle_interval_at_fixed_movement_radius"
-    }
-  ],
   "practice": [
     {
       "file": "practice-p3-600678826991437102-4GC8-BUAN-JTNR-732X.jlog",

@@ -1,6 +1,5 @@
 from pathlib import Path
 import json
-import math
 import sys
 import os
 
@@ -16,7 +15,7 @@ from matplotlib.patches import Circle, Polygon, FancyBboxPatch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from jammer_solver import solver as sf, exact_geometry as g
-from jammer_solver.questions import jdyh, jhqy
+from jammer_solver.questions import jhqy
 
 PAPER = ROOT / "paper"
 DATA = json.loads((PAPER / "results.json").read_text(encoding="utf-8"))
@@ -140,33 +139,6 @@ ax.plot([], [], "-.", color=BLUE, label=r"半径 $d/\sqrt{3}$")
 ax.legend(loc="lower center", fontsize=8)
 save(fig, "q1_geometry")
 
-fig, axs = plt.subplots(1, 2, figsize=(6.3, 2.85), layout="constrained")
-a = np.linspace(0, 1100, 500)
-b = np.linspace(-1100, 1100, 600)
-A, B = np.meshgrid(a, b)
-eps = math.radians(1.005)
-mask = A * A + B * B <= 1000**2
-for s in [-1, 1]:
-    mask &= (A - 1000 * math.cos(eps)) ** 2 + (
-        B - s * 1000 * math.sin(eps)
-    ) ** 2 <= 1000**2
-axs[0].contourf(A, B, mask.astype(float), levels=[0.5, 1.5], colors=["#DCECF5"])
-axs[0].contour(A, B, mask.astype(float), levels=[0.5], colors=[BLUE], linewidths=1.5)
-p = DATA["q2_minimum"]
-axs[0].plot(p["a_m"], p["b_m"], "*", ms=10, color=RED)
-axs[0].plot(500, 840, "s", ms=4, color=GREEN)
-axs[0].set_title("(a) 保证接收的候选区域")
-equal(axs[0], "前向位移 a / m", "侧向位移 b / m")
-rs = np.linspace(500, 999, 50)
-vals = [jdyh(float(r))["diameter_upper_m"] for r in rs]
-axs[1].plot(rs, vals, color=BLUE)
-axs[1].axhline(163, ls="--", color=RED, lw=1.5)
-axs[1].plot(p["movement_m"], p["diameter_upper_m"], "o", color=RED)
-axs[1].set_xlabel("移动预算 \u03c1 / m")
-axs[1].set_ylabel("解析直径上界 / m")
-axs[1].set_title("(b) 移动与定位精度的折中")
-axs[1].grid(alpha=0.18)
-save(fig, "q2_design")
 
 fig, axs = plt.subplots(1, 2, figsize=(6.3, 3.1), layout="constrained")
 for ax, problem in zip(axs, [3, 4]):
@@ -374,4 +346,4 @@ for ax, p in zip(axs, [3, 4]):
     ax.set_title(f"问题{p}：五次不同案例")
     ax.grid(alpha=0.18)
 save(fig, "practice")
-print("Generated 9 figures in PDF format")
+print("Generated 8 figures in PDF format")
