@@ -5,16 +5,16 @@ import tempfile
 import unittest
 from unittest.mock import Mock, patch
 from urllib.error import URLError
-from jammer_solver.questions import solve_wedges
-from jammer_solver.protocol import xin_jiekou
-from jammer_solver.questions import second_point_region
-from jammer_solver.solver import nearest_clear_point
-from jammer_solver.solver import improve_clear_route, two_leg
+from jammer_solver.questions import jhqy
+from jammer_solver.protocol import xjjk
+from jammer_solver.questions import ecdqy
+from jammer_solver.solver import zjqcd
+from jammer_solver.solver import qclxyh
 
 
 class HelperTests(unittest.TestCase):
     def test_second_region_strict_expansion(self):
-        result = second_point_region((0, 0), 0, (500, 840))
+        result = ecdqy((0, 0), 0, (500, 840))
         self.assertTrue(result["query_in_region"])
         e = math.radians(1.005)
         self.assertGreater(
@@ -23,27 +23,33 @@ class HelperTests(unittest.TestCase):
 
     def test_route_feasible_and_nonincreasing(self):
         p, t, start = (0, 3), (3, 0), (0, 1)
-        point, diag = improve_clear_route([(0, 0)], 1, start, p, t)
+        point, diag = qclxyh([(0, 0)], 1, start, p, t)
         self.assertLessEqual(math.hypot(*point), 1 + 1e-10)
-        self.assertLess(two_leg(point, p, t), two_leg(start, p, t) - 0.1)
+        self.assertLess(
+            (
+                math.hypot(p[0] - point[0], p[1] - point[1])
+                + math.hypot(point[0] - t[0], point[1] - t[1])
+            ),
+            (
+                math.hypot(p[0] - start[0], p[1] - start[1])
+                + math.hypot(start[0] - t[0], start[1] - t[1])
+            )
+            - 0.1,
+        )
         self.assertLessEqual(diag["iterations"], 24)
 
     def test_clear_projection_two_active_circles(self):
         polygon = [(-10, 0), (10, 0)]
         radius = 19.8 - 1e-6
-        point = nearest_clear_point(polygon, (0, 50))
+        point = zjqcd(polygon, (0, 50))
         self.assertAlmostEqual(point[0], 0, places=9)
         self.assertAlmostEqual(point[1], math.sqrt(radius * radius - 100), places=8)
-        self.assertIsNone(nearest_clear_point([(-21, 0), (21, 0)], (0, 50)))
-        self.assertEqual(nearest_clear_point(polygon, (0, 0)), (0, 0))
+        self.assertIsNone(zjqcd([(-21, 0), (21, 0)], (0, 50)))
+        self.assertEqual(zjqcd(polygon, (0, 0)), (0, 0))
 
     def test_wedge_unbounded_and_inconsistent(self):
-        self.assertEqual(
-            solve_wedges([dict(x=0, y=0, bearing_deg=0)])["state"], "UNBOUNDED"
-        )
-        result = solve_wedges(
-            [dict(x=0, y=0, bearing_deg=0), dict(x=-1, y=0, bearing_deg=180)]
-        )
+        self.assertEqual(jhqy([dict(x=0, y=0, bearing_deg=0)])["state"], "UNBOUNDED")
+        result = jhqy([dict(x=0, y=0, bearing_deg=0), dict(x=-1, y=0, bearing_deg=180)])
         self.assertEqual(result["state"], "EMPTY_OR_NUMERICALLY_UNRESOLVED")
 
     def test_triangle_diameter_circle(self):
@@ -59,7 +65,7 @@ class HelperTests(unittest.TestCase):
                     bearing_deg=math.degrees(math.atan2(dy, dx)) + 1,
                 )
             )
-        result = solve_wedges(observations, 1)
+        result = jhqy(observations, 1)
         self.assertEqual(result["state"], "POLYGON")
         self.assertAlmostEqual(result["diameter"], 1, places=8)
         self.assertFalse(result["diameter_circle_covers"])
@@ -77,8 +83,8 @@ class HelperTests(unittest.TestCase):
             opener = Mock()
             opener.open.return_value = response
             with path.open("x", encoding="utf-8") as log:
-                with patch("jammer_solver.protocol.build_opener", return_value=opener):
-                    transport = xin_jiekou("test-robot", log)
+                with patch("jammer_solver.protocol.ljq", return_value=opener):
+                    transport = xjjk("test-robot", log)
                 reply = transport["call"]("/measure", (12.5, -4), 7)
                 self.assertEqual(reply["measure_result"], "no_signal")
                 self.assertIsNone(transport["pending"])
@@ -98,8 +104,8 @@ class HelperTests(unittest.TestCase):
             opener = Mock()
             opener.open.side_effect = URLError("fixed offline fixture")
             with path.open("x", encoding="utf-8") as log:
-                with patch("jammer_solver.protocol.build_opener", return_value=opener):
-                    transport = xin_jiekou("test-robot", log)
+                with patch("jammer_solver.protocol.ljq", return_value=opener):
+                    transport = xjjk("test-robot", log)
                 with self.assertRaises(URLError):
                     transport["call"]("/measure", (0, 0), 1)
                 self.assertIsNotNone(transport["pending"])

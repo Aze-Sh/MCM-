@@ -195,12 +195,12 @@ def run_case(
     io = offline_io(world.transport)
     if algorithm != "v8":
         raise ValueError("Only the selected v8 fast policy is included")
-    solver = v8.xin_zhuangtai(
+    solver = v8.xjzt(
         io,
         case["problem"],
-        planning_seconds=planning_seconds,
-        extra_actions=extra_actions,
-        fallback_only=fallback_only,
+        ghsj=planning_seconds,
+        dzys=extra_actions,
+        byonly=fallback_only,
     )
     result = dict(
         name=case["name"],
@@ -220,7 +220,7 @@ def run_case(
     )
     if algorithm == "v8":
         policy_root = Path(v8.__file__).resolve().parent
-        result["policy_revision"] = v8.REVISION
+        result["policy_revision"] = v8.banben
         result["policy_source_sha256"] = {
             path.name: hashlib.sha256(path.read_bytes()).hexdigest()
             for path in sorted(policy_root.glob("*.py"))

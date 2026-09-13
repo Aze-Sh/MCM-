@@ -7,7 +7,7 @@ import itertools
 import unittest
 from jammer_solver import exact_geometry as g
 from verification import build_graph, solve, calibrate
-from jammer_solver.solver import search_points
+from jammer_solver.solver import sscd
 
 
 def negative():
@@ -17,10 +17,9 @@ def negative():
 class GeometryTests(unittest.TestCase):
     def test_rational_distance_rounding(self):
         p, q = (g.point((0, 0)), g.point((1, 1)))
-        self.assertEqual(g.floor_distance(p, q), F("1.414"))
-        self.assertEqual(g.ceil_distance(p, q), F("1.415"))
-        self.assertLessEqual(g.floor_distance(p, q) ** 2, 2)
-        self.assertGreaterEqual(g.ceil_distance(p, q) ** 2, 2)
+        self.assertEqual(g.jlsx(p, q), F("1.415"))
+        self.assertGreaterEqual(g.jlsx(p, q) ** 2, 2)
+        self.assertEqual(g.jlsx(g.point((0, 0)), g.point((3, 4))), F(5))
 
     def test_trigonometric_enclosures_and_wrap(self):
         for b in (0, 1.005, 44.9, 45, 90, 179.99, 270, 359.99, -721.005):
@@ -34,33 +33,33 @@ class GeometryTests(unittest.TestCase):
 
     def test_full_grid_covers_all_directions(self):
         for p in (3, 4):
-            self.assertTrue(g.coverage_certificate(tuple(g.search_grid()), (), p)[0])
-        self.assertEqual(len(g.search_grid()), 49)
+            self.assertTrue(g.fgzm(tuple(g.sswd()), (), p)[0])
+        self.assertEqual(len(g.sswd()), 49)
 
     def test_seven_omni_stops_do_not_certify_directional_absence(self):
-        points = tuple((g.point(q) for q in search_points(3)))
-        self.assertTrue(g.coverage_certificate(points, (), 3)[0])
-        self.assertFalse(g.coverage_certificate(points, (), 4)[0])
+        points = tuple((g.point(q) for q in sscd(3)))
+        self.assertTrue(g.fgzm(points, (), 3)[0])
+        self.assertFalse(g.fgzm(points, (), 4)[0])
         self.assertTrue(all((q[0] < 1800 for q in points)))
 
     def test_budget_exhaustion_is_unknown(self):
-        self.assertFalse(g.coverage_certificate(tuple(g.search_grid()), (), 4, 1)[0])
+        self.assertFalse(g.fgzm(tuple(g.sswd()), (), 4, 1)[0])
 
     def test_current_directional_design_has_continuous_certificate(self):
-        points = tuple(sorted(g.point(q) for q in v8.search_points(4)))
+        points = tuple(sorted(g.point(q) for q in v8.sscd(4)))
         self.assertEqual(len(points), 21)
-        self.assertTrue(g.coverage_certificate(points, (), 4, 20000, 14)[0])
+        self.assertTrue(g.fgzm(points, (), 4, 20000, 14)[0])
 
     def test_round_domain_retains_boundary_and_removes_square_corner(self):
-        domain = g.source_domain()
+        domain = g.yfw()
         for angle in range(0, 360, 5):
             r = 1800 - 1e-9
             p = g.point(
                 (r * math.cos(math.radians(angle)), r * math.sin(math.radians(angle)))
             )
             self.assertTrue(g.contains(domain, p))
-        old = v8.xin_yuan((1000, 1000), 45, geometry_version=1)
-        current = v8.xin_yuan((1000, 1000), 45, geometry_version=2)
+        old = v8.xjyd((1000, 1000), 45, jhbb=1)
+        current = v8.xjyd((1000, 1000), 45, jhbb=2)
         self.assertTrue(g.contains(old["polygon"], g.point((1700, 1700))))
         self.assertFalse(g.contains(current["polygon"], g.point((1700, 1700))))
         self.assertTrue(g.contains(current["polygon"], g.point((1200, 1200))))
@@ -73,17 +72,26 @@ class GeometryTests(unittest.TestCase):
 
     def test_unknown_geometry_version_is_rejected(self):
         with self.assertRaises(ValueError):
-            v8.xin_jilu(3, geometry_version=99)
+            v8.xjjl(3, jhbb=99)
 
     def test_second_positive_uses_posterior_lower_range(self):
-        yuan = v8.xin_yuan((0, 0), 0)
-        v8.gengxin_yuan(yuan, (500, 150), "direction", 340, problem=3)
+        yuan = v8.xjyd((0, 0), 0)
+        v8.gxyd(yuan, (500, 150), "direction", 340, problem=3)
         origin = yuan["anchor_point"]
-        u, _ = g.direction(F(yuan["anchor_bearing"]))
-        projected = [g.dot(g.sub(q, origin), u) for q in yuan["polygon"]]
+        u, _ = g.fangxiang(F(yuan["anchor_bearing"]))
+        projected = [
+            (
+                (q[0] - origin[0], q[1] - origin[1])[0] * u[0]
+                + (q[0] - origin[0], q[1] - origin[1])[1] * u[1]
+            )
+            for q in yuan["polygon"]
+        ]
         self.assertGreater(min(projected), F(yuan["anchor_radius"]) / 2)
-        for q in v8.pair_points(yuan, (0, 0)):
-            distance = g.dot(g.sub(q, origin), u)
+        for q in v8.sdc(yuan, (0, 0)):
+            distance = (q[0] - origin[0], q[1] - origin[1])[0] * u[0] + (
+                q[0] - origin[0],
+                q[1] - origin[1],
+            )[1] * u[1]
             self.assertGreater(distance, min(projected))
             self.assertLess(distance, max(projected))
 
@@ -96,19 +104,19 @@ class GeometryTests(unittest.TestCase):
         ):
             p = (r * math.cos(math.radians(angle)), r * math.sin(math.radians(angle)))
             bearing = round((angle + error) % 360, 2) % 360
-            yuan = v8.xin_yuan((0, 0), bearing)
+            yuan = v8.xjyd((0, 0), bearing)
             self.assertTrue(g.contains(yuan["polygon"], g.point(p)))
             self.assertTrue(
                 any((g.contains(cell, g.point(p)) for cell in yuan["cells"].values()))
             )
             self.assertLessEqual(len(yuan["cells"]), 183)
             for i, cell in yuan["cells"].items():
-                self.assertTrue(g.disk_contains(cell, yuan["points"][i], F(20)))
+                self.assertTrue(g.ypbh(cell, yuan["points"][i], F(20)))
 
     def test_direction_interval_uses_whole_interval(self):
         q = g.point((0, 0))
-        poly = g.rectangle(-1800, -1800, 1800, 1800)
-        outer = g.apply_bearing(poly, q, F(30), hi=F(40))
+        poly = g.juxing(-1800, -1800, 1800, 1800)
+        outer = g.jcfw(poly, q, F(30), hi=F(40))
         for angle in (29.01, 30, 35, 40, 40.99):
             p = g.point(
                 (
@@ -119,34 +127,34 @@ class GeometryTests(unittest.TestCase):
             self.assertTrue(g.contains(outer, p))
 
     def test_negative_pair_requires_previous_positive(self):
-        yuan = v8.xin_yuan((0, 0), 0)
-        a, b = v8.pair_points(yuan, (0, 0))
+        yuan = v8.xjyd((0, 0), 0)
+        a, b = v8.sdc(yuan, (0, 0))
         with self.assertRaises(RuntimeError):
-            v8.shuang_yinxing(yuan, yuan["origin"], a, b)
-        v8.gengxin_yuan(yuan, a, "no_signal", problem=4)
-        v8.gengxin_yuan(yuan, b, "no_signal", problem=4)
-        self.assertTrue(v8.shuang_yinxing(yuan, yuan["origin"], a, b))
+            v8.syx(yuan, yuan["origin"], a, b)
+        v8.gxyd(yuan, a, "no_signal", problem=4)
+        v8.gxyd(yuan, b, "no_signal", problem=4)
+        self.assertTrue(v8.syx(yuan, yuan["origin"], a, b))
         self.assertTrue(g.contains(yuan["polygon"], g.point((100, 0))))
         self.assertFalse(g.contains(yuan["polygon"], g.point((1200, 0))))
 
     def test_a_single_directional_negative_does_not_delete_truth(self):
-        yuan = v8.xin_yuan((0, 0), 0)
-        v8.gengxin_yuan(yuan, (150, 0), "no_signal", problem=4)
+        yuan = v8.xjyd((0, 0), 0)
+        v8.gxyd(yuan, (150, 0), "no_signal", problem=4)
         self.assertTrue(g.contains(yuan["polygon"], g.point((100, 0))))
 
     def test_optical_failure_discharges_its_cell(self):
-        yuan = v8.xin_yuan((0, 0), 0)
+        yuan = v8.xjyd((0, 0), 0)
         i = min(yuan["cells"])
         q = yuan["points"][i]
-        v8.gengxin_yuan(yuan, q, "no_target_in_range")
+        v8.gxyd(yuan, q, "no_target_in_range")
         self.assertNotIn(i, yuan["cells"])
         self.assertTrue(g.contains(yuan["polygon"], g.point((1499, 0))))
 
     def test_near_is_continuously_clearable(self):
-        yuan = v8.xin_yuan((100, 100))
-        q = v8.continuous_clear(yuan, (90, 90))
+        yuan = v8.xjyd((100, 100))
+        q = v8.lxqc(yuan, (90, 90))
         self.assertIsNotNone(q)
-        self.assertTrue(g.disk_contains(yuan["polygon"], q, F("19.8")))
+        self.assertTrue(g.ypbh(yuan["polygon"], q, F("19.8")))
 
 
 class EvidenceTests(unittest.TestCase):
@@ -167,19 +175,15 @@ class EvidenceTests(unittest.TestCase):
                 pass
 
         io = IO()
-        state = v8.xin_zhuangtai(
-            dict(pending=io.pending, call=io.call, record=io.record), 3
-        )
+        state = v8.xjzt(dict(pending=io.pending, call=io.call, record=io.record), 3)
         state["position"] = (750.0, 750.0)
         ledger = state["ledger"]
-        v8.gengxin_jilu(
+        v8.gxjl(
             ledger, "/measure", (0, 0), 1, dict(measure_result="direction", svd_deg=0)
         )
         source = ledger["channels"][1]["source"]
-        self.assertFalse(
-            g.disk_contains(source["polygon"], g.point(state["position"]), F(999))
-        )
-        self.assertTrue(v8.shunlu_celiang(state))
+        self.assertFalse(g.ypbh(source["polygon"], g.point(state["position"]), F(999)))
+        self.assertTrue(v8.slcl(state))
         self.assertEqual(io.calls, [("/measure", (750.0, 750.0), 1)])
         self.assertEqual(state["travel"], 0)
         self.assertTrue(g.contains(source["polygon"], g.point((10, 0))))
@@ -205,58 +209,54 @@ class EvidenceTests(unittest.TestCase):
                 pass
 
         io = IO()
-        state = v8.xin_zhuangtai(
-            dict(pending=io.pending, call=io.call, record=io.record), 4
-        )
+        state = v8.xjzt(dict(pending=io.pending, call=io.call, record=io.record), 4)
         state["position"] = (750.0, 200.0)
         ledger = state["ledger"]
-        v8.gengxin_jilu(
+        v8.gxjl(
             ledger, "/measure", (0, 0), 1, dict(measure_result="direction", svd_deg=0)
         )
         source = ledger["channels"][1]["source"]
-        v8.xianding_fanwei(source, g.rectangle(700, -5, 800, 5))
-        self.assertTrue(v8.shunlu_celiang(state))
+        v8.xdfw(source, g.juxing(700, -5, 800, 5))
+        self.assertTrue(v8.slcl(state))
         self.assertEqual(io.calls, [("/measure", (750.0, 200.0), 1)])
         self.assertEqual(state["travel"], 0.0)
         self.assertTrue(g.contains(source["polygon"], g.point((750, 0))))
         self.assertEqual(ledger["channels"][1]["status"], "found")
-        self.assertTrue(v8.shunlu_celiang(state))
+        self.assertTrue(v8.slcl(state))
         self.assertEqual(len(io.calls), 1)
 
     def test_per_channel_histories_cannot_be_shared(self):
-        jilu = v8.xin_jilu(3)
-        for q in search_points(3):
-            v8.gengxin_jilu(jilu, "/measure", q, 1, negative())
+        jilu = v8.xjjl(3)
+        for q in sscd(3):
+            v8.gxjl(jilu, "/measure", q, 1, negative())
         self.assertEqual(jilu["channels"][1]["status"], "absent")
         self.assertEqual(jilu["channels"][2]["status"], "unknown")
         self.assertEqual(len(jilu["channels"][2]["pending"]), 49)
 
     def test_sixteen_discoveries_allow_count_stop_but_ten_do_not(self):
         for count in (10, 16):
-            jilu = v8.xin_jilu(4)
+            jilu = v8.xjjl(4)
             for c in range(1, count + 1):
-                v8.gengxin_jilu(jilu, "/clear", (0, 0), c, dict(clear_result="success"))
-            self.assertEqual(v8.quanbu_qingchu(jilu), count == 16)
+                v8.gxjl(jilu, "/clear", (0, 0), c, dict(clear_result="success"))
+            self.assertEqual(v8.qbqc(jilu), count == 16)
             self.assertEqual(
                 len(v8.pindao(jilu, ("unknown",))), 0 if count == 16 else 10
             )
 
     def test_unproductive_credits_never_reset(self):
-        jilu = v8.xin_jilu(4, 2)
+        jilu = v8.xjjl(4, 2)
         for x in (1, 2):
-            receipt = v8.gengxin_jilu(
-                jilu, "/measure", (x, 1), 1, negative(), prove=False
-            )
+            receipt = v8.gxjl(jilu, "/measure", (x, 1), 1, negative(), prove=False)
             self.assertLess(receipt["after"], receipt["before"])
         self.assertEqual(jilu["extra"], 0)
-        q = g.search_grid()[0]
-        v8.gengxin_jilu(jilu, "/measure", q, 1, negative(), prove=False)
+        q = g.sswd()[0]
+        v8.gxjl(jilu, "/measure", q, 1, negative(), prove=False)
         self.assertEqual(jilu["extra"], 0)
 
     def test_remaining_bound_includes_undiscovered_sources(self):
-        jilu = v8.xin_jilu(4, 0)
-        self.assertLess(v8.shengyu_shangjie(jilu, (0, 0)), 41640)
-        self.assertGreater(v8.shengyu_shangjie(jilu, (0, 0)), 40000)
+        jilu = v8.xjjl(4, 0)
+        self.assertLess(v8.sysj(jilu, (0, 0)), 41640)
+        self.assertGreater(v8.sysj(jilu, (0, 0)), 40000)
 
     def test_rejected_request_changes_neither_state_nor_evidence(self):
 
@@ -266,12 +266,12 @@ class EvidenceTests(unittest.TestCase):
             def call(self, *args):
                 return dict(accepted=False)
 
-        zhuangtai = v8.xin_zhuangtai(dict(pending=IO.pending, call=IO().call), 4)
-        rank = v8.shengyu_renwu(zhuangtai["ledger"])
+        zhuangtai = v8.xjzt(dict(pending=IO.pending, call=IO().call), 4)
+        rank = v8.syrw(zhuangtai["ledger"])
         with self.assertRaises(RuntimeError):
             v8.zhixing(zhuangtai, "/measure", (100, 200), 1)
         self.assertEqual(zhuangtai["position"], (0, 0))
-        self.assertEqual(v8.shengyu_renwu(zhuangtai["ledger"]), rank)
+        self.assertEqual(v8.syrw(zhuangtai["ledger"]), rank)
         self.assertFalse(zhuangtai["ledger"]["receipts"])
 
     def test_unresolved_request_prevents_new_action(self):
@@ -284,7 +284,7 @@ class EvidenceTests(unittest.TestCase):
 
         with self.assertRaises(RuntimeError):
             v8.zhixing(
-                v8.xin_zhuangtai(dict(pending=IO.pending, call=IO().call), 3),
+                v8.xjzt(dict(pending=IO.pending, call=IO().call), 3),
                 "/measure",
                 (0, 0),
                 1,
@@ -298,7 +298,7 @@ class EvidenceTests(unittest.TestCase):
             def call(self, *args):
                 return dict(accepted=True, virtual_time_s=999, measure_result="near")
 
-        zhuangtai = v8.xin_zhuangtai(dict(pending=IO.pending, call=IO().call), 3)
+        zhuangtai = v8.xjzt(dict(pending=IO.pending, call=IO().call), 3)
         with self.assertRaises(RuntimeError):
             v8.zhixing(zhuangtai, "/measure", (10, 0), 1)
         self.assertEqual(zhuangtai["position"], (10, 0))
@@ -308,7 +308,7 @@ class EvidenceTests(unittest.TestCase):
 
 class PlanningTests(unittest.TestCase):
     def test_directional_visibility_conditions_on_actual_negative_history(self):
-        poly = g.rectangle(-1, -1, 1, 1)
+        poly = g.juxing(-1, -1, 1, 1)
         record = dict(
             source=dict(cells={0: poly}),
             records=[
@@ -317,54 +317,58 @@ class PlanningTests(unittest.TestCase):
             ],
         )
         before = copy.deepcopy(record)
-        model = v8.radio_model(record)
-        self.assertAlmostEqual(v8.radio_probability(model, (-200, 0)), 1)
-        self.assertAlmostEqual(v8.radio_probability(model, (0, 0)), 1)
-        self.assertAlmostEqual(v8.radio_probability(model, (200, 0)), 0)
-        self.assertAlmostEqual(v8.radio_probability(model, (-1600, 0)), 0)
+        model = v8.spmx(record)
+        self.assertAlmostEqual(v8.spgl(model, (-200, 0)), 1)
+        self.assertAlmostEqual(v8.spgl(model, (0, 0)), 1)
+        self.assertAlmostEqual(v8.spgl(model, (200, 0)), 0)
+        self.assertAlmostEqual(v8.spgl(model, (-1600, 0)), 0)
         self.assertEqual(record, before)
 
     def test_optical_chain_covers_complete_region_not_only_sample_points(self):
-        source = v8.xin_yuan((0, 0), 0)
-        v8.xianding_fanwei(source, g.rectangle(500, -8, 600, 8))
-        options = v8.optical_offers(source, (0, 0))
+        source = v8.xjyd((0, 0), 0)
+        v8.xdfw(source, g.juxing(500, -8, 600, 8))
+        options = v8.gxbx(source, (0, 0))
         self.assertTrue(options)
         for _, order, _, upper in options:
             self.assertLessEqual(len(order), 8)
-            self.assertGreaterEqual(upper, v8.chain_bound(order, (0, 0)))
+            self.assertGreaterEqual(upper, v8.lxsj(order, (0, 0)))
             for q in order:
                 cell = source["polygon"]
                 for other in order:
                     if q != other:
                         cell = g.clip(
                             cell,
-                            g.sub(other, q),
-                            (g.dot(other, other) - g.dot(q, q)) / 2,
+                            ((other[0] - q[0], other[1] - q[1])),
+                            (
+                                (other[0] * other[0] + other[1] * other[1])
+                                - (q[0] * q[0] + q[1] * q[1])
+                            )
+                            / 2,
                         )
-                self.assertTrue(not cell or g.disk_contains(cell, q, F("19.8")))
+                self.assertTrue(not cell or g.ypbh(cell, q, F("19.8")))
 
     def test_optical_chain_is_rejected_before_action_when_credit_is_insufficient(self):
-        state = v8.xin_zhuangtai(None, 4, extra_actions=1)
+        state = v8.xjzt(None, 4, dzys=1)
         event = dict(
             kind="optical_chain", channel=1, points=(g.point((10, 0)), g.point((20, 0)))
         )
-        before = v8.shengyu_renwu(state["ledger"])
-        self.assertFalse(v8.zhixing_yici(state, event))
-        self.assertEqual(v8.shengyu_renwu(state["ledger"]), before)
+        before = v8.syrw(state["ledger"])
+        self.assertFalse(v8.zx(state, event))
+        self.assertEqual(v8.syrw(state["ledger"]), before)
         self.assertEqual(state["position"], (0, 0))
 
     def test_negative_pair_without_contraction_is_not_measured_again(self):
-        state = v8.xin_zhuangtai(None, 4, planning_seconds=0)
-        source = v8.xin_yuan((0, 0), 0)
+        state = v8.xjzt(None, 4, ghsj=0)
+        source = v8.xjyd((0, 0), 0)
         source["positives"].append(g.point((-50, 20)))
-        v8.xianding_fanwei(source, g.rectangle(500, -8, 600, 8))
-        pair = v8.pair_points(source, (0, 0))
+        v8.xdfw(source, g.juxing(500, -8, 600, 8))
+        pair = v8.sdc(source, (0, 0))
         for q in pair:
-            v8.gengxin_yuan(source, q, "no_signal", problem=4)
-        self.assertFalse(v8.shuang_yinxing(source, source["anchor_point"], *pair))
+            v8.gxyd(source, q, "no_signal", problem=4)
+        self.assertFalse(v8.syx(source, source["anchor_point"], *pair))
         before = copy.deepcopy(source)
-        event = v8.yuan_dongzuo(
-            state["planner"], source, 1, g.floating(pair[-1]), 1, 640
+        event = v8.yddz(
+            state["planner"], source, 1, (tuple((float(x) for x in pair[-1]))), 1, 640
         )
         self.assertIn(event["kind"], ("clear", "optical_chain"))
         self.assertEqual(source, before)
@@ -397,7 +401,7 @@ class PlanningTests(unittest.TestCase):
                     for a, b in zip(modes, modes[1:])
                 )
                 exact = min(exact, cost)
-        plan = v8.anpai_renwu(jobs, position, (("source", 99), ("source", 2)))
+        plan = v8.aprw(jobs, position, (("source", 99), ("source", 2)))
         self.assertAlmostEqual(plan["estimate"], exact)
         self.assertCountEqual(plan["order"], jobs)
         self.assertEqual([mode["job"] for mode in plan["modes"]], plan["order"])
@@ -500,11 +504,11 @@ class IntegrationTests(unittest.TestCase):
             replay(events)
 
     def test_prospective_search_proofs_do_not_erase_unknowns(self):
-        jilu = v8.xin_jilu(3)
-        plan = v8.xin_luxian(search_points(3), seconds=1)
-        v8.gengxin_luxian(plan, jilu, (0, 0))
+        jilu = v8.xjjl(3)
+        plan = v8.xjlx(sscd(3), seconds=1)
+        v8.gxlx(plan, jilu, (0, 0))
         self.assertEqual(v8.pindao(jilu, ("unknown",)), set(range(1, 21)))
-        self.assertEqual(v8.shengyu_renwu(jilu), 980 + 16 * 183 + 640)
+        self.assertEqual(v8.syrw(jilu), 980 + 16 * 183 + 640)
         self.assertFalse(jilu["certificates"])
 
 

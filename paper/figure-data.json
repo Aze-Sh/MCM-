@@ -1,6 +1,6 @@
 {
   "source_log": "validation/current/v8-q4-seed20260911.jsonl",
-  "source_log_sha256": "5b6d1dd9f8be187968168593adbb067900b7cd7165e0f4d4f2f37ef2cf5bf889",
+  "source_log_sha256": "31ed179bb95e01d419cfd0a5de5422e0e0f9993be6a5bef9e030f3cf9343f316",
   "event": {
     "event": "optical_chain_selected",
     "virtual_time_s": 3039.268825,

@@ -4,18 +4,9 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from jammer_solver.protocol import validate_reply
+from jammer_solver.protocol import jyhf
 from jammer_solver import exact_geometry as g
-from jammer_solver.solver import (
-    xin_jilu,
-    pindao,
-    gengxin_jilu,
-    shengyu_renwu,
-    shuang_yinxing,
-    zhengming_wuyuan,
-    quanbu_qingchu,
-    jilu_zhaiyao,
-)
+from jammer_solver.solver import xjjl, pindao, gxjl, syrw, syx, zmwy, qbqc, jlzy
 from collections import deque
 from fractions import Fraction as F
 import math
@@ -28,7 +19,13 @@ def build_graph(worlds, positions, radius=1000, clear_radius=20):
         raise ValueError("Finite calibration requires a fixed, positive source count")
     if not positions or len(set(positions)) != len(positions):
         raise ValueError("Positions must be nonempty and distinct")
-    if any((not any((abs(x - p) <= clear_radius for p in positions)) for w in worlds for x in w)):
+    if any(
+        (
+            not any((abs(x - p) <= clear_radius for p in positions))
+            for w in worlds
+            for x in w
+        )
+    ):
         raise ValueError("Finite action family cannot clear every candidate source")
     n = len(worlds[0])
     full = (1 << n) - 1
@@ -66,8 +63,15 @@ def build_graph(worlds, positions, radius=1000, clear_radius=20):
                         groups.setdefault(observation, []).append(w)
                     successors = []
                     for observation, ids in sorted(groups.items()):
-                        new_cleared = cleared | 1 << c if observation == "success" else cleared
-                        nxt = (tuple(ids), new_cleared, j, c if kind == "measure" else tuned)
+                        new_cleared = (
+                            cleared | 1 << c if observation == "success" else cleared
+                        )
+                        nxt = (
+                            tuple(ids),
+                            new_cleared,
+                            j,
+                            c if kind == "measure" else tuned,
+                        )
                         fee = (
                             5 + (c != tuned)
                             if kind == "measure"
@@ -130,7 +134,10 @@ def rollout(graph, terminals, baseline, depth):
             if s in terminals:
                 continue
             value, action = min(
-                ((max((cost + values[t] for _, cost, t in nexts)), a) for a, nexts in actions.items())
+                (
+                    (max((cost + values[t] for _, cost, t in nexts)), a)
+                    for a, nexts in actions.items()
+                )
             )
             if value < updated[s]:
                 updated[s] = value
@@ -144,14 +151,24 @@ def calibrate(worlds, positions, depths=(0, 1, 2, 3), **kwargs):
     exact, policy, iterations = solve(graph, terminals)
     n = len(worlds[0])
     forward = [("clear", c, j) for c in range(n) for j in range(len(positions))]
-    reverse = [("clear", c, j) for c in reversed(range(n)) for j in reversed(range(len(positions)))]
-    first, second = [optical_continuation(graph, terminals, order) for order in (forward, reverse)]
+    reverse = [
+        ("clear", c, j)
+        for c in reversed(range(n))
+        for j in reversed(range(len(positions)))
+    ]
+    first, second = [
+        optical_continuation(graph, terminals, order) for order in (forward, reverse)
+    ]
     baseline = {s: min(first[s], second[s]) for s in graph}
     results = []
     for depth in depths:
         values, _ = rollout(graph, terminals, baseline, depth)
         results.append(
-            dict(depth=depth, upper_s=float(values[root]), gap_s=float(values[root] - exact[root]))
+            dict(
+                depth=depth,
+                upper_s=float(values[root]),
+                gap_s=float(values[root] - exact[root]),
+            )
         )
     return dict(
         worlds=len(worlds),
@@ -179,19 +196,24 @@ def replay(events):
         if kind == "v8_started":
             if jilu is not None:
                 raise RuntimeError("Duplicate start")
-            jilu = xin_jilu(
+            jilu = xjjl(
                 event["problem"],
                 event["extra_actions"],
-                coverage_nodes=event.get("coverage_nodes", 4096),
-                coverage_depth=event.get("coverage_depth", 12),
-                geometry_version=event.get("geometry_version", 1),
+                fgjd=event.get("coverage_nodes", 4096),
+                fgsd=event.get("coverage_depth", 12),
+                jhbb=event.get("geometry_version", 1),
             )
             virtual = event["virtual_time_s"]
         elif kind == "evidence_observation":
             if jilu is None or completed or receipt is not None:
                 raise RuntimeError("Observation outside an active run")
-            path, q, c, huifu = (event["path"], tuple(event["point"]), event["channel"], event["reply"])
-            validate_reply(path, huifu)
+            path, q, c, huifu = (
+                event["path"],
+                tuple(event["point"]),
+                event["channel"],
+                event["reply"],
+            )
+            jyhf(path, huifu)
             cost = (
                 5 + (c != tuned)
                 if path == "/measure"
@@ -206,7 +228,7 @@ def replay(events):
             weizhi = q
             if path == "/measure":
                 tuned = c
-            receipt = gengxin_jilu(jilu, path, q, c, huifu, prove=event["prove"])
+            receipt = gxjl(jilu, path, q, c, huifu, prove=event["prove"])
             actions += 1
         elif kind == "rank_receipt":
             if receipt is None or any((event.get(k) != v for k, v in receipt.items())):
@@ -214,33 +236,40 @@ def replay(events):
             receipt = None
         elif kind == "verified_negative_pair":
             yuan = jilu["channels"][event["channel"]]["source"]
-            before = shengyu_renwu(jilu)
-            changed = shuang_yinxing(
-                yuan, g.point(event["positive"]), g.point(event["a"]), g.point(event["b"])
+            before = syrw(jilu)
+            changed = syx(
+                yuan,
+                g.point(event["positive"]),
+                g.point(event["a"]),
+                g.point(event["b"]),
             )
             if (
                 changed != event["changed"]
                 or before != event["rank_before"]
-                or shengyu_renwu(jilu) != event["rank_after"]
+                or syrw(jilu) != event["rank_after"]
             ):
                 raise RuntimeError("Replayed negative pair proof mismatch")
         elif kind == "completion_checked":
             for c in sorted(pindao(jilu, ("unknown",))):
                 if not jilu["channels"][c]["pending"]:
-                    zhengming_wuyuan(jilu, c)
-            completed = quanbu_qingchu(jilu)
+                    zmwy(jilu, c)
+            completed = qbqc(jilu)
             if not completed or event["certified"] is not True:
                 raise RuntimeError("Completion claim lacks sufficient evidence")
     if jilu is None or not completed or receipt is not None:
         raise RuntimeError("Incomplete evidence stream")
-    return dict(verified=True, actions=actions, virtual_time_s=virtual, **jilu_zhaiyao(jilu))
+    return dict(verified=True, actions=actions, virtual_time_s=virtual, **jlzy(jilu))
 
 
 def main():
-    parser = argparse.ArgumentParser(description="重放 v8 日志，核查动作计费、剩余任务和全清依据")
+    parser = argparse.ArgumentParser(
+        description="重放 v8 日志，核查动作计费、剩余任务和全清依据"
+    )
     parser.add_argument("log", type=Path)
     args = parser.parse_args()
-    result = replay((json.loads(line) for line in args.log.read_text().splitlines() if line.strip()))
+    result = replay(
+        (json.loads(line) for line in args.log.read_text().splitlines() if line.strip())
+    )
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

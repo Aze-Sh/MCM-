@@ -3,14 +3,9 @@ import heapq
 import json
 import math
 from itertools import combinations
-from pathlib import Path
+from pathlib import Path as lj
 
-EPS = math.radians(1.005)
-EPSILON_RAD = EPS
-
-
-def cross(a, b):
-    return a[0] * b[1] - a[1] * b[0]
+eps = math.radians(1.005)
 
 
 def hull(points):
@@ -23,10 +18,8 @@ def hull(points):
         for p in seq:
             while (
                 len(out) >= 2
-                and cross(
-                    (out[-1][0] - out[-2][0], out[-1][1] - out[-2][1]),
-                    (p[0] - out[-1][0], p[1] - out[-1][1]),
-                )
+                and (out[-1][0] - out[-2][0]) * (p[1] - out[-1][1])
+                - (out[-1][1] - out[-2][1]) * (p[0] - out[-1][0])
                 <= 0
             ):
                 out.pop()
@@ -36,14 +29,14 @@ def hull(points):
     return chain(points)[:-1] + chain(points[::-1])[:-1]
 
 
-def farthest_pair(vertices):
+def zydd(vertices):
     n = len(vertices)
     if n == 1:
         return (vertices[0], vertices[0])
     if n == 2:
         return tuple(vertices)
     best = (vertices[0], vertices[1])
-    best_d = math.dist(*best)
+    bestd = math.dist(*best)
     j = 1
     for i in range(n):
         nxt = (i + 1) % n
@@ -51,10 +44,8 @@ def farthest_pair(vertices):
 
         def area(k):
             return abs(
-                cross(
-                    edge,
-                    (vertices[k][0] - vertices[i][0], vertices[k][1] - vertices[i][1]),
-                )
+                edge[0] * (vertices[k][1] - vertices[i][1])
+                - edge[1] * (vertices[k][0] - vertices[i][0])
             )
 
         steps = 0
@@ -64,22 +55,22 @@ def farthest_pair(vertices):
         for a in (i, nxt):
             for b in (j, (j + 1) % n):
                 d = math.dist(vertices[a], vertices[b])
-                if d > best_d:
-                    best, best_d = ((vertices[a], vertices[b]), d)
+                if d > bestd:
+                    best, bestd = ((vertices[a], vertices[b]), d)
     return best
 
 
-def solve_wedges(observations, epsilon_deg=1.005):
+def jhqy(gclb, wcjd=1.005):
     planes = []
-    for obs in observations:
+    for obs in gclb:
         x, y, angle = (float(obs[k]) for k in ("x", "y", "bearing_deg"))
         if not all((math.isfinite(v) for v in (x, y, angle))):
             raise ValueError("Observations must be finite")
-        lo, hi = (math.radians(angle - epsilon_deg), math.radians(angle + epsilon_deg))
+        lo, hi = (math.radians(angle - wcjd), math.radians(angle + wcjd))
         for nx, ny in ((math.sin(lo), -math.cos(lo)), (-math.sin(hi), math.cos(hi))):
             planes.append((nx, ny, nx * x + ny * y))
     base = dict(
-        epsilon_deg=epsilon_deg,
+        epsilon_deg=wcjd,
         diameter=None,
         vertices=[],
         numerical_method="float64; relative feasibility tolerance 1e-10",
@@ -95,7 +86,7 @@ def solve_wedges(observations, epsilon_deg=1.005):
             )
         )
 
-    candidates = []
+    bx = []
     for (a, b, c), (d, e, f) in combinations(planes, 2):
         det = a * e - b * d
         if abs(det) <= 1e-14:
@@ -104,15 +95,15 @@ def solve_wedges(observations, epsilon_deg=1.005):
         if not math.isfinite(x) or not math.isfinite(y):
             return dict(base, state="NUMERICALLY_UNRESOLVED")
         if feasible(x, y):
-            candidates.append((x, y))
-    if not candidates:
+            bx.append((x, y))
+    if not bx:
         return dict(base, state="EMPTY_OR_NUMERICALLY_UNRESOLVED")
     for a, b, _ in planes:
         for dx, dy in ((b, -a), (-b, a)):
             if all((u * dx + v * dy <= 1e-14 for u, v, _ in planes)):
-                return dict(base, state="UNBOUNDED", feasible_point=candidates[0])
-    vertices = hull(candidates)
-    p, q = farthest_pair(vertices)
+                return dict(base, state="UNBOUNDED", feasible_point=bx[0])
+    vertices = hull(bx)
+    p, q = zydd(vertices)
     diameter = math.dist(p, q)
     center = ((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)
     radius = diameter / 2
@@ -130,10 +121,10 @@ def solve_wedges(observations, epsilon_deg=1.005):
     )
 
 
-def second_point_region(first, bearing, query=None):
+def ecdqy(first, bearing, query=None):
     centers = [tuple(first)]
     for sign in (1, -1):
-        angle = math.radians(bearing) + sign * EPSILON_RAD
+        angle = math.radians(bearing) + sign * eps
         centers.append(
             (first[0] + 1000 * math.cos(angle), first[1] + 1000 * math.sin(angle))
         )
@@ -157,24 +148,24 @@ def second_point_region(first, bearing, query=None):
     return result
 
 
-def diameter_bound(rho, theta):
+def zjsj(rho, theta):
     a, b = (rho * math.cos(theta), rho * math.sin(theta))
-    distance = max(
+    dist = max(
         (
-            math.sqrt(r * r + rho * rho - 2 * r * rho * math.cos(theta + EPS))
+            math.sqrt(r * r + rho * rho - 2 * r * rho * math.cos(theta + eps))
             for r in (5.0, 1500.0)
         )
     )
-    cross_height = b * math.cos(EPS) - a * math.sin(EPS)
-    return (strip_bound(distance, cross_height), distance)
+    height = b * math.cos(eps) - a * math.sin(eps)
+    return (djsj(dist, height), dist)
 
 
-def strip_bound(distance, height):
-    sine = max(0.0, min(1.0, height / max(distance, 1e-12)))
-    gamma = math.asin(sine) - 2 * EPS
+def djsj(dist, height):
+    sine = max(0.0, min(1.0, height / max(dist, 1e-12)))
+    gamma = math.asin(sine) - 2 * eps
     if gamma <= 0:
         return math.inf
-    w1, w2 = (1500 * math.sin(EPS), distance * math.sin(EPS))
+    w1, w2 = (1500 * math.sin(eps), dist * math.sin(eps))
     return (
         2
         * math.sqrt(w1 * w1 + w2 * w2 + 2 * w1 * w2 * math.cos(gamma))
@@ -182,33 +173,30 @@ def strip_bound(distance, height):
     )
 
 
-def optimize_angle(rho, tolerance=0.02, max_nodes=1024):
+def jdyh(rho, tol=0.02, jdmax=1024):
     if not 5 < rho < 1000:
         raise ValueError("A positive reception margin requires 5 < movement < 1000")
-    lo = EPS + 1e-08
-    hi = math.acos(rho / 2000) - EPS - 1e-08
-
-    def evaluate(theta):
-        return diameter_bound(rho, theta)[0]
+    lo = eps + 1e-08
+    hi = math.acos(rho / 2000) - eps - 1e-08
 
     def lower(a, b):
-        d = diameter_bound(rho, a)[1]
-        h = rho * math.sin(b - EPS)
-        return max(0.0, strip_bound(d, h) - 1e-06)
+        d = zjsj(rho, a)[1]
+        h = rho * math.sin(b - eps)
+        return max(0.0, djsj(d, h) - 1e-06)
 
-    best = min(((evaluate(t), t) for t in (lo, (lo + hi) / 2, hi)))
+    best = min(((zjsj(rho, t)[0], t) for t in (lo, (lo + hi) / 2, hi)))
     heap = [(lower(lo, hi), lo, hi)]
     nodes = 0
-    pruned_lower = math.inf
-    while heap and nodes < max_nodes:
+    prunelb = math.inf
+    while heap and nodes < jdmax:
         lb, a, b = heapq.heappop(heap)
-        if best[0] - lb <= tolerance:
-            pruned_lower = min(pruned_lower, lb)
+        if best[0] - lb <= tol:
+            prunelb = min(prunelb, lb)
             break
         mid = (a + b) / 2
         for x, y in ((a, mid), (mid, b)):
             t = (x + y) / 2
-            value = evaluate(t)
+            value = zjsj(rho, t)[0]
             nodes += 1
             if value < best[0]:
                 best = (value, t)
@@ -216,15 +204,13 @@ def optimize_angle(rho, tolerance=0.02, max_nodes=1024):
             if bound < best[0]:
                 heapq.heappush(heap, (bound, x, y))
             else:
-                pruned_lower = min(pruned_lower, bound)
-    lower_bound = min(
-        best[0], pruned_lower, min((entry[0] for entry in heap), default=math.inf)
-    )
+                prunelb = min(prunelb, bound)
+    boundlo = min(best[0], prunelb, min((entry[0] for entry in heap), default=math.inf))
     bound, theta = best
     a, b = (rho * math.cos(theta), rho * math.sin(theta))
-    endpoint = max(
+    endpos = max(
         (
-            math.dist((a, b), (1000 * math.cos(EPS), s * 1000 * math.sin(EPS)))
+            math.dist((a, b), (1000 * math.cos(eps), s * 1000 * math.sin(eps)))
             for s in (-1, 1)
         )
     )
@@ -233,18 +219,18 @@ def optimize_angle(rho, tolerance=0.02, max_nodes=1024):
         a_m=a,
         b_m=b,
         diameter_upper_m=bound,
-        angle_family_lower_m=lower_bound,
-        optimization_gap_m=bound - lower_bound,
-        reception_margin_m=1000 - max(rho, endpoint),
+        angle_family_lower_m=boundlo,
+        optimization_gap_m=bound - boundlo,
+        reception_margin_m=1000 - max(rho, endpos),
         nodes=nodes,
         scope="entire_feasible_angle_interval_at_fixed_movement_radius",
     )
 
 
-def minimum_movement(target=163.0, max_nodes=6000, tolerance=0.1):
-    seed = optimize_angle(900.0)
+def zxdj(target=163.0, jdmax=6000, tol=0.1):
+    seed = jdyh(900.0)
     if seed["diameter_upper_m"] > target:
-        seed = optimize_angle(999.0)
+        seed = jdyh(999.0)
     if seed["diameter_upper_m"] > target:
         raise ValueError(
             "No initial feasible design for this target; choose a larger diameter target"
@@ -260,30 +246,30 @@ def minimum_movement(target=163.0, max_nodes=6000, tolerance=0.1):
 
     def add(r0, r1, t0, t1):
         nonlocal serial
-        r1 = min(r1, 2000 * math.cos(t0 + EPS))
-        t1 = min(t1, math.acos(r0 / 2000) - EPS)
+        r1 = min(r1, 2000 * math.cos(t0 + eps))
+        t1 = min(t1, math.acos(r0 / 2000) - eps)
         if r0 >= r1 or t0 >= t1 or r0 >= best[0]:
             return
-        distances = []
+        dists = []
         for r in (5.0, 1500.0):
-            rho = max(r0, min(r1, r * math.cos(t0 + EPS)))
-            distances.append(
+            rho = max(r0, min(r1, r * math.cos(t0 + eps)))
+            dists.append(
                 math.sqrt(
-                    max(0.0, r * r + rho * rho - 2 * r * rho * math.cos(t0 + EPS))
+                    max(0.0, r * r + rho * rho - 2 * r * rho * math.cos(t0 + eps))
                 )
             )
-        lb = strip_bound(max(distances), r1 * math.sin(t1 - EPS)) - 1e-06
+        lb = djsj(max(dists), r1 * math.sin(t1 - eps)) - 1e-06
         if lb > target:
             return
         serial += 1
         heapq.heappush(heap, (r0, serial, (r0, r1, t0, t1)))
 
-    add(5.0001, best[0], EPS + 1e-08, math.pi / 2 - EPS - 1e-08)
-    stopped_lower = None
-    while heap and nodes < max_nodes:
+    add(5.0001, best[0], eps + 1e-08, math.pi / 2 - eps - 1e-08)
+    stoplb = None
+    while heap and nodes < jdmax:
         lower, _, (r0, r1, t0, t1) = heapq.heappop(heap)
-        if best[0] - lower <= tolerance:
-            stopped_lower = lower
+        if best[0] - lower <= tol:
+            stoplb = lower
             break
         if lower >= best[0]:
             continue
@@ -291,8 +277,8 @@ def minimum_movement(target=163.0, max_nodes=6000, tolerance=0.1):
         rm = (r0 + r1) / 2
         tm = (t0 + t1) / 2
         for rho, theta in ((rm, tm), (r1, tm), (rm, min(t1, max(t0, best[1])))):
-            if rho < best[0] and rho < 1000 and (theta <= math.acos(rho / 2000) - EPS):
-                bound = diameter_bound(rho, theta)[0]
+            if rho < best[0] and rho < 1000 and (theta <= math.acos(rho / 2000) - eps):
+                bound = zjsj(rho, theta)[0]
                 if bound <= target - 1e-05:
                     best = (rho, theta, bound)
         if (r1 - r0) / 1000 > (t1 - t0) / (math.pi / 2):
@@ -302,9 +288,7 @@ def minimum_movement(target=163.0, max_nodes=6000, tolerance=0.1):
             add(r0, r1, t0, tm)
             add(r0, r1, tm, t1)
     lower = min(
-        [best[0]]
-        + ([stopped_lower] if stopped_lower is not None else [])
-        + [x[0] for x in heap]
+        [best[0]] + ([stoplb] if stoplb is not None else []) + [x[0] for x in heap]
     )
     rho, theta, bound = best
     a, b = (rho * math.cos(theta), rho * math.sin(theta))
@@ -322,7 +306,7 @@ def minimum_movement(target=163.0, max_nodes=6000, tolerance=0.1):
             rho,
             max(
                 (
-                    math.dist((a, b), (1000 * math.cos(EPS), s * 1000 * math.sin(EPS)))
+                    math.dist((a, b), (1000 * math.cos(eps), s * 1000 * math.sin(eps)))
                     for s in (-1, 1)
                 )
             ),
@@ -334,19 +318,19 @@ def minimum_movement(target=163.0, max_nodes=6000, tolerance=0.1):
 def main():
     parser = argparse.ArgumentParser(description="前两问的离线几何计算；不连接任何接口")
     parser.add_argument(
-        "input", type=Path, help="JSON：observations，或 first 与 bearing_deg"
+        "input", type=lj, help="JSON：observations，或 first 与 bearing_deg"
     )
     parser.add_argument("--problem", type=int, choices=(1, 2), required=True)
-    parser.add_argument("--output", type=Path)
+    parser.add_argument("--output", type=lj)
     args = parser.parse_args()
     data = json.loads(args.input.read_text(encoding="utf-8-sig"))
     if args.problem == 1:
-        result = solve_wedges(data["observations"], data.get("epsilon_deg", 1.005))
+        result = jhqy(data["observations"], data.get("epsilon_deg", 1.005))
     else:
         design = (
-            optimize_angle(data["movement_m"])
+            jdyh(data["movement_m"])
             if "movement_m" in data
-            else minimum_movement(data.get("target_diameter_m", 163.0))
+            else zxdj(data.get("target_diameter_m", 163.0))
         )
         theta = math.radians(data["bearing_deg"])
         u = (math.cos(theta), math.sin(theta))
@@ -369,7 +353,7 @@ def main():
         )
         result = dict(
             second_position=dict(x=p[0], y=p[1]),
-            candidate_region=second_point_region(
+            candidate_region=ecdqy(
                 tuple(data["first"]), data["bearing_deg"], data.get("query")
             ),
             guaranteed_diameter_bound_m=design["diameter_upper_m"],
@@ -380,7 +364,7 @@ def main():
             rule="movement_m is measured from first; nearest symmetric side if current supplied",
             scope="全向信号；首次方向有效；半径1000至1500米",
         )
-    rendered = json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False)
+    text = json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False)
     if args.output:
-        args.output.write_text(rendered + "\n", encoding="utf-8")
-    print(rendered)
+        args.output.write_text(text + "\n", encoding="utf-8")
+    print(text)

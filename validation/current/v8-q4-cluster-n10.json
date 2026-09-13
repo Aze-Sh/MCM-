@@ -105,10 +105,10 @@
   "policy_revision": "20260912-shared-service-r4",
   "policy_source_sha256": {
     "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "exact_geometry.py": "bc459451bdf32b164cf305ffd89eee2c59c2bf26c84fb8a0417692d25301498f",
-    "protocol.py": "18f9141037ff812d06855bf28365a4dbb2d9b20d858bc43ffc3db6a6677a4079",
-    "questions.py": "598ae077caaa67f7e793f28791c90833760a81c6eb1406fb932776a7316b466c",
-    "solver.py": "8e4fc7826fcfd3912c597f9557f8e35c8fd1ac28a6f8e349cf12320c1ebf5c93"
+    "exact_geometry.py": "c657b61c2fe314ab6ccbc5e78f8771799020b2ace5425fc60b832e3ded46b736",
+    "protocol.py": "a07dd39c6c27b8e549ef2fd7bb3dce482ebb89528756aaca7ee0858bcc210265",
+    "questions.py": "05f71a2dd0eeb780546348425690c60d9694bb7326d5df8cdde496b99bcd3bcd",
+    "solver.py": "c51f6a4eff99ed05aab6089ce0b46e7ce30e62e645b95abfde65753fbc377c8a"
   },
   "summary": {
     "strategy": "event-rollout-certified-completion-v8",
@@ -1160,7 +1160,7 @@
     "virtual_time_s": 7148.156194
   },
   "error": null,
-  "wall_s": 8.093669129069895,
+  "wall_s": 8.270585050806403,
   "cleared_count": 10,
   "virtual_time_s": 7148.15619378453,
   "average_clear_time_s": 714.815619378453,
@@ -1183,5 +1183,5 @@
     "optical_chain_selected": 3,
     "completion_checked": 1
   },
-  "log_sha256": "d8a854e6a0c76238bb57fb92a53e591efff1293cb999b16d006e731bdab1f8ee"
+  "log_sha256": "b7a7053f740d4aee8663af3c79c2952ab4f88945932d16694b93666a50717b79"
 }

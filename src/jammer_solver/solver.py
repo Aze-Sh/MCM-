@@ -1,36 +1,32 @@
-from fractions import Fraction as F
+from fractions import Fraction as fs
 from itertools import combinations
 import math
 import time
-from .protocol import validate_reply
+from .protocol import jyhf
 from . import exact_geometry as g
 
-QINGCHU_BANJING = 19.8
+qcbj = 19.8
 
 
-def juli(a, b):
-    return math.hypot(a[0] - b[0], a[1] - b[1])
-
-
-def route_length(start, points, end=None):
+def lxcd(start, points, end=None):
     path = [start] + list(points) + ([] if end is None else [end])
     return sum((math.dist(a, b) for a, b in zip(path, path[1:])))
 
 
-def open_route(start, points, end=None):
+def lxpx(start, points, end=None):
     if len(points) < 2:
         return list(points)
-    remaining = list(points)
+    rest = list(points)
     greedy = []
     p = start
-    while remaining:
-        q = min(remaining, key=lambda q: (math.dist(p, q), q))
+    while rest:
+        q = min(rest, key=lambda q: (math.dist(p, q), q))
         greedy.append(q)
-        remaining.remove(q)
+        rest.remove(q)
         p = q
-    order = min((list(points), greedy), key=lambda qs: route_length(start, qs, end))
+    order = min((list(points), greedy), key=lambda qs: lxcd(start, qs, end))
     for _ in range(8):
-        best_delta, best_pair = (0.0, None)
+        bestdelta, bestpair = (0.0, None)
         for i in range(len(order) - 1):
             a = start if i == 0 else order[i - 1]
             for j in range(i + 1, len(order)):
@@ -40,37 +36,44 @@ def open_route(start, points, end=None):
                 if b is not None:
                     before += math.dist(order[j], b)
                     after += math.dist(order[i], b)
-                if after - before < best_delta - 1e-08:
-                    best_delta, best_pair = (after - before, (i, j))
-        if best_pair is None:
+                if after - before < bestdelta - 1e-08:
+                    bestdelta, bestpair = (after - before, (i, j))
+        if bestpair is None:
             break
-        i, j = best_pair
+        i, j = bestpair
         order[i : j + 1] = reversed(order[i : j + 1])
     return order
 
 
-def nearest_clear_point(polygon, current):
+def zjqcd(polygon, current):
     if not polygon:
         return None
-    radius = QINGCHU_BANJING - 1e-06
+    radius = qcbj - 1e-06
 
     def feasible(p):
-        return all((juli(p, v) <= radius + 1e-10 for v in polygon))
+        return all(
+            (math.hypot(p[0] - v[0], p[1] - v[1]) <= radius + 1e-10 for v in polygon)
+        )
 
     if feasible(current):
         return current
-    if any((juli(a, b) > 2 * radius for a, b in combinations(polygon, 2))):
+    if any(
+        (
+            math.hypot(a[0] - b[0], a[1] - b[1]) > 2 * radius
+            for a, b in combinations(polygon, 2)
+        )
+    ):
         return None
-    best, zuixiao_juli = (None, float("inf"))
+    best, zxjl = (None, float("inf"))
 
     def consider(p):
-        nonlocal best, zuixiao_juli
-        travel = juli(current, p)
-        if travel < zuixiao_juli and feasible(p):
-            best, zuixiao_juli = (p, travel)
+        nonlocal best, zxjl
+        travel = math.hypot(current[0] - p[0], current[1] - p[1])
+        if travel < zxjl and feasible(p):
+            best, zxjl = (p, travel)
 
     for a in polygon:
-        d = juli(current, a)
+        d = math.hypot(current[0] - a[0], current[1] - a[1])
         if d > radius:
             consider(
                 (
@@ -79,31 +82,29 @@ def nearest_clear_point(polygon, current):
                 )
             )
     for a, b in combinations(polygon, 2):
-        d = juli(a, b)
+        d = math.hypot(a[0] - b[0], a[1] - b[1])
         if d <= 1e-12 or d > 2 * radius:
             continue
-        midpoint = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+        mid = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
         h = math.sqrt(max(0.0, radius * radius - d * d / 4))
         dx, dy = (-(b[1] - a[1]) / d * h, (b[0] - a[0]) / d * h)
-        consider((midpoint[0] + dx, midpoint[1] + dy))
-        consider((midpoint[0] - dx, midpoint[1] - dy))
+        consider((mid[0] + dx, mid[1] + dy))
+        consider((mid[0] - dx, mid[1] - dy))
     return best
 
 
-def two_leg(point, current, target):
-    return juli(current, point) + juli(point, target)
-
-
-def improve_clear_route(centers, radius, start, current, target, max_steps=24):
+def qclxyh(centers, radius, start, current, target, bsmax=24):
 
     def feasible(p):
-        return all((juli(p, c) <= radius + 1e-10 for c in centers))
+        return all(
+            (math.hypot(p[0] - c[0], p[1] - c[1]) <= radius + 1e-10 for c in centers)
+        )
 
     if not centers or radius <= 0 or (not feasible(start)):
         return (start, dict(iterations=0, gap_m=None))
     corners = []
     for a, b in combinations(centers, 2):
-        d = juli(a, b)
+        d = math.hypot(a[0] - b[0], a[1] - b[1])
         if d <= 1e-12 or d > 2 * radius:
             continue
         mid = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
@@ -113,12 +114,19 @@ def improve_clear_route(centers, radius, start, current, target, max_steps=24):
             if feasible(p):
                 corners.append(p)
     point, steps, gap = (start, 0, None)
-    for _ in range(max_steps):
-        value = two_leg(point, current, target)
-        if value - juli(current, target) <= 1e-07:
-            gap = max(0.0, value - juli(current, target))
+    for _ in range(bsmax):
+        value = math.hypot(current[0] - point[0], current[1] - point[1]) + math.hypot(
+            point[0] - target[0], point[1] - target[1]
+        )
+        if value - math.hypot(current[0] - target[0], current[1] - target[1]) <= 1e-07:
+            gap = max(
+                0.0, value - math.hypot(current[0] - target[0], current[1] - target[1])
+            )
             break
-        d1, d2 = (juli(point, current), juli(point, target))
+        d1, d2 = (
+            math.hypot(point[0] - current[0], point[1] - current[1]),
+            math.hypot(point[0] - target[0], point[1] - target[1]),
+        )
         if min(d1, d2) <= 1e-12:
             gap = 0.0
             break
@@ -132,45 +140,62 @@ def improve_clear_route(centers, radius, start, current, target, max_steps=24):
             break
         beixuan = corners + [point]
         for c in centers:
-            candidate = (c[0] - radius * g[0] / norm, c[1] - radius * g[1] / norm)
-            if feasible(candidate):
-                beixuan.append(candidate)
+            cand = (c[0] - radius * g[0] / norm, c[1] - radius * g[1] / norm)
+            if feasible(cand):
+                beixuan.append(cand)
         support = min(beixuan, key=lambda p: g[0] * p[0] + g[1] * p[1])
         gap = max(0.0, g[0] * (point[0] - support[0]) + g[1] * (point[1] - support[1]))
         if gap <= 1e-05:
             break
 
-        def interpolate(t):
-            return (
-                point[0] + t * (support[0] - point[0]),
-                point[1] + t * (support[1] - point[1]),
-            )
-
         lo, hi = (0.0, 1.0)
         for _ in range(36):
             left, right = ((2 * lo + hi) / 3, (lo + 2 * hi) / 3)
-            if two_leg(interpolate(left), current, target) <= two_leg(
-                interpolate(right), current, target
+            lp = (
+                point[0] + left * (support[0] - point[0]),
+                point[1] + left * (support[1] - point[1]),
+            )
+            rp = (
+                point[0] + right * (support[0] - point[0]),
+                point[1] + right * (support[1] - point[1]),
+            )
+            if math.hypot(current[0] - lp[0], current[1] - lp[1]) + math.hypot(
+                lp[0] - target[0], lp[1] - target[1]
+            ) <= math.hypot(current[0] - rp[0], current[1] - rp[1]) + math.hypot(
+                rp[0] - target[0], rp[1] - target[1]
             ):
                 hi = right
             else:
                 lo = left
-        candidate = min(
-            (point, support, interpolate((lo + hi) / 2)),
-            key=lambda p: two_leg(p, current, target),
+        cand = min(
+            (
+                point,
+                support,
+                (
+                    point[0] + (lo + hi) / 2 * (support[0] - point[0]),
+                    point[1] + (lo + hi) / 2 * (support[1] - point[1]),
+                ),
+            ),
+            key=lambda p: (
+                math.hypot(current[0] - p[0], current[1] - p[1])
+                + math.hypot(p[0] - target[0], p[1] - target[1])
+            ),
         )
-        if not feasible(candidate):
+        if not feasible(cand):
             break
-        improvement = value - two_leg(candidate, current, target)
-        point = candidate
+        gain = value - (
+            math.hypot(current[0] - cand[0], current[1] - cand[1])
+            + math.hypot(cand[0] - target[0], cand[1] - target[1])
+        )
+        point = cand
         steps += 1
         gap = None
-        if improvement <= 1e-09:
+        if gain <= 1e-09:
             break
     return (point, dict(iterations=steps, gap_m=gap))
 
 
-def assignment(cost):
+def zhipai(cost):
     n = len(cost)
     u = [0.0] * (n + 1)
     v = [0.0] * (n + 1)
@@ -210,17 +235,17 @@ def assignment(cost):
             j0 = j1
             if j0 == 0:
                 break
-    successor = [0] * n
+    succ = [0] * n
     for j in range(1, n + 1):
-        successor[p[j] - 1] = j - 1
-    return (sum((cost[i][j] for i, j in enumerate(successor))), successor)
+        succ[p[j] - 1] = j - 1
+    return (sum((cost[i][j] for i, j in enumerate(succ))), succ)
 
 
-STRATEGY = "event-rollout-certified-completion-v8"
-REVISION = "20260912-shared-service-r4"
+celue = "event-rollout-certified-completion-v8"
+banben = "20260912-shared-service-r4"
 
 
-def search_points(problem):
+def sscd(problem):
     if problem == 3:
         return [(0.0, 0.0)] + [
             (1125 * math.cos(k * math.pi / 3), 1125 * math.sin(k * math.pi / 3))
@@ -246,22 +271,15 @@ def pindao(jilu, status):
     return {c for c, s in jilu["channels"].items() if s["status"] in status}
 
 
-def xin_jilu(
-    problem,
-    extra_actions=640,
-    *,
-    coverage_nodes=4096,
-    coverage_depth=12,
-    geometry_version=1,
-):
-    if geometry_version not in (1, 2):
+def xjjl(problem, dzys=640, *, fgjd=4096, fgsd=12, jhbb=1):
+    if jhbb not in (1, 2):
         raise ValueError("Unknown source geometry version")
     return dict(
         problem=problem,
-        extra=extra_actions,
-        coverage_nodes=coverage_nodes,
-        coverage_depth=coverage_depth,
-        geometry_version=geometry_version,
+        extra=dzys,
+        coverage_nodes=fgjd,
+        coverage_depth=fgsd,
+        geometry_version=jhbb,
         receipts=[],
         certificates=[],
         channels={
@@ -270,7 +288,7 @@ def xin_jilu(
                 radio=[],
                 optical=[],
                 records=[],
-                pending=set(g.search_grid()),
+                pending=set(g.sswd()),
                 source=None,
                 proof=None,
             )
@@ -279,7 +297,7 @@ def xin_jilu(
     )
 
 
-def xin_luxian(points, seconds=0.25):
+def xjlx(points, seconds=0.25):
     return dict(
         points=list(points),
         seconds=seconds,
@@ -292,29 +310,14 @@ def xin_luxian(points, seconds=0.25):
     )
 
 
-def xin_zhuangtai(
-    transport,
-    problem,
-    progress=None,
-    *,
-    extra_actions=640,
-    planning_seconds=0.2,
-    request_seconds=0.1,
-    fallback_only=False,
-):
+def xjzt(io, problem, jd=None, *, dzys=640, ghsj=0.2, qqsj=0.1, byonly=False):
     return dict(
-        io=transport,
+        io=io,
         problem=problem,
-        progress=progress,
-        ledger=xin_jilu(
-            problem,
-            extra_actions,
-            coverage_nodes=20000,
-            coverage_depth=14,
-            geometry_version=2 if problem == 3 else 1,
-        ),
+        progress=jd,
+        ledger=xjjl(problem, dzys, fgjd=20000, fgsd=14, jhbb=2 if problem == 3 else 1),
         planner=dict(
-            seconds=planning_seconds,
+            seconds=ghsj,
             problem=problem,
             statistics=dict(
                 decisions=0,
@@ -324,8 +327,8 @@ def xin_zhuangtai(
                 radio_events=0,
             ),
         ),
-        request_seconds=request_seconds,
-        fallback_only=fallback_only,
+        request_seconds=qqsj,
+        fallback_only=byonly,
         position=(0.0, 0.0),
         channel=1,
         virtual=0.0,
@@ -343,24 +346,24 @@ def xin_zhuangtai(
         max_virtual=360000.0,
         fallback_used=False,
         initial_upper=None,
-        search_plan=xin_luxian(search_points(problem)),
+        search_plan=xjlx(sscd(problem)),
         guard_checks=0,
     )
 
 
-def intersection(poly, other):
+def qjj(poly, other):
     if len(other) < 3:
         return poly
     for a, b in zip(other, other[1:] + other[:1]):
-        edge = g.sub(b, a)
+        edge = (b[0] - a[0], b[1] - a[1])
         normal = (edge[1], -edge[0])
-        poly = g.clip(poly, normal, g.dot(normal, a))
+        poly = g.clip(poly, normal, normal[0] * a[0] + normal[1] * a[1])
         if not poly:
             break
     return poly
 
 
-def xin_yuan(origin, bearing=None, geometry_version=1):
+def xjyd(origin, bearing=None, jhbb=1):
     origin = g.point(origin)
     yuan = dict(
         origin=origin,
@@ -375,129 +378,121 @@ def xin_yuan(origin, bearing=None, geometry_version=1):
         anchor_radius=1500.0,
         rounds=0,
     )
-    domain = g.rectangle(-1800, -1800, 1800, 1800)
+    domain = g.juxing(-1800, -1800, 1800, 1800)
     if bearing is None:
         x, y = origin
-        yuan["polygon"] = intersection(g.rectangle(x - 5, y - 5, x + 5, y + 5), domain)
+        yuan["polygon"] = qjj(g.juxing(x - 5, y - 5, x + 5, y + 5), domain)
         yuan["points"] = {0: origin}
         yuan["cells"] = {0: yuan["polygon"]}
         yuan["anchor_radius"] = 5.0
     else:
-        yuan["polygon"] = g.apply_bearing(domain, origin, F(bearing))
+        yuan["polygon"] = g.jcfw(domain, origin, fs(bearing))
         index = 0
         for row, y in enumerate((-25, 0, 25)):
             for k in range(61) if row % 2 == 0 else range(60, -1, -1):
                 x = 25 * k
                 bounds = (
-                    max(0, x - F(25, 2)),
-                    max(-30, y - F(25, 2)),
-                    min(1500, x + F(25, 2)),
-                    min(30, y + F(25, 2)),
+                    max(0, x - fs(25, 2)),
+                    max(-30, y - fs(25, 2)),
+                    min(1500, x + fs(25, 2)),
+                    min(30, y + fs(25, 2)),
                 )
-                cell = intersection(
-                    g.transformed_box(origin, bearing, bounds), yuan["polygon"]
-                )
-                q = g.rotated_point(origin, bearing, x, y)
+                cell = qjj(g.xzqj(origin, bearing, bounds), yuan["polygon"])
+                q = g.xzd(origin, bearing, x, y)
                 if cell:
-                    if not g.disk_contains(cell, q, F(20)):
+                    if not g.ypbh(cell, q, fs(20)):
                         raise RuntimeError("Optical responsibility is not covered")
                     yuan["points"][index], yuan["cells"][index] = (q, cell)
                 index += 1
     yuan["positives"].append(origin)
     if not yuan["polygon"] or not yuan["cells"]:
         raise RuntimeError("Known source lost all feasible responsibilities")
-    if geometry_version == 2:
-        xianding_fanwei(yuan, intersection(yuan["polygon"], g.source_domain()))
+    if jhbb == 2:
+        xdfw(yuan, qjj(yuan["polygon"], g.yfw()))
         yuan["anchor_radius"] = math.nextafter(
-            max(
-                (
-                    float(g.ceil_distance(yuan["anchor_point"], p))
-                    for p in yuan["polygon"]
-                )
-            ),
+            max((float(g.jlsx(yuan["anchor_point"], p)) for p in yuan["polygon"])),
             math.inf,
         )
     return yuan
 
 
-def xianding_fanwei(yuan, poly):
+def xdfw(yuan, poly):
     if not poly:
         raise RuntimeError("Accepted evidence contradicts known source")
-    yuan["cells"] = {
-        i: out for i, p in yuan["cells"].items() if (out := intersection(p, poly))
-    }
+    yuan["cells"] = {i: out for i, p in yuan["cells"].items() if (out := qjj(p, poly))}
     yuan["polygon"] = poly
     if not yuan["polygon"] or not yuan["cells"]:
         raise RuntimeError("Known source lost all feasible responsibilities")
 
 
-def gengxin_yuan(yuan, q, kind, bearing=None, problem=4):
+def gxyd(yuan, q, kind, bearing=None, problem=4):
     q = g.point(q)
     if kind == "direction":
-        xianding_fanwei(yuan, g.apply_bearing(yuan["polygon"], q, F(bearing)))
+        xdfw(yuan, g.jcfw(yuan["polygon"], q, fs(bearing)))
         yuan["positives"].append(q)
         yuan["anchor_point"], yuan["anchor_bearing"] = (q, bearing)
         yuan["anchor_radius"] = min(
             1500.0,
             math.nextafter(
-                float(max((g.ceil_distance(q, v) for v in yuan["polygon"]))), math.inf
+                float(max((g.jlsx(q, v) for v in yuan["polygon"]))), math.inf
             ),
         )
         yuan["rounds"] += 1
     elif kind == "near":
         x, y = q
-        xianding_fanwei(
-            yuan, intersection(yuan["polygon"], g.rectangle(x - 5, y - 5, x + 5, y + 5))
-        )
+        xdfw(yuan, qjj(yuan["polygon"], g.juxing(x - 5, y - 5, x + 5, y + 5)))
         yuan["anchor_point"] = q
         yuan["anchor_radius"] = math.nextafter(
-            float(max((g.ceil_distance(q, v) for v in yuan["polygon"]))), math.inf
+            float(max((g.jlsx(q, v) for v in yuan["polygon"]))), math.inf
         )
     elif kind == "no_signal":
         yuan["negatives"].append(q)
         if problem == 3:
             poly = yuan["polygon"]
             for p in yuan["positives"]:
-                poly = g.clip(poly, g.sub(q, p), (g.dot(q, q) - g.dot(p, p)) / 2)
-            xianding_fanwei(yuan, poly)
+                poly = g.clip(
+                    poly,
+                    (q[0] - p[0], q[1] - p[1]),
+                    (q[0] * q[0] + q[1] * q[1] - (p[0] * p[0] + p[1] * p[1])) / 2,
+                )
+            xdfw(yuan, poly)
         yuan["cells"] = {
             i: p
             for i, p in yuan["cells"].items()
-            if problem != 3 or not g.disk_contains(p, q, F(1000))
+            if problem != 3 or not g.ypbh(p, q, fs(1000))
         }
         if not yuan["polygon"] or not yuan["cells"]:
             raise RuntimeError("Known source lost all feasible responsibilities")
     elif kind == "no_target_in_range":
         yuan["cells"] = {
-            i: p for i, p in yuan["cells"].items() if not g.disk_contains(p, q, F(20))
+            i: p for i, p in yuan["cells"].items() if not g.ypbh(p, q, fs(20))
         }
         if not yuan["polygon"] or not yuan["cells"]:
             raise RuntimeError("Known source lost all feasible responsibilities")
         yuan["polygon"] = g.hull((v for p in yuan["cells"].values() for v in p))
 
 
-def shuang_yinxing(yuan, positive, a, b):
+def syx(yuan, pos, a, b):
     if (
-        positive not in yuan["positives"]
+        pos not in yuan["positives"]
         or a not in yuan["negatives"]
         or b not in yuan["negatives"]
     ):
         raise RuntimeError("Pair contraction lacks its observed evidence")
-    poly, changed = g.verified_pair_cut(yuan["polygon"], positive, a, b)
+    poly, changed = g.syxc(yuan["polygon"], pos, a, b)
     if changed:
-        xianding_fanwei(yuan, poly)
+        xdfw(yuan, poly)
         yuan["anchor_radius"] = min(
             yuan["anchor_radius"],
             math.nextafter(
-                float(max((g.ceil_distance(yuan["anchor_point"], v) for v in poly))),
-                math.inf,
+                float(max((g.jlsx(yuan["anchor_point"], v) for v in poly))), math.inf
             ),
         )
     yuan["rounds"] += 1
     return changed
 
 
-def shengyu_renwu(jilu):
+def syrw(jilu):
     return (
         sum(
             (
@@ -518,7 +513,7 @@ def shengyu_renwu(jilu):
     )
 
 
-def biaoji_wuyuan(jilu, c, basis, **details):
+def bjwy(jilu, c, basis, **details):
     s = jilu["channels"][c]
     if s["status"] != "unknown":
         raise RuntimeError("Cannot mark a discovered source absent")
@@ -528,26 +523,26 @@ def biaoji_wuyuan(jilu, c, basis, **details):
     jilu["certificates"].append(s["proof"])
 
 
-def zhengming_wuyuan(jilu, c, max_nodes=None):
+def zmwy(jilu, c, jdmax=None):
     s = jilu["channels"][c]
     if s["status"] != "unknown":
         return False
     if not s["pending"]:
-        biaoji_wuyuan(jilu, c, "exact_600m_grid_template", radio_count=len(s["radio"]))
+        bjwy(jilu, c, "exact_600m_grid_template", radio_count=len(s["radio"]))
         return True
     if len(s["radio"]) < (6 if jilu["problem"] == 3 else 7) and (not s["optical"]):
         return False
-    if max_nodes is None:
-        max_nodes = jilu["coverage_nodes"]
-    proved, nodes, box, leaves = g.coverage_certificate(
+    if jdmax is None:
+        jdmax = jilu["coverage_nodes"]
+    proved, nodes, box, leaves = g.fgzm(
         tuple(sorted(set(s["radio"]))),
         tuple(sorted(set(s["optical"]))),
         jilu["problem"],
-        max_nodes,
+        jdmax,
         jilu["coverage_depth"],
     )
     if proved:
-        biaoji_wuyuan(
+        bjwy(
             jilu,
             c,
             "rational_continuous_coverage",
@@ -555,23 +550,28 @@ def zhengming_wuyuan(jilu, c, max_nodes=None):
             optical_count=len(s["optical"]),
             nodes=nodes,
             leaf_count=len(leaves),
-            max_nodes=max_nodes,
+            max_nodes=jdmax,
             max_depth=jilu["coverage_depth"],
-            radio=[g.floating(q) for q in s["radio"]],
-            optical=[g.floating(q) for q in s["optical"]],
+            radio=[tuple((float(x) for x in q)) for q in s["radio"]],
+            optical=[tuple((float(x) for x in q)) for q in s["optical"]],
         )
     return proved
 
 
-def gengxin_jilu(jilu, path, q, c, huifu, prove=True):
-    before = shengyu_renwu(jilu)
+def gxjl(jilu, path, q, c, huifu, prove=True):
+    before = syrw(jilu)
     q = g.point(q)
     s = jilu["channels"][c]
     if s["status"] in ("cleared", "absent"):
         raise RuntimeError("Action targets a resolved channel")
     kind = huifu["measure_result" if path == "/measure" else "clear_result"]
     s["records"].append(
-        dict(path=path, point=g.floating(q), kind=kind, bearing=huifu.get("svd_deg"))
+        dict(
+            path=path,
+            point=tuple((float(x) for x in q)),
+            kind=kind,
+            bearing=huifu.get("svd_deg"),
+        )
     )
     if path == "/measure":
         if s["status"] == "unknown":
@@ -579,21 +579,21 @@ def gengxin_jilu(jilu, path, q, c, huifu, prove=True):
                 s["radio"].append(q)
                 s["pending"].discard(q)
                 if prove:
-                    zhengming_wuyuan(jilu, c)
+                    zmwy(jilu, c)
             else:
                 s["status"] = "found"
                 s["pending"].clear()
-                s["source"] = xin_yuan(
+                s["source"] = xjyd(
                     q,
                     huifu["svd_deg"] if kind == "direction" else None,
                     jilu["geometry_version"],
                 )
         elif kind == "direction":
-            gengxin_yuan(s["source"], q, "direction", bearing=huifu["svd_deg"])
+            gxyd(s["source"], q, "direction", bearing=huifu["svd_deg"])
         elif kind == "near":
-            gengxin_yuan(s["source"], q, "near")
+            gxyd(s["source"], q, "near")
         else:
-            gengxin_yuan(s["source"], q, "no_signal", problem=jilu["problem"])
+            gxyd(s["source"], q, "no_signal", problem=jilu["problem"])
     elif kind == "success":
         s["status"] = "cleared"
         s["pending"].clear()
@@ -601,19 +601,19 @@ def gengxin_jilu(jilu, path, q, c, huifu, prove=True):
     elif s["status"] == "unknown":
         s["optical"].append(q)
         if prove:
-            zhengming_wuyuan(jilu, c)
+            zmwy(jilu, c)
     else:
-        gengxin_yuan(s["source"], q, "no_target_in_range")
+        gxyd(s["source"], q, "no_target_in_range")
     if len(pindao(jilu, ("found", "cleared"))) > 16:
         raise RuntimeError("More than 16 distinct sources")
     if len(pindao(jilu, ("found", "cleared"))) == 16:
         for other in sorted(pindao(jilu, ("unknown",))):
-            biaoji_wuyuan(jilu, other, "source_count_upper_bound")
-    if shengyu_renwu(jilu) >= before:
+            bjwy(jilu, other, "source_count_upper_bound")
+    if syrw(jilu) >= before:
         if jilu["extra"] <= 0:
             raise RuntimeError("An unproductive action had no reserved allowance")
         jilu["extra"] -= 1
-    after = shengyu_renwu(jilu)
+    after = syrw(jilu)
     if after >= before or after < 0:
         raise RuntimeError("Completion rank failed to decrease")
     receipt = dict(
@@ -628,7 +628,7 @@ def gengxin_jilu(jilu, path, q, c, huifu, prove=True):
     return receipt
 
 
-def quanbu_qingchu(jilu):
+def qbqc(jilu):
     return (
         not pindao(jilu, ("unknown",))
         and (not pindao(jilu, ("found",)))
@@ -636,27 +636,25 @@ def quanbu_qingchu(jilu):
     )
 
 
-def shengyu_shangjie(jilu, weizhi):
+def sysj(jilu, weizhi):
     p = g.point(weizhi)
-    components = [
-        chain_bound(optical_order(jilu["channels"][c]["source"], p), p, p)
+    parts = [
+        lxsj(gxpx(jilu["channels"][c]["source"], p), p, p)
         for c in pindao(jilu, ("found",))
     ]
     points = set(
         (q for c in pindao(jilu, ("unknown",)) for q in jilu["channels"][c]["pending"])
     )
-    previous = p
-    for q in g.search_grid():
+    prev = p
+    for q in g.sswd():
         if q in points:
-            components.append(
-                math.nextafter(float(g.ceil_distance(previous, q) / 5), math.inf)
-            )
-            previous = q
+            parts.append(math.nextafter(float(g.jlsx(prev, q) / 5), math.inf))
+            prev = q
     requests = sum(
         (len(jilu["channels"][c]["pending"]) for c in pindao(jilu, ("unknown",)))
     )
-    components.append(6 * requests)
-    components.append(
+    parts.append(6 * requests)
+    parts.append(
         math.nextafter(
             1843.1
             * min(
@@ -666,10 +664,10 @@ def shengyu_shangjie(jilu, weizhi):
             math.inf,
         )
     )
-    return math.nextafter(math.fsum(components), math.inf)
+    return math.nextafter(math.fsum(parts), math.inf)
 
 
-def jilu_zhaiyao(jilu):
+def jlzy(jilu):
     return dict(
         discovered_channels=sorted(pindao(jilu, ("found", "cleared"))),
         cleared_channels=sorted(pindao(jilu, ("cleared",))),
@@ -679,135 +677,156 @@ def jilu_zhaiyao(jilu):
             c for c, s in jilu["channels"].items() if s["status"] == "absent"
         ],
         extra_actions_remaining=jilu["extra"],
-        completion_rank=shengyu_renwu(jilu),
+        completion_rank=syrw(jilu),
         rank_receipts=len(jilu["receipts"]),
         absence_certificates=jilu["certificates"],
     )
 
 
-def continuous_clear(yuan, dangqian, target=None):
-    polygon = [g.floating(p) for p in yuan["polygon"]]
-    candidate = nearest_clear_point(polygon, dangqian)
-    if candidate is None:
+def lxqc(yuan, dq, target=None):
+    polygon = [tuple((float(x) for x in p)) for p in yuan["polygon"]]
+    cand = zjqcd(polygon, dq)
+    if cand is None:
         return None
-    options = [candidate]
+    options = [cand]
     if target is not None:
-        q, _ = improve_clear_route(polygon, 19.8 - 1e-06, candidate, dangqian, target)
+        q, _ = qclxyh(polygon, 19.8 - 1e-06, cand, dq, target)
         options.append(q)
     valid = [
-        g.point(q)
-        for q in options
-        if g.disk_contains(yuan["polygon"], g.point(q), F("19.8"))
+        g.point(q) for q in options if g.ypbh(yuan["polygon"], g.point(q), fs("19.8"))
     ]
     if not valid:
         return None
     return min(
         valid,
         key=lambda q: (
-            math.dist(dangqian, g.floating(q))
-            + (math.dist(g.floating(q), target) if target is not None else 0)
+            math.dist(dq, tuple((float(x) for x in q)))
+            + (
+                math.dist(tuple((float(x) for x in q)), target)
+                if target is not None
+                else 0
+            )
         ),
     )
 
 
-def optical_order(yuan, dangqian, mode="snake", cells=None):
+def gxpx(yuan, dq, mode="snake", cells=None):
     ids = set(yuan["cells"] if cells is None else cells)
     if mode == "snake":
         return [yuan["points"][i] for i in sorted(ids)]
     order = []
-    p = g.point(dangqian)
+    p = g.point(dq)
     while ids:
-        i = min(ids, key=lambda i: (g.squared(p, yuan["points"][i]), i))
+        i = min(
+            ids,
+            key=lambda i: (
+                (p[0] - yuan["points"][i][0]) * (p[0] - yuan["points"][i][0])
+                + (p[1] - yuan["points"][i][1]) * (p[1] - yuan["points"][i][1]),
+                i,
+            ),
+        )
         ids.remove(i)
         p = yuan["points"][i]
         order.append(p)
     return order
 
 
-def chain_bound(points, dangqian, target=None):
-    p = g.point(dangqian)
-    spent = F(0)
-    worst = F(0)
+def lxsj(points, dq, target=None):
+    p = g.point(dq)
+    spent = fs(0)
+    worst = fs(0)
     for q in points:
-        spent += g.ceil_distance(p, q) / 5
-        leave = g.ceil_distance(q, g.point(target)) / 5 if target is not None else 0
+        spent += g.jlsx(p, q) / 5
+        leave = g.jlsx(q, g.point(target)) / 5 if target is not None else 0
         worst = max(worst, spent + 5 + leave)
         spent += 3
         p = q
     return math.nextafter(float(worst), math.inf)
 
 
-def continuations(yuan, dangqian, cells=None):
+def xuduan(yuan, dq, cells=None):
     return min(
         (
-            (chain_bound(order, dangqian), mode, order)
+            (lxsj(order, dq), mode, order)
             for mode in ("snake", "nearest")
-            if (order := optical_order(yuan, dangqian, mode, cells))
+            if (order := gxpx(yuan, dq, mode, cells))
         )
     )
 
 
-def pair_points(yuan, dangqian, fraction=0.5):
-    length = F(yuan["anchor_radius"])
-    x = 5 + (length - 5) * F(fraction)
+def sdc(yuan, dq, ratio=0.5):
+    length = fs(yuan["anchor_radius"])
+    x = 5 + (length - 5) * fs(ratio)
     side = length / 50
     if len(yuan["positives"]) >= 2:
-        u, _ = g.direction(F(yuan["anchor_bearing"]))
-        distance = [g.dot(g.sub(q, yuan["anchor_point"]), u) for q in yuan["polygon"]]
-        lo, hi = (min(distance), max(distance))
+        u, _ = g.fangxiang(fs(yuan["anchor_bearing"]))
+        dist = [
+            (q[0] - yuan["anchor_point"][0]) * u[0]
+            + (q[1] - yuan["anchor_point"][1]) * u[1]
+            for q in yuan["polygon"]
+        ]
+        lo, hi = (min(dist), max(dist))
         x = (lo + hi) / 2
-        side = max(F(5), (hi - lo) / 20)
+        side = max(fs(5), (hi - lo) / 20)
     points = [
-        g.rotated_point(yuan["anchor_point"], yuan["anchor_bearing"], x, sign * side)
+        g.xzd(yuan["anchor_point"], yuan["anchor_bearing"], x, sign * side)
         for sign in (-1, 1)
     ]
-    return tuple(sorted(points, key=lambda q: g.squared(q, g.point(dangqian))))
+    return tuple(
+        sorted(
+            points,
+            key=lambda q: (
+                (q[0] - g.point(dq)[0]) * (q[0] - g.point(dq)[0])
+                + (q[1] - g.point(dq)[1]) * (q[1] - g.point(dq)[1])
+            ),
+        )
+    )
 
 
-def possible_cells(yuan, polygon):
+def kdqy(yuan, polygon):
     if not polygon:
         return []
-    return [i for i, cell in yuan["cells"].items() if intersection(cell, polygon)]
+    return [i for i, cell in yuan["cells"].items() if qjj(cell, polygon)]
 
 
-def radio_rollout(yuan, dangqian, pair, problem, deadline):
+def sptz(yuan, dq, pair, problem, dl):
     a, b = pair
-    start = float(g.ceil_distance(g.point(dangqian), a) / 5) + 6
+    start = float(g.jlsx(g.point(dq), a) / 5) + 6
     ceshi = [(a, start)]
     if problem == 4:
-        ceshi.append((b, start + float(g.ceil_distance(a, b) / 5) + 5))
+        ceshi.append((b, start + float(g.jlsx(a, b) / 5) + 5))
     worst = 0.0
-    branches = 0
+    paths = 0
     for q, prefix in ceshi:
         for lo in range(0, 360, 60):
-            if time.perf_counter() >= deadline:
+            if time.perf_counter() >= dl:
                 return None
-            region = g.apply_bearing(yuan["polygon"], q, F(lo), hi=F(lo + 60))
-            ids = possible_cells(yuan, region)
+            region = g.jcfw(yuan["polygon"], q, fs(lo), hi=fs(lo + 60))
+            ids = kdqy(yuan, region)
             if ids:
-                upper, _, _ = continuations(yuan, q, ids)
+                upper, _, _ = xuduan(yuan, q, ids)
                 worst = max(worst, prefix + upper)
-                branches += 1
+                paths += 1
         worst = max(worst, prefix + 5)
-        branches += 1
+        paths += 1
     if problem == 3:
-        if not g.disk_contains(yuan["polygon"], a, F(1000)):
-            worst = max(worst, start + continuations(yuan, a)[0])
-            branches += 1
+        if not g.ypbh(yuan["polygon"], a, fs(1000)):
+            worst = max(worst, start + xuduan(yuan, a)[0])
+            paths += 1
     else:
         prefix = ceshi[-1][1]
-        region, _ = g.verified_pair_cut(yuan["polygon"], yuan["anchor_point"], a, b)
-        ids = possible_cells(yuan, region)
+        region, _ = g.syxc(yuan["polygon"], yuan["anchor_point"], a, b)
+        ids = kdqy(yuan, region)
         if ids:
-            worst = max(worst, prefix + continuations(yuan, b, ids)[0])
-            branches += 1
-    return (worst, branches)
+            worst = max(worst, prefix + xuduan(yuan, b, ids)[0])
+            paths += 1
+    return (worst, paths)
 
 
-def optical_hypotheses(source):
+def gxjs(source):
     values = []
     for poly in source["cells"].values():
-        points = [g.floating(p) for p in poly]
+        points = [tuple((float(x) for x in p)) for p in poly]
         center = tuple((sum((p[k] for p in points)) / len(points) for k in (0, 1)))
         area = (
             abs(
@@ -821,37 +840,35 @@ def optical_hypotheses(source):
             / 2
         )
         values.append((center, area))
-    zongliang = sum((w for _, w in values))
-    return [
-        (p, w / zongliang if zongliang > 1e-12 else 1 / len(values)) for p, w in values
-    ]
+    zl = sum((w for _, w in values))
+    return [(p, w / zl if zl > 1e-12 else 1 / len(values)) for p, w in values]
 
 
-def optical_mean_cost(order, position, worlds, target=None):
+def gxjz(order, wz, worlds, target=None):
     elapsed = 0.0
-    previous = position
-    remaining = set(range(len(worlds)))
+    prev = wz
+    rest = set(range(len(worlds)))
     mean = 0.0
-    exit_x = exit_y = 0.0
+    xout = yout = 0.0
     for q in order:
-        q = g.floating(q)
-        elapsed += math.dist(previous, q) / 5
-        hits = [i for i in remaining if math.dist(worlds[i][0], q) <= 20]
+        q = tuple((float(x) for x in q))
+        elapsed += math.dist(prev, q) / 5
+        hits = [i for i in rest if math.dist(worlds[i][0], q) <= 20]
         for i in hits:
             mean += worlds[i][1] * (
                 elapsed + 5 + (math.dist(q, target) / 5 if target is not None else 0)
             )
-            exit_x += worlds[i][1] * q[0]
-            exit_y += worlds[i][1] * q[1]
-            remaining.remove(i)
-        previous = q
+            xout += worlds[i][1] * q[0]
+            yout += worlds[i][1] * q[1]
+            rest.remove(i)
+        prev = q
         elapsed += 3
-    return (math.inf if remaining else mean, (exit_x, exit_y))
+    return (math.inf if rest else mean, (xout, yout))
 
 
-def optical_offers(source, position, target=None):
+def gxbx(source, wz, target=None):
     poly = source["polygon"]
-    points = [g.floating(p) for p in poly]
+    points = [tuple((float(x) for x in p)) for p in poly]
     angle = math.radians(source["anchor_bearing"])
     result = []
     worlds = None
@@ -862,10 +879,10 @@ def optical_offers(source, position, target=None):
         ys = [p[0] * w[0] + p[1] * w[1] for p in points]
         lo, hi = (min(xs) - 1e-06, max(xs) + 1e-06)
         mid = (min(ys) + max(ys)) / 2
-        half_width = (max(ys) - min(ys)) / 2 + 1e-06
-        if half_width >= 19.79:
+        halfwidth = (max(ys) - min(ys)) / 2 + 1e-06
+        if halfwidth >= 19.79:
             continue
-        half = math.sqrt(19.79**2 - half_width**2)
+        half = math.sqrt(19.79**2 - halfwidth**2)
         n = max(1, math.ceil((hi - lo) / (2 * half)))
         if not 2 <= n <= 8:
             continue
@@ -879,19 +896,26 @@ def optical_offers(source, position, target=None):
             for other in chain:
                 if q != other:
                     part = g.clip(
-                        part, g.sub(other, q), (g.dot(other, other) - g.dot(q, q)) / 2
+                        part,
+                        (other[0] - q[0], other[1] - q[1]),
+                        (
+                            other[0] * other[0]
+                            + other[1] * other[1]
+                            - (q[0] * q[0] + q[1] * q[1])
+                        )
+                        / 2,
                     )
-            if part and (not g.disk_contains(part, q, F("19.8"))):
+            if part and (not g.ypbh(part, q, fs("19.8"))):
                 valid = False
                 break
         if not valid:
             continue
         if worlds is None:
-            worlds = optical_hypotheses(source)
+            worlds = gxjs(source)
         greedy = []
         left = list(chain)
-        position_now = position
-        remaining = set(range(len(worlds)))
+        now = wz
+        rest = set(range(len(worlds)))
         while left:
             q = min(
                 left,
@@ -899,40 +923,38 @@ def optical_offers(source, position, target=None):
                     -sum(
                         (
                             worlds[i][1]
-                            for i in remaining
-                            if math.dist(worlds[i][0], g.floating(p)) <= 20
+                            for i in rest
+                            if math.dist(worlds[i][0], tuple((float(x) for x in p)))
+                            <= 20
                         )
                     )
-                    / (3 + math.dist(position_now, g.floating(p)) / 5),
-                    g.squared(g.point(position_now), p),
+                    / (3 + math.dist(now, tuple((float(x) for x in p))) / 5),
+                    (g.point(now)[0] - p[0]) * (g.point(now)[0] - p[0])
+                    + (g.point(now)[1] - p[1]) * (g.point(now)[1] - p[1]),
                 ),
             )
             greedy.append(q)
             left.remove(q)
-            position_now = g.floating(q)
-            remaining = {
-                i for i in remaining if math.dist(worlds[i][0], position_now) > 20
-            }
+            now = tuple((float(x) for x in q))
+            rest = {i for i in rest if math.dist(worlds[i][0], now) > 20}
         for order in dict.fromkeys(
             (tuple(chain), tuple(reversed(chain)), tuple(greedy))
         ):
-            mean, leave = optical_mean_cost(order, position, worlds, target)
+            mean, leave = gxjz(order, wz, worlds, target)
             if math.isfinite(mean):
-                result.append(
-                    (mean, order, leave, chain_bound(order, position, target))
-                )
+                result.append((mean, order, leave, lxsj(order, wz, target)))
     return result
 
 
-def optical_choice(jihua, yuan, channel, position, tuned, extra, event, target):
+def gxxz(jihua, yuan, channel, wz, tuned, extra, event, target):
     if jihua["problem"] != 4 or event["method"] == "verified_continuous" or extra < 8:
         return event
-    options = optical_offers(yuan, position, target)
+    options = gxbx(yuan, wz, target)
     if not options:
         return event
-    worlds = optical_hypotheses(yuan)
-    q = g.floating(event["points"][0])
-    ideal = math.dist(position, q) / 5 + 5 + (channel != tuned) + 5
+    worlds = gxjs(yuan)
+    q = tuple((float(x) for x in event["points"][0]))
+    ideal = math.dist(wz, q) / 5 + 5 + (channel != tuned) + 5
     ideal += sum(
         (
             weight
@@ -960,18 +982,18 @@ def optical_choice(jihua, yuan, channel, position, tuned, extra, event, target):
     return event
 
 
-def yuan_dongzuo(jihua, yuan, channel, dangqian, tuned, extra, target=None):
-    q = continuous_clear(yuan, dangqian, target)
+def yddz(jihua, yuan, channel, dq, tuned, extra, target=None):
+    q = lxqc(yuan, dq, target)
     if q is not None:
         jihua["statistics"]["continuous_clears"] += 1
         return {
             "kind": "clear",
             "channel": channel,
             "points": (q,),
-            "estimate": math.dist(dangqian, g.floating(q)) / 5 + 5,
+            "estimate": math.dist(dq, tuple((float(x) for x in q))) / 5 + 5,
             "method": "verified_continuous",
         }
-    upper, mode, order = continuations(yuan, dangqian)
+    upper, mode, order = xuduan(yuan, dq)
     best = {
         "kind": "clear",
         "channel": channel,
@@ -980,17 +1002,15 @@ def yuan_dongzuo(jihua, yuan, channel, dangqian, tuned, extra, target=None):
         "method": "complete_optical_" + mode,
     }
     if extra < 2 or yuan["anchor_radius"] <= 5 or yuan["rounds"] >= 12:
-        return optical_choice(
-            jihua, yuan, channel, dangqian, tuned, extra, best, target
-        )
-    deadline = time.perf_counter() + jihua["seconds"]
-    for fraction in (0.5, 0.38, 0.62):
-        pair = pair_points(yuan, dangqian, fraction)
-        jieguo = radio_rollout(yuan, dangqian, pair, jihua["problem"], deadline)
+        return gxxz(jihua, yuan, channel, dq, tuned, extra, best, target)
+    dl = time.perf_counter() + jihua["seconds"]
+    for ratio in (0.5, 0.38, 0.62):
+        pair = sdc(yuan, dq, ratio)
+        jieguo = sptz(yuan, dq, pair, jihua["problem"], dl)
         if jieguo is None:
             jihua["statistics"]["rollout_timeouts"] += 1
             break
-        value, branches = jieguo
+        value, paths = jieguo
         jihua["statistics"]["rollout_candidates"] += 1
         if value < best["estimate"]:
             best = {
@@ -998,10 +1018,10 @@ def yuan_dongzuo(jihua, yuan, channel, dangqian, tuned, extra, target=None):
                 "channel": channel,
                 "points": pair,
                 "estimate": value,
-                "method": f"interval_rollout_{fraction:g}_{branches}_branches",
+                "method": f"interval_rollout_{ratio:g}_{paths}_branches",
             }
     if best["kind"] == "clear" and len(yuan["cells"]) > 4:
-        pair = pair_points(yuan, dangqian)
+        pair = sdc(yuan, dq)
         best = {
             "kind": "radio",
             "channel": channel,
@@ -1009,13 +1029,13 @@ def yuan_dongzuo(jihua, yuan, channel, dangqian, tuned, extra, target=None):
             "estimate": best["estimate"],
             "method": "annular_proposal_with_guard",
         }
-    best = bimian_chongfu(jihua, yuan, dangqian, best)
-    best = optical_choice(jihua, yuan, channel, dangqian, tuned, extra, best, target)
+    best = bmcf(jihua, yuan, dq, best)
+    best = gxxz(jihua, yuan, channel, dq, tuned, extra, best, target)
     jihua["statistics"]["radio_events"] += best["kind"] == "radio"
     return best
 
 
-def bimian_chongfu(jihua, yuan, position, event):
+def bmcf(jihua, yuan, wz, event):
     if jihua["problem"] != 4 or event["kind"] != "radio":
         return event
     if not all((q in yuan["negatives"] for q in event["points"])):
@@ -1024,7 +1044,7 @@ def bimian_chongfu(jihua, yuan, position, event):
     stats["repeated_negative_pairs_skipped"] = (
         stats.get("repeated_negative_pairs_skipped", 0) + 1
     )
-    upper, _, order = continuations(yuan, position)
+    upper, _, order = xuduan(yuan, wz)
     return dict(
         event,
         kind="clear",
@@ -1034,7 +1054,7 @@ def bimian_chongfu(jihua, yuan, position, event):
     )
 
 
-def pinggu_shunxu(tu, order):
+def pgsx(tu, order):
     tu["evaluations"] += 1
     if not order:
         return (0.0, [])
@@ -1053,7 +1073,7 @@ def pinggu_shunxu(tu, order):
     return (value, [tu["modes"][i] for i in path])
 
 
-def fenpei_shunxu(tu):
+def fpsx(tu):
     jobs = list(tu["ids"])
     n = len(jobs)
     cost = [[1000000000000.0] * (n + 1) for _ in range(n + 1)]
@@ -1066,14 +1086,14 @@ def fenpei_shunxu(tu):
                 cost[i][j] = min(
                     (tu["edge"][x, y] for x in tu["ids"][a] for y in tu["ids"][b])
                 )
-    _, successor = assignment(cost)
+    _, succ = zhipai(cost)
 
     def cycle(start):
         out = [start]
-        q = successor[start]
+        q = succ[start]
         while q != start:
             out.append(q)
-            q = successor[q]
+            q = succ[q]
         return out
 
     main = cycle(0)
@@ -1082,19 +1102,19 @@ def fenpei_shunxu(tu):
         a, b = min(
             ((a, b) for a in main for b in other),
             key=lambda ab: (
-                cost[ab[0]][successor[ab[1]]]
-                + cost[ab[1]][successor[ab[0]]]
-                - cost[ab[0]][successor[ab[0]]]
-                - cost[ab[1]][successor[ab[1]]]
+                cost[ab[0]][succ[ab[1]]]
+                + cost[ab[1]][succ[ab[0]]]
+                - cost[ab[0]][succ[ab[0]]]
+                - cost[ab[1]][succ[ab[1]]]
             ),
         )
-        successor[a], successor[b] = (successor[b], successor[a])
+        succ[a], succ[b] = (succ[b], succ[a])
         main = cycle(0)
     return [jobs[i - 1] for i in main[1:]]
 
 
-def anpai_renwu(jobs, position, incumbent=()):
-    modes = [m for variants in jobs.values() for m in variants]
+def aprw(jobs, wz, oldorder=()):
+    modes = [m for opts in jobs.values() for m in opts]
     tu = dict(
         modes=modes,
         ids={job: [i for i, m in enumerate(modes) if m["job"] == job] for job in jobs},
@@ -1105,19 +1125,18 @@ def anpai_renwu(jobs, position, incumbent=()):
             if a["job"] != b["job"]
         },
         start={
-            i: math.dist(position, m["entry"]) / 5 + m["service"]
-            for i, m in enumerate(modes)
+            i: math.dist(wz, m["entry"]) / 5 + m["service"] for i, m in enumerate(modes)
         },
         evaluations=0,
     )
-    old = [job for job in incumbent if job in jobs]
+    old = [job for job in oldorder if job in jobs]
     old += [job for job in jobs if job not in old]
-    remaining = list(jobs)
+    rest = list(jobs)
     greedy = []
     last = None
-    while remaining:
+    while rest:
         job = min(
-            remaining,
+            rest,
             key=lambda job: min(
                 (
                     tu["start"][i] if last is None else tu["edge"][last, i]
@@ -1130,20 +1149,20 @@ def anpai_renwu(jobs, position, incumbent=()):
             key=lambda i: tu["start"][i] if last is None else tu["edge"][last, i],
         )
         greedy.append(job)
-        remaining.remove(job)
+        rest.remove(job)
     scans = [job for job in jobs if job[0] == "scan"]
     sources = [job for job in jobs if job[0] == "source"]
-    seeds = [old, greedy, sources + scans, scans + sources, fenpei_shunxu(tu)]
-    evaluated = []
+    seeds = [old, greedy, sources + scans, scans + sources, fpsx(tu)]
+    scores = []
     for seed in seeds:
-        value, variants = pinggu_shunxu(tu, seed)
-        evaluated.append((value, seed, variants))
-    value, order, variants = min(evaluated, key=lambda e: e[0])
+        value, opts = pgsx(tu, seed)
+        scores.append((value, seed, opts))
+    value, order, opts = min(scores, key=lambda e: e[0])
     index = {id(m): i for i, m in enumerate(modes)}
     for _ in range(2):
         before = value
         trials = []
-        chosen = {m["job"]: index[id(m)] for m in variants}
+        chosen = {m["job"]: index[id(m)] for m in opts}
         for i in range(len(order)):
             for j in range(len(order)):
                 if i == j:
@@ -1158,25 +1177,23 @@ def anpai_renwu(jobs, position, incumbent=()):
                 if score < value - 1e-07:
                     trials.append((score, trial))
         for _, trial in sorted(trials, key=lambda x: x[0])[:16]:
-            candidate, proposed = pinggu_shunxu(tu, trial)
-            if candidate < value - 1e-07:
-                value, order, variants = (candidate, trial, proposed)
+            cand, plan = pgsx(tu, trial)
+            if cand < value - 1e-07:
+                value, order, opts = (cand, trial, plan)
         if value >= before - 1e-07:
             break
-    return dict(
-        estimate=value, order=order, modes=variants, evaluations=tu["evaluations"]
-    )
+    return dict(estimate=value, order=order, modes=opts, evaluations=tu["evaluations"])
 
 
-def xuan_dongzuo(jihua, jilu, dangqian, tuned, search_points):
+def xzdz(jihua, jilu, dq, tuned, sscd):
     jihua["statistics"]["decisions"] += 1
     jobs = {}
     for c in sorted(pindao(jilu, ("found",))):
         yuan = jilu["channels"][c]["source"]
         job = ("source", c)
-        direct = continuous_clear(yuan, dangqian)
+        direct = lxqc(yuan, dq)
         if direct is not None:
-            q = g.floating(direct)
+            q = tuple((float(x) for x in direct))
             event = dict(
                 kind="clear",
                 channel=c,
@@ -1193,10 +1210,10 @@ def xuan_dongzuo(jihua, jilu, dangqian, tuned, search_points):
                 )
             )
             modes = []
-            for fraction in (0.38, 0.5, 0.62):
-                pair = pair_points(yuan, dangqian, fraction)
+            for ratio in (0.38, 0.5, 0.62):
+                pair = sdc(yuan, dq, ratio)
                 for order in (pair, pair[::-1]) if jilu["problem"] == 4 else (pair,):
-                    q = g.floating(order[0])
+                    q = tuple((float(x) for x in order[0]))
                     cost = math.dist(q, center) / 5 + 15.0
                     event = dict(
                         kind="radio",
@@ -1209,7 +1226,7 @@ def xuan_dongzuo(jihua, jilu, dangqian, tuned, search_points):
                         dict(job=job, entry=q, service=cost, exit=center, event=event)
                     )
         jobs[job] = modes
-    for q in search_points:
+    for q in sscd:
         todo = [
             c
             for c in pindao(jilu, ("unknown",))
@@ -1229,61 +1246,57 @@ def xuan_dongzuo(jihua, jilu, dangqian, tuned, search_points):
             ]
     if not jobs:
         return None
-    plan = anpai_renwu(jobs, dangqian, jihua.get("order", ()))
+    plan = aprw(jobs, dq, jihua.get("order", ()))
     jihua["order"] = plan["order"]
     event = plan["modes"][0]["event"]
     event["target"] = plan["modes"][1]["entry"] if len(plan["modes"]) > 1 else None
     if event["kind"] != "search":
-        event = bimian_chongfu(
-            jihua, jilu["channels"][event["channel"]]["source"], dangqian, event
-        )
+        event = bmcf(jihua, jilu["channels"][event["channel"]]["source"], dq, event)
     return event
 
 
-def gengxin_luxian(luxian, jilu, dangqian):
+def gxlx(luxian, jilu, dq):
     if not pindao(jilu, ("unknown",)):
         return []
     common = set.intersection(
         *(set(jilu["channels"][c]["radio"]) for c in pindao(jilu, ("unknown",)))
     )
-    remaining = [q for q in luxian["points"] if g.point(q) not in common]
-    signature = (
+    sycd = [q for q in luxian["points"] if g.point(q) not in common]
+    sig = (
         tuple(sorted(common)),
         tuple(sorted(pindao(jilu, ("unknown",)))),
         luxian["pending_stop"],
     )
-    route = open_route(dangqian, remaining)
-    if signature == luxian["signature"]:
+    route = lxpx(dq, sycd)
+    if sig == luxian["signature"]:
         return route
-    luxian["signature"] = signature
-    deadline = time.perf_counter() + luxian["seconds"]
+    luxian["signature"] = sig
+    dl = time.perf_counter() + luxian["seconds"]
 
     def cost(qs):
-        return route_length(dangqian, qs) / 5 + 6 * len(
-            pindao(jilu, ("unknown",))
-        ) * len(qs)
+        return lxcd(dq, qs) / 5 + 6 * len(pindao(jilu, ("unknown",))) * len(qs)
 
     for _ in range(3):
         old = cost(route)
         options = []
         for q in route:
             rest = [p for p in route if p != q]
-            trial = open_route(dangqian, rest)
+            trial = lxpx(dq, rest)
             options.append((cost(trial), "delete", q, trial))
             if (
                 luxian["pending_stop"] is not None
                 and luxian["pending_stop"] not in rest
                 and (g.point(luxian["pending_stop"]) not in common)
             ):
-                trial = open_route(dangqian, rest + [luxian["pending_stop"]])
+                trial = lxpx(dq, rest + [luxian["pending_stop"]])
                 options.append((cost(trial), "replace", q, trial))
         improved = False
         for value, kind, removed, trial in sorted(options):
-            if value >= old - 1e-06 or time.perf_counter() >= deadline:
+            if value >= old - 1e-06 or time.perf_counter() >= dl:
                 break
             luxian["proofs"] += 1
             points = tuple(sorted(common | {g.point(q) for q in trial}))
-            proved = g.coverage_certificate(
+            proved = g.fgzm(
                 points,
                 (),
                 jilu["problem"],
@@ -1309,15 +1322,15 @@ def gengxin_luxian(luxian, jilu, dangqian):
     return route
 
 
-def baocun_shijian(zhuangtai, event, **fields):
-    data = dict(event=event, virtual_time_s=zhuangtai["virtual"], **fields)
-    zhuangtai["io"]["record"](data)
-    if zhuangtai["progress"]:
-        zhuangtai["progress"](data)
+def bcsj(zt, event, **fields):
+    data = dict(event=event, virtual_time_s=zt["virtual"], **fields)
+    zt["io"]["record"](data)
+    if zt["progress"]:
+        zt["progress"](data)
 
 
-def shengyu_cishu(zhuangtai):
-    l = zhuangtai["ledger"]
+def sycs(zt):
+    l = zt["ledger"]
     return (
         sum((len(l["channels"][c]["pending"]) for c in pindao(l, ("unknown",))))
         + sum((len(l["channels"][c]["source"]["cells"]) for c in pindao(l, ("found",))))
@@ -1327,60 +1340,58 @@ def shengyu_cishu(zhuangtai):
     )
 
 
-def yusuan_jiancha(zhuangtai, points):
-    jilu = zhuangtai["ledger"]
-    zhuangtai["guard_checks"] += 1
-    upper = shengyu_shangjie(jilu, zhuangtai["position"])
-    p = zhuangtai["position"]
-    distance = 0.0
+def ysjc(zt, points):
+    jilu = zt["ledger"]
+    zt["guard_checks"] += 1
+    upper = sysj(jilu, zt["position"])
+    p = zt["position"]
+    dist = 0.0
     for q in points:
-        distance += float(g.ceil_distance(g.point(p), g.point(q)))
-        p = g.floating(q)
+        dist += float(g.jlsx(g.point(p), g.point(q)))
+        p = tuple((float(x) for x in q))
     m = min(16, len(pindao(jilu, ("found",))) + len(points))
-    virtual_ok = (
-        zhuangtai["virtual"] + upper + (2 * m + 2) * distance / 5 + 6 * len(points)
-        < zhuangtai["max_virtual"] - 2
+    virtualok = (
+        zt["virtual"] + upper + (2 * m + 2) * dist / 5 + 6 * len(points)
+        < zt["max_virtual"] - 2
     )
-    real_ok = (
-        time.monotonic()
-        + (shengyu_cishu(zhuangtai) + len(points)) * zhuangtai["request_seconds"]
-        + 30
-        < zhuangtai["deadline"]
+    realok = (
+        time.monotonic() + (sycs(zt) + len(points)) * zt["request_seconds"] + 30
+        < zt["deadline"]
     )
-    return virtual_ok and real_ok
+    return virtualok and realok
 
 
-def zhixing(zhuangtai, path, q, c, *, prove=True):
-    jiekou = zhuangtai["io"]
-    jilu = zhuangtai["ledger"]
-    q = g.floating(g.point(q))
+def zhixing(zt, path, q, c, *, prove=True):
+    jiekou = zt["io"]
+    jilu = zt["ledger"]
+    q = tuple((float(x) for x in g.point(q)))
     if jiekou["pending"] is not None:
         raise RuntimeError("Earlier request unresolved")
-    if time.monotonic() >= zhuangtai["deadline"] - 2:
+    if time.monotonic() >= zt["deadline"] - 2:
         raise TimeoutError("Real deadline reserve reached without completion")
-    moved = math.dist(zhuangtai["position"], q)
-    if zhuangtai["virtual"] + moved / 5 + 6 >= zhuangtai["max_virtual"] - 1:
+    moved = math.dist(zt["position"], q)
+    if zt["virtual"] + moved / 5 + 6 >= zt["max_virtual"] - 1:
         raise RuntimeError("Physical action exceeds virtual budget")
-    switching = int(path == "/measure" and c != zhuangtai["channel"])
+    sw = int(path == "/measure" and c != zt["channel"])
     huifu = jiekou["call"](path, q, c)
-    validate_reply(path, huifu)
-    before = zhuangtai["virtual"]
-    zhuangtai["position"] = q
-    zhuangtai["virtual"] = huifu["virtual_time_s"]
-    zhuangtai["travel"] += moved
+    jyhf(path, huifu)
+    before = zt["virtual"]
+    zt["position"] = q
+    zt["virtual"] = huifu["virtual_time_s"]
+    zt["travel"] += moved
     if path == "/measure":
-        zhuangtai["measures"] += 1
-        zhuangtai["switches"] += switching
-        zhuangtai["channel"] = c
-        cost = 5 + switching
+        zt["measures"] += 1
+        zt["switches"] += sw
+        zt["channel"] = c
+        cost = 5 + sw
     else:
-        zhuangtai["clear_attempts"] += 1
+        zt["clear_attempts"] += 1
         cost = 5 if huifu["clear_result"] == "success" else 3
-    if abs(zhuangtai["virtual"] - before - moved / 5 - cost) > 5e-05:
+    if abs(zt["virtual"] - before - moved / 5 - cost) > 5e-05:
         raise RuntimeError("Accepted response violates documented virtual costs")
-    discovered = c in pindao(jilu, ("found", "cleared"))
-    baocun_shijian(
-        zhuangtai,
+    found = c in pindao(jilu, ("found", "cleared"))
+    bcsj(
+        zt,
         "evidence_observation",
         path=path,
         point=q,
@@ -1388,22 +1399,17 @@ def zhixing(zhuangtai, path, q, c, *, prove=True):
         reply=huifu,
         prove=prove,
     )
-    receipt = gengxin_jilu(jilu, path, q, c, huifu, prove=prove)
-    baocun_shijian(zhuangtai, "rank_receipt", **receipt)
-    if not discovered and c in pindao(jilu, ("found", "cleared")):
-        baocun_shijian(zhuangtai, "discovered", channel=c)
+    receipt = gxjl(jilu, path, q, c, huifu, prove=prove)
+    bcsj(zt, "rank_receipt", **receipt)
+    if not found and c in pindao(jilu, ("found", "cleared")):
+        bcsj(zt, "discovered", channel=c)
     if path == "/clear" and huifu["clear_result"] == "success":
-        zhuangtai["search_plan"]["pending_stop"] = tuple(q)
-        baocun_shijian(
-            zhuangtai,
-            "cleared",
-            channel=c,
-            cleared_count=len(pindao(jilu, ("cleared",))),
-        )
+        zt["search_plan"]["pending_stop"] = tuple(q)
+        bcsj(zt, "cleared", channel=c, cleared_count=len(pindao(jilu, ("cleared",))))
     return huifu
 
 
-def direction_arcs(p, q):
+def fxjd(p, q):
     if p[0] == q[0] and p[1] == q[1]:
         return [(0.0, 360.0)]
     angle = math.degrees(math.atan2(q[1] - p[1], q[0] - p[0]))
@@ -1411,11 +1417,11 @@ def direction_arcs(p, q):
     return [(lo, min(360, lo + 180))] + ([(0, lo - 180)] if lo > 180 else [])
 
 
-def arc_intersection(a, b):
+def jdjj(a, b):
     return [(max(x, u), min(y, w)) for x, y in a for u, w in b if max(x, u) < min(y, w)]
 
 
-def arc_difference(a, b):
+def jdcj(a, b):
     for lo, hi in b:
         a = [
             piece
@@ -1426,22 +1432,22 @@ def arc_difference(a, b):
     return a
 
 
-def arc_length(intervals):
-    return sum((y - x for x, y in intervals))
+def jdcd(spans):
+    return sum((y - x for x, y in spans))
 
 
-def radio_model(record):
+def spmx(record):
     src = record["source"]
-    positive = []
-    negative = []
+    pos = []
+    neg = []
     for obs in record["records"]:
         if obs["path"] != "/measure":
             continue
-        (negative if obs["kind"] == "no_signal" else positive).append(obs["point"])
-    zongliang = 0.0
+        (neg if obs["kind"] == "no_signal" else pos).append(obs["point"])
+    zl = 0.0
     jiashuo = []
     for poly in src["cells"].values():
-        points = [g.floating(q) for q in poly]
+        points = [tuple((float(x) for x in q)) for q in poly]
         p = tuple((sum((q[k] for q in points)) / len(points) for k in (0, 1)))
         area = (
             abs(
@@ -1454,32 +1460,32 @@ def radio_model(record):
             )
             / 2
         )
-        lower = max([1000] + [math.dist(p, q) for q in positive])
+        lower = max([1000] + [math.dist(p, q) for q in pos])
         upper = 1500.0
         if lower >= upper or area <= 1e-12:
             continue
         valid = [(0.0, 360.0)]
-        for q in positive:
-            valid = arc_intersection(valid, direction_arcs(p, q))
-        negatives = [(math.dist(p, q), q) for q in negative]
-        radii = sorted({lower, upper} | {d for d, q in negatives if lower < d < upper})
+        for q in pos:
+            valid = jdjj(valid, fxjd(p, q))
+        negs = [(math.dist(p, q), q) for q in neg]
+        radii = sorted({lower, upper} | {d for d, q in negs if lower < d < upper})
         for lo, hi in zip(radii, radii[1:]):
             allowed = valid
             omni = True
-            for d, q in negatives:
+            for d, q in negs:
                 if d < (lo + hi) / 2:
-                    allowed = arc_difference(allowed, direction_arcs(p, q))
+                    allowed = jdcj(allowed, fxjd(p, q))
                     omni = False
-            mass = area * (hi - lo) * (0.5 * omni + 0.5 * arc_length(allowed) / 360)
+            mass = area * (hi - lo) * (0.5 * omni + 0.5 * jdcd(allowed) / 360)
             if mass > 0:
-                zongliang += mass
+                zl += mass
                 jiashuo.append((p, lo, hi, allowed, omni, area))
-    return (jiashuo, zongliang)
+    return (jiashuo, zl)
 
 
-def radio_probability(fitted, q):
-    jiashuo, zongliang = fitted
-    if zongliang <= 0:
+def spgl(fitted, q):
+    jiashuo, zl = fitted
+    if zl <= 0:
         return 0.5
     kejian = 0.0
     for p, lo, hi, allowed, omni, area in jiashuo:
@@ -1488,86 +1494,77 @@ def radio_probability(fitted, q):
             kejian += (
                 area
                 * width
-                * (
-                    0.5 * omni
-                    + 0.5
-                    * arc_length(arc_intersection(allowed, direction_arcs(p, q)))
-                    / 360
-                )
+                * (0.5 * omni + 0.5 * jdcd(jdjj(allowed, fxjd(p, q))) / 360)
             )
-    return min(1, max(0, kejian / zongliang))
+    return min(1, max(0, kejian / zl))
 
 
-def shunlu_celiang(zhuangtai):
-    jilu = zhuangtai["ledger"]
-    position = zhuangtai["position"]
+def slcl(zt):
+    jilu = zt["ledger"]
+    wz = zt["position"]
     beixuan = []
     for c in sorted(pindao(jilu, ("found",))):
         yuan = jilu["channels"][c]["source"]
-        attempts = len(yuan["positives"]) + (
+        tries = len(yuan["positives"]) + (
             len(yuan["negatives"]) if jilu["problem"] == 3 else 0
         )
-        if attempts >= 3 or g.point(position) in yuan["positives"] + yuan["negatives"]:
+        if tries >= 3 or g.point(wz) in yuan["positives"] + yuan["negatives"]:
             continue
-        poly = [g.floating(p) for p in yuan["polygon"]]
+        poly = [tuple((float(x) for x in p)) for p in yuan["polygon"]]
         center = tuple((sum((p[k] for p in poly)) / len(poly) for k in (0, 1)))
         if jilu["problem"] == 3:
-            if math.dist(position, center) > 1000:
+            if math.dist(wz, center) > 1000:
                 continue
-        elif not g.disk_contains(yuan["polygon"], g.point(position), F(999)):
+        elif not g.ypbh(yuan["polygon"], g.point(wz), fs(999)):
             continue
         angle = math.radians(yuan["anchor_bearing"])
         u = (math.cos(angle), math.sin(angle))
-        origin = g.floating(yuan["anchor_point"])
-        interval = [(p[0] - origin[0]) * u[0] + (p[1] - origin[1]) * u[1] for p in poly]
-        width = max(interval) - min(interval)
-        ray = (center[0] - position[0], center[1] - position[1])
-        distance = math.hypot(*ray)
-        parallax = abs(u[0] * ray[1] - u[1] * ray[0]) / max(1.0, distance)
-        after = min(width, 2 * math.radians(1.005) * distance / max(0.01, parallax))
-        reception = (
-            radio_probability(radio_model(jilu["channels"][c]), position)
-            if jilu["problem"] == 4
-            else 1
-        )
-        gain = reception * (width - after) / 10 - 6
+        origin = tuple((float(x) for x in yuan["anchor_point"]))
+        span = [(p[0] - origin[0]) * u[0] + (p[1] - origin[1]) * u[1] for p in poly]
+        width = max(span) - min(span)
+        ray = (center[0] - wz[0], center[1] - wz[1])
+        dist = math.hypot(*ray)
+        parallax = abs(u[0] * ray[1] - u[1] * ray[0]) / max(1.0, dist)
+        after = min(width, 2 * math.radians(1.005) * dist / max(0.01, parallax))
+        recv = spgl(spmx(jilu["channels"][c]), wz) if jilu["problem"] == 4 else 1
+        gain = recv * (width - after) / 10 - 6
         if parallax >= 0.25 and gain > 0:
             beixuan.append((-gain, c))
     for score, c in sorted(beixuan):
-        if jilu["extra"] < 2 or not yusuan_jiancha(zhuangtai, (position,)):
+        if jilu["extra"] < 2 or not ysjc(zt, (wz,)):
             return False
-        baocun_shijian(
-            zhuangtai,
+        bcsj(
+            zt,
             "shared_station_selected",
             channel=c,
-            point=position,
+            point=wz,
             estimated_gain_s=-score,
             scope="heuristic; reception is established only by the actual reply",
         )
-        zhixing(zhuangtai, "/measure", position, c)
+        zhixing(zt, "/measure", wz, c)
     return True
 
 
-def piliang_celiang(zhuangtai, unknown):
-    jilu = zhuangtai["ledger"]
-    channels = [
+def plcl(zt, unknown):
+    jilu = zt["ledger"]
+    pd = [
         c
         for c in sorted(unknown & pindao(jilu, ("found",)))
         if len(jilu["channels"][c]["source"]["positives"]) == 1
     ]
-    if len(channels) < 3 or jilu["extra"] < len(channels) + 2:
+    if len(pd) < 3 or jilu["extra"] < len(pd) + 2:
         return True
-    position = zhuangtai["position"]
+    wz = zt["position"]
     sources = []
-    for c in channels:
+    for c in pd:
         yuan = jilu["channels"][c]["source"]
-        poly = [g.floating(p) for p in yuan["polygon"]]
+        poly = [tuple((float(x) for x in p)) for p in yuan["polygon"]]
         center = tuple((sum((p[k] for p in poly)) / len(poly) for k in (0, 1)))
         angle = math.radians(yuan["anchor_bearing"])
         u = (math.cos(angle), math.sin(angle))
-        origin = g.floating(yuan["anchor_point"])
-        interval = [(p[0] - origin[0]) * u[0] + (p[1] - origin[1]) * u[1] for p in poly]
-        sources.append((center, u, max(interval) - min(interval)))
+        origin = tuple((float(x) for x in yuan["anchor_point"]))
+        span = [(p[0] - origin[0]) * u[0] + (p[1] - origin[1]) * u[1] for p in poly]
+        sources.append((center, u, max(span) - min(span)))
     targets = [
         tuple(
             (
@@ -1578,43 +1575,41 @@ def piliang_celiang(zhuangtai, unknown):
         )
         for c in pindao(jilu, ("found",))
     ]
-    target = min(targets, key=lambda q: math.dist(position, q))
+    target = min(targets, key=lambda q: math.dist(wz, q))
     fitted = (
-        [radio_model(jilu["channels"][c]) for c in channels]
+        [spmx(jilu["channels"][c]) for c in pd]
         if jilu["problem"] == 4
-        else [None] * len(channels)
+        else [None] * len(pd)
     )
     radius = 350
     options = []
     for angle in range(0, 360, 30):
         q = (
-            position[0] + radius * math.cos(math.radians(angle)),
-            position[1] + radius * math.sin(math.radians(angle)),
+            wz[0] + radius * math.cos(math.radians(angle)),
+            wz[1] + radius * math.sin(math.radians(angle)),
         )
         gain = 0.0
-        selected = []
-        for c, fit, (center, u, width) in zip(channels, fitted, sources):
+        chosen = []
+        for c, fit, (center, u, width) in zip(pd, fitted, sources):
             ray = (center[0] - q[0], center[1] - q[1])
-            distance = math.hypot(*ray)
-            parallax = abs(u[0] * ray[1] - u[1] * ray[0]) / max(1.0, distance)
-            posterior_width = min(
-                width, 2 * math.radians(1.005) * distance / max(0.01, parallax)
-            )
-            benefit = (width - posterior_width) / 10.0
+            dist = math.hypot(*ray)
+            parallax = abs(u[0] * ray[1] - u[1] * ray[0]) / max(1.0, dist)
+            postwidth = min(width, 2 * math.radians(1.005) * dist / max(0.01, parallax))
+            benefit = (width - postwidth) / 10.0
             if jilu["problem"] == 4:
-                benefit = radio_probability(fit, q) * benefit - 6
+                benefit = spgl(fit, q) * benefit - 6
             if jilu["problem"] == 3 or benefit > 0:
                 gain += benefit
-                selected.append(c)
-        detour = (radius + math.dist(q, target) - math.dist(position, target)) / 5.0
-        options.append((detour - gain, angle, q, gain, detour, selected))
-    score, angle, q, gain, detour, channels = min(options)
-    if jilu["problem"] == 4 and (score >= 0 or not channels):
+                chosen.append(c)
+        detour = (radius + math.dist(q, target) - math.dist(wz, target)) / 5.0
+        options.append((detour - gain, angle, q, gain, detour, chosen))
+    score, angle, q, gain, detour, pd = min(options)
+    if jilu["problem"] == 4 and (score >= 0 or not pd):
         return True
-    baocun_shijian(
-        zhuangtai,
+    bcsj(
+        zt,
         "batch_observation_selected",
-        channels=channels,
+        channels=pd,
         point=q,
         angle=angle,
         radius=radius,
@@ -1622,52 +1617,48 @@ def piliang_celiang(zhuangtai, unknown):
         estimated_detour_s=detour,
         reception_weighted=jilu["problem"] == 4,
     )
-    for c in channels:
-        if jilu["extra"] < 2 or not yusuan_jiancha(zhuangtai, (q,)):
+    for c in pd:
+        if jilu["extra"] < 2 or not ysjc(zt, (q,)):
             return False
-        zhixing(zhuangtai, "/measure", q, c)
+        zhixing(zt, "/measure", q, c)
     return True
 
 
-def zhixing_shijian(zhuangtai, event):
-    jilu = zhuangtai["ledger"]
+def zxsj(zt, event):
+    jilu = zt["ledger"]
     unknown = pindao(jilu, ("unknown",))
-    if not zhixing_yici(zhuangtai, event):
+    if not zx(zt, event):
         return False
     if event["kind"] == "search":
-        return piliang_celiang(zhuangtai, unknown) and shunlu_celiang(zhuangtai)
+        return plcl(zt, unknown) and slcl(zt)
     c = event["channel"]
     while c in pindao(jilu, ("found",)):
         if jilu["extra"] < 2:
             return False
-        next_event = yuan_dongzuo(
-            zhuangtai["planner"],
+        next = yddz(
+            zt["planner"],
             jilu["channels"][c]["source"],
             c,
-            zhuangtai["position"],
-            zhuangtai["channel"],
+            zt["position"],
+            zt["channel"],
             jilu["extra"],
             event.get("target"),
         )
-        if not yusuan_jiancha(zhuangtai, next_event["points"]) or not zhixing_yici(
-            zhuangtai, next_event
-        ):
+        if not ysjc(zt, next["points"]) or not zx(zt, next):
             return False
-    return shunlu_celiang(zhuangtai)
+    return slcl(zt)
 
 
-def zhixing_yici(zhuangtai, event):
-    jilu = zhuangtai["ledger"]
+def zx(zt, event):
+    jilu = zt["ledger"]
     if event["kind"] == "optical_chain":
-        if jilu["extra"] < len(event["points"]) or not yusuan_jiancha(
-            zhuangtai, event["points"]
-        ):
+        if jilu["extra"] < len(event["points"]) or not ysjc(zt, event["points"]):
             return False
-        baocun_shijian(
-            zhuangtai,
+        bcsj(
+            zt,
             "optical_chain_selected",
             channel=event["channel"],
-            points=[g.floating(q) for q in event["points"]],
+            points=[tuple((float(x) for x in q)) for q in event["points"]],
             upper_s=event["certificate_upper_s"],
             mean_s=event["estimate"],
             scope="hypothesis-weighted ranking; complete Voronoi disk cover certifies success",
@@ -1675,16 +1666,16 @@ def zhixing_yici(zhuangtai, event):
         for q in event["points"]:
             if event["channel"] not in pindao(jilu, ("found",)):
                 return True
-            zhixing(zhuangtai, "/clear", q, event["channel"])
+            zhixing(zt, "/clear", q, event["channel"])
         if event["channel"] in pindao(jilu, ("found",)):
             raise RuntimeError("Certified optical chain exhausted")
         return True
-    baocun_shijian(
-        zhuangtai,
+    bcsj(
+        zt,
         "event_selected",
         kind=event["kind"],
         channel=event["channel"],
-        points=[g.floating(q) for q in event["points"]],
+        points=[tuple((float(x) for x in q)) for q in event["points"]],
         method=event["method"],
         candidate_estimate_s=event["estimate"],
         estimate_scope="candidate ranking; not a global optimality bound",
@@ -1692,198 +1683,181 @@ def zhixing_yici(zhuangtai, event):
     if event["kind"] == "search":
         q = event["points"][0]
         for c in sorted(
-            pindao(jilu, ("unknown",)), key=lambda c: (c != zhuangtai["channel"], c)
+            pindao(jilu, ("unknown",)), key=lambda c: (c != zt["channel"], c)
         ):
             if c not in pindao(jilu, ("unknown",)) or q in jilu["channels"][c]["radio"]:
                 continue
-            if jilu["extra"] < 1 or not yusuan_jiancha(zhuangtai, (q,)):
+            if jilu["extra"] < 1 or not ysjc(zt, (q,)):
                 return False
-            zhixing(zhuangtai, "/measure", q, c)
+            zhixing(zt, "/measure", q, c)
         return True
     if event["kind"] == "clear":
-        zhixing(zhuangtai, "/clear", event["points"][0], event["channel"])
+        zhixing(zt, "/clear", event["points"][0], event["channel"])
         return True
     yuan = jilu["channels"][event["channel"]]["source"]
-    positive = yuan["anchor_point"]
+    pos = yuan["anchor_point"]
     a, b = event["points"]
-    first = zhixing(zhuangtai, "/measure", a, event["channel"])
-    if first["measure_result"] == "no_signal" and zhuangtai["problem"] == 4:
-        second = zhixing(zhuangtai, "/measure", b, event["channel"])
+    first = zhixing(zt, "/measure", a, event["channel"])
+    if first["measure_result"] == "no_signal" and zt["problem"] == 4:
+        second = zhixing(zt, "/measure", b, event["channel"])
         if second["measure_result"] == "no_signal":
-            before = shengyu_renwu(jilu)
-            changed = shuang_yinxing(yuan, positive, a, b)
-            baocun_shijian(
-                zhuangtai,
+            before = syrw(jilu)
+            changed = syx(yuan, pos, a, b)
+            bcsj(
+                zt,
                 "verified_negative_pair",
                 channel=event["channel"],
                 changed=changed,
-                positive=g.floating(positive),
-                a=g.floating(a),
-                b=g.floating(b),
+                positive=tuple((float(x) for x in pos)),
+                a=tuple((float(x) for x in a)),
+                b=tuple((float(x) for x in b)),
                 rank_before=before,
-                rank_after=shengyu_renwu(jilu),
+                rank_after=syrw(jilu),
             )
     return True
 
 
-def qingchu_yuan(zhuangtai, c):
-    jilu = zhuangtai["ledger"]
+def dzqcy(zt, c):
+    jilu = zt["ledger"]
     yuan = jilu["channels"][c]["source"]
     order = [(i, yuan["points"][i]) for i in sorted(yuan["cells"])]
     for i, q in order:
         if c not in pindao(jilu, ("found",)):
             return
         if i in yuan["cells"]:
-            zhixing(zhuangtai, "/clear", q, c, prove=False)
+            zhixing(zt, "/clear", q, c, prove=False)
     if c in pindao(jilu, ("found",)):
         raise RuntimeError("Constructive optical cover exhausted without success")
 
 
-def beiyong_qingchu(zhuangtai):
-    jilu = zhuangtai["ledger"]
-    zhuangtai["fallback_used"] = True
-    upper = shengyu_shangjie(jilu, zhuangtai["position"])
-    if zhuangtai["virtual"] + upper >= zhuangtai["max_virtual"] - 1:
+def byqc(zt):
+    jilu = zt["ledger"]
+    zt["fallback_used"] = True
+    upper = sysj(jilu, zt["position"])
+    if zt["virtual"] + upper >= zt["max_virtual"] - 1:
         raise RuntimeError("No certified completion fits the remaining virtual budget")
-    baocun_shijian(
-        zhuangtai,
+    bcsj(
+        zt,
         "fallback_committed",
         remaining_upper_s=upper,
-        requests_upper=shengyu_cishu(zhuangtai),
-        real_time_condition=f"requires sufficient actual latency; assumed {zhuangtai['request_seconds']:g} s/request",
+        requests_upper=sycs(zt),
+        real_time_condition=f"requires sufficient actual latency; assumed {zt['request_seconds']:g} s/request",
     )
-    origin = zhuangtai["position"]
+    origin = zt["position"]
     known = sorted(
         pindao(jilu, ("found",)),
-        key=lambda c: chain_bound(
-            optical_order(jilu["channels"][c]["source"], origin), origin, origin
-        ),
+        key=lambda c: lxsj(gxpx(jilu["channels"][c]["source"], origin), origin, origin),
     )
     for c in known:
-        qingchu_yuan(zhuangtai, c)
-    for q in g.search_grid():
+        dzqcy(zt, c)
+    for q in g.sswd():
         for c in sorted(
-            pindao(jilu, ("unknown",)), key=lambda c: (c != zhuangtai["channel"], c)
+            pindao(jilu, ("unknown",)), key=lambda c: (c != zt["channel"], c)
         ):
             if (
                 c not in pindao(jilu, ("unknown",))
                 or q not in jilu["channels"][c]["pending"]
             ):
                 continue
-            zhixing(zhuangtai, "/measure", q, c, prove=False)
+            zhixing(zt, "/measure", q, c, prove=False)
             if c in pindao(jilu, ("found",)):
-                qingchu_yuan(zhuangtai, c)
-        if quanbu_qingchu(jilu):
+                dzqcy(zt, c)
+        if qbqc(jilu):
             break
     for c in sorted(pindao(jilu, ("unknown",))):
-        zhengming_wuyuan(jilu, c)
-    if not quanbu_qingchu(jilu):
+        zmwy(jilu, c)
+    if not qbqc(jilu):
         raise RuntimeError(
             "Full fallback exhausted without a valid 10–16 source completion"
         )
 
 
-def yunxing(zhuangtai):
-    jiekou = zhuangtai["io"]
-    jilu = zhuangtai["ledger"]
-    zhuangtai["started"] = time.monotonic()
+def yunxing(zt):
+    jiekou = zt["io"]
+    jilu = zt["ledger"]
+    zt["started"] = time.monotonic()
     huifu = jiekou["call"]("/enter")
-    validate_reply("/enter", huifu)
-    zhuangtai["entered"] = True
-    zhuangtai["virtual"] = huifu["virtual_time_s"]
-    zhuangtai["max_virtual"] = huifu["max_virtual_duration_s"]
-    zhuangtai["deadline"] = time.monotonic() + huifu["remaining_real_duration_s"]
-    jiekou["deadline"] = zhuangtai["deadline"]
-    zhuangtai["initial_upper"] = shengyu_shangjie(jilu, zhuangtai["position"])
-    zhuangtai["reason"] = "running"
-    baocun_shijian(
-        zhuangtai,
+    jyhf("/enter", huifu)
+    zt["entered"] = True
+    zt["virtual"] = huifu["virtual_time_s"]
+    zt["max_virtual"] = huifu["max_virtual_duration_s"]
+    zt["deadline"] = time.monotonic() + huifu["remaining_real_duration_s"]
+    jiekou["deadline"] = zt["deadline"]
+    zt["initial_upper"] = sysj(jilu, zt["position"])
+    zt["reason"] = "running"
+    bcsj(
+        zt,
         "v8_started",
-        problem=zhuangtai["problem"],
-        policy_revision=REVISION,
+        problem=zt["problem"],
+        policy_revision=banben,
         extra_actions=jilu["extra"],
         coverage_nodes=jilu["coverage_nodes"],
         coverage_depth=jilu["coverage_depth"],
         geometry_version=jilu["geometry_version"],
-        max_virtual_s=zhuangtai["max_virtual"],
+        max_virtual_s=zt["max_virtual"],
     )
-    while not quanbu_qingchu(jilu):
-        if zhuangtai["fallback_only"] or jilu["extra"] < 2:
-            beiyong_qingchu(zhuangtai)
+    while not qbqc(jilu):
+        if zt["fallback_only"] or jilu["extra"] < 2:
+            byqc(zt)
             break
-        if (
-            time.monotonic()
-            + shengyu_cishu(zhuangtai) * zhuangtai["request_seconds"]
-            + 30
-            >= zhuangtai["deadline"]
-        ):
-            beiyong_qingchu(zhuangtai)
+        if time.monotonic() + sycs(zt) * zt["request_seconds"] + 30 >= zt["deadline"]:
+            byqc(zt)
             break
-        search_route = gengxin_luxian(
-            zhuangtai["search_plan"], jilu, zhuangtai["position"]
-        )
-        event = xuan_dongzuo(
-            zhuangtai["planner"],
-            jilu,
-            zhuangtai["position"],
-            zhuangtai["channel"],
-            search_route,
-        )
-        if event is None or not yusuan_jiancha(zhuangtai, event["points"]):
-            beiyong_qingchu(zhuangtai)
+        sslx = gxlx(zt["search_plan"], jilu, zt["position"])
+        event = xzdz(zt["planner"], jilu, zt["position"], zt["channel"], sslx)
+        if event is None or not ysjc(zt, event["points"]):
+            byqc(zt)
             break
-        if not zhixing_shijian(zhuangtai, event):
-            beiyong_qingchu(zhuangtai)
+        if not zxsj(zt, event):
+            byqc(zt)
             break
-    zhuangtai["certificate"] = quanbu_qingchu(jilu)
-    zhuangtai["reason"] = (
-        "certified_all_cleared" if zhuangtai["certificate"] else "incomplete"
-    )
-    baocun_shijian(zhuangtai, "completion_checked", certified=zhuangtai["certificate"])
-    tuichu(zhuangtai)
-    return huizong(zhuangtai)
+    zt["certificate"] = qbqc(jilu)
+    zt["reason"] = "certified_all_cleared" if zt["certificate"] else "incomplete"
+    bcsj(zt, "completion_checked", certified=zt["certificate"])
+    tuichu(zt)
+    return huizong(zt)
 
 
-def tuichu(zhuangtai):
-    jiekou = zhuangtai["io"]
-    if not zhuangtai["entered"] or zhuangtai["exit_attempted"]:
+def tuichu(zt):
+    jiekou = zt["io"]
+    if not zt["entered"] or zt["exit_attempted"]:
         return
     if jiekou["pending"] is not None:
         raise RuntimeError("Cannot exit while earlier request is unresolved")
-    zhuangtai["exit_attempted"] = True
+    zt["exit_attempted"] = True
     huifu = jiekou["call"]("/exit")
-    validate_reply("/exit", huifu)
-    if abs(huifu["virtual_time_s"] - zhuangtai["virtual"]) > 5e-05:
+    jyhf("/exit", huifu)
+    if abs(huifu["virtual_time_s"] - zt["virtual"]) > 5e-05:
         raise RuntimeError("Exit unexpectedly changed virtual time")
-    zhuangtai["exit_confirmed"] = True
+    zt["exit_confirmed"] = True
 
 
-def huizong(zhuangtai):
-    jilu = zhuangtai["ledger"]
+def huizong(zt):
+    jilu = zt["ledger"]
     return dict(
-        strategy=STRATEGY,
-        policy_revision=REVISION,
-        problem=zhuangtai["problem"],
-        reason=zhuangtai["reason"],
-        completion_certified=zhuangtai["certificate"],
-        exit_confirmed=zhuangtai["exit_confirmed"],
-        virtual_time_s=zhuangtai["virtual"],
-        moving_distance_m=zhuangtai["travel"],
-        average_clear_time_s=zhuangtai["virtual"] / len(pindao(jilu, ("cleared",)))
+        strategy=celue,
+        policy_revision=banben,
+        problem=zt["problem"],
+        reason=zt["reason"],
+        completion_certified=zt["certificate"],
+        exit_confirmed=zt["exit_confirmed"],
+        virtual_time_s=zt["virtual"],
+        moving_distance_m=zt["travel"],
+        average_clear_time_s=zt["virtual"] / len(pindao(jilu, ("cleared",)))
         if pindao(jilu, ("cleared",))
         else None,
-        measures=zhuangtai["measures"],
-        clear_attempts=zhuangtai["clear_attempts"],
-        switches=zhuangtai["switches"],
-        initial_fallback_upper_s=zhuangtai["initial_upper"],
-        fallback_used=zhuangtai["fallback_used"],
-        budget_guard_checks=zhuangtai["guard_checks"],
-        planner=zhuangtai["planner"]["statistics"],
+        measures=zt["measures"],
+        clear_attempts=zt["clear_attempts"],
+        switches=zt["switches"],
+        initial_fallback_upper_s=zt["initial_upper"],
+        fallback_used=zt["fallback_used"],
+        budget_guard_checks=zt["guard_checks"],
+        planner=zt["planner"]["statistics"],
         search_plan=dict(
-            proofs=zhuangtai["search_plan"]["proofs"],
-            deletions=zhuangtai["search_plan"]["deletions"],
-            replacements=zhuangtai["search_plan"]["replacements"],
+            proofs=zt["search_plan"]["proofs"],
+            deletions=zt["search_plan"]["deletions"],
+            replacements=zt["search_plan"]["replacements"],
         ),
         real_time_guarantee="conditional on execution and request latency; not unconditional",
-        **jilu_zhaiyao(jilu),
+        **jlzy(jilu),
     )

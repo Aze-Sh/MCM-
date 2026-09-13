@@ -17,7 +17,7 @@ class EntrypointTests(unittest.TestCase):
         with patch.object(
             sys, "argv", ["run_robot.py", "--problem", "4", "--case-code", "offline"]
         ):
-            with patch.object(cli, "xin_jiekou") as transport:
+            with patch.object(cli, "xjjk") as transport:
                 self.assertEqual(cli.main(), 0)
                 transport.assert_not_called()
 
@@ -41,7 +41,7 @@ class EntrypointTests(unittest.TestCase):
             ]
             with (
                 patch.object(sys, "argv", argv),
-                patch.object(cli, "xin_jiekou", return_value=transport),
+                patch.object(cli, "xjjk", return_value=transport),
             ):
                 with contextlib.redirect_stdout(io.StringIO()):
                     self.assertEqual(cli.main(), 0)
@@ -55,8 +55,14 @@ class EntrypointTests(unittest.TestCase):
 
     def test_connect_requires_explicit_identity_before_creating_transport(self):
         argv = ["run_robot.py", "--problem", "3", "--case-code", "offline", "--connect"]
-        with patch.object(sys, "argv", argv), patch.object(cli, "xin_jiekou") as transport:
-            with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
+        with (
+            patch.object(sys, "argv", argv),
+            patch.object(cli, "xjjk") as transport,
+        ):
+            with (
+                contextlib.redirect_stderr(io.StringIO()),
+                self.assertRaises(SystemExit) as error,
+            ):
                 cli.main()
             self.assertEqual(error.exception.code, 2)
             transport.assert_not_called()
