@@ -1,6 +1,6 @@
 \documentclass[UTF8,a4paper,12pt,fontset=fandol]{ctexart}
 \usepackage[margin=2.5cm,headheight=0pt,headsep=0pt]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,tabularx,graphicx,float,enumitem,xcolor}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,tabularx,longtable,graphicx,float,enumitem,xcolor}
 \usepackage[font=small,labelfont=bf,labelsep=quad]{caption}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr,fvextra}
@@ -715,18 +715,6 @@ Q4接收评分不使用历史阴性 & \blank & \blank & \blank\\\bottomrule
 \bibitem{airules} 全国大学生数学建模竞赛组委会. 全国大学生数学建模竞赛人工智能工具使用规定（2026年试行）[EB/OL]. (2026-08-03)[2026-09-13]. \url{https://www.mcm.edu.cn/html_cn/node/fef94648f2836ab6cc81586f4c38512b.html}.
 \end{thebibliography}
 
-\section*{附录：支撑材料索引}
-\begin{table}[H]\centering\small
-\begin{tabularx}{\linewidth}{p{.43\linewidth}Y}\toprule
-文件或目录 & 对应内容\\\midrule
-\texttt{run\_robot.py}、\texttt{start\_robot.ps1} & 第三、四题运行入口\\
-\texttt{src/jammer\_solver/} & 当前算法、精确几何、协议及前两问计算\\
-\texttt{solve\_questions.py} & 前两问JSON输入输出入口\\
-\texttt{paper/results.json}、\texttt{paper/cases.json} & 论文数值汇总与合成案例输入\\
-\texttt{AI工具使用详情.pdf} & 已知AI使用环节及人工核验待填记录\\
-正式测试原始\texttt{.jlog} & 问题三、四各三份，\textbf{待实测生成}\\\bottomrule
-\end{tabularx}\end{table}
-\noindent\small 正文及参考文献、材料索引共30页，之后为完整程序清单。正式原始日志放入\path{submission_inputs/formal/}下的六个对应目录；未测结果及人工核验事项据实补全。所有空栏表示尚未取得对应数据，不表示零值或测试失败。
 \label{main_end}
 \clearpage
 \input{\PaperDir/appendix_sources.tex}

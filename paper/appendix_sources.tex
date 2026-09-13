@@ -1,32 +1,91 @@
-\section*{附录：完整程序清单}
-以下列出求解、运行、绘图与论文编译所用的完整程序。支撑材料保留相同目录。
-\begingroup\linespread{1.0}\selectfont
-\subsection*{\texttt{\detokenize{run_robot.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/run_robot.py}
-\subsection*{\texttt{\detokenize{solve_questions.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/solve_questions.py}
-\subsection*{\texttt{\detokenize{start_robot.ps1}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/start_robot.ps1}
-\subsection*{\texttt{\detokenize{prepare_submission.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/prepare_submission.py}
-\subsection*{\texttt{\detokenize{src/jammer_solver/__init__.py}}}
-该文件为空，用于标记Python包。
-\subsection*{\texttt{\detokenize{src/jammer_solver/exact_geometry.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/src/jammer_solver/exact_geometry.py}
-\subsection*{\texttt{\detokenize{src/jammer_solver/protocol.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/src/jammer_solver/protocol.py}
-\subsection*{\texttt{\detokenize{src/jammer_solver/questions.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/src/jammer_solver/questions.py}
-\subsection*{\texttt{\detokenize{src/jammer_solver/solver.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/src/jammer_solver/solver.py}
-\subsection*{\texttt{\detokenize{paper/build.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/build.py}
-\subsection*{\texttt{\detokenize{paper/generate_appendix.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/generate_appendix.py}
-\subsection*{\texttt{\detokenize{paper/make_figures.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/make_figures.py}
-\subsection*{\texttt{\detokenize{paper/make_formal_tables.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/make_formal_tables.py}
-\subsection*{\texttt{\detokenize{paper/make_tables.py}}}
-\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/make_tables.py}
+\begin{center}{\Large\heiti\bfseries 附\quad 录}\end{center}
+\section*{附录1：支撑材料文件列表}
+表中路径相对于支撑材料压缩包根目录，以“/”结尾的项为目录。正式日志待实测补入，保留原始文件名及内容；共用程序只在对应附录列出一次。
+\begingroup\small\linespread{1.0}\selectfont
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.49\linewidth}>{\raggedright\arraybackslash}p{\dimexpr.51\linewidth-10pt\relax}@{}}
+\caption{支撑材料文件列表}\label{tab:materials}\\
+\toprule[1pt]\multicolumn{1}{c}{文件名} & \multicolumn{1}{c}{说明}\\\midrule\endfirsthead
+\multicolumn{2}{c}{表\thetable\quad 支撑材料文件列表（续）}\\
+\toprule[1pt]\multicolumn{1}{c}{文件名} & \multicolumn{1}{c}{说明}\\\midrule\endhead
+\bottomrule[1pt]\endfoot
+\texttt{\detokenize{AI工具使用详情.pdf}} & AI工具使用环节、用途与人工核验待填记录\\
+\path{paper/results.json} & 已有离线计算结果及演练成绩汇总\\
+\path{submission_inputs/practice_results.csv} & 问题三、四演练成绩；未取得的字段留空\\
+\path{submission_inputs/formal_results.csv} & 问题三、四各三次正式成绩表，待实测填写\\
+\path{paper/cases.json} & 30场离线合成案例输入\\
+\path{paper/figure-data.json} & 光学清除图的可行域和清除点数据\\
+\path{solve_questions.py} & 问题一、二的JSON输入输出入口\\
+\path{src/jammer_solver/questions.py} & 问题一交会区域计算与问题二第二测点选择\\
+\path{run_robot.py} & 问题三、四的模拟器运行入口\\
+\path{start_robot.ps1} & Windows交互启动脚本\\
+\path{src/jammer_solver/solver.py} & 多源搜索、定位、调度与清除算法\\
+\path{src/jammer_solver/exact_geometry.py} & 可行域与光学覆盖所用几何运算\\
+\path{src/jammer_solver/protocol.py} & 模拟器通信与运行记录\\
+\path{src/jammer_solver/__init__.py} & Python包标记文件，内容为空\\
+\path{paper/make_tables.py} & 生成离线结果和演练成绩表\\
+\path{paper/make_formal_tables.py} & 从正式成绩CSV生成论文表格\\
+\path{paper/make_figures.py} & 绘制论文图形\\
+\path{paper/generate_appendix.py} & 生成材料文件列表及完整程序附录\\
+\path{paper/build.py} & 编译论文与AI工具使用详情\\
+\path{prepare_submission.py} & 打包支撑材料并列出待补事项\\
+\path{README.md} & 材料目录及使用说明\\
+\path{docs/running.md} & 安装、运行与模拟测试操作说明\\
+\path{docs/algorithm.md} & 算法流程与模块说明\\
+\path{paper/} & 论文源文件、表格、AI说明及编译说明\\
+\path{paper/figures/} & 正文使用的8幅PDF图形\\
+\path{submission_inputs/README.md} & 待补结果的字段和存放规则\\
+\path{submission_inputs/ablation/} & 消融实验材料预留目录，待补\\
+\path{submission_inputs/sensitivity/} & 敏感性实验材料预留目录，待补\\
+\path{submission_inputs/practice_details/} & 演练清除数量与现实运行时间明细，待补\\
+\path{submission_inputs/formal/q3/} & 问题3第1、2、3次正式日志待补\\
+\path{submission_inputs/formal/q4/} & 问题4第1、2、3次正式日志待补\\
+\end{longtable}
 \endgroup
+\clearpage
+\section*{附录2：问题一、二代码}
+\subsection*{\texttt{\detokenize{solve_questions.py}}}
+问题一、二的JSON输入输出入口。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/solve_questions.py}\endgroup
+\subsection*{\texttt{\detokenize{src/jammer_solver/questions.py}}}
+问题一交会区域计算与问题二第二测点选择。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/src/jammer_solver/questions.py}\endgroup
+\clearpage
+\section*{附录3：问题三、四代码}
+\subsection*{\texttt{\detokenize{run_robot.py}}}
+问题三、四的模拟器运行入口。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/run_robot.py}\endgroup
+\subsection*{\texttt{\detokenize{start_robot.ps1}}}
+Windows交互启动脚本。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/start_robot.ps1}\endgroup
+\subsection*{\texttt{\detokenize{src/jammer_solver/solver.py}}}
+多源搜索、定位、调度与清除算法。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/src/jammer_solver/solver.py}\endgroup
+\subsection*{\texttt{\detokenize{src/jammer_solver/exact_geometry.py}}}
+可行域与光学覆盖所用几何运算。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/src/jammer_solver/exact_geometry.py}\endgroup
+\subsection*{\texttt{\detokenize{src/jammer_solver/protocol.py}}}
+模拟器通信与运行记录。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/src/jammer_solver/protocol.py}\endgroup
+\subsection*{\texttt{\detokenize{src/jammer_solver/__init__.py}}}
+Python包标记文件，内容为空。
+\clearpage
+\section*{附录4：图表与材料生成代码}
+\subsection*{\texttt{\detokenize{paper/make_tables.py}}}
+生成离线结果和演练成绩表。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/make_tables.py}\endgroup
+\subsection*{\texttt{\detokenize{paper/make_formal_tables.py}}}
+从正式成绩CSV生成论文表格。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/make_formal_tables.py}\endgroup
+\subsection*{\texttt{\detokenize{paper/make_figures.py}}}
+绘制论文图形。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/make_figures.py}\endgroup
+\subsection*{\texttt{\detokenize{paper/generate_appendix.py}}}
+生成材料文件列表及完整程序附录。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/generate_appendix.py}\endgroup
+\subsection*{\texttt{\detokenize{paper/build.py}}}
+编译论文与AI工具使用详情。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/paper/build.py}\endgroup
+\subsection*{\texttt{\detokenize{prepare_submission.py}}}
+打包支撑材料并列出待补事项。
+\begingroup\linespread{1.0}\selectfont\VerbatimInput[fontsize=\fontsize{8.5}{10.5}\selectfont,breaklines=true,breakanywhere=true,numbers=left,numbersep=4pt,xleftmargin=17pt,tabsize=4]{\RepoRoot/prepare_submission.py}\endgroup
