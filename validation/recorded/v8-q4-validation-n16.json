@@ -1,0 +1,490 @@
+{
+  "name": "q4-validation-n16",
+  "algorithm": "v8",
+  "problem": 4,
+  "seed": 20261096,
+  "source_count": 16,
+  "source_truth": [
+    {
+      "channel": 6,
+      "position": [
+        -1378.4028805852952,
+        -69.35632815871904
+      ],
+      "radius": 1265.3032918057297,
+      "direction": 218.3437774519437
+    },
+    {
+      "channel": 11,
+      "position": [
+        607.4981825022668,
+        -918.3523441034163
+      ],
+      "radius": 1322.9281964993525,
+      "direction": 127.67314602185253
+    },
+    {
+      "channel": 3,
+      "position": [
+        735.8776402667869,
+        793.2502903996793
+      ],
+      "radius": 1151.4348395512438,
+      "direction": 2.2050739144540943
+    },
+    {
+      "channel": 4,
+      "position": [
+        1183.2217971261878,
+        -708.45452148607
+      ],
+      "radius": 1188.2823153181357,
+      "direction": 280.870777603134
+    },
+    {
+      "channel": 2,
+      "position": [
+        -457.6188464156811,
+        743.4645060962453
+      ],
+      "radius": 1472.3676780494334,
+      "direction": 118.55638780308007
+    },
+    {
+      "channel": 20,
+      "position": [
+        272.091972329751,
+        651.0406544160917
+      ],
+      "radius": 1123.271848377964,
+      "direction": 298.93060586107964
+    },
+    {
+      "channel": 18,
+      "position": [
+        -1473.604035135745,
+        46.90731317258045
+      ],
+      "radius": 1131.054586762525,
+      "direction": 116.2149638729821
+    },
+    {
+      "channel": 15,
+      "position": [
+        964.5575828096762,
+        -1184.2365652048572
+      ],
+      "radius": 1482.1881257620141,
+      "direction": 256.79212476480365
+    },
+    {
+      "channel": 7,
+      "position": [
+        -829.002789683963,
+        -1572.689161000254
+      ],
+      "radius": 1008.0257246352481,
+      "direction": 50.91550057618133
+    },
+    {
+      "channel": 8,
+      "position": [
+        298.66540431215367,
+        1676.7946151514625
+      ],
+      "radius": 1168.328580960373,
+      "direction": 293.3286493564092
+    },
+    {
+      "channel": 17,
+      "position": [
+        1078.7493069088573,
+        130.4946117154773
+      ],
+      "radius": 1347.3603274746483,
+      "direction": 57.723152967586415
+    },
+    {
+      "channel": 9,
+      "position": [
+        -28.15194132424803,
+        -1387.0301972583388
+      ],
+      "radius": 1030.645881694757,
+      "direction": 120.14086619552364
+    },
+    {
+      "channel": 16,
+      "position": [
+        652.0956331285232,
+        -1405.2199331691168
+      ],
+      "radius": 1322.8507417003148,
+      "direction": 8.61525847098262
+    },
+    {
+      "channel": 13,
+      "position": [
+        -909.3228210823765,
+        1182.8905662104019
+      ],
+      "radius": 1035.9538217273239,
+      "direction": 231.2013679310395
+    },
+    {
+      "channel": 10,
+      "position": [
+        1504.2209111667878,
+        985.9156525025447
+      ],
+      "radius": 1127.407304480763,
+      "direction": 3.7903367502716367
+    },
+    {
+      "channel": 1,
+      "position": [
+        376.8868565740775,
+        -1522.7818506961823
+      ],
+      "radius": 1082.1932209346473,
+      "direction": 52.25439080062578
+    }
+  ],
+  "noise": "repository fixed coordinate hash",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "policy_revision": "20260912-shared-service-r4",
+  "policy_source_sha256": {
+    "__init__.py": "28b61c053f8918ad573b97dcbdd27cd77e635a1b47d58b8eefa09e423f7fc33c",
+    "assignment.py": "03d12084a9ec79c23ecfd456f69e067a7e4f953cd635191d9dc6962dd12a0006",
+    "bearing_geometry.py": "0fcca782ae1d8206a4b653001e5bb055e3c50b8a3f1d3a4e7734d97972985dd4",
+    "clear_route.py": "d965b54b35b20dee1d06aa337d2844e71769b5fb2492183ad1ef36ef1dee2d9b",
+    "clearance.py": "6180ce7f96575461ca2409abb80c707d16f0a052a0f06797588bd4e2cbaf8769",
+    "cli.py": "19fe6febe8987c1fb91f3203d8418842910a5b427af7f995ca13b06afeb2c4d1",
+    "exact_geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
+    "geometry.py": "d4658bf3179dfae1ad1e041936383983f463bd66bae309a648a9a9d9a9768211",
+    "protocol.py": "124caf404d41b3bcb1366a72e3d18266c3d903ffe31935fba0bf9d4e397d2206",
+    "q2_budget.py": "f7a10f0d38cd7a4a464e9d9f1317daf0ba62ba20939580f5bceefec8f431535a",
+    "q2_design.py": "d6a1dfa8da918e102af6dffaea5f8db5947cdd5118ae8e5ae2850d4f4f08f7b6",
+    "questions.py": "ff32793b3e2e8ec7a54bbe57bed2b344ff3a23ca8646aaab86a01f16d748a15a",
+    "route_planning.py": "f2c004be1d2e07e759a4038a13c9e5a4cb1c91de3398db9c184f62e4f488fad5",
+    "search_design.py": "7c2670348755070fba8c9f416775496f6332796d6a78b96eb2fe7f85a6323d86",
+    "solver.py": "0a2775f8895c6e89a36d8eecc58f604660e5f30607719433d2602110212c0405",
+    "verification.py": "85d479dae5bbf5c7e54d93c4072af8d36190cbaf69cd0c33a8cf132c7f9622ae"
+  },
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "policy_revision": "20260912-shared-service-r4",
+    "problem": 4,
+    "reason": "certified_all_cleared",
+    "completion_certified": true,
+    "exit_confirmed": true,
+    "virtual_time_s": 6680.124257,
+    "moving_distance_m": 24850.621282772387,
+    "average_clear_time_s": 417.5077660625,
+    "measures": 269,
+    "clear_attempts": 31,
+    "switches": 240,
+    "initial_fallback_upper_s": 41638.71700000001,
+    "fallback_used": false,
+    "budget_guard_checks": 315,
+    "planner": {
+      "decisions": 37,
+      "rollout_candidates": 69,
+      "rollout_timeouts": 0,
+      "continuous_clears": 6,
+      "radio_events": 4,
+      "repeated_negative_pairs_skipped": 5
+    },
+    "search_plan": {
+      "proofs": 369,
+      "deletions": 0,
+      "replacements": 0
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "cleared_channels": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "unknown_channels": [],
+    "pending_channels": [],
+    "absent_channels": [
+      5,
+      12,
+      14,
+      19
+    ],
+    "extra_actions_remaining": 428,
+    "completion_rank": 428,
+    "rank_receipts": 300,
+    "absence_certificates": [
+      {
+        "channel": 19,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 21,
+        "optical_count": 0,
+        "nodes": 5013,
+        "leaf_count": 2448,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            705.6925676241744,
+            705.6925676241743
+          ],
+          [
+            483.47397625150916,
+            1804.3494435079795
+          ],
+          [
+            6.110987527745293e-14,
+            998.0
+          ],
+          [
+            -705.6925676241743,
+            705.6925676241744
+          ],
+          [
+            -998.0,
+            1.2221975055490585e-13
+          ],
+          [
+            -1804.3494435079797,
+            -483.4739762515089
+          ],
+          [
+            -1804.3494435079797,
+            483.4739762515084
+          ],
+          [
+            -1320.8754672564708,
+            1320.8754672564708
+          ],
+          [
+            -483.47397625150853,
+            1804.3494435079797
+          ],
+          [
+            1320.8754672564708,
+            1320.8754672564708
+          ],
+          [
+            998.0,
+            0.0
+          ],
+          [
+            705.6925676241742,
+            -705.6925676241746
+          ],
+          [
+            -483.4739762515102,
+            -1804.3494435079792
+          ],
+          [
+            -1320.875467256471,
+            -1320.8754672564708
+          ],
+          [
+            -705.6925676241746,
+            -705.6925676241743
+          ],
+          [
+            -1.8332962583235877e-13,
+            -998.0
+          ],
+          [
+            483.4739762515079,
+            -1804.34944350798
+          ],
+          [
+            1320.8754672564705,
+            -1320.875467256471
+          ],
+          [
+            1804.3494435079792,
+            -483.4739762515103
+          ],
+          [
+            1804.3494435079797,
+            483.47397625150876
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 5,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 21,
+        "optical_count": 0,
+        "nodes": 5013,
+        "leaf_count": 2448,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            705.6925676241744,
+            705.6925676241743
+          ],
+          [
+            483.47397625150916,
+            1804.3494435079795
+          ],
+          [
+            6.110987527745293e-14,
+            998.0
+          ],
+          [
+            -705.6925676241743,
+            705.6925676241744
+          ],
+          [
+            -998.0,
+            1.2221975055490585e-13
+          ],
+          [
+            -1804.3494435079797,
+            -483.4739762515089
+          ],
+          [
+            -1804.3494435079797,
+            483.4739762515084
+          ],
+          [
+            -1320.8754672564708,
+            1320.8754672564708
+          ],
+          [
+            -483.47397625150853,
+            1804.3494435079797
+          ],
+          [
+            1320.8754672564708,
+            1320.8754672564708
+          ],
+          [
+            998.0,
+            0.0
+          ],
+          [
+            705.6925676241742,
+            -705.6925676241746
+          ],
+          [
+            -483.4739762515102,
+            -1804.3494435079792
+          ],
+          [
+            -1320.875467256471,
+            -1320.8754672564708
+          ],
+          [
+            -705.6925676241746,
+            -705.6925676241743
+          ],
+          [
+            -1.8332962583235877e-13,
+            -998.0
+          ],
+          [
+            483.4739762515079,
+            -1804.34944350798
+          ],
+          [
+            1320.8754672564705,
+            -1320.875467256471
+          ],
+          [
+            1804.3494435079792,
+            -483.4739762515103
+          ],
+          [
+            1804.3494435079797,
+            483.47397625150876
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 12,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 14,
+        "basis": "source_count_upper_bound"
+      }
+    ]
+  },
+  "replay": {
+    "verified": true,
+    "actions": 300,
+    "virtual_time_s": 6680.124257
+  },
+  "error": null,
+  "wall_s": 10.472601907793432,
+  "cleared_count": 16,
+  "virtual_time_s": 6680.124256554478,
+  "average_clear_time_s": 417.5077660346549,
+  "counts": {
+    "measure": 269,
+    "clear": 31,
+    "successful_clear": 16,
+    "switch": 240
+  },
+  "event_counts": {
+    "v8_started": 1,
+    "event_selected": 57,
+    "evidence_observation": 300,
+    "rank_receipt": 300,
+    "discovered": 16,
+    "verified_negative_pair": 6,
+    "cleared": 16,
+    "shared_station_selected": 8,
+    "optical_chain_selected": 9,
+    "batch_observation_selected": 1,
+    "completion_checked": 1
+  },
+  "log_sha256": "568f7c8d783bf08cd1bdcbdf9d3b66b3d1ece03646b9952de08a731552b2e4a1"
+}

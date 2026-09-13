@@ -1,0 +1,635 @@
+{
+  "name": "q3-validation-n10",
+  "algorithm": "v8",
+  "problem": 3,
+  "seed": 20261070,
+  "source_count": 10,
+  "source_truth": [
+    {
+      "channel": 7,
+      "position": [
+        -823.3168821870424,
+        -326.830199436903
+      ],
+      "radius": 1072.3902322721683,
+      "direction": null
+    },
+    {
+      "channel": 3,
+      "position": [
+        -554.8524173688862,
+        -1239.7865336413574
+      ],
+      "radius": 1216.127819200473,
+      "direction": null
+    },
+    {
+      "channel": 10,
+      "position": [
+        -1632.6872267958017,
+        -388.4433983298519
+      ],
+      "radius": 1336.7037065783265,
+      "direction": null
+    },
+    {
+      "channel": 2,
+      "position": [
+        990.7554381438114,
+        150.687777747354
+      ],
+      "radius": 1302.6030771812125,
+      "direction": null
+    },
+    {
+      "channel": 17,
+      "position": [
+        -861.0898312432182,
+        1400.1758374870626
+      ],
+      "radius": 1044.482799460136,
+      "direction": null
+    },
+    {
+      "channel": 18,
+      "position": [
+        -245.8044880538314,
+        -1230.793154793583
+      ],
+      "radius": 1282.7282522335402,
+      "direction": null
+    },
+    {
+      "channel": 19,
+      "position": [
+        -605.5692846387833,
+        -329.5526500740146
+      ],
+      "radius": 1031.0575948775052,
+      "direction": null
+    },
+    {
+      "channel": 12,
+      "position": [
+        -265.6591576024611,
+        106.29413885144508
+      ],
+      "radius": 1406.0749724571192,
+      "direction": null
+    },
+    {
+      "channel": 8,
+      "position": [
+        -1289.4325766034528,
+        882.5081369858048
+      ],
+      "radius": 1487.8641860206835,
+      "direction": null
+    },
+    {
+      "channel": 16,
+      "position": [
+        -1404.3470139473804,
+        588.3965662569981
+      ],
+      "radius": 1316.452250739021,
+      "direction": null
+    }
+  ],
+  "noise": "repository fixed coordinate hash",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "policy_revision": "20260912-shared-service-r4",
+  "policy_source_sha256": {
+    "__init__.py": "28b61c053f8918ad573b97dcbdd27cd77e635a1b47d58b8eefa09e423f7fc33c",
+    "assignment.py": "03d12084a9ec79c23ecfd456f69e067a7e4f953cd635191d9dc6962dd12a0006",
+    "bearing_geometry.py": "0fcca782ae1d8206a4b653001e5bb055e3c50b8a3f1d3a4e7734d97972985dd4",
+    "clear_route.py": "d965b54b35b20dee1d06aa337d2844e71769b5fb2492183ad1ef36ef1dee2d9b",
+    "clearance.py": "6180ce7f96575461ca2409abb80c707d16f0a052a0f06797588bd4e2cbaf8769",
+    "cli.py": "19fe6febe8987c1fb91f3203d8418842910a5b427af7f995ca13b06afeb2c4d1",
+    "exact_geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
+    "geometry.py": "d4658bf3179dfae1ad1e041936383983f463bd66bae309a648a9a9d9a9768211",
+    "protocol.py": "124caf404d41b3bcb1366a72e3d18266c3d903ffe31935fba0bf9d4e397d2206",
+    "q2_budget.py": "f7a10f0d38cd7a4a464e9d9f1317daf0ba62ba20939580f5bceefec8f431535a",
+    "q2_design.py": "d6a1dfa8da918e102af6dffaea5f8db5947cdd5118ae8e5ae2850d4f4f08f7b6",
+    "questions.py": "ff32793b3e2e8ec7a54bbe57bed2b344ff3a23ca8646aaab86a01f16d748a15a",
+    "route_planning.py": "f2c004be1d2e07e759a4038a13c9e5a4cb1c91de3398db9c184f62e4f488fad5",
+    "search_design.py": "7c2670348755070fba8c9f416775496f6332796d6a78b96eb2fe7f85a6323d86",
+    "solver.py": "0a2775f8895c6e89a36d8eecc58f604660e5f30607719433d2602110212c0405",
+    "verification.py": "85d479dae5bbf5c7e54d93c4072af8d36190cbaf69cd0c33a8cf132c7f9622ae"
+  },
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "policy_revision": "20260912-shared-service-r4",
+    "problem": 3,
+    "reason": "certified_all_cleared",
+    "completion_certified": true,
+    "exit_confirmed": true,
+    "virtual_time_s": 2785.989904,
+    "moving_distance_m": 10309.949520233788,
+    "average_clear_time_s": 278.5989904,
+    "measures": 113,
+    "clear_attempts": 10,
+    "switches": 109,
+    "initial_fallback_upper_s": 41638.71700000001,
+    "fallback_used": false,
+    "budget_guard_checks": 130,
+    "planner": {
+      "decisions": 17,
+      "rollout_candidates": 3,
+      "rollout_timeouts": 0,
+      "continuous_clears": 7,
+      "radio_events": 1
+    },
+    "search_plan": {
+      "proofs": 90,
+      "deletions": 0,
+      "replacements": 0
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [
+      2,
+      3,
+      7,
+      8,
+      10,
+      12,
+      16,
+      17,
+      18,
+      19
+    ],
+    "cleared_channels": [
+      2,
+      3,
+      7,
+      8,
+      10,
+      12,
+      16,
+      17,
+      18,
+      19
+    ],
+    "unknown_channels": [],
+    "pending_channels": [],
+    "absent_channels": [
+      1,
+      4,
+      5,
+      6,
+      9,
+      11,
+      13,
+      14,
+      15,
+      20
+    ],
+    "extra_actions_remaining": 583,
+    "completion_rank": 1681,
+    "rank_receipts": 123,
+    "absence_certificates": [
+      {
+        "channel": 20,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 1,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 4,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 5,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 6,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 9,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 11,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 13,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 14,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 15,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "optical": []
+      }
+    ]
+  },
+  "replay": {
+    "verified": true,
+    "actions": 123,
+    "virtual_time_s": 2785.989904
+  },
+  "error": null,
+  "wall_s": 2.6806399282068014,
+  "cleared_count": 10,
+  "virtual_time_s": 2785.9899040467576,
+  "average_clear_time_s": 278.59899040467576,
+  "counts": {
+    "measure": 113,
+    "clear": 10,
+    "successful_clear": 10,
+    "switch": 109
+  },
+  "event_counts": {
+    "v8_started": 1,
+    "event_selected": 25,
+    "evidence_observation": 123,
+    "rank_receipt": 123,
+    "discovered": 10,
+    "batch_observation_selected": 2,
+    "cleared": 10,
+    "shared_station_selected": 6,
+    "completion_checked": 1
+  },
+  "log_sha256": "3e9354311fdcfb5cd95c0b76dff9a550bb820b9e33818274e4894b2e22e91be9"
+}

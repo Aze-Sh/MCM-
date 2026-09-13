@@ -1,17 +1,20 @@
-tmp/
-private-sources/
+# Local runs and credentials
+runs/
+.env
+.env.*
+!.env.example
 
-# Generated Python files
+# Python and editor caches
+.venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.ruff_cache/
 *.egg-info/
+.idea/
+.vscode/
 
-# Generated MATLAB files
-*.asv
-toolkit/validation/output/
-
-# LaTeX and rendered-paper build products
+# Paper build products
 *.aux
 *.bbl
 *.blg
@@ -21,15 +24,3 @@ toolkit/validation/output/
 *.out
 *.synctex.gz
 *.toc
-
-# Local environments and editor state
-.venv/
-.idea/
-.vscode/
-
-# Local Git worktrees
-.worktrees/
-
-# Local run output; curate reproducible evidence separately.
-solutions/adaptive/results/runs/
-solutions/baseline/output/simulate-*.json

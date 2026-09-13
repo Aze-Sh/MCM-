@@ -1,0 +1,302 @@
+{
+  "name": "q4-boundary-n16",
+  "algorithm": "v8",
+  "problem": 4,
+  "seed": 16,
+  "source_count": 16,
+  "source_truth": [
+    {
+      "channel": 1,
+      "position": [
+        1799.989953667948,
+        0.40840477253450913
+      ],
+      "radius": 1000.0,
+      "direction": 0.013
+    },
+    {
+      "channel": 2,
+      "position": [
+        1662.8175871796086,
+        689.2036505026539
+      ],
+      "radius": 1000.0,
+      "direction": 22.513
+    },
+    {
+      "channel": 3,
+      "position": [
+        1272.4963165221375,
+        1273.0738880903934
+      ],
+      "radius": 1000.0,
+      "direction": 45.013
+    },
+    {
+      "channel": 4,
+      "position": [
+        688.4490168820047,
+        1663.1301666599045
+      ],
+      "radius": 1000.0,
+      "direction": 67.513
+    },
+    {
+      "channel": 5,
+      "position": [
+        -0.4084047725345334,
+        1799.989953667948
+      ],
+      "radius": 1000.0,
+      "direction": 90.013
+    },
+    {
+      "channel": 6,
+      "position": [
+        -689.2036505026539,
+        1662.8175871796086
+      ],
+      "radius": 1000.0,
+      "direction": 112.513
+    },
+    {
+      "channel": 7,
+      "position": [
+        -1273.0738880903937,
+        1272.4963165221375
+      ],
+      "radius": 1000.0,
+      "direction": 135.013
+    },
+    {
+      "channel": 8,
+      "position": [
+        -1663.1301666599043,
+        688.4490168820048
+      ],
+      "radius": 1000.0,
+      "direction": 157.513
+    },
+    {
+      "channel": 9,
+      "position": [
+        -1799.989953667948,
+        -0.40840477253442314
+      ],
+      "radius": 1000.0,
+      "direction": 180.013
+    },
+    {
+      "channel": 10,
+      "position": [
+        -1662.8175871796088,
+        -689.2036505026537
+      ],
+      "radius": 1000.0,
+      "direction": 202.513
+    },
+    {
+      "channel": 11,
+      "position": [
+        -1272.4963165221375,
+        -1273.0738880903934
+      ],
+      "radius": 1000.0,
+      "direction": 225.013
+    },
+    {
+      "channel": 12,
+      "position": [
+        -688.4490168820041,
+        -1663.1301666599047
+      ],
+      "radius": 1000.0,
+      "direction": 247.513
+    },
+    {
+      "channel": 13,
+      "position": [
+        0.40840477253431295,
+        -1799.989953667948
+      ],
+      "radius": 1000.0,
+      "direction": 270.013
+    },
+    {
+      "channel": 14,
+      "position": [
+        689.2036505026529,
+        -1662.817587179609
+      ],
+      "radius": 1000.0,
+      "direction": 292.513
+    },
+    {
+      "channel": 15,
+      "position": [
+        1273.0738880903934,
+        -1272.4963165221377
+      ],
+      "radius": 1000.0,
+      "direction": 315.013
+    },
+    {
+      "channel": 16,
+      "position": [
+        1663.1301666599038,
+        -688.4490168820057
+      ],
+      "radius": 1000.0,
+      "direction": 337.513
+    }
+  ],
+  "noise": "fixed extreme +/-1 degree",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "policy_revision": "20260912-shared-service-r4",
+  "policy_source_sha256": {
+    "__init__.py": "28b61c053f8918ad573b97dcbdd27cd77e635a1b47d58b8eefa09e423f7fc33c",
+    "assignment.py": "03d12084a9ec79c23ecfd456f69e067a7e4f953cd635191d9dc6962dd12a0006",
+    "bearing_geometry.py": "0fcca782ae1d8206a4b653001e5bb055e3c50b8a3f1d3a4e7734d97972985dd4",
+    "clear_route.py": "d965b54b35b20dee1d06aa337d2844e71769b5fb2492183ad1ef36ef1dee2d9b",
+    "clearance.py": "6180ce7f96575461ca2409abb80c707d16f0a052a0f06797588bd4e2cbaf8769",
+    "cli.py": "19fe6febe8987c1fb91f3203d8418842910a5b427af7f995ca13b06afeb2c4d1",
+    "exact_geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
+    "geometry.py": "d4658bf3179dfae1ad1e041936383983f463bd66bae309a648a9a9d9a9768211",
+    "protocol.py": "124caf404d41b3bcb1366a72e3d18266c3d903ffe31935fba0bf9d4e397d2206",
+    "q2_budget.py": "f7a10f0d38cd7a4a464e9d9f1317daf0ba62ba20939580f5bceefec8f431535a",
+    "q2_design.py": "d6a1dfa8da918e102af6dffaea5f8db5947cdd5118ae8e5ae2850d4f4f08f7b6",
+    "questions.py": "ff32793b3e2e8ec7a54bbe57bed2b344ff3a23ca8646aaab86a01f16d748a15a",
+    "route_planning.py": "f2c004be1d2e07e759a4038a13c9e5a4cb1c91de3398db9c184f62e4f488fad5",
+    "search_design.py": "7c2670348755070fba8c9f416775496f6332796d6a78b96eb2fe7f85a6323d86",
+    "solver.py": "0a2775f8895c6e89a36d8eecc58f604660e5f30607719433d2602110212c0405",
+    "verification.py": "85d479dae5bbf5c7e54d93c4072af8d36190cbaf69cd0c33a8cf132c7f9622ae"
+  },
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "policy_revision": "20260912-shared-service-r4",
+    "problem": 4,
+    "reason": "certified_all_cleared",
+    "completion_certified": true,
+    "exit_confirmed": true,
+    "virtual_time_s": 9206.84531,
+    "moving_distance_m": 34179.22655111792,
+    "average_clear_time_s": 575.427831875,
+    "measures": 376,
+    "clear_attempts": 44,
+    "switches": 327,
+    "initial_fallback_upper_s": 41638.71700000001,
+    "fallback_used": false,
+    "budget_guard_checks": 397,
+    "planner": {
+      "decisions": 37,
+      "rollout_candidates": 60,
+      "rollout_timeouts": 0,
+      "continuous_clears": 8,
+      "radio_events": 12
+    },
+    "search_plan": {
+      "proofs": 351,
+      "deletions": 0,
+      "replacements": 0
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "cleared_channels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "unknown_channels": [],
+    "pending_channels": [],
+    "absent_channels": [
+      17,
+      18,
+      19,
+      20
+    ],
+    "extra_actions_remaining": 303,
+    "completion_rank": 303,
+    "rank_receipts": 420,
+    "absence_certificates": [
+      {
+        "channel": 17,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 18,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 19,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 20,
+        "basis": "source_count_upper_bound"
+      }
+    ]
+  },
+  "replay": {
+    "verified": true,
+    "actions": 420,
+    "virtual_time_s": 9206.84531
+  },
+  "error": null,
+  "wall_s": 8.85673619620502,
+  "cleared_count": 16,
+  "virtual_time_s": 9206.845310223584,
+  "average_clear_time_s": 575.427831888974,
+  "counts": {
+    "measure": 376,
+    "clear": 44,
+    "successful_clear": 16,
+    "switch": 327
+  },
+  "event_counts": {
+    "v8_started": 1,
+    "event_selected": 57,
+    "evidence_observation": 420,
+    "rank_receipt": 420,
+    "discovered": 16,
+    "verified_negative_pair": 20,
+    "optical_chain_selected": 8,
+    "cleared": 16,
+    "shared_station_selected": 3,
+    "completion_checked": 1
+  },
+  "log_sha256": "004565e4e82566f6b8814695e94f95e62965e2efd220ab24335a3860392b7686"
+}

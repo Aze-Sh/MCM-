@@ -1,6 +1,0 @@
-id: data-audit
-file: knowledge/methods/data-audit.md
-problem_types: [data-analysis]
-python_callable: cumcm_py.preprocess.audit_dataframe
-matlab_callable: cumcm.auditTable
-fixture_ids: [audit-basic-v1]

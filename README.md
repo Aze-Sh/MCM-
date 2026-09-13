@@ -1,58 +1,36 @@
-# 2026 B 题：无线电干扰源定位与清除
+# MCM B题：最终算法 v8快速版（r4）
 
-本仓库按题目资料、两套算法和通用建模工具分类。第二套目前默认运行 v7；`adaptive` 是固定的方案目录名，以后升级版本也不需要再建“最新版”文件夹。
+第三、四题默认使用 **`20260912-shared-service-r4`**。仓库只保留这一套运行策略；第一、二题的离线几何计算也保留。Python 3.10+，运行与测试仅使用标准库。
 
-| 内容 | 入口 | 用途 |
-| --- | --- | --- |
-| 题目与附件 | [problem](problem/README.md) | 原始 PDF / Word、提取文本、任务分解、接口说明 |
-| 第一套：覆盖扫描基线 | [solutions/baseline](solutions/baseline/README.md) | 当前 v3，含本地模拟器、演练记录、论文及冻结代码 |
-| 第二套：自适应几何与任务规划 | [solutions/adaptive](solutions/adaptive/README.md) | 当前 v7，含可切换的早期策略、离线测试和论文 |
-| 后续改进方向 | [docs/algorithm-development.md](docs/algorithm-development.md) | 定向信息、多源共享测点、成本界与参数验证 |
-| 跳出固定覆盖点 | [docs/beyond-fixed-coverage.md](docs/beyond-fixed-coverage.md) | 按频道的信息状态规划、停止条件与可运行反例 |
-| 逼近理论最优 | [docs/near-optimal-options.md](docs/near-optimal-options.md) | 四条候选路线的优缺点、最优性证书与独立下界 |
-| 目录迁移与命名规则 | [docs/repository-layout.md](docs/repository-layout.md) | 旧路径对应关系、文件存放约定 |
-| 通用建模工具箱 | [toolkit](toolkit/README.md) | Python / MATLAB 方法、模板、规则、检查器及 Skill 资源 |
+| 内容 | 位置 |
+|---|---|
+| 第三、四题启动 | [run_robot.py](run_robot.py)，Windows可用 [start_robot.ps1](start_robot.ps1) |
+| 第一、二题计算 | [solve_questions.py](solve_questions.py) |
+| 最终代码 | [src/jammer_solver](src/jammer_solver/) |
+| 使用说明 | [docs/running.md](docs/running.md) |
+| 算法及模块说明 | [docs/algorithm.md](docs/algorithm.md) |
+| 测试结果与局限 | [docs/validation.md](docs/validation.md) |
+| 题目和附件 | [problem](problem/README.md) |
+| 论文参考稿 | [paper](paper/README.md) |
+| 安全与几何测试 | [tests](tests/)；统一入口 [check.py](check.py) |
+| 离线模拟与核查工具 | [tools](tools/README.md) |
+| 保留的验证数据 | [validation](validation/README.md) |
 
-以下命令从**仓库根目录**运行，Python 3.10+。
-
-## 先运行第二套的离线检查
-
-第二套运行代码和现有单元测试仅使用 Python 标准库：
-
-```bash
-python solutions/adaptive/run_tests.py
-python solutions/adaptive/python/run_robot.py --help
-```
-
-默认策略是 `obligation-service-interception-v7`。连接模拟器的步骤见[运行说明](solutions/adaptive/docs/running.md)。第二套内部的 `--baseline` 指它自己的早期 midpoint 策略，**不等同于本仓库第一套方案**。
-
-新增可选的 `--v8` 实验版：证据账本、完整备用构造、共享测量、完整任务排序和有限世界精确校准已经接入。当前四个固定案例均快于 v7，其中三个省时超过500秒；本轮新增验证案例仍有回退，尚未完成稳定省500秒的目标。详见 [v8 提速记录](solutions/adaptive/docs/v8-optimization.md)及[离线实验](experiments/near-optimal/README.md)。
-
-当前 v8 已整理为过程式写法，核心分为主流程、几何和校准三个文件；阅读顺序与重构验证见 [v8 代码整理说明](solutions/adaptive/docs/v8-style-refactor.md)。
-
-## 运行第一套的本地模拟
+从仓库根目录先运行离线检查：
 
 ```bash
-python -m pip install -r solutions/baseline/python/requirements.txt pytest
-python solutions/baseline/python/main.py simulate --cases 3 --seed 20260911
-python scripts/check_repository.py
+python check.py
+python tools/validate.py --suite matched
 ```
 
-最后一条命令分进程运行两套方案现有的测试；它不会连接官方模拟器。第一套生成的报告在 `solutions/baseline/output/`。第二套连接运行后生成的目录在 `solutions/adaptive/results/runs/`。
+这些命令不连接官方模拟器。完整30场验证使用 `python tools/validate.py`；新输出写入被Git忽略的 `runs/`，不会覆盖保留的数据。
 
-## 使用通用工具箱
+连接你已打开并选好题号的**演练测试**：
 
 ```bash
-python -m pip install -e "./toolkit[test]"
-python scripts/check_repository.py --suite all
+python run_robot.py --problem 4 --run-kind rehearsal --case-code 当前案例编码 --robot-id 队号 --connect
 ```
 
-`toolkit/` 保留原工具箱内部结构；它的文档命令通常要求先进入该目录。初始化模板用于新项目，不要对已有的两套方案执行强制初始化。
+已经默认运行v8快速版，无需再选 `--v8`。`--run-kind rehearsal`只记录类型，不能替你切换官方界面。未加 `--connect` 时不会连接。
 
-## 当前证据范围
-
-第一套保留了六轮官方演练资料与历史合成测试。第二套上传说明提及早期版本演练和额外 v7 检查，但对应的完整原始记录没有一起上传；现有测试集中是 `test_offline.py`、`test_v4.py` 和 `test_v5.py`。论文中的历史数字、合成测试、官方演练和正式测试应分别注明来源。
-
-此次整理保留两套算法的核心实现与参数、原始题目附件、论文和已有结果；入口路径及第二套默认输出目录已更新。
-
-目录迁移后的 161 项现有 Python 测试已通过，核验范围见 [docs/layout-verification.json](docs/layout-verification.json)。新的探索脚本位于 [experiments/search-policy](experiments/search-policy/README.md)。
+整理后的目录、旧路径对应和删除范围见 [docs/layout.md](docs/layout.md)。旧版本及废弃实验已移出当前目录；本次整理没有重写Git历史。

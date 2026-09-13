@@ -1,6 +1,0 @@
-# Add only dependencies actually used by the contest solution.
-numpy
-pandas
-scipy
-matplotlib
-
