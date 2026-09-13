@@ -9,6 +9,8 @@
 | [paper/main.tex](paper/main.tex) / [paper/main.pdf](paper/main.pdf) | 上传的 v7 论文源码与 PDF |
 | [docs/running.md](docs/running.md) | 实际可用的运行、输出和汇总命令 |
 | [docs/v7-evidence.md](docs/v7-evidence.md) | 上传的 v7 算法说明及证据范围说明 |
+| [docs/v8-style-refactor.md](docs/v8-style-refactor.md) | 当前 v8 的过程式代码结构、阅读顺序与重构验证 |
+| [docs/v8-optimization.md](docs/v8-optimization.md) | 当前 v8 提速方法、同输入对比、未达标案例与复核方式 |
 | [docs/history](docs/history/README.md) | v4～v6 文档、旧工程说明与未分类占位文件 |
 | [results](results/README.md) | 后续运行记录与整理后的实验结果 |
 
@@ -23,6 +25,6 @@ python solutions/adaptive/python/run_robot.py --help
 
 v7 通过继承复用了 v6、v5、v4、v3 的实现，因此 `solver.py`、`cooperative.py`、`adaptive.py`、`adaptive_v6.py` 仍是当前运行依赖。它们与 v7 模块保留在同一个 `python/` 目录；历史**说明文档**另放 `docs/history/`。
 
-目前包含 62 项离线测试：34 项原有测试和 28 项 v8 几何、证据、校准及完整运行检查。它们不能替代 v7 专项测试；上传说明提及的 12 项 v7 检查及早期演练原始记录并未随代码上传。后续优先事项见[改进路线](../../docs/algorithm-development.md)。
+目前包含 68 项离线测试：34 项原有测试和 34 项 v8 几何、证据、校准及完整运行检查。它们不能替代 v7 专项测试；上传说明提及的 12 项 v7 检查及早期演练原始记录并未随代码上传。后续优先事项见[改进路线](../../docs/algorithm-development.md)。
 
 编译论文时进入 `solutions/adaptive/paper/` 后运行两次 `xelatex main.tex`；需要本机的 XeLaTeX 与相应中文字体。

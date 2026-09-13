@@ -1,0 +1,181 @@
+{
+  "name": "q3-seed20260912",
+  "algorithm": "v8",
+  "problem": 3,
+  "seed": 20260912,
+  "source_count": 10,
+  "source_truth": [
+    {
+      "channel": 14,
+      "position": [
+        -427.50735067042945,
+        -1125.633686392884
+      ],
+      "radius": 1027.8122971135035,
+      "direction": null
+    },
+    {
+      "channel": 7,
+      "position": [
+        -691.0402790454328,
+        1200.4210440356337
+      ],
+      "radius": 1345.563843808216,
+      "direction": null
+    },
+    {
+      "channel": 4,
+      "position": [
+        276.9344848969061,
+        -1289.449159910401
+      ],
+      "radius": 1226.1140532424326,
+      "direction": null
+    },
+    {
+      "channel": 1,
+      "position": [
+        1662.9669251408636,
+        -668.3339583273234
+      ],
+      "radius": 1052.779199459847,
+      "direction": null
+    },
+    {
+      "channel": 16,
+      "position": [
+        1636.1702353537412,
+        740.8379907888882
+      ],
+      "radius": 1115.221571651782,
+      "direction": null
+    },
+    {
+      "channel": 2,
+      "position": [
+        161.51304538891995,
+        1341.640858796762
+      ],
+      "radius": 1165.036738521453,
+      "direction": null
+    },
+    {
+      "channel": 18,
+      "position": [
+        -289.0279347740033,
+        -1515.7936268527042
+      ],
+      "radius": 1462.1915374181503,
+      "direction": null
+    },
+    {
+      "channel": 12,
+      "position": [
+        -650.3513165925405,
+        -1648.4554952907617
+      ],
+      "radius": 1263.3235637973596,
+      "direction": null
+    },
+    {
+      "channel": 15,
+      "position": [
+        1254.2611275603135,
+        1027.1230011354935
+      ],
+      "radius": 1157.8915232923023,
+      "direction": null
+    },
+    {
+      "channel": 8,
+      "position": [
+        335.89281066004935,
+        -104.84774991879765
+      ],
+      "radius": 1366.2109830717213,
+      "direction": null
+    }
+  ],
+  "noise": "repository fixed coordinate hash",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "saved_v7_s": 3590.4333726305763,
+  "error": "IndexError: list index out of range",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/public/zcq/MCM/MCM-/experiments/near-optimal/benchmark.py\", line 103, in run_case\n    result['summary'] = v8.yunxing(solver) if algorithm=='v8' else solver.run()\n                        ^^^^^^^^^^^^^^^^^^\n  File \"/home/public/zcq/MCM/MCM-/solutions/adaptive/python/near_optimal/suanfa.py\", line 843, in yunxing\n    event = xuan_dongzuo(\n            ^^^^^^^^^^^^^\n  File \"/tmp/mcm-service-planning.py\", line 40, in select\n    jihua['order']=plan['order'];event=events[id(plan['modes'][0])]\n                                                 ~~~~~~~~~~~~~^^^\nIndexError: list index out of range\n",
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "problem": 3,
+    "reason": "running",
+    "completion_certified": false,
+    "exit_confirmed": false,
+    "virtual_time_s": 0.0,
+    "moving_distance_m": 0.0,
+    "average_clear_time_s": null,
+    "measures": 0,
+    "clear_attempts": 0,
+    "switches": 0,
+    "initial_fallback_upper_s": 41638.71700000001,
+    "fallback_used": false,
+    "budget_guard_checks": 0,
+    "planner": {
+      "decisions": 1,
+      "rollout_candidates": 0,
+      "rollout_timeouts": 0,
+      "continuous_clears": 0,
+      "radio_events": 0
+    },
+    "search_plan": {
+      "proofs": 7,
+      "deletions": 0,
+      "replacements": 0
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [],
+    "cleared_channels": [],
+    "unknown_channels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "pending_channels": [],
+    "absent_channels": [],
+    "extra_actions_remaining": 640,
+    "completion_rank": 4548,
+    "rank_receipts": 0,
+    "absence_certificates": []
+  },
+  "wall_s": 0.0012663980014622211,
+  "cleared_count": 0,
+  "virtual_time_s": 0.0,
+  "average_clear_time_s": 0.0,
+  "counts": {
+    "measure": 0,
+    "clear": 0,
+    "successful_clear": 0,
+    "switch": 0
+  },
+  "event_counts": {
+    "v8_started": 1
+  },
+  "log_sha256": "979c21229e3cd22370d33f96dad7a7d5a7cc7e2573d648c78af73498dc982a4c"
+}

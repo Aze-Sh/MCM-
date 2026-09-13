@@ -1,6 +1,6 @@
 # Windows 本地 v8 模拟与演练
 
-2026-09-13 已从 origin/main 同步至 6a682bc。默认仍为 v7，连接入口必须显式加 `--v8`。
+2026-09-13：当前提速版标识为 `20260912-shared-service-r4`，已保留 Windows 离线计时兼容修复。默认仍为 v7，连接入口必须显式加 `--v8`；PowerShell 启动脚本对应参数为 `-V8`。
 
 在 PowerShell 进入仓库（Python 3.10+，第二套运行本身只使用标准库）：
 
@@ -40,4 +40,4 @@ python solutions/adaptive/python/run_robot.py --v8 --problem 3 --run-kind rehear
 
 结果默认保存至 `solutions/adaptive/results/runs/rehearsal_q3_时间戳/`（或 q4），包含 metadata.json、actions.jsonl、summary.json。检查 error、unresolved_request、完成证据及退出状态；原始官方日志仍从模拟器按原名导出。
 
-v8 为实验版，现有证据未显示其稳定优于 v7；比较必须使用相同案例，不能只看版本号。
+v8 为实验版，已取得同输入提速结果，但尚未在所有案例达到比 v7 至少省500秒。完整结果及未达标案例见 [v8 提速方法与同输入对比](v8-optimization.md)；合成结果不能替代截图对应的官方演练核验。

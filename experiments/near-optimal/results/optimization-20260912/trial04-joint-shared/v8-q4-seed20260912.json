@@ -1,0 +1,256 @@
+{
+  "name": "q4-seed20260912",
+  "algorithm": "v8",
+  "problem": 4,
+  "seed": 20260912,
+  "source_count": 10,
+  "source_truth": [
+    {
+      "channel": 14,
+      "position": [
+        -427.50735067042945,
+        -1125.633686392884
+      ],
+      "radius": 1166.566006129624,
+      "direction": 213.17192780297668
+    },
+    {
+      "channel": 7,
+      "position": [
+        -1456.4968926530378,
+        -343.3227484005187
+      ],
+      "radius": 1226.1140532424326,
+      "direction": null
+    },
+    {
+      "channel": 4,
+      "position": [
+        1662.9669251408636,
+        -668.3339583273234
+      ],
+      "radius": 1033.833943864922,
+      "direction": 358.432663072626
+    },
+    {
+      "channel": 1,
+      "position": [
+        -795.9874044370567,
+        -336.2139739527558
+      ],
+      "radius": 1367.464115167747,
+      "direction": 118.82645173544604
+    },
+    {
+      "channel": 16,
+      "position": [
+        1358.1933288607026,
+        -698.6787293860078
+      ],
+      "radius": 1345.096797585706,
+      "direction": null
+    },
+    {
+      "channel": 2,
+      "position": [
+        489.695170693615,
+        -1211.005917907192
+      ],
+      "radius": 1019.1075664994047,
+      "direction": 113.6818967704576
+    },
+    {
+      "channel": 18,
+      "position": [
+        -193.56312704833866,
+        -1745.4263665646456
+      ],
+      "radius": 1070.8462928715057,
+      "direction": 25.067488656685146
+    },
+    {
+      "channel": 12,
+      "position": [
+        -683.6416414198579,
+        -291.57017757216653
+      ],
+      "radius": 1038.60324653328,
+      "direction": 155.42661600204602
+    },
+    {
+      "channel": 15,
+      "position": [
+        577.691939083089,
+        1588.7182419979338
+      ],
+      "radius": 1485.197772905672,
+      "direction": 289.27251991290103
+    },
+    {
+      "channel": 8,
+      "position": [
+        -418.3594744807776,
+        -1237.3124125204104
+      ],
+      "radius": 1435.9464972512403,
+      "direction": 319.9951008182899
+    }
+  ],
+  "noise": "repository fixed coordinate hash",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "saved_v7_s": 7073.775058591887,
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "problem": 4,
+    "reason": "certified_all_cleared",
+    "completion_certified": true,
+    "exit_confirmed": true,
+    "virtual_time_s": 16919.69846,
+    "moving_distance_m": 59388.492299739344,
+    "average_clear_time_s": 1691.969846,
+    "measures": 844,
+    "clear_attempts": 14,
+    "switches": 760,
+    "initial_fallback_upper_s": 41638.71700000001,
+    "fallback_used": true,
+    "budget_guard_checks": 394,
+    "planner": {
+      "decisions": 63,
+      "rollout_candidates": 79,
+      "rollout_timeouts": 7,
+      "continuous_clears": 6,
+      "radio_events": 23
+    },
+    "search_plan": {
+      "proofs": 608,
+      "deletions": 0,
+      "replacements": 0
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [
+      1,
+      2,
+      4,
+      7,
+      8,
+      12,
+      14,
+      15,
+      16,
+      18
+    ],
+    "cleared_channels": [
+      1,
+      2,
+      4,
+      7,
+      8,
+      12,
+      14,
+      15,
+      16,
+      18
+    ],
+    "unknown_channels": [],
+    "pending_channels": [],
+    "absent_channels": [
+      3,
+      5,
+      6,
+      9,
+      10,
+      11,
+      13,
+      17,
+      19,
+      20
+    ],
+    "extra_actions_remaining": 326,
+    "completion_rank": 1424,
+    "rank_receipts": 858,
+    "absence_certificates": [
+      {
+        "channel": 3,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      },
+      {
+        "channel": 5,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      },
+      {
+        "channel": 6,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      },
+      {
+        "channel": 9,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      },
+      {
+        "channel": 10,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      },
+      {
+        "channel": 11,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      },
+      {
+        "channel": 13,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      },
+      {
+        "channel": 17,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      },
+      {
+        "channel": 19,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      },
+      {
+        "channel": 20,
+        "basis": "exact_600m_grid_template",
+        "radio_count": 73
+      }
+    ]
+  },
+  "replay": {
+    "verified": true,
+    "actions": 858,
+    "virtual_time_s": 16919.69846
+  },
+  "error": null,
+  "wall_s": 7.0915041458792984,
+  "cleared_count": 10,
+  "virtual_time_s": 16919.698459947867,
+  "average_clear_time_s": 1691.9698459947867,
+  "counts": {
+    "measure": 844,
+    "clear": 14,
+    "successful_clear": 10,
+    "switch": 760
+  },
+  "event_counts": {
+    "v8_started": 1,
+    "event_selected": 62,
+    "evidence_observation": 858,
+    "rank_receipt": 858,
+    "discovered": 10,
+    "cleared": 10,
+    "verified_negative_pair": 9,
+    "fallback_committed": 1,
+    "completion_checked": 1
+  },
+  "log_sha256": "385bee065ce312d5fc5097380769e3e4437cc2440441ef21ca7e037b700e513f"
+}

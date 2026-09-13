@@ -1,0 +1,6731 @@
+{
+  "name": "q4-validation-n16",
+  "algorithm": "v7",
+  "problem": 4,
+  "seed": 20261096,
+  "source_count": 16,
+  "source_truth": [
+    {
+      "channel": 6,
+      "position": [
+        -1378.4028805852952,
+        -69.35632815871904
+      ],
+      "radius": 1265.3032918057297,
+      "direction": 218.3437774519437
+    },
+    {
+      "channel": 11,
+      "position": [
+        607.4981825022668,
+        -918.3523441034163
+      ],
+      "radius": 1322.9281964993525,
+      "direction": 127.67314602185253
+    },
+    {
+      "channel": 3,
+      "position": [
+        735.8776402667869,
+        793.2502903996793
+      ],
+      "radius": 1151.4348395512438,
+      "direction": 2.2050739144540943
+    },
+    {
+      "channel": 4,
+      "position": [
+        1183.2217971261878,
+        -708.45452148607
+      ],
+      "radius": 1188.2823153181357,
+      "direction": 280.870777603134
+    },
+    {
+      "channel": 2,
+      "position": [
+        -457.6188464156811,
+        743.4645060962453
+      ],
+      "radius": 1472.3676780494334,
+      "direction": 118.55638780308007
+    },
+    {
+      "channel": 20,
+      "position": [
+        272.091972329751,
+        651.0406544160917
+      ],
+      "radius": 1123.271848377964,
+      "direction": 298.93060586107964
+    },
+    {
+      "channel": 18,
+      "position": [
+        -1473.604035135745,
+        46.90731317258045
+      ],
+      "radius": 1131.054586762525,
+      "direction": 116.2149638729821
+    },
+    {
+      "channel": 15,
+      "position": [
+        964.5575828096762,
+        -1184.2365652048572
+      ],
+      "radius": 1482.1881257620141,
+      "direction": 256.79212476480365
+    },
+    {
+      "channel": 7,
+      "position": [
+        -829.002789683963,
+        -1572.689161000254
+      ],
+      "radius": 1008.0257246352481,
+      "direction": 50.91550057618133
+    },
+    {
+      "channel": 8,
+      "position": [
+        298.66540431215367,
+        1676.7946151514625
+      ],
+      "radius": 1168.328580960373,
+      "direction": 293.3286493564092
+    },
+    {
+      "channel": 17,
+      "position": [
+        1078.7493069088573,
+        130.4946117154773
+      ],
+      "radius": 1347.3603274746483,
+      "direction": 57.723152967586415
+    },
+    {
+      "channel": 9,
+      "position": [
+        -28.15194132424803,
+        -1387.0301972583388
+      ],
+      "radius": 1030.645881694757,
+      "direction": 120.14086619552364
+    },
+    {
+      "channel": 16,
+      "position": [
+        652.0956331285232,
+        -1405.2199331691168
+      ],
+      "radius": 1322.8507417003148,
+      "direction": 8.61525847098262
+    },
+    {
+      "channel": 13,
+      "position": [
+        -909.3228210823765,
+        1182.8905662104019
+      ],
+      "radius": 1035.9538217273239,
+      "direction": 231.2013679310395
+    },
+    {
+      "channel": 10,
+      "position": [
+        1504.2209111667878,
+        985.9156525025447
+      ],
+      "radius": 1127.407304480763,
+      "direction": 3.7903367502716367
+    },
+    {
+      "channel": 1,
+      "position": [
+        376.8868565740775,
+        -1522.7818506961823
+      ],
+      "radius": 1082.1932209346473,
+      "direction": 52.25439080062578
+    }
+  ],
+  "noise": "repository fixed coordinate hash",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "summary": {
+    "problem": 4,
+    "reason": "complete_with_certificate",
+    "completion_certificate": true,
+    "strategy": "obligation-service-interception-v7",
+    "negative_halfplane_count": 0,
+    "history_tightening_count": 66,
+    "pending_regions": {},
+    "exit_confirmed": true,
+    "entered": true,
+    "discovered_channels": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "cleared_channels": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "cleared_count": 16,
+    "unknown_channels": [],
+    "virtual_time_s": 6863.299413,
+    "average_clear_time_s": 428.9562133125,
+    "local_elapsed_s": 1.2187042282894254,
+    "official_program_runtime_s": null,
+    "source_total_from_simulator": null,
+    "travel_m": 26021.497062973758,
+    "measure_count": 270,
+    "clear_attempts": 18,
+    "switch_count": 223,
+    "source_measure_counts": {
+      "10": 2,
+      "8": 5,
+      "18": 5,
+      "6": 4,
+      "7": 4,
+      "11": 3,
+      "16": 2,
+      "1": 3,
+      "9": 1,
+      "15": 3,
+      "4": 5,
+      "17": 3,
+      "3": 2,
+      "20": 5,
+      "2": 2,
+      "13": 4
+    },
+    "negative_pair_counts": {
+      "8": 1,
+      "18": 1,
+      "6": 1,
+      "4": 1,
+      "20": 1,
+      "13": 1
+    },
+    "visited_search_points": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        990.0,
+        0.0
+      ],
+      [
+        1696.2428216907224,
+        702.6067818223048
+      ],
+      [
+        1298.2480502585013,
+        1298.248050258501
+      ],
+      [
+        702.6067818223049,
+        1696.2428216907224
+      ],
+      [
+        1.1242257616172703e-13,
+        1836.0
+      ],
+      [
+        -702.6067818223047,
+        1696.2428216907224
+      ],
+      [
+        -1298.248050258501,
+        1298.2480502585013
+      ],
+      [
+        -1696.2428216907224,
+        702.606781822305
+      ],
+      [
+        -1836.0,
+        2.2484515232345406e-13
+      ],
+      [
+        -990.0,
+        1.2124003311558797e-13
+      ],
+      [
+        -1696.2428216907226,
+        -702.6067818223046
+      ],
+      [
+        -1298.2480502585015,
+        -1298.248050258501
+      ],
+      [
+        -702.6067818223058,
+        -1696.242821690722
+      ],
+      [
+        -700.0357133746822,
+        -700.035713374682
+      ],
+      [
+        700.0357133746819,
+        -700.0357133746822
+      ],
+      [
+        -1.8186004967338195e-13,
+        -990.0
+      ],
+      [
+        -3.3726772848518105e-13,
+        -1836.0
+      ],
+      [
+        702.6067818223053,
+        -1696.2428216907222
+      ]
+    ],
+    "remaining_search_points": [
+      [
+        1298.2480502585008,
+        -1298.2480502585015
+      ],
+      [
+        1696.242821690722,
+        -702.606781822306
+      ],
+      [
+        1836.0,
+        0.0
+      ],
+      [
+        700.0357133746821,
+        700.035713374682
+      ],
+      [
+        6.062001655779399e-14,
+        990.0
+      ],
+      [
+        -700.035713374682,
+        700.0357133746821
+      ]
+    ],
+    "pending_anchors": {},
+    "completion_basis": "source_count_upper_bound",
+    "absent_channels": [
+      5,
+      12,
+      14,
+      19
+    ],
+    "optional_measure_counts": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 0
+    },
+    "optical_probe_count": 11,
+    "failed_clear_count": 2,
+    "coverage_replacements": 0,
+    "coverage_diagnostics": [
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 90,
+        "unresolved_box": [
+          1047.65625,
+          1463.37890625,
+          1048.095703125,
+          1463.818359375
+        ]
+      }
+    ],
+    "deferred_decisions": 0,
+    "joint_clear_batches": 0,
+    "directional_channels": [
+      4,
+      6,
+      8,
+      10,
+      13,
+      15,
+      17,
+      18,
+      20
+    ],
+    "stage_costs": {
+      "search": {
+        "travel_m": 13434.415500464333,
+        "virtual_time_s": 3978.8830999999996,
+        "measure_count": 217,
+        "clear_count": 0
+      },
+      "shared_measure": {
+        "travel_m": 0.0,
+        "virtual_time_s": 0.0,
+        "measure_count": 0,
+        "clear_count": 0
+      },
+      "localize": {
+        "travel_m": 12040.195242876562,
+        "virtual_time_s": 2689.0390489999995,
+        "measure_count": 53,
+        "clear_count": 0
+      },
+      "clear": {
+        "travel_m": 546.8863196328639,
+        "virtual_time_s": 195.37726400000054,
+        "measure_count": 0,
+        "clear_count": 18
+      }
+    },
+    "action_bound": 772,
+    "posterior_cells": {
+      "11": {
+        "cells": 46,
+        "max_cells": 46,
+        "retained_parent_count": 25,
+        "raw_observation_count": 5
+      },
+      "20": {
+        "cells": 32,
+        "max_cells": 32,
+        "retained_parent_count": 0,
+        "raw_observation_count": 6
+      },
+      "3": {
+        "cells": 35,
+        "max_cells": 36,
+        "retained_parent_count": 0,
+        "raw_observation_count": 3
+      },
+      "10": {
+        "cells": 47,
+        "max_cells": 47,
+        "retained_parent_count": 73,
+        "raw_observation_count": 5
+      },
+      "17": {
+        "cells": 40,
+        "max_cells": 40,
+        "retained_parent_count": 0,
+        "raw_observation_count": 5
+      },
+      "8": {
+        "cells": 48,
+        "max_cells": 48,
+        "retained_parent_count": 347,
+        "raw_observation_count": 9
+      },
+      "2": {
+        "cells": 41,
+        "max_cells": 48,
+        "retained_parent_count": 360,
+        "raw_observation_count": 8
+      },
+      "13": {
+        "cells": 26,
+        "max_cells": 38,
+        "retained_parent_count": 475,
+        "raw_observation_count": 12
+      },
+      "18": {
+        "cells": 48,
+        "max_cells": 48,
+        "retained_parent_count": 1143,
+        "raw_observation_count": 14
+      },
+      "6": {
+        "cells": 48,
+        "max_cells": 48,
+        "retained_parent_count": 884,
+        "raw_observation_count": 14
+      },
+      "9": {
+        "cells": 32,
+        "max_cells": 48,
+        "retained_parent_count": 1249,
+        "raw_observation_count": 15
+      },
+      "7": {
+        "cells": 32,
+        "max_cells": 48,
+        "retained_parent_count": 564,
+        "raw_observation_count": 19
+      },
+      "1": {
+        "cells": 48,
+        "max_cells": 48,
+        "retained_parent_count": 1539,
+        "raw_observation_count": 19
+      },
+      "16": {
+        "cells": 40,
+        "max_cells": 48,
+        "retained_parent_count": 1281,
+        "raw_observation_count": 18
+      },
+      "15": {
+        "cells": 48,
+        "max_cells": 48,
+        "retained_parent_count": 1652,
+        "raw_observation_count": 20
+      },
+      "4": {
+        "cells": 48,
+        "max_cells": 48,
+        "retained_parent_count": 3073,
+        "raw_observation_count": 25
+      }
+    },
+    "lookahead_decisions": 0,
+    "shared_by_lookahead": 0,
+    "optical_dominance_accepts": 9,
+    "optical_overlap_rejections": 7,
+    "optical_failure_replans": 0,
+    "route_episodes": [],
+    "tail_route_edits": [
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 4096,
+            "unresolved_box": [
+              -239.0625,
+              1771.875,
+              -225.0,
+              1785.9375
+            ],
+            "removed": [
+              702.6067818223053,
+              -1696.2428216907222
+            ],
+            "inserted": [
+              351.30339091115263,
+              -848.1214108453611
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 3211,
+            "unresolved_box": [
+              1122.802734375,
+              700.927734375,
+              1123.2421875,
+              701.3671875
+            ],
+            "removed": [
+              990.0,
+              0.0
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 317,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 4096,
+            "unresolved_box": [
+              -281.25,
+              1743.75,
+              -225.0,
+              1800.0
+            ],
+            "removed": [
+              702.6067818223053,
+              -1696.2428216907222
+            ],
+            "inserted": [
+              846.3033909111526,
+              -848.1214108453611
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 4096,
+            "unresolved_box": [
+              -281.25,
+              1743.75,
+              -225.0,
+              1800.0
+            ],
+            "removed": [
+              702.6067818223053,
+              -1696.2428216907222
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 317,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 3978,
+            "unresolved_box": [
+              984.814453125,
+              0.0,
+              985.25390625,
+              0.439453125
+            ],
+            "removed": [
+              700.0357133746819,
+              -700.0357133746822
+            ],
+            "inserted": [
+              -900.0,
+              -900.0
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 3978,
+            "unresolved_box": [
+              984.814453125,
+              0.0,
+              985.25390625,
+              0.439453125
+            ],
+            "removed": [
+              700.0357133746819,
+              -700.0357133746822
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 256,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 3978,
+            "unresolved_box": [
+              984.814453125,
+              0.0,
+              985.25390625,
+              0.439453125
+            ],
+            "removed": [
+              700.0357133746819,
+              -700.0357133746822
+            ],
+            "inserted": [
+              -900.0,
+              -900.0
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 3978,
+            "unresolved_box": [
+              984.814453125,
+              0.0,
+              985.25390625,
+              0.439453125
+            ],
+            "removed": [
+              700.0357133746819,
+              -700.0357133746822
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 256,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 3978,
+            "unresolved_box": [
+              984.814453125,
+              0.0,
+              985.25390625,
+              0.439453125
+            ],
+            "removed": [
+              700.0357133746819,
+              -700.0357133746822
+            ],
+            "inserted": [
+              -299.1061684419098,
+              -999.1418818165916
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 3978,
+            "unresolved_box": [
+              984.814453125,
+              0.0,
+              985.25390625,
+              0.439453125
+            ],
+            "removed": [
+              700.0357133746819,
+              -700.0357133746822
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 256,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 3978,
+            "unresolved_box": [
+              984.814453125,
+              0.0,
+              985.25390625,
+              0.439453125
+            ],
+            "removed": [
+              700.0357133746819,
+              -700.0357133746822
+            ],
+            "inserted": [
+              -1.2855342238119647,
+              -1198.139267532702
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 3978,
+            "unresolved_box": [
+              984.814453125,
+              0.0,
+              985.25390625,
+              0.439453125
+            ],
+            "removed": [
+              700.0357133746819,
+              -700.0357133746822
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 256,
+        "residual_nodes": 512
+      }
+    ],
+    "tail_proof_calls": 12,
+    "action_refinements": [
+      {
+        "channel": 10,
+        "splits": 8,
+        "action_support_reduction_m": 588.8710008580174,
+        "candidate_points": [
+          [
+            1501.1951429600813,
+            989.3525406118134
+          ],
+          [
+            1499.899208326885,
+            987.4809733194813
+          ],
+          [
+            1298.2480502585013,
+            1298.248050258501
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 8,
+        "splits": 1,
+        "action_support_reduction_m": 192.81148504401676,
+        "candidate_points": [
+          [
+            430.1556571014381,
+            1633.5939085868254
+          ],
+          [
+            434.2715045002029,
+            1647.938125028166
+          ],
+          [
+            265.54924078277236,
+            704.726791543853
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 18,
+        "splits": 8,
+        "action_support_reduction_m": 1472.0032777791112,
+        "candidate_points": [
+          [
+            -1564.690254967619,
+            346.3154977430795
+          ],
+          [
+            -1593.3759359228607,
+            337.00048984323956
+          ],
+          [
+            -990.0,
+            1.2124003311558797e-13
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 18,
+        "splits": 8,
+        "action_support_reduction_m": 767.10646535038,
+        "candidate_points": [
+          [
+            -1481.6178622573025,
+            74.45270628847261
+          ],
+          [
+            -1474.3946696246924,
+            76.10836511188336
+          ],
+          [
+            -990.0,
+            1.2124003311558797e-13
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 6,
+        "splits": 8,
+        "action_support_reduction_m": 1332.4417924797172,
+        "candidate_points": [
+          [
+            -1463.3998091372869,
+            -73.61151194840242
+          ],
+          [
+            -1458.7337129444177,
+            -43.8144448048245
+          ],
+          [
+            -1696.2428216907226,
+            -702.6067818223046
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 6,
+        "splits": 8,
+        "action_support_reduction_m": 89.54268697525731,
+        "candidate_points": [
+          [
+            -1395.7998686950168,
+            -67.82063381786826
+          ],
+          [
+            -1395.554705752211,
+            -73.03865595468717
+          ],
+          [
+            -1696.2428216907226,
+            -702.6067818223046
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 7,
+        "splits": 8,
+        "action_support_reduction_m": 307.5896058810297,
+        "candidate_points": [
+          [
+            -785.9446917942297,
+            -1379.500905957168
+          ],
+          [
+            -803.7023570304041,
+            -1376.2865962436194
+          ],
+          [
+            -1.8186004967338195e-13,
+            -990.0
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 7,
+        "splits": 8,
+        "action_support_reduction_m": 52.923242781364024,
+        "candidate_points": [
+          [
+            -816.719333816677,
+            -1488.3287590844573
+          ],
+          [
+            -808.1246856658172,
+            -1490.4000857546805
+          ],
+          [
+            -1.8186004967338195e-13,
+            -990.0
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 7,
+        "splits": 8,
+        "action_support_reduction_m": 4.856305853128788,
+        "candidate_points": [
+          [
+            -829.5519255929995,
+            -1572.2663531539722
+          ],
+          [
+            -827.5255218797741,
+            -1572.6956001658739
+          ],
+          [
+            -1.8186004967338195e-13,
+            -990.0
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 11,
+        "splits": 8,
+        "action_support_reduction_m": 579.9453838526922,
+        "candidate_points": [
+          [
+            541.0256694365268,
+            -816.791604206545
+          ],
+          [
+            557.3227581232983,
+            -808.63418744377
+          ],
+          [
+            -1.8186004967338195e-13,
+            -990.0
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 11,
+        "splits": 8,
+        "action_support_reduction_m": 129.3901343599032,
+        "candidate_points": [
+          [
+            579.6406332156998,
+            -879.296715838597
+          ],
+          [
+            584.3484425367362,
+            -876.1308133242094
+          ],
+          [
+            -1.8186004967338195e-13,
+            -990.0
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 11,
+        "splits": 8,
+        "action_support_reduction_m": 31.36089756920535,
+        "candidate_points": [
+          [
+            600.62747718761,
+            -906.2815927421506
+          ],
+          [
+            598.5718070006329,
+            -907.7614635192969
+          ],
+          [
+            -1.8186004967338195e-13,
+            -990.0
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 16,
+        "splits": 8,
+        "action_support_reduction_m": 403.9574158353287,
+        "candidate_points": [
+          [
+            652.3202183783843,
+            -1341.3387410647072
+          ],
+          [
+            641.1995361615451,
+            -1341.9702191640058
+          ],
+          [
+            516.1080192371799,
+            -1253.9367492707584
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 16,
+        "splits": 8,
+        "action_support_reduction_m": 189.33563615761545,
+        "candidate_points": [
+          [
+            650.5015290039336,
+            -1400.401412661875
+          ],
+          [
+            655.0251903506628,
+            -1400.3674623270285
+          ],
+          [
+            516.1080192371799,
+            -1253.9367492707584
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 9,
+        "splits": 8,
+        "action_support_reduction_m": 714.7448964971372,
+        "candidate_points": [
+          [
+            -27.748366057918165,
+            -1384.385486002191
+          ],
+          [
+            -29.619097976958734,
+            -1384.4426420317088
+          ],
+          [
+            -3.3726772848518105e-13,
+            -1836.0
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 15,
+        "splits": 2,
+        "action_support_reduction_m": 142.48166155863237,
+        "candidate_points": [
+          [
+            974.9070005280485,
+            -1168.7961348272734
+          ],
+          [
+            972.2657466936046,
+            -1194.311465515034
+          ],
+          [
+            996.9501167970298,
+            -1003.0485840084134
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 17,
+        "splits": 8,
+        "action_support_reduction_m": 1053.3191755653454,
+        "candidate_points": [
+          [
+            1079.1723556323232,
+            126.71506445918926
+          ],
+          [
+            1075.870197804172,
+            133.249391789752
+          ],
+          [
+            727.7005147540409,
+            705.9427951609854
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 3,
+        "splits": 8,
+        "action_support_reduction_m": 686.3683727558417,
+        "candidate_points": [
+          [
+            738.8320944202048,
+            794.2515847702048
+          ],
+          [
+            733.5718955658507,
+            790.4856522715419
+          ],
+          [
+            320.8081328513971,
+            681.3504178441519
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 20,
+        "splits": 8,
+        "action_support_reduction_m": 474.8824492123265,
+        "candidate_points": [
+          [
+            133.9680440281125,
+            355.3900956717023
+          ],
+          [
+            161.7450313042481,
+            343.6394939040735
+          ],
+          [
+            -264.56499802442056,
+            1130.9031188408658
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 20,
+        "splits": 8,
+        "action_support_reduction_m": 282.46430895807976,
+        "candidate_points": [
+          [
+            220.4361514705493,
+            524.7241833111224
+          ],
+          [
+            206.81943774123982,
+            531.0131046295451
+          ],
+          [
+            -264.56499802442056,
+            1130.9031188408658
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 20,
+        "splits": 8,
+        "action_support_reduction_m": 130.12571386105583,
+        "candidate_points": [
+          [
+            258.94047461477953,
+            611.6534692313724
+          ],
+          [
+            252.06275314094304,
+            614.3848866218935
+          ],
+          [
+            -264.56499802442056,
+            1130.9031188408658
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 20,
+        "splits": 8,
+        "action_support_reduction_m": 28.32696114568739,
+        "candidate_points": [
+          [
+            275.0287270116829,
+            656.5110183977317
+          ],
+          [
+            271.58724098915513,
+            657.6000782756836
+          ],
+          [
+            -264.56499802442056,
+            1130.9031188408658
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 2,
+        "splits": 8,
+        "action_support_reduction_m": 210.86974216905492,
+        "candidate_points": [
+          [
+            -449.6482518465772,
+            749.0129483979985
+          ],
+          [
+            -452.373947480628,
+            751.4671757704227
+          ],
+          [
+            -566.9736990707922,
+            1118.2645140808954
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 13,
+        "splits": 8,
+        "action_support_reduction_m": 688.0090269528181,
+        "candidate_points": [
+          [
+            -929.4638716009249,
+            1207.4307254018588
+          ],
+          [
+            -937.8327943714809,
+            1178.4548941678722
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      },
+      {
+        "channel": 13,
+        "splits": 8,
+        "action_support_reduction_m": 13.363086050787054,
+        "candidate_points": [
+          [
+            -906.4369851698477,
+            1181.6278079458455
+          ],
+          [
+            -906.7554311320221,
+            1183.9286233674711
+          ]
+        ],
+        "reason": "action_ambiguity_and_worst_travel_support"
+      }
+    ],
+    "pending_route_episode": null,
+    "global_obligation_plans": [
+      {
+        "upper_s": 9077.113461845698,
+        "order": [
+          [
+            "scan",
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              990.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.2428216907224,
+              702.6067818223048
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585013,
+              1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223049,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              1.1242257616172703e-13,
+              1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223047,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 9077.113461845698,
+        "assignment_lower_s": 9004.730432550918,
+        "finite_graph_gap_s": 72.3830292947805,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 0,
+        "pending_scans": 25,
+        "first_kind": "scan",
+        "first_entry": [
+          0.0,
+          0.0
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 9881.350262241294,
+        "order": [
+          [
+            "scan",
+            [
+              990.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.2428216907224,
+              702.6067818223048
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585013,
+              1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223049,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              1.1242257616172703e-13,
+              1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223047,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 10057.394866950743,
+        "assignment_lower_s": 9586.849807189394,
+        "finite_graph_gap_s": 294.50045505190064,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 2,
+        "pending_scans": 24,
+        "first_kind": "scan",
+        "first_entry": [
+          990.0,
+          0.0
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 9908.318884520846,
+        "order": [
+          [
+            "scan",
+            [
+              1696.2428216907224,
+              702.6067818223048
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223047,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              1.1242257616172703e-13,
+              1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223049,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585013,
+              1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 7,
+        "baseline_upper_s": 10181.50967056441,
+        "assignment_lower_s": 9500.559249141945,
+        "finite_graph_gap_s": 407.7596353789013,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 3,
+        "pending_scans": 23,
+        "first_kind": "scan",
+        "first_entry": [
+          1696.2428216907224,
+          702.6067818223048
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 10131.84199084592,
+        "order": [
+          [
+            "source",
+            10
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585013,
+              1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223049,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              1.1242257616172703e-13,
+              1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223047,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 10422.159801197085,
+        "assignment_lower_s": 9717.7046184892,
+        "finite_graph_gap_s": 414.1373723567194,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 5,
+        "pending_scans": 22,
+        "first_kind": "radio",
+        "first_entry": [
+          1505.2799697028177,
+          956.4598318722501
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 9769.78157727808,
+        "order": [
+          [
+            "scan",
+            [
+              1298.2480502585013,
+              1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223049,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              1.1242257616172703e-13,
+              1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223047,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 9769.78157727808,
+        "assignment_lower_s": 9355.644204921358,
+        "finite_graph_gap_s": 414.13737235672124,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 4,
+        "pending_scans": 22,
+        "first_kind": "scan",
+        "first_entry": [
+          1298.2480502585013,
+          1298.248050258501
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 9975.854655007317,
+        "order": [
+          [
+            "scan",
+            [
+              702.6067818223049,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              1.1242257616172703e-13,
+              1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223047,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 10179.63477612274,
+        "assignment_lower_s": 9581.729003800281,
+        "finite_graph_gap_s": 394.12565120703584,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 5,
+        "pending_scans": 21,
+        "first_kind": "scan",
+        "first_entry": [
+          702.6067818223049,
+          1696.2428216907224
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 9678.580322518672,
+        "order": [
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              1.1242257616172703e-13,
+              1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223047,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 9678.580322518672,
+        "assignment_lower_s": 9284.454671311636,
+        "finite_graph_gap_s": 394.12565120703584,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 5,
+        "pending_scans": 20,
+        "first_kind": "radio",
+        "first_entry": [
+          613.9193202513394,
+          1588.628411514352
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 8930.641990740438,
+        "order": [
+          [
+            "scan",
+            [
+              1.1242257616172703e-13,
+              1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223047,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 9064.538078350899,
+        "assignment_lower_s": 8516.504618383718,
+        "finite_graph_gap_s": 414.1373723567194,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 4,
+        "pending_scans": 20,
+        "first_kind": "scan",
+        "first_entry": [
+          1.1242257616172703e-13,
+          1836.0
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 9144.474319220744,
+        "order": [
+          [
+            "scan",
+            [
+              -702.6067818223047,
+              1696.2428216907224
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 9285.892182438985,
+        "assignment_lower_s": 8823.859642890606,
+        "finite_graph_gap_s": 320.61467633013854,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 5,
+        "pending_scans": 19,
+        "first_kind": "scan",
+        "first_entry": [
+          -702.6067818223047,
+          1696.2428216907224
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 8858.1999867321,
+        "order": [
+          [
+            "scan",
+            [
+              -1298.248050258501,
+              1298.2480502585013
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 8858.1999867321,
+        "assignment_lower_s": 8537.585310401962,
+        "finite_graph_gap_s": 320.6146763301367,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 5,
+        "pending_scans": 18,
+        "first_kind": "scan",
+        "first_entry": [
+          -1298.248050258501,
+          1298.2480502585013
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 9093.626143443393,
+        "order": [
+          [
+            "scan",
+            [
+              -1696.2428216907224,
+              702.606781822305
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 9116.469270329237,
+        "assignment_lower_s": 8716.209433720584,
+        "finite_graph_gap_s": 377.4167097228092,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 17,
+        "first_kind": "scan",
+        "first_entry": [
+          -1696.2428216907224,
+          702.606781822305
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 9318.412610359761,
+        "order": [
+          [
+            "scan",
+            [
+              -1836.0,
+              2.2484515232345406e-13
+            ]
+          ],
+          [
+            "source",
+            18
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 9560.016470232034,
+        "assignment_lower_s": 8947.880260796823,
+        "finite_graph_gap_s": 370.5323495629382,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 16,
+        "first_kind": "scan",
+        "first_entry": [
+          -1836.0,
+          2.2484515232345406e-13
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 9559.081687078124,
+        "order": [
+          [
+            "source",
+            18
+          ],
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "source",
+            6
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 9759.330891141224,
+        "assignment_lower_s": 9180.592792764692,
+        "finite_graph_gap_s": 378.48889431343196,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 8,
+        "pending_scans": 15,
+        "first_kind": "radio",
+        "first_entry": [
+          -1492.365758011692,
+          -22.369350823188825
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 8840.848455946028,
+        "order": [
+          [
+            "scan",
+            [
+              -990.0,
+              1.2124003311558797e-13
+            ]
+          ],
+          [
+            "source",
+            6
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 8840.848455946028,
+        "assignment_lower_s": 8439.370666803885,
+        "finite_graph_gap_s": 401.4777891421436,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 15,
+        "first_kind": "scan",
+        "first_entry": [
+          -990.0,
+          1.2124003311558797e-13
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 8634.624412031762,
+        "order": [
+          [
+            "source",
+            6
+          ],
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 8634.624412031762,
+        "assignment_lower_s": 8286.972826666937,
+        "finite_graph_gap_s": 347.6515853648252,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 14,
+        "first_kind": "radio",
+        "first_entry": [
+          -1087.9188894195506,
+          -86.78076971726745
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 7905.865975580473,
+        "order": [
+          [
+            "scan",
+            [
+              -1696.2428216907226,
+              -702.6067818223046
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 7905.865975580473,
+        "assignment_lower_s": 7571.110554859132,
+        "finite_graph_gap_s": 334.75542072134067,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 14,
+        "first_kind": "scan",
+        "first_entry": [
+          -1696.2428216907226,
+          -702.6067818223046
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 7655.43891760656,
+        "order": [
+          [
+            "scan",
+            [
+              -1298.2480502585015,
+              -1298.248050258501
+            ]
+          ],
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 7655.43891760656,
+        "assignment_lower_s": 7320.683496885218,
+        "finite_graph_gap_s": 334.7554207213416,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 13,
+        "first_kind": "scan",
+        "first_entry": [
+          -1298.2480502585015,
+          -1298.248050258501
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 7402.164585117916,
+        "order": [
+          [
+            "scan",
+            [
+              -702.6067818223058,
+              -1696.242821690722
+            ]
+          ],
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 7402.164585117916,
+        "assignment_lower_s": 7067.409164396574,
+        "finite_graph_gap_s": 334.7554207213425,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 12,
+        "first_kind": "scan",
+        "first_entry": [
+          -702.6067818223058,
+          -1696.242821690722
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 7692.492477155869,
+        "order": [
+          [
+            "scan",
+            [
+              -700.0357133746822,
+              -700.035713374682
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 8167.391071990701,
+        "assignment_lower_s": 7431.3621699475025,
+        "finite_graph_gap_s": 261.1303072083665,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 11,
+        "first_kind": "scan",
+        "first_entry": [
+          -700.0357133746822,
+          -700.035713374682
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 7933.6999903175965,
+        "order": [
+          [
+            "source",
+            7
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 8134.89680094758,
+        "assignment_lower_s": 7526.050490878924,
+        "finite_graph_gap_s": 407.64949943867214,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 8,
+        "pending_scans": 10,
+        "first_kind": "radio",
+        "first_entry": [
+          -754.1993647672979,
+          -1153.462911584087
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 7353.871074898947,
+        "order": [
+          [
+            "scan",
+            [
+              700.0357133746819,
+              -700.0357133746822
+            ]
+          ],
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 7479.2267390001325,
+        "assignment_lower_s": 7031.777365118175,
+        "finite_graph_gap_s": 322.09370978077186,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 10,
+        "first_kind": "scan",
+        "first_entry": [
+          700.0357133746819,
+          -700.0357133746822
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 7794.296007518251,
+        "order": [
+          [
+            "source",
+            11
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "source",
+            1
+          ],
+          [
+            "source",
+            16
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 8285.246125951924,
+        "assignment_lower_s": 7656.260821913485,
+        "finite_graph_gap_s": 138.0351856047655,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 9,
+        "pending_scans": 9,
+        "first_kind": "radio",
+        "first_entry": [
+          446.0874966910611,
+          -606.7637063107044
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 7069.585394371679,
+        "order": [
+          [
+            "source",
+            16
+          ],
+          [
+            "source",
+            1
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 7107.628631929088,
+        "assignment_lower_s": 6937.087033449465,
+        "finite_graph_gap_s": 132.4983609222145,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 8,
+        "pending_scans": 9,
+        "first_kind": "radio",
+        "first_entry": [
+          638.7246690598239,
+          -1200.1499732274722
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 6552.8288501006955,
+        "order": [
+          [
+            "source",
+            1
+          ],
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 6552.8288501006955,
+        "assignment_lower_s": 6415.412879963135,
+        "finite_graph_gap_s": 137.41597013756018,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 9,
+        "first_kind": "radio",
+        "first_entry": [
+          516.1080192371799,
+          -1253.9367492707584
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 6039.605878657449,
+        "order": [
+          [
+            "scan",
+            [
+              -1.8186004967338195e-13,
+              -990.0
+            ]
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 6039.605878657449,
+        "assignment_lower_s": 5865.971042590291,
+        "finite_graph_gap_s": 173.63483606715727,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 9,
+        "first_kind": "scan",
+        "first_entry": [
+          -1.8186004967338195e-13,
+          -990.0
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 6494.098450778209,
+        "order": [
+          [
+            "source",
+            9
+          ],
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "source",
+            15
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 8,
+        "baseline_upper_s": 6873.650064286696,
+        "assignment_lower_s": 6328.940366617738,
+        "finite_graph_gap_s": 165.15808416047093,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 8,
+        "first_kind": "radio",
+        "first_entry": [
+          -29.474528669432516,
+          -1358.531081051851
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 5748.373090299976,
+        "order": [
+          [
+            "scan",
+            [
+              -3.3726772848518105e-13,
+              -1836.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "source",
+            15
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 5748.373090299976,
+        "assignment_lower_s": 5609.403026870602,
+        "finite_graph_gap_s": 138.97006342937402,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 8,
+        "first_kind": "scan",
+        "first_entry": [
+          -3.3726772848518105e-13,
+          -1836.0
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 5605.296226251612,
+        "order": [
+          [
+            "scan",
+            [
+              702.6067818223053,
+              -1696.2428216907222
+            ]
+          ],
+          [
+            "source",
+            15
+          ],
+          [
+            "scan",
+            [
+              1298.2480502585008,
+              -1298.2480502585015
+            ]
+          ],
+          [
+            "scan",
+            [
+              1696.242821690722,
+              -702.606781822306
+            ]
+          ],
+          [
+            "scan",
+            [
+              1836.0,
+              0.0
+            ]
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "scan",
+            [
+              700.0357133746821,
+              700.035713374682
+            ]
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              6.062001655779399e-14,
+              990.0
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -700.035713374682,
+              700.0357133746821
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 5605.296226251612,
+        "assignment_lower_s": 5466.326162822237,
+        "finite_graph_gap_s": 138.97006342937493,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 7,
+        "first_kind": "scan",
+        "first_entry": [
+          702.6067818223053,
+          -1696.2428216907222
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 5325.3473759903945,
+        "order": [
+          [
+            "source",
+            15
+          ],
+          [
+            "source",
+            4
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 5723.3886912007365,
+        "assignment_lower_s": 5169.486708213916,
+        "finite_graph_gap_s": 155.8606677764783,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 0,
+        "first_kind": "radio",
+        "first_entry": [
+          652.1580278606084,
+          -1148.2807118815708
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 4544.459311161192,
+        "order": [
+          [
+            "source",
+            4
+          ],
+          [
+            "source",
+            17
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 4544.459311161192,
+        "assignment_lower_s": 4388.598643384714,
+        "finite_graph_gap_s": 155.8606677764783,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 0,
+        "first_kind": "radio",
+        "first_entry": [
+          1051.199544231536,
+          -1028.6805878908303
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 3754.839462358982,
+        "order": [
+          [
+            "source",
+            17
+          ],
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 3754.839462358982,
+        "assignment_lower_s": 3706.447417643722,
+        "finite_graph_gap_s": 48.39204471526,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 5,
+        "pending_scans": 0,
+        "first_kind": "radio",
+        "first_entry": [
+          1161.4316361299857,
+          172.38678427494767
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 2949.084450578641,
+        "order": [
+          [
+            "source",
+            3
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 2949.084450578641,
+        "assignment_lower_s": 2907.3342549138156,
+        "finite_graph_gap_s": 41.75019566482524,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 4,
+        "pending_scans": 0,
+        "first_kind": "radio",
+        "first_entry": [
+          784.731458651708,
+          724.5833809388294
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 2157.7083348181577,
+        "order": [
+          [
+            "source",
+            20
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 2157.7083348181577,
+        "assignment_lower_s": 2115.958139153332,
+        "finite_graph_gap_s": 41.750195664825696,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 3,
+        "pending_scans": 0,
+        "first_kind": "radio",
+        "first_entry": [
+          320.8081328513971,
+          681.3504178441519
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 1427.9923310135966,
+        "order": [
+          [
+            "source",
+            2
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 1427.9923310135966,
+        "assignment_lower_s": 1427.9923300135965,
+        "finite_graph_gap_s": 1.0000001111620804e-06,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 2,
+        "pending_scans": 0,
+        "first_kind": "radio",
+        "first_entry": [
+          -264.56499802442056,
+          1130.9031188408658
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 618.6101506643722,
+        "order": [
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 618.6101506643722,
+        "assignment_lower_s": 618.6101496643722,
+        "finite_graph_gap_s": 9.999999974752427e-07,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 1,
+        "pending_scans": 0,
+        "first_kind": "radio",
+        "first_entry": [
+          -583.6226392712339,
+          1060.6206697416935
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      }
+    ],
+    "service_receipts": [
+      {
+        "job": [
+          "scan",
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "start_virtual_s": 0.0,
+        "local_upper_s": 220.0,
+        "completion_and_successor_upper_s": 418.0,
+        "target": [
+          990.0,
+          0.0
+        ],
+        "actual_service_s": 119.0,
+        "feasible_successor_leg_s": 198.0,
+        "local_upper_slack_s": 101.0,
+        "completion_and_successor_slack_s": 101.0
+      },
+      {
+        "job": [
+          "scan",
+          [
+            990.0,
+            0.0
+          ]
+        ],
+        "start_virtual_s": 119.0,
+        "local_upper_s": 396.0,
+        "completion_and_successor_upper_s": 565.2,
+        "target": [
+          1836.0,
+          0.0
+        ],
+        "actual_service_s": 306.0,
+        "feasible_successor_leg_s": 169.2,
+        "local_upper_slack_s": 90.0,
+        "completion_and_successor_slack_s": 90.00000000000006
+      },
+      {
+        "job": [
+          "scan",
+          [
+            1696.2428216907224,
+            702.6067818223048
+          ]
+        ],
+        "start_virtual_s": 425.0,
+        "local_upper_s": 386.2420852181957,
+        "completion_and_successor_upper_s": 529.5164177068403,
+        "target": [
+          1836.0,
+          0.0
+        ],
+        "actual_service_s": 300.242085,
+        "feasible_successor_leg_s": 143.2743324886446,
+        "local_upper_slack_s": 86.00000021819574,
+        "completion_and_successor_slack_s": 86.00000021819577
+      },
+      {
+        "job": [
+          "source",
+          10
+        ],
+        "start_virtual_s": 725.242085,
+        "local_upper_s": 327.9077408542353,
+        "completion_and_successor_upper_s": 433.92864338631864,
+        "target": [
+          1298.2480502585013,
+          1298.248050258501
+        ],
+        "actual_service_s": 92.62789500000008,
+        "feasible_successor_leg_s": 71.86822981847739,
+        "local_upper_slack_s": 235.27984585423525,
+        "completion_and_successor_slack_s": 269.43251856784116
+      },
+      {
+        "job": [
+          "scan",
+          [
+            1298.2480502585013,
+            1298.248050258501
+          ]
+        ],
+        "start_virtual_s": 817.86998,
+        "local_upper_s": 236.8682298184774,
+        "completion_and_successor_upper_s": 380.14256230712203,
+        "target": [
+          702.6067818223049,
+          1696.2428216907224
+        ],
+        "actual_service_s": 161.86822999999993,
+        "feasible_successor_leg_s": 143.2743324886446,
+        "local_upper_slack_s": 74.99999981847748,
+        "completion_and_successor_slack_s": 74.9999998184775
+      },
+      {
+        "job": [
+          "scan",
+          [
+            702.6067818223049,
+            1696.2428216907224
+          ]
+        ],
+        "start_virtual_s": 979.73821,
+        "local_upper_s": 297.27433248864463,
+        "completion_and_successor_upper_s": 325.16435014192666,
+        "target": [
+          613.9193202513394,
+          1588.628411514352
+        ],
+        "actual_service_s": 226.27433300000007,
+        "feasible_successor_leg_s": 27.89001765328204,
+        "local_upper_slack_s": 70.99999948864456,
+        "completion_and_successor_slack_s": 70.99999948864455
+      },
+      {
+        "job": [
+          "source",
+          8
+        ],
+        "start_virtual_s": 1206.012543,
+        "local_upper_s": 573.8295647853587,
+        "completion_and_successor_upper_s": 808.0081650306124,
+        "target": [
+          265.54924078277236,
+          704.726791543853
+        ],
+        "actual_service_s": 202.15771700000005,
+        "feasible_successor_leg_s": 193.96592086283889,
+        "local_upper_slack_s": 371.67184778535864,
+        "completion_and_successor_slack_s": 411.8845271677735
+      },
+      {
+        "job": [
+          "scan",
+          [
+            1.1242257616172703e-13,
+            1836.0
+          ]
+        ],
+        "start_virtual_s": 1408.17026,
+        "local_upper_s": 223.2773082581263,
+        "completion_and_successor_upper_s": 366.5516407467709,
+        "target": [
+          -702.6067818223047,
+          1696.2428216907224
+        ],
+        "actual_service_s": 153.27730799999995,
+        "feasible_successor_leg_s": 143.2743324886446,
+        "local_upper_slack_s": 70.00000025812636,
+        "completion_and_successor_slack_s": 70.00000025812633
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -702.6067818223047,
+            1696.2428216907224
+          ]
+        ],
+        "start_virtual_s": 1561.447568,
+        "local_upper_s": 286.27433248864463,
+        "completion_and_successor_upper_s": 429.5486649772892,
+        "target": [
+          -1298.248050258501,
+          1298.2480502585013
+        ],
+        "actual_service_s": 220.27433299999984,
+        "feasible_successor_leg_s": 143.27433248864457,
+        "local_upper_slack_s": 65.99999948864479,
+        "completion_and_successor_slack_s": 65.99999948864479
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -1298.248050258501,
+            1298.2480502585013
+          ]
+        ],
+        "start_virtual_s": 1781.721901,
+        "local_upper_s": 286.2743324886446,
+        "completion_and_successor_upper_s": 429.54866497728915,
+        "target": [
+          -1696.2428216907224,
+          702.606781822305
+        ],
+        "actual_service_s": 220.2743320000002,
+        "feasible_successor_leg_s": 143.27433248864457,
+        "local_upper_slack_s": 66.00000048864439,
+        "completion_and_successor_slack_s": 66.00000048864439
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -1696.2428216907224,
+            702.606781822305
+          ]
+        ],
+        "start_virtual_s": 2001.996233,
+        "local_upper_s": 275.2743324886446,
+        "completion_and_successor_upper_s": 418.54866497728915,
+        "target": [
+          -1836.0,
+          2.2484515232345406e-13
+        ],
+        "actual_service_s": 214.27433300000007,
+        "feasible_successor_leg_s": 143.2743324886446,
+        "local_upper_slack_s": 60.999999488644505,
+        "completion_and_successor_slack_s": 60.99999948864448
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -1836.0,
+            2.2484515232345406e-13
+          ]
+        ],
+        "start_virtual_s": 2216.270566,
+        "local_upper_s": 264.27433248864463,
+        "completion_and_successor_upper_s": 333.14664336119483,
+        "target": [
+          -1492.365758011692,
+          -22.369350823188825
+        ],
+        "actual_service_s": 209.27433199999996,
+        "feasible_successor_leg_s": 68.87231087255023,
+        "local_upper_slack_s": 55.00000048864467,
+        "completion_and_successor_slack_s": 55.000000488644645
+      },
+      {
+        "job": [
+          "source",
+          18
+        ],
+        "start_virtual_s": 2425.544898,
+        "local_upper_s": 620.9091356678712,
+        "completion_and_successor_upper_s": 814.4572750463599,
+        "target": [
+          -990.0,
+          1.2124003311558797e-13
+        ],
+        "actual_service_s": 251.6366549999998,
+        "feasible_successor_leg_s": 96.2240439142646,
+        "local_upper_slack_s": 369.2724806678714,
+        "completion_and_successor_slack_s": 466.5965761320955
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -990.0,
+            1.2124003311558797e-13
+          ]
+        ],
+        "start_virtual_s": 2677.181553,
+        "local_upper_s": 206.2240439142646,
+        "completion_and_successor_upper_s": 232.39197153406636,
+        "target": [
+          -1087.9188894195506,
+          -86.78076971726745
+        ],
+        "actual_service_s": 156.22404300000017,
+        "feasible_successor_leg_s": 26.16792761980177,
+        "local_upper_slack_s": 50.00000091426443,
+        "completion_and_successor_slack_s": 50.00000091426442
+      },
+      {
+        "job": [
+          "source",
+          6
+        ],
+        "start_virtual_s": 2833.405596,
+        "local_upper_s": 578.2047524151227,
+        "completion_and_successor_upper_s": 869.1854944252028,
+        "target": [
+          -1696.2428216907226,
+          -702.6067818223046
+        ],
+        "actual_service_s": 157.959879,
+        "feasible_successor_leg_s": 140.42705797391346,
+        "local_upper_slack_s": 420.2448734151227,
+        "completion_and_successor_slack_s": 570.7985574512893
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -1696.2428216907226,
+            -702.6067818223046
+          ]
+        ],
+        "start_virtual_s": 2991.365475,
+        "local_upper_s": 250.42705797391346,
+        "completion_and_successor_upper_s": 393.70139046255804,
+        "target": [
+          -1298.2480502585015,
+          -1298.248050258501
+        ],
+        "actual_service_s": 200.42705799999976,
+        "feasible_successor_leg_s": 143.27433248864457,
+        "local_upper_slack_s": 49.9999999739137,
+        "completion_and_successor_slack_s": 49.9999999739137
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -1298.2480502585015,
+            -1298.248050258501
+          ]
+        ],
+        "start_virtual_s": 3191.792533,
+        "local_upper_s": 253.27433248864457,
+        "completion_and_successor_upper_s": 396.54866497728904,
+        "target": [
+          -702.6067818223058,
+          -1696.242821690722
+        ],
+        "actual_service_s": 202.2743330000003,
+        "feasible_successor_leg_s": 143.27433248864443,
+        "local_upper_slack_s": 50.99999948864428,
+        "completion_and_successor_slack_s": 50.999999488644306
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -702.6067818223058,
+            -1696.242821690722
+          ]
+        ],
+        "start_virtual_s": 3394.066866,
+        "local_upper_s": 253.27433248864443,
+        "completion_and_successor_upper_s": 452.5164177068401,
+        "target": [
+          -700.0357133746822,
+          -700.035713374682
+        ],
+        "actual_service_s": 202.27433199999996,
+        "feasible_successor_leg_s": 199.24208521819565,
+        "local_upper_slack_s": 51.000000488644474,
+        "completion_and_successor_slack_s": 51.0000004886445
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -700.0357133746822,
+            -700.035713374682
+          ]
+        ],
+        "start_virtual_s": 3596.341198,
+        "local_upper_s": 298.24208521819565,
+        "completion_and_successor_upper_s": 578.2563705680684,
+        "target": [
+          700.0357133746819,
+          -700.0357133746822
+        ],
+        "actual_service_s": 252.24208599999974,
+        "feasible_successor_leg_s": 280.0142853498728,
+        "local_upper_slack_s": 45.99999921819591,
+        "completion_and_successor_slack_s": 45.99999921819585
+      },
+      {
+        "job": [
+          "source",
+          7
+        ],
+        "start_virtual_s": 3848.583284,
+        "local_upper_s": 442.0287712159036,
+        "completion_and_successor_upper_s": 654.4730453661937,
+        "target": [
+          -1.8186004967338195e-13,
+          -990.0
+        ],
+        "actual_service_s": 199.4520980000002,
+        "feasible_successor_leg_s": 199.99979404872926,
+        "local_upper_slack_s": 242.57667321590338,
+        "completion_and_successor_slack_s": 255.0211533174642
+      },
+      {
+        "job": [
+          "scan",
+          [
+            700.0357133746819,
+            -700.0357133746822
+          ]
+        ],
+        "start_virtual_s": 4048.035382,
+        "local_upper_s": 437.634968311147,
+        "completion_and_successor_upper_s": 491.74203404512815,
+        "target": [
+          446.0874966910611,
+          -606.7637063107044
+        ],
+        "actual_service_s": 397.6349680000003,
+        "feasible_successor_leg_s": 54.10706573398115,
+        "local_upper_slack_s": 40.00000031114672,
+        "completion_and_successor_slack_s": 40.0000003111467
+      },
+      {
+        "job": [
+          "source",
+          11
+        ],
+        "start_virtual_s": 4445.67035,
+        "local_upper_s": 606.1438905293021,
+        "completion_and_successor_upper_s": 807.3260253533771,
+        "target": [
+          -1.8186004967338195e-13,
+          -990.0
+        ],
+        "actual_service_s": 147.99758999999995,
+        "feasible_successor_leg_s": 120.65864976421506,
+        "local_upper_slack_s": 458.14630052930215,
+        "completion_and_successor_slack_s": 538.6697855891621
+      },
+      {
+        "job": [
+          "source",
+          16
+        ],
+        "start_virtual_s": 4593.66794,
+        "local_upper_s": 436.53339636687537,
+        "completion_and_successor_upper_s": 556.2942650030996,
+        "target": [
+          516.1080192371799,
+          -1253.9367492707584
+        ],
+        "actual_service_s": 112.16568499999994,
+        "feasible_successor_leg_s": 39.53772073211668,
+        "local_upper_slack_s": 324.3677113668754,
+        "completion_and_successor_slack_s": 404.59085927098295
+      },
+      {
+        "job": [
+          "source",
+          1
+        ],
+        "start_virtual_s": 4705.833625,
+        "local_upper_s": 469.1058457020069,
+        "completion_and_successor_upper_s": 641.918768866272,
+        "target": [
+          -1.8186004967338195e-13,
+          -990.0
+        ],
+        "actual_service_s": 117.53409199999987,
+        "feasible_successor_leg_s": 128.69579742302466,
+        "local_upper_slack_s": 351.571753702007,
+        "completion_and_successor_slack_s": 395.68887944324746
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -1.8186004967338195e-13,
+            -990.0
+          ]
+        ],
+        "start_virtual_s": 4823.367717,
+        "local_upper_s": 194.69579742302466,
+        "completion_and_successor_upper_s": 268.6373704497141,
+        "target": [
+          -29.474528669432516,
+          -1358.531081051851
+        ],
+        "actual_service_s": 164.69579799999974,
+        "feasible_successor_leg_s": 73.94157302668944,
+        "local_upper_slack_s": 29.999999423024917,
+        "completion_and_successor_slack_s": 29.999999423024946
+      },
+      {
+        "job": [
+          "source",
+          9
+        ],
+        "start_virtual_s": 4988.063515,
+        "local_upper_s": 625.9783978220104,
+        "completion_and_successor_upper_s": 833.8022245265972,
+        "target": [
+          -3.3726772848518105e-13,
+          -1836.0
+        ],
+        "actual_service_s": 92.54042800000025,
+        "feasible_successor_leg_s": 88.07686404836488,
+        "local_upper_slack_s": 533.4379698220101,
+        "completion_and_successor_slack_s": 653.1849324782321
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -3.3726772848518105e-13,
+            -1836.0
+          ]
+        ],
+        "start_virtual_s": 5080.603943,
+        "local_upper_s": 143.07686404836488,
+        "completion_and_successor_upper_s": 286.3511965370096,
+        "target": [
+          702.6067818223053,
+          -1696.2428216907222
+        ],
+        "actual_service_s": 118.07686399999966,
+        "feasible_successor_leg_s": 143.27433248864477,
+        "local_upper_slack_s": 25.000000048365223,
+        "completion_and_successor_slack_s": 25.000000048365195
+      },
+      {
+        "job": [
+          "scan",
+          [
+            702.6067818223053,
+            -1696.2428216907222
+          ]
+        ],
+        "start_virtual_s": 5198.680807,
+        "local_upper_s": 198.27433248864477,
+        "completion_and_successor_upper_s": 308.3302365670329,
+        "target": [
+          652.1580278606084,
+          -1148.2807118815708
+        ],
+        "actual_service_s": 154.27433199999996,
+        "feasible_successor_leg_s": 110.05590407838812,
+        "local_upper_slack_s": 44.000000488644815,
+        "completion_and_successor_slack_s": 44.000000488644815
+      },
+      {
+        "job": [
+          "source",
+          15
+        ],
+        "start_virtual_s": 5352.955139,
+        "local_upper_s": 610.5932031245832,
+        "completion_and_successor_upper_s": 813.0208844341444,
+        "target": [
+          996.9501167970298,
+          -1003.0485840084134
+        ],
+        "actual_service_s": 206.40435200000047,
+        "feasible_successor_leg_s": 33.21965195451063,
+        "local_upper_slack_s": 404.1888511245827,
+        "completion_and_successor_slack_s": 573.3968804796333
+      },
+      {
+        "job": [
+          "source",
+          4
+        ],
+        "start_virtual_s": 5559.359491,
+        "local_upper_s": 584.1696444002624,
+        "completion_and_successor_upper_s": 962.66235786123,
+        "target": [
+          1161.4316361299857,
+          172.38678427494767
+        ],
+        "actual_service_s": 218.7021079999995,
+        "feasible_successor_leg_s": 173.04250905901995,
+        "local_upper_slack_s": 365.46753640026293,
+        "completion_and_successor_slack_s": 570.9177408022106
+      },
+      {
+        "job": [
+          "source",
+          17
+        ],
+        "start_virtual_s": 5778.061599,
+        "local_upper_s": 725.0793338543409,
+        "completion_and_successor_upper_s": 937.5787808295142,
+        "target": [
+          727.7005147540409,
+          705.9427951609854
+        ],
+        "actual_service_s": 214.32431200000065,
+        "feasible_successor_leg_s": 134.04474811944777,
+        "local_upper_slack_s": 510.75502185434027,
+        "completion_and_successor_slack_s": 589.2097207100658
+      },
+      {
+        "job": [
+          "source",
+          3
+        ],
+        "start_virtual_s": 5992.385911,
+        "local_upper_s": 683.8605938444947,
+        "completion_and_successor_upper_s": 877.9765097408679,
+        "target": [
+          320.8081328513971,
+          681.3504178441519
+        ],
+        "actual_service_s": 164.50958399999945,
+        "feasible_successor_leg_s": 86.6003939803843,
+        "local_upper_slack_s": 519.3510098444953,
+        "completion_and_successor_slack_s": 626.8665317604841
+      },
+      {
+        "job": [
+          "source",
+          20
+        ],
+        "start_virtual_s": 6156.895495,
+        "local_upper_s": 638.6372187757053,
+        "completion_and_successor_upper_s": 874.1278939370559,
+        "target": [
+          -264.56499802442056,
+          1130.9031188408658
+        ],
+        "actual_service_s": 268.27999700000055,
+        "feasible_successor_leg_s": 144.41189013249468,
+        "local_upper_slack_s": 370.3572217757047,
+        "completion_and_successor_slack_s": 461.43600680456063
+      },
+      {
+        "job": [
+          "source",
+          2
+        ],
+        "start_virtual_s": 6425.175492,
+        "local_upper_s": 696.4487149278157,
+        "completion_and_successor_upper_s": 875.9555062182757,
+        "target": [
+          -566.9736990707922,
+          1118.2645140808954
+        ],
+        "actual_service_s": 245.20565799999986,
+        "feasible_successor_leg_s": 76.24096684877492,
+        "local_upper_slack_s": 451.2430569278158,
+        "completion_and_successor_slack_s": 554.5088813695008
+      },
+      {
+        "job": [
+          "source",
+          13
+        ],
+        "start_virtual_s": 6670.38115,
+        "local_upper_s": 618.6101506643722,
+        "completion_and_successor_upper_s": 618.6101506643722,
+        "target": null,
+        "actual_service_s": 192.91826299999957,
+        "feasible_successor_leg_s": 0.0,
+        "local_upper_slack_s": 425.69188766437264,
+        "completion_and_successor_slack_s": 425.69188766437264
+      }
+    ],
+    "information_decisions": [
+      {
+        "channel": 10,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 1,
+        "selected": null
+      },
+      {
+        "channel": 8,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 2,
+        "selected": null
+      },
+      {
+        "channel": 18,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 6,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 7,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 11,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 16,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 4,
+        "selected": null
+      },
+      {
+        "channel": 1,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 4,
+        "selected": null
+      },
+      {
+        "channel": 9,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 15,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 4,
+        "selected": null
+      },
+      {
+        "channel": 4,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 17,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 3,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 20,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 2,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 13,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      }
+    ],
+    "active_information_reads": 0,
+    "stationary_information_reads": 0,
+    "max_pending_sources": 9,
+    "source_waits": {
+      "10": {
+        "wait_until_service_s": 42.0,
+        "discovery_to_clear_s": 134.62789500000008
+      },
+      "8": {
+        "wait_until_service_s": 274.27433300000007,
+        "discovery_to_clear_s": 476.4320500000001
+      },
+      "18": {
+        "wait_until_service_s": 209.27433199999996,
+        "discovery_to_clear_s": 460.91098699999975
+      },
+      "6": {
+        "wait_until_service_s": 449.86069799999996,
+        "discovery_to_clear_s": 607.820577
+      },
+      "7": {
+        "wait_until_service_s": 24.0,
+        "discovery_to_clear_s": 223.4520980000002
+      },
+      "11": {
+        "wait_until_service_s": 4380.67035,
+        "discovery_to_clear_s": 4528.66794
+      },
+      "16": {
+        "wait_until_service_s": 153.99758999999995,
+        "discovery_to_clear_s": 266.1632749999999
+      },
+      "1": {
+        "wait_until_service_s": 302.1632749999999,
+        "discovery_to_clear_s": 419.69736699999976
+      },
+      "9": {
+        "wait_until_service_s": 1415.7223169999997,
+        "discovery_to_clear_s": 1508.262745
+      },
+      "15": {
+        "wait_until_service_s": 370.89162399999987,
+        "discovery_to_clear_s": 577.2959760000003
+      },
+      "4": {
+        "wait_until_service_s": 206.40435200000047,
+        "discovery_to_clear_s": 425.10645999999997
+      },
+      "17": {
+        "wait_until_service_s": 5058.819514,
+        "discovery_to_clear_s": 5273.143826
+      },
+      "3": {
+        "wait_until_service_s": 5657.385911,
+        "discovery_to_clear_s": 5821.895495
+      },
+      "20": {
+        "wait_until_service_s": 6037.895495,
+        "discovery_to_clear_s": 6306.175492
+      },
+      "2": {
+        "wait_until_service_s": 4935.727924000001,
+        "discovery_to_clear_s": 5180.933582
+      },
+      "13": {
+        "wait_until_service_s": 4692.384917,
+        "discovery_to_clear_s": 4885.30318
+      }
+    },
+    "pending_service": null,
+    "regional_probe_count": 0
+  },
+  "error": null,
+  "wall_s": 1.2187156900763512,
+  "cleared_count": 16,
+  "virtual_time_s": 6863.2994125947525,
+  "average_clear_time_s": 428.95621328717203,
+  "counts": {
+    "measure": 270,
+    "clear": 18,
+    "successful_clear": 16,
+    "switch": 223
+  },
+  "event_counts": {
+    "complete_obligation_plan": 35,
+    "discovered": 16,
+    "search_point_done": 19,
+    "service_completed": 35,
+    "residual_route_revision": 6,
+    "history_tightened": 66,
+    "optical_bound_comparison": 52,
+    "information_intercept_decision": 16,
+    "anchor_updated": 41,
+    "action_refinement": 25,
+    "cleared": 16,
+    "optical_cover_planned": 9,
+    "optical_probe_negative": 2
+  },
+  "log_sha256": "17a6a1c6e57e5f72984645c287c80c33c3f14ed502a4fe2bb20501c25777f072"
+}

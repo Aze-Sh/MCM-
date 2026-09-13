@@ -1,0 +1,2694 @@
+{
+  "name": "q3-fresh-n14",
+  "algorithm": "v7",
+  "problem": 3,
+  "seed": 20261174,
+  "source_count": 14,
+  "source_truth": [
+    {
+      "channel": 5,
+      "position": [
+        1315.6471007180187,
+        508.99775059629803
+      ],
+      "radius": 1085.0327942121148,
+      "direction": null
+    },
+    {
+      "channel": 18,
+      "position": [
+        -1040.2127725250828,
+        490.26928190312003
+      ],
+      "radius": 1013.3486886674058,
+      "direction": null
+    },
+    {
+      "channel": 8,
+      "position": [
+        -490.0018153606816,
+        1009.7391716362453
+      ],
+      "radius": 1139.4105853096944,
+      "direction": null
+    },
+    {
+      "channel": 14,
+      "position": [
+        1345.1650263311094,
+        343.28810716629897
+      ],
+      "radius": 1153.8586415078814,
+      "direction": null
+    },
+    {
+      "channel": 4,
+      "position": [
+        -1282.4735181526185,
+        48.77029929833261
+      ],
+      "radius": 1172.2109220925875,
+      "direction": null
+    },
+    {
+      "channel": 16,
+      "position": [
+        -57.7191247565956,
+        1311.8771359321413
+      ],
+      "radius": 1285.7761145170953,
+      "direction": null
+    },
+    {
+      "channel": 9,
+      "position": [
+        -387.2664133694831,
+        745.8749098696488
+      ],
+      "radius": 1317.4115553471893,
+      "direction": null
+    },
+    {
+      "channel": 20,
+      "position": [
+        589.9380408040057,
+        928.9477304004064
+      ],
+      "radius": 1322.7907403908844,
+      "direction": null
+    },
+    {
+      "channel": 15,
+      "position": [
+        1089.447890967561,
+        1037.5527324474742
+      ],
+      "radius": 1478.8492427462115,
+      "direction": null
+    },
+    {
+      "channel": 13,
+      "position": [
+        14.824828669545052,
+        172.971253212948
+      ],
+      "radius": 1056.0595397627126,
+      "direction": null
+    },
+    {
+      "channel": 1,
+      "position": [
+        -754.1602478994256,
+        866.3580130553792
+      ],
+      "radius": 1257.7110103562472,
+      "direction": null
+    },
+    {
+      "channel": 6,
+      "position": [
+        504.7746104375731,
+        -1636.1586855812716
+      ],
+      "radius": 1250.2680622866187,
+      "direction": null
+    },
+    {
+      "channel": 2,
+      "position": [
+        -410.0086769912997,
+        -480.79572426838376
+      ],
+      "radius": 1487.1117228537923,
+      "direction": null
+    },
+    {
+      "channel": 7,
+      "position": [
+        -345.8823170534233,
+        -4.808876918167481
+      ],
+      "radius": 1290.2123748560707,
+      "direction": null
+    }
+  ],
+  "noise": "repository fixed coordinate hash",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "summary": {
+    "problem": 3,
+    "reason": "complete_with_certificate",
+    "completion_certificate": true,
+    "strategy": "obligation-service-interception-v7",
+    "negative_halfplane_count": 76,
+    "history_tightening_count": 58,
+    "pending_regions": {},
+    "exit_confirmed": true,
+    "entered": true,
+    "discovered_channels": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20
+    ],
+    "cleared_channels": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20
+    ],
+    "cleared_count": 14,
+    "unknown_channels": [],
+    "virtual_time_s": 3653.393107,
+    "average_clear_time_s": 260.95665049999997,
+    "local_elapsed_s": 0.09294042782858014,
+    "official_program_runtime_s": null,
+    "source_total_from_simulator": null,
+    "travel_m": 14661.965533740278,
+    "measure_count": 110,
+    "clear_attempts": 16,
+    "switch_count": 95,
+    "source_measure_counts": {
+      "6": 3,
+      "2": 1,
+      "4": 2,
+      "7": 2,
+      "1": 3,
+      "8": 2,
+      "16": 2,
+      "13": 2,
+      "14": 3,
+      "5": 1,
+      "15": 1,
+      "20": 3
+    },
+    "negative_pair_counts": {},
+    "visited_search_points": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        562.5000000000001,
+        -974.2785792574934
+      ],
+      [
+        -562.5000000000005,
+        -974.2785792574932
+      ],
+      [
+        -1125.0,
+        1.3777276490407724e-13
+      ],
+      [
+        -562.4999999999998,
+        974.2785792574936
+      ],
+      [
+        1125.0,
+        0.0
+      ],
+      [
+        562.5000000000001,
+        974.2785792574934
+      ]
+    ],
+    "remaining_search_points": [],
+    "pending_anchors": {},
+    "completion_basis": "proved_coverage_schedule",
+    "absent_channels": [
+      3,
+      10,
+      11,
+      12,
+      17,
+      19
+    ],
+    "optional_measure_counts": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 1,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 1,
+      "16": 0,
+      "17": 0,
+      "18": 1,
+      "19": 0,
+      "20": 0
+    },
+    "optical_probe_count": 6,
+    "failed_clear_count": 2,
+    "coverage_replacements": 0,
+    "coverage_diagnostics": [
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      },
+      {
+        "proved": false,
+        "nodes": 39,
+        "unresolved_box": [
+          1181.25,
+          1357.91015625,
+          1181.689453125,
+          1358.349609375
+        ]
+      }
+    ],
+    "deferred_decisions": 0,
+    "joint_clear_batches": 0,
+    "directional_channels": [],
+    "stage_costs": {
+      "search": {
+        "travel_m": 5115.20643266211,
+        "virtual_time_s": 1514.0412870000005,
+        "measure_count": 82,
+        "clear_count": 0
+      },
+      "shared_measure": {
+        "travel_m": 481.1445580933005,
+        "virtual_time_s": 114.22891199999958,
+        "measure_count": 3,
+        "clear_count": 0
+      },
+      "localize": {
+        "travel_m": 7532.751859002074,
+        "virtual_time_s": 1642.5503709999994,
+        "measure_count": 25,
+        "clear_count": 0
+      },
+      "clear": {
+        "travel_m": 1532.862683982794,
+        "virtual_time_s": 382.5725370000007,
+        "measure_count": 0,
+        "clear_count": 16
+      }
+    },
+    "action_bound": 300,
+    "posterior_cells": {
+      "1": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 4
+      },
+      "2": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 2
+      },
+      "7": {
+        "cells": 4,
+        "max_cells": 4,
+        "retained_parent_count": 0,
+        "raw_observation_count": 4
+      },
+      "8": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 3
+      },
+      "9": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 2
+      },
+      "13": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 3
+      },
+      "20": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 3
+      },
+      "6": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 5
+      },
+      "4": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 6
+      },
+      "18": {
+        "cells": 8,
+        "max_cells": 8,
+        "retained_parent_count": 0,
+        "raw_observation_count": 6
+      },
+      "16": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 7
+      },
+      "5": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 7
+      },
+      "14": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 9
+      },
+      "15": {
+        "cells": 1,
+        "max_cells": 1,
+        "retained_parent_count": 0,
+        "raw_observation_count": 8
+      }
+    },
+    "lookahead_decisions": 0,
+    "shared_by_lookahead": 3,
+    "optical_dominance_accepts": 4,
+    "optical_overlap_rejections": 4,
+    "optical_failure_replans": 0,
+    "route_episodes": [],
+    "tail_route_edits": [
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 363,
+            "unresolved_box": [
+              689.0625,
+              -900.0,
+              689.501953125,
+              -899.560546875
+            ],
+            "removed": [
+              562.5000000000001,
+              -974.2785792574934
+            ],
+            "inserted": [
+              -900.0,
+              -900.0
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 89,
+            "unresolved_box": [
+              1575.0,
+              870.99609375,
+              1575.439453125,
+              871.435546875
+            ],
+            "removed": [
+              1125.0,
+              0.0
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 317,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 89,
+            "unresolved_box": [
+              1575.0,
+              870.99609375,
+              1575.439453125,
+              871.435546875
+            ],
+            "removed": [
+              1125.0,
+              0.0
+            ],
+            "inserted": [
+              843.75,
+              -487.1392896287467
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 432,
+            "unresolved_box": [
+              -435.9375,
+              -900.0,
+              -435.498046875,
+              -899.560546875
+            ],
+            "removed": [
+              -562.5000000000005,
+              -974.2785792574932
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 317,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 89,
+            "unresolved_box": [
+              1575.0,
+              870.99609375,
+              1575.439453125,
+              871.435546875
+            ],
+            "removed": [
+              1125.0,
+              0.0
+            ],
+            "inserted": [
+              500.4953182673934,
+              -1639.7515468610468
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 89,
+            "unresolved_box": [
+              1575.0,
+              870.99609375,
+              1575.439453125,
+              871.435546875
+            ],
+            "removed": [
+              1125.0,
+              0.0
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 317,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 89,
+            "unresolved_box": [
+              1575.0,
+              870.99609375,
+              1575.439453125,
+              871.435546875
+            ],
+            "removed": [
+              1125.0,
+              0.0
+            ],
+            "inserted": [
+              -900.0,
+              -900.0
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 89,
+            "unresolved_box": [
+              1575.0,
+              870.99609375,
+              1575.439453125,
+              871.435546875
+            ],
+            "removed": [
+              1125.0,
+              0.0
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 317,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 145,
+            "unresolved_box": [
+              -1.7578125,
+              1799.560546875,
+              -1.318359375,
+              1800.0
+            ],
+            "removed": [
+              -562.4999999999998,
+              974.2785792574936
+            ],
+            "inserted": [
+              -843.7499999999999,
+              487.13928962874684
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 89,
+            "unresolved_box": [
+              1575.0,
+              870.99609375,
+              1575.439453125,
+              871.435546875
+            ],
+            "removed": [
+              1125.0,
+              0.0
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 317,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 89,
+            "unresolved_box": [
+              1575.0,
+              870.99609375,
+              1575.439453125,
+              871.435546875
+            ],
+            "removed": [
+              1125.0,
+              0.0
+            ],
+            "inserted": [
+              -1293.1980812595446,
+              45.956275662718404
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 89,
+            "unresolved_box": [
+              1575.0,
+              870.99609375,
+              1575.439453125,
+              871.435546875
+            ],
+            "removed": [
+              1125.0,
+              0.0
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 317,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 63,
+            "unresolved_box": [
+              1040.625,
+              1468.65234375,
+              1041.064453125,
+              1469.091796875
+            ],
+            "removed": [
+              562.5000000000001,
+              974.2785792574934
+            ],
+            "inserted": [
+              843.75,
+              487.1392896287467
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 39,
+            "unresolved_box": [
+              1181.25,
+              1357.91015625,
+              1181.689453125,
+              1358.349609375
+            ],
+            "removed": [
+              562.5000000000001,
+              974.2785792574934
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 314,
+        "residual_nodes": 512
+      },
+      {
+        "changed": false,
+        "proofs_attempted": 2,
+        "attempts": [
+          {
+            "kind": "replacement",
+            "proved": false,
+            "nodes": 39,
+            "unresolved_box": [
+              1181.25,
+              1357.91015625,
+              1181.689453125,
+              1358.349609375
+            ],
+            "removed": [
+              562.5000000000001,
+              974.2785792574934
+            ],
+            "inserted": [
+              1350.4139140768316,
+              346.9994844916655
+            ]
+          },
+          {
+            "kind": "deletion",
+            "proved": false,
+            "nodes": 39,
+            "unresolved_box": [
+              1181.25,
+              1357.91015625,
+              1181.689453125,
+              1358.349609375
+            ],
+            "removed": [
+              562.5000000000001,
+              974.2785792574934
+            ],
+            "inserted": null
+          }
+        ],
+        "unresolved_boxes": 314,
+        "residual_nodes": 512
+      }
+    ],
+    "tail_proof_calls": 16,
+    "action_refinements": [],
+    "pending_route_episode": null,
+    "global_obligation_plans": [
+      {
+        "upper_s": 2890.0,
+        "order": [
+          [
+            "scan",
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "scan",
+            [
+              -1125.0,
+              1.3777276490407724e-13
+            ]
+          ],
+          [
+            "scan",
+            [
+              -562.5000000000005,
+              -974.2785792574932
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              -974.2785792574934
+            ]
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 2890.0,
+        "assignment_lower_s": 2889.999999,
+        "finite_graph_gap_s": 9.99999883788405e-07,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 0,
+        "pending_scans": 7,
+        "first_kind": "scan",
+        "first_entry": [
+          0.0,
+          0.0
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 4375.553808620383,
+        "order": [
+          [
+            "scan",
+            [
+              562.5000000000001,
+              -974.2785792574934
+            ]
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            1
+          ],
+          [
+            "scan",
+            [
+              -1125.0,
+              1.3777276490407724e-13
+            ]
+          ],
+          [
+            "source",
+            7
+          ],
+          [
+            "scan",
+            [
+              -562.5000000000005,
+              -974.2785792574932
+            ]
+          ],
+          [
+            "source",
+            2
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 5262.967701434725,
+        "assignment_lower_s": 4288.840419023086,
+        "finite_graph_gap_s": 86.71338959729746,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 6,
+        "first_kind": "scan",
+        "first_entry": [
+          562.5000000000001,
+          -974.2785792574934
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 4232.5564189009165,
+        "order": [
+          [
+            "source",
+            6
+          ],
+          [
+            "scan",
+            [
+              -562.5000000000005,
+              -974.2785792574932
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -1125.0,
+              1.3777276490407724e-13
+            ]
+          ],
+          [
+            "source",
+            7
+          ],
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "source",
+            1
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ]
+        ],
+        "evaluations": 13,
+        "baseline_upper_s": 4365.289890875208,
+        "assignment_lower_s": 4135.700187961471,
+        "finite_graph_gap_s": 96.8562309394456,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 8,
+        "pending_scans": 5,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          518.5995054735838,
+          -1356.327292228695
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 4032.61471102998,
+        "order": [
+          [
+            "scan",
+            [
+              -562.5000000000005,
+              -974.2785792574932
+            ]
+          ],
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -1125.0,
+              1.3777276490407724e-13
+            ]
+          ],
+          [
+            "source",
+            7
+          ],
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "source",
+            1
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 4032.61471102998,
+        "assignment_lower_s": 3972.751891318814,
+        "finite_graph_gap_s": 59.862819711165685,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 5,
+        "first_kind": "scan",
+        "first_entry": [
+          -562.5000000000005,
+          -974.2785792574932
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 3645.202286298507,
+        "order": [
+          [
+            "source",
+            2
+          ],
+          [
+            "scan",
+            [
+              -1125.0,
+              1.3777276490407724e-13
+            ]
+          ],
+          [
+            "source",
+            7
+          ],
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "source",
+            1
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 3645.202286298507,
+        "assignment_lower_s": 3585.3394665873416,
+        "finite_graph_gap_s": 59.86281971116523,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 4,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          -457.01661569237416,
+          -601.6940822609109
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 3318.7563609070794,
+        "order": [
+          [
+            "scan",
+            [
+              -1125.0,
+              1.3777276490407724e-13
+            ]
+          ],
+          [
+            "source",
+            7
+          ],
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "source",
+            1
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 3318.7563609070794,
+        "assignment_lower_s": 3265.868695977393,
+        "finite_graph_gap_s": 52.88766492968625,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 4,
+        "first_kind": "scan",
+        "first_entry": [
+          -1125.0,
+          1.3777276490407724e-13
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 3737.780138616765,
+        "order": [
+          [
+            "source",
+            4
+          ],
+          [
+            "source",
+            7
+          ],
+          [
+            "source",
+            18
+          ],
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "source",
+            1
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 8,
+        "baseline_upper_s": 3944.702193237519,
+        "assignment_lower_s": 3592.881327765074,
+        "finite_graph_gap_s": 144.898810851691,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 8,
+        "pending_scans": 3,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          -1457.5869360753293,
+          104.19455485208672
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 3461.922472046649,
+        "order": [
+          [
+            "source",
+            7
+          ],
+          [
+            "source",
+            18
+          ],
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "source",
+            1
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 3461.922472046649,
+        "assignment_lower_s": 3317.0236611949576,
+        "finite_graph_gap_s": 144.89881085169145,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 7,
+        "pending_scans": 3,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          -755.1194161119757,
+          26.72632866033224
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 3040.096119441605,
+        "order": [
+          [
+            "source",
+            1
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "source",
+            18
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 3110.760238241081,
+        "assignment_lower_s": 2942.1470956168614,
+        "finite_graph_gap_s": 97.94902382474356,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 3,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          -543.623727506924,
+          524.7601342882182
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 2597.488507301422,
+        "order": [
+          [
+            "scan",
+            [
+              -562.4999999999998,
+              974.2785792574936
+            ]
+          ],
+          [
+            "source",
+            18
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            13
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 2665.0077226402163,
+        "assignment_lower_s": 2480.0874676970316,
+        "finite_graph_gap_s": 117.40103960439046,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 5,
+        "pending_scans": 3,
+        "first_kind": "scan",
+        "first_entry": [
+          -562.4999999999998,
+          974.2785792574936
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 2730.3060798449314,
+        "order": [
+          [
+            "source",
+            18
+          ],
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            16
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 2861.1166244773462,
+        "assignment_lower_s": 2719.5802280072326,
+        "finite_graph_gap_s": 10.725851837698883,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 6,
+        "pending_scans": 2,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          -940.3985616615291,
+          732.6815574382086
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 2382.4729800866367,
+        "order": [
+          [
+            "source",
+            9
+          ],
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            16
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 2382.4729800866367,
+        "assignment_lower_s": 2382.4729790866368,
+        "finite_graph_gap_s": 9.99999883788405e-07,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 5,
+        "pending_scans": 2,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          -387.24593250852297,
+          648.7993090334759
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 1922.1486666337978,
+        "order": [
+          [
+            "source",
+            8
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            16
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 1922.1486666337978,
+        "assignment_lower_s": 1922.1486656337977,
+        "finite_graph_gap_s": 1.0000001111620804e-06,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 4,
+        "pending_scans": 2,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          -339.24735185922435,
+          675.1567605252703
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 1638.764082290188,
+        "order": [
+          [
+            "source",
+            16
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            13
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 1645.8311753856678,
+        "assignment_lower_s": 1635.576782990782,
+        "finite_graph_gap_s": 3.1872992994060496,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 3,
+        "pending_scans": 2,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          1.844495705477349,
+          1332.9862381339683
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 1253.909656034243,
+        "order": [
+          [
+            "source",
+            13
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ],
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 1266.6779328208106,
+        "assignment_lower_s": 1250.802615332291,
+        "finite_graph_gap_s": 3.1070407019519735,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 2,
+        "pending_scans": 2,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          3.1449047313862475,
+          755.5726736859543
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 911.0025360638613,
+        "order": [
+          [
+            "scan",
+            [
+              1125.0,
+              0.0
+            ]
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 922.6993754145154,
+        "assignment_lower_s": 911.0025350638613,
+        "finite_graph_gap_s": 9.999999974752427e-07,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 1,
+        "pending_scans": 2,
+        "first_kind": "scan",
+        "first_entry": [
+          1125.0,
+          0.0
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 1357.4203081030169,
+        "order": [
+          [
+            "source",
+            14
+          ],
+          [
+            "source",
+            5
+          ],
+          [
+            "source",
+            15
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 1561.6494402201229,
+        "assignment_lower_s": 1357.2921310398262,
+        "finite_graph_gap_s": 0.12817706319060562,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 4,
+        "pending_scans": 1,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          1373.8732198892567,
+          390.57748394011736
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 1054.8077129337794,
+        "order": [
+          [
+            "source",
+            5
+          ],
+          [
+            "source",
+            15
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 1054.8077129337794,
+        "assignment_lower_s": 1054.679535870589,
+        "finite_graph_gap_s": 0.12817706319037825,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 3,
+        "pending_scans": 1,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          1357.0936088400913,
+          485.9039697748771
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 790.1102223983345,
+        "order": [
+          [
+            "source",
+            15
+          ],
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 790.1102223983345,
+        "assignment_lower_s": 789.9820453351441,
+        "finite_graph_gap_s": 0.12817706319037825,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 2,
+        "pending_scans": 1,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          1158.1716540773175,
+          733.1782380255553
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 430.0774569466172,
+        "order": [
+          [
+            "scan",
+            [
+              562.5000000000001,
+              974.2785792574934
+            ]
+          ],
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 430.0774569466172,
+        "assignment_lower_s": 430.0774559466172,
+        "finite_graph_gap_s": 9.999999974752427e-07,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 1,
+        "pending_scans": 1,
+        "first_kind": "scan",
+        "first_entry": [
+          562.5000000000001,
+          974.2785792574934
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      },
+      {
+        "upper_s": 259.882143564536,
+        "order": [
+          [
+            "source",
+            20
+          ]
+        ],
+        "evaluations": 6,
+        "baseline_upper_s": 259.882143564536,
+        "assignment_lower_s": 259.882142564536,
+        "finite_graph_gap_s": 9.999999974752427e-07,
+        "scope": "all_current_known_jobs_same_obligations",
+        "pending_sources": 1,
+        "pending_scans": 0,
+        "first_kind": "regional_probe",
+        "first_entry": [
+          377.8704512026866,
+          654.3190645881057
+        ],
+        "interpretation": "bounds_on_current_known_obligations_not_future_hidden_sources"
+      }
+    ],
+    "service_receipts": [
+      {
+        "job": [
+          "scan",
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "start_virtual_s": 0.0,
+        "local_upper_s": 220.0,
+        "completion_and_successor_upper_s": 445.0,
+        "target": [
+          1125.0,
+          0.0
+        ],
+        "actual_service_s": 119.0,
+        "feasible_successor_leg_s": 225.0,
+        "local_upper_slack_s": 101.0,
+        "completion_and_successor_slack_s": 101.0
+      },
+      {
+        "job": [
+          "scan",
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ]
+        ],
+        "start_virtual_s": 119.0,
+        "local_upper_s": 368.0,
+        "completion_and_successor_upper_s": 593.0,
+        "target": [
+          1125.0,
+          0.0
+        ],
+        "actual_service_s": 303.0,
+        "feasible_successor_leg_s": 225.0,
+        "local_upper_slack_s": 65.0,
+        "completion_and_successor_slack_s": 65.0
+      },
+      {
+        "job": [
+          "source",
+          6
+        ],
+        "start_virtual_s": 422.0,
+        "local_upper_s": 183.89788041901565,
+        "completion_and_successor_upper_s": 448.9143287171744,
+        "target": [
+          -562.5000000000005,
+          -974.2785792574932
+        ],
+        "actual_service_s": 154.71928200000002,
+        "feasible_successor_leg_s": 250.823708390533,
+        "local_upper_slack_s": 29.17859841901563,
+        "completion_and_successor_slack_s": 43.371338326641364
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ]
+        ],
+        "start_virtual_s": 576.719282,
+        "local_upper_s": 382.823708390533,
+        "completion_and_successor_upper_s": 460.26941886366035,
+        "target": [
+          -457.01661569237416,
+          -601.6940822609109
+        ],
+        "actual_service_s": 322.823708,
+        "feasible_successor_leg_s": 77.44571047312733,
+        "local_upper_slack_s": 60.00000039053299,
+        "completion_and_successor_slack_s": 60.000000390533
+      },
+      {
+        "job": [
+          "source",
+          2
+        ],
+        "start_virtual_s": 899.54299,
+        "local_upper_s": 263.4462835842493,
+        "completion_and_successor_upper_s": 498.42161517801736,
+        "target": [
+          -1125.0,
+          1.3777276490407724e-13
+        ],
+        "actual_service_s": 115.85020599999996,
+        "feasible_successor_leg_s": 171.97568978658975,
+        "local_upper_slack_s": 147.59607758424931,
+        "completion_and_successor_slack_s": 210.59571939142765
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ]
+        ],
+        "start_virtual_s": 1015.393196,
+        "local_upper_s": 303.9756897865898,
+        "completion_and_successor_upper_s": 378.69517769004244,
+        "target": [
+          -752.5360903049533,
+          -29.080625655842425
+        ],
+        "actual_service_s": 243.97569,
+        "feasible_successor_leg_s": 74.71948790345265,
+        "local_upper_slack_s": 59.9999997865898,
+        "completion_and_successor_slack_s": 59.99999978658981
+      },
+      {
+        "job": [
+          "source",
+          4
+        ],
+        "start_virtual_s": 1259.368886,
+        "local_upper_s": 169.38719701572583,
+        "completion_and_successor_upper_s": 383.5418972515489,
+        "target": [
+          -752.4627864946056,
+          30.919329565402435
+        ],
+        "actual_service_s": 120.58527700000013,
+        "feasible_successor_leg_s": 108.18886610968045,
+        "local_upper_slack_s": 48.8019200157257,
+        "completion_and_successor_slack_s": 154.76775414186832
+      },
+      {
+        "job": [
+          "source",
+          7
+        ],
+        "start_virtual_s": 1379.954163,
+        "local_upper_s": 293.68500852287565,
+        "completion_and_successor_upper_s": 539.4107698908181,
+        "target": [
+          -963.8866128890834,
+          735.6621007593419
+        ],
+        "actual_service_s": 207.44779499999981,
+        "feasible_successor_leg_s": 191.6763713114172,
+        "local_upper_slack_s": 86.23721352287583,
+        "completion_and_successor_slack_s": 140.28660357940106
+      },
+      {
+        "job": [
+          "source",
+          1
+        ],
+        "start_virtual_s": 1587.401958,
+        "local_upper_s": 298.1508795682892,
+        "completion_and_successor_upper_s": 457.71246082218425,
+        "target": [
+          -387.24593250852297,
+          648.7993090334759
+        ],
+        "actual_service_s": 210.58556900000008,
+        "feasible_successor_leg_s": 82.62406402079556,
+        "local_upper_slack_s": 87.56531056828914,
+        "completion_and_successor_slack_s": 164.5028278013886
+      },
+      {
+        "job": [
+          "scan",
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ]
+        ],
+        "start_virtual_s": 1797.987527,
+        "local_upper_s": 153.5676334038463,
+        "completion_and_successor_upper_s": 243.27302763581,
+        "target": [
+          -940.3985616615291,
+          732.6815574382086
+        ],
+        "actual_service_s": 103.567634,
+        "feasible_successor_leg_s": 89.70539423196371,
+        "local_upper_slack_s": 49.99999940384629,
+        "completion_and_successor_slack_s": 49.99999940384629
+      },
+      {
+        "job": [
+          "source",
+          18
+        ],
+        "start_virtual_s": 1901.555161,
+        "local_upper_s": 275.7059673430856,
+        "completion_and_successor_upper_s": 475.42794166314377,
+        "target": [
+          -387.24593250852297,
+          648.7993090334759
+        ],
+        "actual_service_s": 151.1187510000002,
+        "feasible_successor_leg_s": 133.60530159895723,
+        "local_upper_slack_s": 124.5872163430854,
+        "completion_and_successor_slack_s": 190.70388906418634
+      },
+      {
+        "job": [
+          "source",
+          9
+        ],
+        "start_virtual_s": 2052.673912,
+        "local_upper_s": 319.60587471007915,
+        "completion_and_successor_upper_s": 473.26920833567834,
+        "target": [
+          -353.8249786087399,
+          664.803831601868
+        ],
+        "actual_service_s": 163.24888699999974,
+        "feasible_successor_leg_s": 16.166181605682713,
+        "local_upper_slack_s": 156.3569877100794,
+        "completion_and_successor_slack_s": 293.8541397299959
+      },
+      {
+        "job": [
+          "source",
+          8
+        ],
+        "start_virtual_s": 2215.922799,
+        "local_upper_s": 201.23520172185934,
+        "completion_and_successor_upper_s": 384.26669617359937,
+        "target": [
+          3.1449047313862475,
+          755.5726736859543
+        ],
+        "actual_service_s": 112.23577400000022,
+        "feasible_successor_leg_s": 107.94920492546933,
+        "local_upper_slack_s": 88.99942772185912,
+        "completion_and_successor_slack_s": 164.08171724812982
+      },
+      {
+        "job": [
+          "source",
+          16
+        ],
+        "start_virtual_s": 2328.158573,
+        "local_upper_s": 286.09113897476675,
+        "completion_and_successor_upper_s": 514.2784372741729,
+        "target": [
+          562.5000000000001,
+          974.2785792574934
+        ],
+        "actual_service_s": 147.2820969999998,
+        "feasible_successor_leg_s": 142.1922878047952,
+        "local_upper_slack_s": 138.80904197476696,
+        "completion_and_successor_slack_s": 224.80405246937792
+      },
+      {
+        "job": [
+          "source",
+          13
+        ],
+        "start_virtual_s": 2475.44067,
+        "local_upper_s": 296.83699855834413,
+        "completion_and_successor_upper_s": 524.9440382602959,
+        "target": [
+          562.5000000000001,
+          974.2785792574934
+        ],
+        "actual_service_s": 240.97641999999996,
+        "feasible_successor_leg_s": 193.7337576405683,
+        "local_upper_slack_s": 55.86057855834417,
+        "completion_and_successor_slack_s": 90.23386061972761
+      },
+      {
+        "job": [
+          "scan",
+          [
+            1125.0,
+            0.0
+          ]
+        ],
+        "start_virtual_s": 2716.41709,
+        "local_upper_s": 326.79966703434854,
+        "completion_and_successor_upper_s": 551.7996670343485,
+        "target": [
+          562.5000000000001,
+          974.2785792574934
+        ],
+        "actual_service_s": 281.7996670000002,
+        "feasible_successor_leg_s": 225.0,
+        "local_upper_slack_s": 45.00000003434832,
+        "completion_and_successor_slack_s": 45.00000003434832
+      },
+      {
+        "job": [
+          "source",
+          14
+        ],
+        "start_virtual_s": 2998.216757,
+        "local_upper_s": 220.58657804038086,
+        "completion_and_successor_upper_s": 330.4255952619452,
+        "target": [
+          1310.5839047195154,
+          500.75817426358424
+        ],
+        "actual_service_s": 163.15478799999983,
+        "feasible_successor_leg_s": 31.766752635912308,
+        "local_upper_slack_s": 57.43179004038103,
+        "completion_and_successor_slack_s": 135.50405462603308
+      },
+      {
+        "job": [
+          "source",
+          5
+        ],
+        "start_virtual_s": 3161.371545,
+        "local_upper_s": 170.15073191035438,
+        "completion_and_successor_upper_s": 318.8291959073564,
+        "target": [
+          1092.1695957402405,
+          727.1826405157316
+        ],
+        "actual_service_s": 48.68451300000015,
+        "feasible_successor_leg_s": 61.921172706057746,
+        "local_upper_slack_s": 121.46621891035423,
+        "completion_and_successor_slack_s": 208.2235102012985
+      },
+      {
+        "job": [
+          "source",
+          15
+        ],
+        "start_virtual_s": 3210.056058,
+        "local_upper_s": 235.77781443402534,
+        "completion_and_successor_upper_s": 463.9073533688218,
+        "target": [
+          562.5000000000001,
+          974.2785792574934
+        ],
+        "actual_service_s": 139.51823299999978,
+        "feasible_successor_leg_s": 103.87458791710446,
+        "local_upper_slack_s": 96.25958143402556,
+        "completion_and_successor_slack_s": 220.51453245171757
+      },
+      {
+        "job": [
+          "scan",
+          [
+            562.5000000000001,
+            974.2785792574934
+          ]
+        ],
+        "start_virtual_s": 3349.574291,
+        "local_upper_s": 169.87458791710446,
+        "completion_and_successor_upper_s": 244.0768838354953,
+        "target": [
+          353.17704343223124,
+          667.9561709313331
+        ],
+        "actual_service_s": 139.87458800000013,
+        "feasible_successor_leg_s": 74.20229591839083,
+        "local_upper_slack_s": 29.999999917104333,
+        "completion_and_successor_slack_s": 29.999999917104333
+      },
+      {
+        "job": [
+          "source",
+          20
+        ],
+        "start_virtual_s": 3489.448879,
+        "local_upper_s": 259.882143564536,
+        "completion_and_successor_upper_s": 259.882143564536,
+        "target": null,
+        "actual_service_s": 163.94422799999984,
+        "feasible_successor_leg_s": 0.0,
+        "local_upper_slack_s": 95.93791556453618,
+        "completion_and_successor_slack_s": 95.93791556453618
+      }
+    ],
+    "information_decisions": [
+      {
+        "channel": 6,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 4,
+        "selected": null
+      },
+      {
+        "channel": 2,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 4,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 7,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 1,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 18,
+        "reason": "accepted",
+        "candidates": 3,
+        "selected": {
+          "point": [
+            -622.8820124854265,
+            870.077959481647
+          ],
+          "upper_s": 464.96573321437756,
+          "standalone_s": 265.2837588943194,
+          "baseline_upper_s": 475.42794166314377,
+          "baseline_standalone_s": 275.7059673430856,
+          "normal_bins": 13,
+          "interval_splits": 9,
+          "range_basis": "minimum_radius_or_same_source_positive_distance"
+        }
+      },
+      {
+        "channel": 9,
+        "reason": "accepted",
+        "candidates": 3,
+        "selected": {
+          "point": [
+            -908.4537597066575,
+            426.941940052041
+          ],
+          "upper_s": 422.72985204264785,
+          "standalone_s": 269.14950959270897,
+          "baseline_upper_s": 473.26920833567834,
+          "baseline_standalone_s": 319.60587471007915,
+          "normal_bins": 13,
+          "interval_splits": 9,
+          "range_basis": "minimum_radius_or_same_source_positive_distance"
+        }
+      },
+      {
+        "channel": 8,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 16,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 4,
+        "selected": null
+      },
+      {
+        "channel": 13,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 14,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      },
+      {
+        "channel": 5,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 4,
+        "selected": null
+      },
+      {
+        "channel": 15,
+        "reason": "accepted",
+        "candidates": 4,
+        "selected": {
+          "point": [
+            1323.3627824199625,
+            734.1846099638836
+          ],
+          "upper_s": 459.31625766570164,
+          "standalone_s": 233.69692803626523,
+          "baseline_upper_s": 463.9073533688218,
+          "baseline_standalone_s": 235.77781443402534,
+          "normal_bins": 13,
+          "interval_splits": 9,
+          "range_basis": "minimum_radius_or_same_source_positive_distance"
+        }
+      },
+      {
+        "channel": 20,
+        "reason": "no_certified_upper_improvement",
+        "candidates": 3,
+        "selected": null
+      }
+    ],
+    "active_information_reads": 3,
+    "stationary_information_reads": 0,
+    "max_pending_sources": 8,
+    "source_waits": {
+      "6": {
+        "wait_until_service_s": 54.0,
+        "discovery_to_clear_s": 208.71928200000002
+      },
+      "2": {
+        "wait_until_service_s": 888.54299,
+        "discovery_to_clear_s": 1004.393196
+      },
+      "4": {
+        "wait_until_service_s": 60.0,
+        "discovery_to_clear_s": 180.58527700000013
+      },
+      "7": {
+        "wait_until_service_s": 1338.954163,
+        "discovery_to_clear_s": 1546.401958
+      },
+      "1": {
+        "wait_until_service_s": 1582.401958,
+        "discovery_to_clear_s": 1792.987527
+      },
+      "18": {
+        "wait_until_service_s": 648.186275,
+        "discovery_to_clear_s": 799.3050260000002
+      },
+      "9": {
+        "wait_until_service_s": 1999.6739120000002,
+        "discovery_to_clear_s": 2162.922799
+      },
+      "8": {
+        "wait_until_service_s": 2168.922799,
+        "discovery_to_clear_s": 2281.158573
+      },
+      "16": {
+        "wait_until_service_s": 438.60341200000016,
+        "discovery_to_clear_s": 585.885509
+      },
+      "13": {
+        "wait_until_service_s": 2398.44067,
+        "discovery_to_clear_s": 2639.41709
+      },
+      "14": {
+        "wait_until_service_s": 18.0,
+        "discovery_to_clear_s": 181.15478799999983
+      },
+      "5": {
+        "wait_until_service_s": 205.15478799999983,
+        "discovery_to_clear_s": 253.83930099999998
+      },
+      "15": {
+        "wait_until_service_s": 223.83930099999998,
+        "discovery_to_clear_s": 363.35753399999976
+      },
+      "20": {
+        "wait_until_service_s": 3370.448879,
+        "discovery_to_clear_s": 3534.393107
+      }
+    },
+    "pending_service": null,
+    "regional_probe_count": 16
+  },
+  "error": null,
+  "wall_s": 0.09295139787718654,
+  "cleared_count": 14,
+  "virtual_time_s": 3653.3931067480567,
+  "average_clear_time_s": 260.956650482004,
+  "counts": {
+    "measure": 110,
+    "clear": 16,
+    "successful_clear": 14,
+    "switch": 95
+  },
+  "event_counts": {
+    "complete_obligation_plan": 21,
+    "discovered": 14,
+    "search_point_done": 7,
+    "service_completed": 21,
+    "residual_route_revision": 8,
+    "history_tightened": 58,
+    "optical_bound_comparison": 32,
+    "information_intercept_decision": 14,
+    "regional_probe_executed": 16,
+    "anchor_updated": 8,
+    "cleared": 14,
+    "optical_cover_planned": 4,
+    "optical_probe_negative": 2,
+    "information_intercept_executed": 3
+  },
+  "log_sha256": "370737fcf83f58e150a5699731976e1d717fed8d2f998a73ae7ea4c65d44f63c"
+}

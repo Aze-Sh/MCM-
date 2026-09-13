@@ -1,0 +1,14 @@
+{
+  "uncovered_region": {
+    "rejected": true,
+    "reason": "Optical chain leaves feasible source positions uncovered"
+  },
+  "false_cost_bound": {
+    "rejected": true,
+    "reason": "The recorded optical upper bound is too small"
+  },
+  "wrong_execution_point": {
+    "rejected": true,
+    "reason": "Execution departed from the certified optical chain"
+  }
+}

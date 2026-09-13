@@ -1,0 +1,14 @@
+Command: .venv/bin/python scripts/check_repository.py --suite all
+Exit code: 0
+Running adaptive: /home/public/zcq/MCM/MCM-/solutions/adaptive
+Ran 68 tests in 29.951s
+OK
+Running baseline: /home/public/zcq/MCM/MCM-/solutions/baseline
+40 passed, 252 warnings in 4.77s
+Running toolkit: /home/public/zcq/MCM/MCM-/toolkit
+87 passed in 1.73s
+All selected suites passed.
+
+Ruff --select F: passed
+Git diff --check: passed
+Default v7 and explicit v8 CLI without --connect: passed, no connection

@@ -1,0 +1,289 @@
+{
+  "name": "q3-validation-n16",
+  "algorithm": "v8",
+  "problem": 3,
+  "seed": 20261076,
+  "source_count": 16,
+  "source_truth": [
+    {
+      "channel": 11,
+      "position": [
+        -1204.3353882288434,
+        -38.17011517097591
+      ],
+      "radius": 1405.803300447974,
+      "direction": null
+    },
+    {
+      "channel": 3,
+      "position": [
+        -429.5244090953046,
+        -1502.01801753917
+      ],
+      "radius": 1444.4718610139357,
+      "direction": null
+    },
+    {
+      "channel": 15,
+      "position": [
+        1419.1700761795757,
+        -13.06950963421175
+      ],
+      "radius": 1421.0585471246131,
+      "direction": null
+    },
+    {
+      "channel": 4,
+      "position": [
+        795.5347913952787,
+        -1394.544343504786
+      ],
+      "radius": 1207.295953630339,
+      "direction": null
+    },
+    {
+      "channel": 14,
+      "position": [
+        20.36329044161948,
+        -1667.4331760442913
+      ],
+      "radius": 1386.238386337272,
+      "direction": null
+    },
+    {
+      "channel": 1,
+      "position": [
+        -778.2045093500568,
+        -1544.9280566909088
+      ],
+      "radius": 1128.9156218310875,
+      "direction": null
+    },
+    {
+      "channel": 12,
+      "position": [
+        -1217.2195456724087,
+        681.7367854997053
+      ],
+      "radius": 1229.122501674361,
+      "direction": null
+    },
+    {
+      "channel": 2,
+      "position": [
+        1439.9721679644888,
+        -528.2932220079647
+      ],
+      "radius": 1023.0084100950758,
+      "direction": null
+    },
+    {
+      "channel": 10,
+      "position": [
+        -538.0205383634558,
+        -430.7976859080132
+      ],
+      "radius": 1198.7679713695609,
+      "direction": null
+    },
+    {
+      "channel": 7,
+      "position": [
+        1020.3414799011886,
+        -1155.9353699857654
+      ],
+      "radius": 1374.5590925897839,
+      "direction": null
+    },
+    {
+      "channel": 5,
+      "position": [
+        998.2304484201807,
+        606.7348553847582
+      ],
+      "radius": 1125.6682294413838,
+      "direction": null
+    },
+    {
+      "channel": 19,
+      "position": [
+        1660.081721346118,
+        -33.03113381990089
+      ],
+      "radius": 1005.7919929203617,
+      "direction": null
+    },
+    {
+      "channel": 18,
+      "position": [
+        164.88445062163396,
+        1004.913163750894
+      ],
+      "radius": 1085.1687475276926,
+      "direction": null
+    },
+    {
+      "channel": 9,
+      "position": [
+        -899.2340533307349,
+        -924.3811858570047
+      ],
+      "radius": 1017.1347071781455,
+      "direction": null
+    },
+    {
+      "channel": 20,
+      "position": [
+        -95.4011725191847,
+        1420.9087917514216
+      ],
+      "radius": 1283.9458007572803,
+      "direction": null
+    },
+    {
+      "channel": 6,
+      "position": [
+        -478.9619554459299,
+        59.15400538654092
+      ],
+      "radius": 1254.8729299785248,
+      "direction": null
+    }
+  ],
+  "noise": "repository fixed coordinate hash",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "policy_revision": "20260912-shared-service-r3",
+  "policy_source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
+    "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
+    "suanfa.py": "b7b510437d1f404421cf3a4bae50bd6444137366cc616895e71bfae70208596a"
+  },
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "policy_revision": "20260912-shared-service-r3",
+    "problem": 3,
+    "reason": "certified_all_cleared",
+    "completion_certified": true,
+    "exit_confirmed": true,
+    "virtual_time_s": 3334.737426,
+    "moving_distance_m": 13053.68712943375,
+    "average_clear_time_s": 208.421089125,
+    "measures": 108,
+    "clear_attempts": 17,
+    "switches": 101,
+    "initial_fallback_upper_s": 41638.71700000001,
+    "fallback_used": false,
+    "budget_guard_checks": 132,
+    "planner": {
+      "decisions": 23,
+      "rollout_candidates": 18,
+      "rollout_timeouts": 0,
+      "continuous_clears": 12,
+      "radio_events": 4
+    },
+    "search_plan": {
+      "proofs": 118,
+      "deletions": 0,
+      "replacements": 0
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      14,
+      15,
+      18,
+      19,
+      20
+    ],
+    "cleared_channels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      14,
+      15,
+      18,
+      19,
+      20
+    ],
+    "unknown_channels": [],
+    "pending_channels": [],
+    "absent_channels": [
+      8,
+      13,
+      16,
+      17
+    ],
+    "extra_actions_remaining": 597,
+    "completion_rank": 597,
+    "rank_receipts": 125,
+    "absence_certificates": [
+      {
+        "channel": 8,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 13,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 16,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 17,
+        "basis": "source_count_upper_bound"
+      }
+    ]
+  },
+  "replay": {
+    "verified": true,
+    "actions": 125,
+    "virtual_time_s": 3334.737426
+  },
+  "error": null,
+  "wall_s": 4.2595534273423254,
+  "cleared_count": 16,
+  "virtual_time_s": 3334.737425886749,
+  "average_clear_time_s": 208.4210891179218,
+  "counts": {
+    "measure": 108,
+    "clear": 17,
+    "successful_clear": 16,
+    "switch": 101
+  },
+  "event_counts": {
+    "v8_started": 1,
+    "event_selected": 41,
+    "evidence_observation": 125,
+    "rank_receipt": 125,
+    "discovered": 16,
+    "batch_observation_selected": 3,
+    "shared_station_selected": 5,
+    "cleared": 16,
+    "completion_checked": 1
+  },
+  "log_sha256": "ad940a2fbe40d95f44244f6f9c909ae0f62aaf16ae05da26a3f1e4cf5af8e4d2"
+}

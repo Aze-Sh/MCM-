@@ -1,0 +1,61 @@
+{
+  "recorded_at_utc": "2026-09-13T00:43:07.731054+00:00",
+  "scope": "Offline publication checks after merging the existing Windows timeout fix; no official simulator used",
+  "remote_base_commit": "900cd563ea042a71da3d6f3054efff988e77a7ba",
+  "policy_revision": "20260912-shared-service-r4",
+  "native_windows_execution": false,
+  "windows_timeout_unit_tests": {
+    "passed": 2,
+    "command": "../../.venv/bin/python -m unittest test_windows_timeout.py -v",
+    "cwd": "experiments/near-optimal"
+  },
+  "static_check": "ruff check --select F: passed",
+  "source_sha256": {
+    "experiments/near-optimal/benchmark.py": "c76ad653c44845491443dea4ebe8c63954016ee35c76e6b7003d8f3d484a65dd",
+    "experiments/near-optimal/verify_optical.py": "74f01a7c74220b59d7677cbe1ca53ad96bebf79048d9e6ef13cc696f3a81e134",
+    "experiments/near-optimal/verify_results.py": "73836a9e963d16520699ccd360029381eab9e34928cdb6d700ac3d83c0fad282",
+    "solutions/adaptive/python/near_optimal/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "solutions/adaptive/python/near_optimal/geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
+    "solutions/adaptive/python/near_optimal/jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
+    "solutions/adaptive/python/near_optimal/suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5",
+    "solutions/adaptive/python/run_robot.py": "2a20468a5280cb02db744e5b5d30810db8f664179f198a111bdbd0068afdf447"
+  },
+  "matched_reruns": [
+    {
+      "name": "q3-seed20260911",
+      "virtual_time_s": 2940.545062270264,
+      "delta_from_r4_s": 0,
+      "requests": 108,
+      "identical_requests": true,
+      "log_sha256": "4c655b8fd06aa2eed167609a46d8cfd1f198073614080cefa9cf41a7992e745c"
+    },
+    {
+      "name": "q3-seed20260912",
+      "virtual_time_s": 3072.889485281752,
+      "delta_from_r4_s": 0,
+      "requests": 142,
+      "identical_requests": true,
+      "log_sha256": "973188ee54adecc9c614c1590315e701ebf855bc3565d21b216578ecd46ab427"
+    },
+    {
+      "name": "q4-seed20260911",
+      "virtual_time_s": 4551.449727502708,
+      "delta_from_r4_s": 0,
+      "requests": 155,
+      "identical_requests": true,
+      "log_sha256": "15ec14ac424678ec30ce5ec0a18a048e3673862ca7a20b80d58f2c5157247466"
+    },
+    {
+      "name": "q4-seed20260912",
+      "virtual_time_s": 6229.87763015866,
+      "delta_from_r4_s": 0,
+      "requests": 322,
+      "identical_requests": true,
+      "log_sha256": "c66a156b6c754d0375e7d2a7176d69a7fbb67243d7a15b7791230fda0b38020e"
+    }
+  ],
+  "current_replays": 30,
+  "historical_replays": 14,
+  "optical_chains": 62,
+  "original_performance_goal_completed": false
+}

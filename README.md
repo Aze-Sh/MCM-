@@ -26,7 +26,9 @@ python solutions/adaptive/python/run_robot.py --help
 
 默认策略是 `obligation-service-interception-v7`。连接模拟器的步骤见[运行说明](solutions/adaptive/docs/running.md)。第二套内部的 `--baseline` 指它自己的早期 midpoint 策略，**不等同于本仓库第一套方案**。
 
-新增可选的 `--v8` 实验版：证据账本、保证完成的备用构造、事件前瞻、连续位置优化和有限世界精确校准已经接入。匹配测试中尚未稳定超过 v7，详见 [v8 实现与结果](solutions/adaptive/docs/v8-implementation.md)及[离线实验](experiments/near-optimal/README.md)。
+新增可选的 `--v8` 实验版：证据账本、完整备用构造、共享测量、完整任务排序和有限世界精确校准已经接入。当前四个固定案例均快于 v7，其中三个省时超过500秒；本轮新增验证案例仍有回退，尚未完成稳定省500秒的目标。详见 [v8 提速记录](solutions/adaptive/docs/v8-optimization.md)及[离线实验](experiments/near-optimal/README.md)。
+
+当前 v8 已整理为过程式写法，核心分为主流程、几何和校准三个文件；阅读顺序与重构验证见 [v8 代码整理说明](solutions/adaptive/docs/v8-style-refactor.md)。
 
 ## 运行第一套的本地模拟
 

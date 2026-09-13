@@ -20,6 +20,8 @@ python solutions/adaptive/python/run_robot.py --problem 3 --case-code OFFLINE-CH
 .\solutions\adaptive\python\start_robot.ps1 -Problem 3 -RunKind rehearsal -RobotId "你的队号"
 ```
 
+选择 v8 时，在上述命令末尾加 `-V8`；Python 入口对应 `--v8`。不指定版本时仍运行 v7。当前 v8 的文件结构见 [代码整理说明](v8-style-refactor.md)。
+
 脚本会询问案例编码、显示题号与策略，输入 `CONNECT` 后才向本地模拟器发送动作。问题四将 `-Problem 3` 改为 `-Problem 4`。如需指定 Python，可添加 `-Python "C:\Python312\python.exe"`；默认使用 PATH 中的 `python`，不再依赖上传者的个人运行时路径。
 
 也可以直接使用 Python 入口；将以下占位内容替换为实际信息：

@@ -5,6 +5,7 @@ from dataclasses import asdict
 import hashlib
 import json
 import math
+import random
 from pathlib import Path
 import signal
 import sys
@@ -13,10 +14,9 @@ import traceback
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT/'solutions/adaptive/python'),str(ROOT/'solutions/baseline/python')]
-from b_simulation import SyntheticSimulator, Source, random_case
-from near_optimal.solver import SolverV8
-from near_optimal.replay import replay
-from near_optimal.finite_policy import calibrate
+from b_simulation import SyntheticSimulator, Source
+from near_optimal import suanfa as v8
+from near_optimal.jiaozhun import replay, calibrate
 
 
 class OfflineIO:
@@ -78,6 +78,23 @@ def cases(suite):
                     result.append(dict(name=f'q{problem}-{geometry}-n{n}',problem=problem,seed=n,
                                        sources=sources,extreme=True))
         return result
+    if suite in ('validation','fresh'):
+        result = []
+        for problem in (3,4):
+            for n in (10,12,14,16):
+                seed = (20261000 if suite=='validation' else 20261100) + problem*20 + n
+                rng = random.Random(seed)
+                sources = []
+                for i,c in enumerate(rng.sample(range(1,21),n)):
+                    r,theta = 1800*math.sqrt(rng.random()),2*math.pi*rng.random()
+                    radius = rng.uniform(1000,1500)
+                    direction = rng.uniform(0,360) if problem==4 else None
+                    if suite=='fresh' and problem==4 and i%3==0:
+                        direction = None
+                    sources.append(Source(c,(r*math.cos(theta),r*math.sin(theta)),radius,direction))
+                result.append(dict(name=f'q{problem}-{suite}-n{n}',problem=problem,seed=seed,
+                                   sources=sources,extreme=False))
+        return result
     if suite=='fallback':
         return [dict(name=f'q{p}-fallback-n{n}',problem=p,seed=n,
                      sources=[Source(i+1,((i-5)*35.,(i%3-1)*25.),1000.,(i*37)%360 if p==4 else None)
@@ -94,7 +111,7 @@ def run_case(case, algorithm='v8', planning_seconds=.20, extra_actions=640,
         from adaptive_v7 import SolverV7
         solver = SolverV7(io,case['problem'])
     else:
-        solver = SolverV8(io,case['problem'],planning_seconds=planning_seconds,
+        solver = v8.xin_zhuangtai(io,case['problem'],planning_seconds=planning_seconds,
                           extra_actions=extra_actions,fallback_only=fallback_only)
     result = dict(name=case['name'],algorithm=algorithm,problem=case['problem'],seed=case['seed'],
                   source_count=len(case['sources']),source_truth=[asdict(s) for s in case['sources']],
@@ -102,6 +119,13 @@ def run_case(case, algorithm='v8', planning_seconds=.20, extra_actions=640,
                   kind='synthetic only; not official simulator evidence',
                   planning_seconds=planning_seconds,extra_actions=extra_actions,
                   fallback_only=fallback_only,wall_limit_s=wall_limit)
+    if algorithm=='v8':
+        policy_root = Path(v8.__file__).resolve().parent
+        result['policy_revision'] = v8.REVISION
+        result['policy_source_sha256'] = {
+            path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(policy_root.glob('*.py'))
+        }
     if 'saved_v7_s' in case:
         result['saved_v7_s'] = case['saved_v7_s']
     def expired(*_): raise TimeoutError('Offline wall time limit exceeded')
@@ -114,22 +138,25 @@ def run_case(case, algorithm='v8', planning_seconds=.20, extra_actions=640,
     io.wall_deadline = time.monotonic() + wall_limit if wall_limit > 0 else math.inf
     started = time.perf_counter()
     try:
-        result['summary'] = solver.run()
+        result['summary'] = v8.yunxing(solver) if algorithm=='v8' else solver.run()
         if algorithm=='v8':
             audit = replay(io.events)
             result['replay'] = {k:audit[k] for k in ('verified','actions','virtual_time_s')}
             receipts = [e for e in io.events if e.get('event')=='rank_receipt']
             if any(e['after']>=e['before'] for e in receipts):
                 raise AssertionError('Completion rank did not strictly decrease')
-        if len(world.cleared)!=len(case['sources']) or not solver.certificate or not solver.exit_confirmed:
+        complete = solver['certificate'] if algorithm=='v8' else solver.certificate
+        exited = solver['exit_confirmed'] if algorithm=='v8' else solver.exit_confirmed
+        virtual = solver['virtual'] if algorithm=='v8' else solver.virtual
+        if len(world.cleared)!=len(case['sources']) or not complete or not exited:
             raise AssertionError('Solver failed actual full clearance or declared completion')
-        if abs(world.virtual_time-solver.virtual)>5e-5:
+        if abs(world.virtual_time-virtual)>5e-5:
             raise AssertionError('Simulator and solver virtual times differ')
         result['error'] = None
     except Exception as exc:
         result['error'] = f'{type(exc).__name__}: {exc}'
         result['traceback'] = traceback.format_exc()
-        result['summary'] = solver.summary()
+        result['summary'] = v8.huizong(solver) if algorithm=='v8' else solver.summary()
     finally:
         if has_alarm:
             signal.alarm(0);signal.signal(signal.SIGALRM,previous)
@@ -148,7 +175,7 @@ def run_case(case, algorithm='v8', planning_seconds=.20, extra_actions=640,
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--suite',choices=('matched','stress','fallback','calibration'),default='matched')
+    parser.add_argument('--suite',choices=('matched','stress','fallback','calibration','validation','fresh'),default='matched')
     parser.add_argument('--algorithm',choices=('v7','v8'),default='v8')
     parser.add_argument('--planning-seconds',type=float,default=.20)
     parser.add_argument('--extra-actions',type=int,default=640)

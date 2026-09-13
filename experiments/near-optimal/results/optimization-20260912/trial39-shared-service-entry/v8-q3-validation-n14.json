@@ -1,0 +1,499 @@
+{
+  "name": "q3-validation-n14",
+  "algorithm": "v8",
+  "problem": 3,
+  "seed": 20261074,
+  "source_count": 14,
+  "source_truth": [
+    {
+      "channel": 5,
+      "position": [
+        -543.4640709980719,
+        260.05416299961485
+      ],
+      "radius": 1395.5300391104358,
+      "direction": null
+    },
+    {
+      "channel": 20,
+      "position": [
+        -1371.8269149346363,
+        53.29622197007136
+      ],
+      "radius": 1479.0338414857165,
+      "direction": null
+    },
+    {
+      "channel": 17,
+      "position": [
+        663.6788818429845,
+        1074.5270935636281
+      ],
+      "radius": 1126.157989333133,
+      "direction": null
+    },
+    {
+      "channel": 16,
+      "position": [
+        -986.4675985517224,
+        896.0578241179096
+      ],
+      "radius": 1297.28715056709,
+      "direction": null
+    },
+    {
+      "channel": 3,
+      "position": [
+        -330.4541685598749,
+        1155.2953964654287
+      ],
+      "radius": 1138.4818488975295,
+      "direction": null
+    },
+    {
+      "channel": 13,
+      "position": [
+        -1394.2863400090605,
+        239.5414319470938
+      ],
+      "radius": 1430.214227072771,
+      "direction": null
+    },
+    {
+      "channel": 18,
+      "position": [
+        968.0727899573434,
+        1252.976328407371
+      ],
+      "radius": 1037.1136748396054,
+      "direction": null
+    },
+    {
+      "channel": 12,
+      "position": [
+        1371.0333676773332,
+        1087.1867580959538
+      ],
+      "radius": 1317.5917862750773,
+      "direction": null
+    },
+    {
+      "channel": 4,
+      "position": [
+        569.473540799503,
+        -161.47297178928167
+      ],
+      "radius": 1418.3928275363037,
+      "direction": null
+    },
+    {
+      "channel": 1,
+      "position": [
+        -682.7726425640258,
+        1026.4488413463137
+      ],
+      "radius": 1210.1461583472033,
+      "direction": null
+    },
+    {
+      "channel": 14,
+      "position": [
+        159.25923283770413,
+        -1142.8983841311529
+      ],
+      "radius": 1141.9595049646816,
+      "direction": null
+    },
+    {
+      "channel": 10,
+      "position": [
+        -1124.6491152203753,
+        -1289.6051968663169
+      ],
+      "radius": 1160.9263137592566,
+      "direction": null
+    },
+    {
+      "channel": 15,
+      "position": [
+        -1676.3951920962402,
+        -364.9581028793129
+      ],
+      "radius": 1492.5556087776674,
+      "direction": null
+    },
+    {
+      "channel": 6,
+      "position": [
+        396.0014996361956,
+        1125.9864822795803
+      ],
+      "radius": 1369.1463457711527,
+      "direction": null
+    }
+  ],
+  "noise": "repository fixed coordinate hash",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "policy_revision": "20260912-shared-service-r4",
+  "policy_source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
+    "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
+    "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
+  },
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "policy_revision": "20260912-shared-service-r4",
+    "problem": 3,
+    "reason": "certified_all_cleared",
+    "completion_certified": true,
+    "exit_confirmed": true,
+    "virtual_time_s": 3182.433711,
+    "moving_distance_m": 12127.168556372766,
+    "average_clear_time_s": 227.31669364285716,
+    "measures": 114,
+    "clear_attempts": 17,
+    "switches": 108,
+    "initial_fallback_upper_s": 41638.71700000001,
+    "fallback_used": false,
+    "budget_guard_checks": 138,
+    "planner": {
+      "decisions": 21,
+      "rollout_candidates": 27,
+      "rollout_timeouts": 0,
+      "continuous_clears": 11,
+      "radio_events": 4
+    },
+    "search_plan": {
+      "proofs": 130,
+      "deletions": 0,
+      "replacements": 0
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      10,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "cleared_channels": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      10,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "unknown_channels": [],
+    "pending_channels": [],
+    "absent_channels": [
+      2,
+      7,
+      8,
+      9,
+      11,
+      19
+    ],
+    "extra_actions_remaining": 594,
+    "completion_rank": 960,
+    "rank_receipts": 131,
+    "absence_certificates": [
+      {
+        "channel": 2,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 7,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 8,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 9,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 11,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ]
+        ],
+        "optical": []
+      },
+      {
+        "channel": 19,
+        "basis": "rational_continuous_coverage",
+        "radio_count": 7,
+        "optical_count": 0,
+        "nodes": 517,
+        "leaf_count": 228,
+        "max_nodes": 20000,
+        "max_depth": 14,
+        "radio": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -1125.0,
+            1.3777276490407724e-13
+          ],
+          [
+            -562.4999999999998,
+            974.2785792574936
+          ],
+          [
+            562.5000000000001,
+            974.2785792574934
+          ],
+          [
+            1125.0,
+            0.0
+          ],
+          [
+            562.5000000000001,
+            -974.2785792574934
+          ],
+          [
+            -562.5000000000005,
+            -974.2785792574932
+          ]
+        ],
+        "optical": []
+      }
+    ]
+  },
+  "replay": {
+    "verified": true,
+    "actions": 131,
+    "virtual_time_s": 3182.433711
+  },
+  "error": null,
+  "wall_s": 3.9250895460136235,
+  "cleared_count": 14,
+  "virtual_time_s": 3182.433711274552,
+  "average_clear_time_s": 227.316693662468,
+  "counts": {
+    "measure": 114,
+    "clear": 17,
+    "successful_clear": 14,
+    "switch": 108
+  },
+  "event_counts": {
+    "v8_started": 1,
+    "event_selected": 41,
+    "evidence_observation": 131,
+    "rank_receipt": 131,
+    "discovered": 14,
+    "batch_observation_selected": 3,
+    "cleared": 14,
+    "shared_station_selected": 5,
+    "completion_checked": 1
+  },
+  "log_sha256": "320d6410458232cff2c6f056560ae986189ec7b1f8e6565df234bb157e683e4b"
+}

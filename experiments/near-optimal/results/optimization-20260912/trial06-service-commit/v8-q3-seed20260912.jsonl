@@ -1,0 +1,2 @@
+{"event": "offline_response", "path": "/enter", "request": {"arena_id": "default", "robot_id": "offline-v8", "request_id": "offline-1"}, "reply": {"accepted": true, "real_timestamp_ms": 1789236662035, "virtual_time_s": 0.0, "remaining_real_duration_s": 1200, "max_virtual_duration_s": 360000, "max_real_duration_s": 1200}, "status": 200}
+{"event": "v8_started", "virtual_time_s": 0.0, "problem": 3, "extra_actions": 640, "coverage_nodes": 20000, "coverage_depth": 14, "max_virtual_s": 360000}
