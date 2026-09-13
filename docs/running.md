@@ -1,22 +1,6 @@
 # 运行说明
 
-Python 3.10或更高版本，无需安装第三方包。下列命令均在仓库根目录执行。第三、四题固定使用v8快速版（r4），第一、二题使用独立的离线几何入口。
-
-## 离线检查与模拟
-
-```bash
-python check.py
-python tools/validate.py --suite matched
-```
-
-第一条运行最终版相关的单元及集成测试；第二条复算四个固定案例，并核对与整理前v8快速版的请求和用时一致。完整30场验证用 `python tools/validate.py`，包含边界、密集、备用完成及全向、混合源输入。新日志保存在 `runs/validation-时间戳/`。
-
-重新生成30场日志后，可只核查该目录：
-
-```bash
-python tools/validate.py --output runs/style-check
-python tools/validate.py --verify-only --output runs/style-check
-```
+Python 3.10或更高版本，无需安装第三方包。下列命令均在仓库根目录执行。第一、二题使用离线几何入口，第三、四题连接模拟器接口。
 
 ## Windows演练
 
@@ -30,16 +14,16 @@ python tools/validate.py --verify-only --output runs/style-check
 .\start_robot.ps1 -Problem 4 -RunKind rehearsal -CaseCode 实际案例编码 -RobotId 队号
 ```
 
-该脚本会要求输入CONNECT，沿用原有的人工连接步骤。脚本不会启动模拟器、登录账号或选择测试模式。`--run-kind`只记录本地元数据，不能控制官方界面。
+该脚本会要求输入CONNECT，确认后开始发送动作。脚本不会启动模拟器、登录账号或选择测试模式。`--run-kind`只记录本地元数据，不能控制官方界面。
 
-第三、四题默认就是 `20260912-shared-service-r4`。`--v8`、`-V8`仅为兼容参数，不切换算法。原 `--v8-planning-seconds`、`--v8-extra-actions`兼容到现在的 `--planning-seconds`、`--extra-actions`，默认值仍为0.2和640。
+规划时间`--planning-seconds`默认为0.2秒，可选动作额度`--extra-actions`默认为640次。
 
 ## 每场记录保存在哪里
 
 默认目录为 `runs/rehearsal_q4_时间戳/` 或 `runs/rehearsal_q3_时间戳/`，包含：
 
-- `metadata.json`：题号、案例编码、测试类型、策略及 `policy_revision`。
-- `actions.jsonl`：机器人侧明文动作、响应和证据记录。
+- `metadata.json`：题号、案例编码、测试类型和接口地址。
+- `actions.jsonl`：机器人侧动作、响应与清除进度。
 - `summary.json`：正常完成后的总用时、清除与完成状态。
 
 HTTP请求不自动重试。异常会直接抛出，已写入的日志保留，异常中止时不会生成 `summary.json`，也不会补发退出请求。算法和协议必要检查仍保留。

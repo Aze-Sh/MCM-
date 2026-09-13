@@ -14,8 +14,8 @@ from matplotlib import font_manager
 from matplotlib.patches import Circle, Polygon, FancyBboxPatch
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path[:0] = [str(ROOT / "src"), str(ROOT / "tools")]
-from jammer_solver import solver as v8, exact_geometry as g
+sys.path.insert(0, str(ROOT / "src"))
+from jammer_solver import solver as sf, exact_geometry as g
 from jammer_solver.questions import jdyh, jhqy
 
 PAPER = ROOT / "paper"
@@ -78,7 +78,7 @@ ax.axis("off")
 boxes = [
     (0.1, 3.2, 2.65, 1.0, "实际观测\n方向 / 近距 / 阴性", BLUE),
     (3.6, 3.2, 2.65, 1.0, "证据账本\n频道状态与可行域", BLUE),
-    (7.1, 3.2, 2.65, 1.0, "完成证书\n实际清除 + 排除未知", GREEN),
+    (7.1, 3.2, 2.65, 1.0, "完成条件\n实际清除 + 排除未知", GREEN),
     (0.1, 0.55, 2.65, 1.15, "覆盖搜索\nQ3：7站 / Q4：21站", GRAY),
     (3.6, 0.55, 2.65, 1.15, "联合任务排序\n移动 + 测向 + 清除", BLUE),
     (7.1, 0.55, 2.65, 1.15, "执行下一动作\n射频 / 完整光学链", RED),
@@ -170,7 +170,7 @@ save(fig, "q2_design")
 
 fig, axs = plt.subplots(1, 2, figsize=(6.3, 3.1), layout="constrained")
 for ax, problem in zip(axs, [3, 4]):
-    q = np.array(v8.sscd(problem))
+    q = np.array(sf.sscd(problem))
     ax.add_patch(Circle((0, 0), 1800, fill=False, color="black", lw=1.6))
     if problem == 3:
         for p in q:
@@ -230,14 +230,13 @@ ax.set_xlim(-100, 1350)
 ax.set_ylim(-500, 500)
 equal(ax)
 ax.set_title("(b) 双阴性收缩的几何条件")
-save(fig, "directional_proof")
+save(fig, "directional_geometry")
 
 from fractions import Fraction
 
 snapshot = json.loads((PAPER / "figure-data.json").read_text(encoding="utf-8"))
-chain = snapshot["event"]
-poly = tuple(tuple(Fraction(x) for x in p) for p in snapshot["polygon_rational"])
-points = [g.point(p) for p in chain["points"]]
+poly = tuple(tuple(Fraction(x) for x in p) for p in snapshot["polygon"])
+points = [g.point(p) for p in snapshot["points"]]
 origin = np.array((tuple((float(x) for x in points[0]))))
 axis = np.array((tuple((float(x) for x in points[-1])))) - origin
 axis /= np.linalg.norm(axis)
@@ -285,28 +284,29 @@ save(fig, "optical_chain")
 
 fig, axs = plt.subplots(1, 2, figsize=(6.3, 2.85), layout="constrained")
 for p, c, m in [(3, BLUE, "o"), (4, RED, "s")]:
-    rows = [r for r in DATA["comparison"] if r["problem"] == p]
+    rows = [
+        r
+        for r in DATA["cases"]
+        if r["name"].startswith(f"q{p}-") and r["category"] == "standard"
+    ]
     axs[0].scatter(
-        [r["v7_s"] for r in rows],
-        [r["v8_s"] for r in rows],
+        [r["source_count"] for r in rows],
+        [r["virtual_time_s"] for r in rows],
         c=c,
         marker=m,
         s=28,
         label=f"问题{p}",
     )
-axs[0].plot([2500, 8200], [2500, 8200], "--", color=GRAY, lw=1.5)
-axs[0].set_xlim(2500, 8200)
-axs[0].set_ylim(2500, 8200)
-axs[0].set_xlabel("v7 总虚拟时间 / s")
-axs[0].set_ylabel("v8 总虚拟时间 / s")
+axs[0].set_xlabel("源个数")
+axs[0].set_ylabel("总虚拟时间 / s")
+axs[0].set_xticks([10, 12, 14, 16])
 axs[0].legend()
 axs[0].grid(alpha=0.18)
 for j, p in enumerate([3, 4]):
     rows = [
         r
         for r in DATA["cases"]
-        if r["name"].startswith(f"q{p}-")
-        and r["suite"] in ("matched", "validation", "fresh")
+        if r["name"].startswith(f"q{p}-") and r["category"] == "standard"
     ]
     costs = [
         np.mean([r["moving_distance_m"] / 5 for r in rows]),
@@ -341,29 +341,20 @@ axs[1].set_ylim(0, 8200)
 save(fig, "performance")
 
 fig, axs = plt.subplots(1, 2, figsize=(6.3, 2.7), layout="constrained")
-for i, c in enumerate(DATA["calibration"]):
-    axs[0].plot(
-        [v["depth"] for v in c["rollout"]],
-        [v["gap_s"] for v in c["rollout"]],
-        ["o-", "s--", "^-."][i],
-        color=[BLUE, RED, GREEN][i],
-        label=f"有限问题 {i + 1}",
-    )
-axs[0].set_xlabel("前瞻深度")
-axs[0].set_ylabel("距有限问题最优值 / s")
-axs[0].set_xticks(range(4))
+distance = np.linspace(0, 1000, 101)
+axs[0].plot(distance, distance / 5, "-", color=BLUE)
+axs[0].set_xlabel("移动距离 / m")
+axs[0].set_ylabel("移动时间 / s")
 axs[0].grid(alpha=0.18)
-axs[0].legend(fontsize=8)
-ns = list(range(10, 17))
-for p, c, m in [(3, BLUE, "o-"), (4, RED, "s--")]:
-    vals = [0 if n == 16 else (20 - n) * DATA["absence_cost"][str(p)] for n in ns]
-    axs[1].plot(ns, vals, m, color=c, label=f"问题{p}")
-axs[1].set_xlabel("实际源总数 N")
-axs[1].set_ylabel("无源频道的必要操作成本 / s")
-axs[1].set_xticks(ns)
-axs[1].grid(alpha=0.18)
-axs[1].legend(fontsize=8)
-save(fig, "calibration_bounds")
+axs[1].bar(
+    ["测向", "切频", "清除成功", "光学失败"],
+    [5, 1, 5, 3],
+    color=[BLUE, GREEN, RED, PURPLE],
+    hatch=["", "//", "xx", ".."],
+)
+axs[1].set_ylabel("单次设备操作时间 / s")
+axs[1].set_ylim(0, 6)
+save(fig, "task_costs")
 
 fig, axs = plt.subplots(1, 2, figsize=(6.3, 2.65), layout="constrained")
 for ax, p in zip(axs, [3, 4]):

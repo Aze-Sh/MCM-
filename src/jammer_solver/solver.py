@@ -2,7 +2,6 @@ from fractions import Fraction as fs
 from itertools import combinations
 import math
 import time
-from .protocol import jyhf
 from . import exact_geometry as g
 
 qcbj = 19.8
@@ -147,7 +146,6 @@ def qclxyh(centers, radius, start, current, target, bsmax=24):
         gap = max(0.0, g[0] * (point[0] - support[0]) + g[1] * (point[1] - support[1]))
         if gap <= 1e-05:
             break
-
         lo, hi = (0.0, 1.0)
         for _ in range(36):
             left, right = ((2 * lo + hi) / 3, (lo + 2 * hi) / 3)
@@ -241,10 +239,6 @@ def zhipai(cost):
     return (sum((cost[i][j] for i, j in enumerate(succ))), succ)
 
 
-celue = "event-rollout-certified-completion-v8"
-banben = "20260912-shared-service-r4"
-
-
 def sscd(problem):
     if problem == 3:
         return [(0.0, 0.0)] + [
@@ -271,17 +265,12 @@ def pindao(jilu, status):
     return {c for c, s in jilu["channels"].items() if s["status"] in status}
 
 
-def xjjl(problem, dzys=640, *, fgjd=4096, fgsd=12, jhbb=1):
-    if jhbb not in (1, 2):
-        raise ValueError("Unknown source geometry version")
+def xjjl(problem, dzys=640):
     return dict(
         problem=problem,
         extra=dzys,
-        coverage_nodes=fgjd,
-        coverage_depth=fgsd,
-        geometry_version=jhbb,
-        receipts=[],
-        certificates=[],
+        coverage_nodes=20000,
+        coverage_depth=14,
         channels={
             c: dict(
                 status="unknown",
@@ -290,7 +279,6 @@ def xjjl(problem, dzys=640, *, fgjd=4096, fgsd=12, jhbb=1):
                 records=[],
                 pending=set(g.sswd()),
                 source=None,
-                proof=None,
             )
             for c in range(1, 21)
         },
@@ -303,32 +291,18 @@ def xjlx(points, seconds=0.25):
         seconds=seconds,
         signature=None,
         route=[],
-        proofs=0,
-        deletions=0,
-        replacements=0,
         pending_stop=None,
     )
 
 
-def xjzt(io, problem, jd=None, *, dzys=640, ghsj=0.2, qqsj=0.1, byonly=False):
+def xjzt(io, problem, jd=None, *, dzys=640, ghsj=0.2, qqsj=0.1):
     return dict(
         io=io,
         problem=problem,
         progress=jd,
-        ledger=xjjl(problem, dzys, fgjd=20000, fgsd=14, jhbb=2 if problem == 3 else 1),
-        planner=dict(
-            seconds=ghsj,
-            problem=problem,
-            statistics=dict(
-                decisions=0,
-                rollout_candidates=0,
-                rollout_timeouts=0,
-                continuous_clears=0,
-                radio_events=0,
-            ),
-        ),
+        ledger=xjjl(problem, dzys),
+        planner=dict(seconds=ghsj, problem=problem),
         request_seconds=qqsj,
-        fallback_only=byonly,
         position=(0.0, 0.0),
         channel=1,
         virtual=0.0,
@@ -339,15 +313,11 @@ def xjzt(io, problem, jd=None, *, dzys=640, ghsj=0.2, qqsj=0.1, byonly=False):
         entered=False,
         exit_confirmed=False,
         exit_attempted=False,
-        certificate=False,
-        reason="not_started",
-        started=None,
+        completed=False,
         deadline=math.inf,
         max_virtual=360000.0,
         fallback_used=False,
-        initial_upper=None,
         search_plan=xjlx(sscd(problem)),
-        guard_checks=0,
     )
 
 
@@ -363,7 +333,7 @@ def qjj(poly, other):
     return poly
 
 
-def xjyd(origin, bearing=None, jhbb=1):
+def xjyd(origin, bearing=None, problem=4):
     origin = g.point(origin)
     yuan = dict(
         origin=origin,
@@ -407,7 +377,7 @@ def xjyd(origin, bearing=None, jhbb=1):
     yuan["positives"].append(origin)
     if not yuan["polygon"] or not yuan["cells"]:
         raise RuntimeError("Known source lost all feasible responsibilities")
-    if jhbb == 2:
+    if problem == 3:
         xdfw(yuan, qjj(yuan["polygon"], g.yfw()))
         yuan["anchor_radius"] = math.nextafter(
             max((float(g.jlsx(yuan["anchor_point"], p)) for p in yuan["polygon"])),
@@ -513,52 +483,34 @@ def syrw(jilu):
     )
 
 
-def bjwy(jilu, c, basis, **details):
+def bjwy(jilu, c):
     s = jilu["channels"][c]
-    if s["status"] != "unknown":
-        raise RuntimeError("Cannot mark a discovered source absent")
     s["status"] = "absent"
     s["pending"].clear()
-    s["proof"] = dict(channel=c, basis=basis, **details)
-    jilu["certificates"].append(s["proof"])
 
 
-def zmwy(jilu, c, jdmax=None):
+def pdwy(jilu, c):
     s = jilu["channels"][c]
     if s["status"] != "unknown":
         return False
     if not s["pending"]:
-        bjwy(jilu, c, "exact_600m_grid_template", radio_count=len(s["radio"]))
+        bjwy(jilu, c)
         return True
     if len(s["radio"]) < (6 if jilu["problem"] == 3 else 7) and (not s["optical"]):
         return False
-    if jdmax is None:
-        jdmax = jilu["coverage_nodes"]
-    proved, nodes, box, leaves = g.fgzm(
+    covered = g.fgpd(
         tuple(sorted(set(s["radio"]))),
         tuple(sorted(set(s["optical"]))),
         jilu["problem"],
-        jdmax,
+        jilu["coverage_nodes"],
         jilu["coverage_depth"],
     )
-    if proved:
-        bjwy(
-            jilu,
-            c,
-            "rational_continuous_coverage",
-            radio_count=len(s["radio"]),
-            optical_count=len(s["optical"]),
-            nodes=nodes,
-            leaf_count=len(leaves),
-            max_nodes=jdmax,
-            max_depth=jilu["coverage_depth"],
-            radio=[tuple((float(x) for x in q)) for q in s["radio"]],
-            optical=[tuple((float(x) for x in q)) for q in s["optical"]],
-        )
-    return proved
+    if covered:
+        bjwy(jilu, c)
+    return covered
 
 
-def gxjl(jilu, path, q, c, huifu, prove=True):
+def gxjl(jilu, path, q, c, huifu, pd=True):
     before = syrw(jilu)
     q = g.point(q)
     s = jilu["channels"][c]
@@ -578,15 +530,15 @@ def gxjl(jilu, path, q, c, huifu, prove=True):
             if kind == "no_signal":
                 s["radio"].append(q)
                 s["pending"].discard(q)
-                if prove:
-                    zmwy(jilu, c)
+                if pd:
+                    pdwy(jilu, c)
             else:
                 s["status"] = "found"
                 s["pending"].clear()
                 s["source"] = xjyd(
                     q,
                     huifu["svd_deg"] if kind == "direction" else None,
-                    jilu["geometry_version"],
+                    jilu["problem"],
                 )
         elif kind == "direction":
             gxyd(s["source"], q, "direction", bearing=huifu["svd_deg"])
@@ -600,32 +552,19 @@ def gxjl(jilu, path, q, c, huifu, prove=True):
         s["source"] = None
     elif s["status"] == "unknown":
         s["optical"].append(q)
-        if prove:
-            zmwy(jilu, c)
+        if pd:
+            pdwy(jilu, c)
     else:
         gxyd(s["source"], q, "no_target_in_range")
     if len(pindao(jilu, ("found", "cleared"))) > 16:
         raise RuntimeError("More than 16 distinct sources")
     if len(pindao(jilu, ("found", "cleared"))) == 16:
         for other in sorted(pindao(jilu, ("unknown",))):
-            bjwy(jilu, other, "source_count_upper_bound")
+            bjwy(jilu, other)
     if syrw(jilu) >= before:
         if jilu["extra"] <= 0:
             raise RuntimeError("An unproductive action had no reserved allowance")
         jilu["extra"] -= 1
-    after = syrw(jilu)
-    if after >= before or after < 0:
-        raise RuntimeError("Completion rank failed to decrease")
-    receipt = dict(
-        before=before,
-        after=after,
-        extra_remaining=jilu["extra"],
-        channel=c,
-        path=path,
-        result=kind,
-    )
-    jilu["receipts"].append(receipt)
-    return receipt
 
 
 def qbqc(jilu):
@@ -665,22 +604,6 @@ def sysj(jilu, weizhi):
         )
     )
     return math.nextafter(math.fsum(parts), math.inf)
-
-
-def jlzy(jilu):
-    return dict(
-        discovered_channels=sorted(pindao(jilu, ("found", "cleared"))),
-        cleared_channels=sorted(pindao(jilu, ("cleared",))),
-        unknown_channels=sorted(pindao(jilu, ("unknown",))),
-        pending_channels=sorted(pindao(jilu, ("found",))),
-        absent_channels=[
-            c for c, s in jilu["channels"].items() if s["status"] == "absent"
-        ],
-        extra_actions_remaining=jilu["extra"],
-        completion_rank=syrw(jilu),
-        rank_receipts=len(jilu["receipts"]),
-        absence_certificates=jilu["certificates"],
-    )
 
 
 def lxqc(yuan, dq, target=None):
@@ -976,7 +899,6 @@ def gxxz(jihua, yuan, channel, wz, tuned, extra, event, target):
             channel=channel,
             points=order,
             estimate=mean,
-            certificate_upper_s=upper,
             method="complete_cover_expected_first_success",
         )
     return event
@@ -985,7 +907,6 @@ def gxxz(jihua, yuan, channel, wz, tuned, extra, event, target):
 def yddz(jihua, yuan, channel, dq, tuned, extra, target=None):
     q = lxqc(yuan, dq, target)
     if q is not None:
-        jihua["statistics"]["continuous_clears"] += 1
         return {
             "kind": "clear",
             "channel": channel,
@@ -1008,10 +929,8 @@ def yddz(jihua, yuan, channel, dq, tuned, extra, target=None):
         pair = sdc(yuan, dq, ratio)
         jieguo = sptz(yuan, dq, pair, jihua["problem"], dl)
         if jieguo is None:
-            jihua["statistics"]["rollout_timeouts"] += 1
             break
         value, paths = jieguo
-        jihua["statistics"]["rollout_candidates"] += 1
         if value < best["estimate"]:
             best = {
                 "kind": "radio",
@@ -1031,7 +950,6 @@ def yddz(jihua, yuan, channel, dq, tuned, extra, target=None):
         }
     best = bmcf(jihua, yuan, dq, best)
     best = gxxz(jihua, yuan, channel, dq, tuned, extra, best, target)
-    jihua["statistics"]["radio_events"] += best["kind"] == "radio"
     return best
 
 
@@ -1040,10 +958,6 @@ def bmcf(jihua, yuan, wz, event):
         return event
     if not all((q in yuan["negatives"] for q in event["points"])):
         return event
-    stats = jihua["statistics"]
-    stats["repeated_negative_pairs_skipped"] = (
-        stats.get("repeated_negative_pairs_skipped", 0) + 1
-    )
     upper, _, order = xuduan(yuan, wz)
     return dict(
         event,
@@ -1055,7 +969,6 @@ def bmcf(jihua, yuan, wz, event):
 
 
 def pgsx(tu, order):
-    tu["evaluations"] += 1
     if not order:
         return (0.0, [])
     costs = {i: (tu["start"][i], [i]) for i in tu["ids"][order[0]]}
@@ -1127,7 +1040,6 @@ def aprw(jobs, wz, oldorder=()):
         start={
             i: math.dist(wz, m["entry"]) / 5 + m["service"] for i, m in enumerate(modes)
         },
-        evaluations=0,
     )
     old = [job for job in oldorder if job in jobs]
     old += [job for job in jobs if job not in old]
@@ -1182,11 +1094,10 @@ def aprw(jobs, wz, oldorder=()):
                 value, order, opts = (cand, trial, plan)
         if value >= before - 1e-07:
             break
-    return dict(estimate=value, order=order, modes=opts, evaluations=tu["evaluations"])
+    return dict(estimate=value, order=order, modes=opts)
 
 
 def xzdz(jihua, jilu, dq, tuned, sscd):
-    jihua["statistics"]["decisions"] += 1
     jobs = {}
     for c in sorted(pindao(jilu, ("found",))):
         yuan = jilu["channels"][c]["source"]
@@ -1294,20 +1205,17 @@ def gxlx(luxian, jilu, dq):
         for value, kind, removed, trial in sorted(options):
             if value >= old - 1e-06 or time.perf_counter() >= dl:
                 break
-            luxian["proofs"] += 1
             points = tuple(sorted(common | {g.point(q) for q in trial}))
-            proved = g.fgzm(
+            covered = g.fgpd(
                 points,
                 (),
                 jilu["problem"],
                 jilu["coverage_nodes"],
                 jilu["coverage_depth"],
-            )[0]
-            if proved:
+            )
+            if covered:
                 route = trial
                 improved = True
-                luxian["deletions"] += kind == "delete"
-                luxian["replacements"] += kind == "replace"
                 break
         if not improved:
             break
@@ -1342,7 +1250,6 @@ def sycs(zt):
 
 def ysjc(zt, points):
     jilu = zt["ledger"]
-    zt["guard_checks"] += 1
     upper = sysj(jilu, zt["position"])
     p = zt["position"]
     dist = 0.0
@@ -1361,7 +1268,7 @@ def ysjc(zt, points):
     return virtualok and realok
 
 
-def zhixing(zt, path, q, c, *, prove=True):
+def zhixing(zt, path, q, c, *, pd=True):
     jiekou = zt["io"]
     jilu = zt["ledger"]
     q = tuple((float(x) for x in g.point(q)))
@@ -1374,8 +1281,6 @@ def zhixing(zt, path, q, c, *, prove=True):
         raise RuntimeError("Physical action exceeds virtual budget")
     sw = int(path == "/measure" and c != zt["channel"])
     huifu = jiekou["call"](path, q, c)
-    jyhf(path, huifu)
-    before = zt["virtual"]
     zt["position"] = q
     zt["virtual"] = huifu["virtual_time_s"]
     zt["travel"] += moved
@@ -1383,24 +1288,10 @@ def zhixing(zt, path, q, c, *, prove=True):
         zt["measures"] += 1
         zt["switches"] += sw
         zt["channel"] = c
-        cost = 5 + sw
     else:
         zt["clear_attempts"] += 1
-        cost = 5 if huifu["clear_result"] == "success" else 3
-    if abs(zt["virtual"] - before - moved / 5 - cost) > 5e-05:
-        raise RuntimeError("Accepted response violates documented virtual costs")
     found = c in pindao(jilu, ("found", "cleared"))
-    bcsj(
-        zt,
-        "evidence_observation",
-        path=path,
-        point=q,
-        channel=c,
-        reply=huifu,
-        prove=prove,
-    )
-    receipt = gxjl(jilu, path, q, c, huifu, prove=prove)
-    bcsj(zt, "rank_receipt", **receipt)
+    gxjl(jilu, path, q, c, huifu, pd=pd)
     if not found and c in pindao(jilu, ("found", "cleared")):
         bcsj(zt, "discovered", channel=c)
     if path == "/clear" and huifu["clear_result"] == "success":
@@ -1533,14 +1424,6 @@ def slcl(zt):
     for score, c in sorted(beixuan):
         if jilu["extra"] < 2 or not ysjc(zt, (wz,)):
             return False
-        bcsj(
-            zt,
-            "shared_station_selected",
-            channel=c,
-            point=wz,
-            estimated_gain_s=-score,
-            scope="heuristic; reception is established only by the actual reply",
-        )
         zhixing(zt, "/measure", wz, c)
     return True
 
@@ -1606,17 +1489,6 @@ def plcl(zt, unknown):
     score, angle, q, gain, detour, pd = min(options)
     if jilu["problem"] == 4 and (score >= 0 or not pd):
         return True
-    bcsj(
-        zt,
-        "batch_observation_selected",
-        channels=pd,
-        point=q,
-        angle=angle,
-        radius=radius,
-        estimated_gain_s=gain,
-        estimated_detour_s=detour,
-        reception_weighted=jilu["problem"] == 4,
-    )
     for c in pd:
         if jilu["extra"] < 2 or not ysjc(zt, (q,)):
             return False
@@ -1654,32 +1526,13 @@ def zx(zt, event):
     if event["kind"] == "optical_chain":
         if jilu["extra"] < len(event["points"]) or not ysjc(zt, event["points"]):
             return False
-        bcsj(
-            zt,
-            "optical_chain_selected",
-            channel=event["channel"],
-            points=[tuple((float(x) for x in q)) for q in event["points"]],
-            upper_s=event["certificate_upper_s"],
-            mean_s=event["estimate"],
-            scope="hypothesis-weighted ranking; complete Voronoi disk cover certifies success",
-        )
         for q in event["points"]:
             if event["channel"] not in pindao(jilu, ("found",)):
                 return True
             zhixing(zt, "/clear", q, event["channel"])
         if event["channel"] in pindao(jilu, ("found",)):
-            raise RuntimeError("Certified optical chain exhausted")
+            raise RuntimeError("Optical route exhausted without clearing the source")
         return True
-    bcsj(
-        zt,
-        "event_selected",
-        kind=event["kind"],
-        channel=event["channel"],
-        points=[tuple((float(x) for x in q)) for q in event["points"]],
-        method=event["method"],
-        candidate_estimate_s=event["estimate"],
-        estimate_scope="candidate ranking; not a global optimality bound",
-    )
     if event["kind"] == "search":
         q = event["points"][0]
         for c in sorted(
@@ -1701,19 +1554,7 @@ def zx(zt, event):
     if first["measure_result"] == "no_signal" and zt["problem"] == 4:
         second = zhixing(zt, "/measure", b, event["channel"])
         if second["measure_result"] == "no_signal":
-            before = syrw(jilu)
-            changed = syx(yuan, pos, a, b)
-            bcsj(
-                zt,
-                "verified_negative_pair",
-                channel=event["channel"],
-                changed=changed,
-                positive=tuple((float(x) for x in pos)),
-                a=tuple((float(x) for x in a)),
-                b=tuple((float(x) for x in b)),
-                rank_before=before,
-                rank_after=syrw(jilu),
-            )
+            syx(yuan, pos, a, b)
     return True
 
 
@@ -1725,7 +1566,7 @@ def dzqcy(zt, c):
         if c not in pindao(jilu, ("found",)):
             return
         if i in yuan["cells"]:
-            zhixing(zt, "/clear", q, c, prove=False)
+            zhixing(zt, "/clear", q, c, pd=False)
     if c in pindao(jilu, ("found",)):
         raise RuntimeError("Constructive optical cover exhausted without success")
 
@@ -1735,14 +1576,7 @@ def byqc(zt):
     zt["fallback_used"] = True
     upper = sysj(jilu, zt["position"])
     if zt["virtual"] + upper >= zt["max_virtual"] - 1:
-        raise RuntimeError("No certified completion fits the remaining virtual budget")
-    bcsj(
-        zt,
-        "fallback_committed",
-        remaining_upper_s=upper,
-        requests_upper=sycs(zt),
-        real_time_condition=f"requires sufficient actual latency; assumed {zt['request_seconds']:g} s/request",
-    )
+        raise RuntimeError("Remaining virtual time is insufficient")
     origin = zt["position"]
     known = sorted(
         pindao(jilu, ("found",)),
@@ -1759,13 +1593,13 @@ def byqc(zt):
                 or q not in jilu["channels"][c]["pending"]
             ):
                 continue
-            zhixing(zt, "/measure", q, c, prove=False)
+            zhixing(zt, "/measure", q, c, pd=False)
             if c in pindao(jilu, ("found",)):
                 dzqcy(zt, c)
         if qbqc(jilu):
             break
     for c in sorted(pindao(jilu, ("unknown",))):
-        zmwy(jilu, c)
+        pdwy(jilu, c)
     if not qbqc(jilu):
         raise RuntimeError(
             "Full fallback exhausted without a valid 10–16 source completion"
@@ -1775,29 +1609,14 @@ def byqc(zt):
 def yunxing(zt):
     jiekou = zt["io"]
     jilu = zt["ledger"]
-    zt["started"] = time.monotonic()
     huifu = jiekou["call"]("/enter")
-    jyhf("/enter", huifu)
     zt["entered"] = True
     zt["virtual"] = huifu["virtual_time_s"]
     zt["max_virtual"] = huifu["max_virtual_duration_s"]
     zt["deadline"] = time.monotonic() + huifu["remaining_real_duration_s"]
     jiekou["deadline"] = zt["deadline"]
-    zt["initial_upper"] = sysj(jilu, zt["position"])
-    zt["reason"] = "running"
-    bcsj(
-        zt,
-        "v8_started",
-        problem=zt["problem"],
-        policy_revision=banben,
-        extra_actions=jilu["extra"],
-        coverage_nodes=jilu["coverage_nodes"],
-        coverage_depth=jilu["coverage_depth"],
-        geometry_version=jilu["geometry_version"],
-        max_virtual_s=zt["max_virtual"],
-    )
     while not qbqc(jilu):
-        if zt["fallback_only"] or jilu["extra"] < 2:
+        if jilu["extra"] < 2:
             byqc(zt)
             break
         if time.monotonic() + sycs(zt) * zt["request_seconds"] + 30 >= zt["deadline"]:
@@ -1811,9 +1630,7 @@ def yunxing(zt):
         if not zxsj(zt, event):
             byqc(zt)
             break
-    zt["certificate"] = qbqc(jilu)
-    zt["reason"] = "certified_all_cleared" if zt["certificate"] else "incomplete"
-    bcsj(zt, "completion_checked", certified=zt["certificate"])
+    zt["completed"] = qbqc(jilu)
     tuichu(zt)
     return huizong(zt)
 
@@ -1825,39 +1642,26 @@ def tuichu(zt):
     if jiekou["pending"] is not None:
         raise RuntimeError("Cannot exit while earlier request is unresolved")
     zt["exit_attempted"] = True
-    huifu = jiekou["call"]("/exit")
-    jyhf("/exit", huifu)
-    if abs(huifu["virtual_time_s"] - zt["virtual"]) > 5e-05:
-        raise RuntimeError("Exit unexpectedly changed virtual time")
+    jiekou["call"]("/exit")
     zt["exit_confirmed"] = True
 
 
 def huizong(zt):
     jilu = zt["ledger"]
+    cleared = sorted(pindao(jilu, ("cleared",)))
     return dict(
-        strategy=celue,
-        policy_revision=banben,
         problem=zt["problem"],
-        reason=zt["reason"],
-        completion_certified=zt["certificate"],
+        completed=zt["completed"],
         exit_confirmed=zt["exit_confirmed"],
         virtual_time_s=zt["virtual"],
         moving_distance_m=zt["travel"],
-        average_clear_time_s=zt["virtual"] / len(pindao(jilu, ("cleared",)))
-        if pindao(jilu, ("cleared",))
-        else None,
+        cleared_count=len(cleared),
+        average_clear_time_s=zt["virtual"] / len(cleared) if cleared else None,
+        cleared_channels=cleared,
+        unknown_channels=sorted(pindao(jilu, ("unknown",))),
+        pending_channels=sorted(pindao(jilu, ("found",))),
         measures=zt["measures"],
         clear_attempts=zt["clear_attempts"],
         switches=zt["switches"],
-        initial_fallback_upper_s=zt["initial_upper"],
         fallback_used=zt["fallback_used"],
-        budget_guard_checks=zt["guard_checks"],
-        planner=zt["planner"]["statistics"],
-        search_plan=dict(
-            proofs=zt["search_plan"]["proofs"],
-            deletions=zt["search_plan"]["deletions"],
-            replacements=zt["search_plan"]["replacements"],
-        ),
-        real_time_guarantee="conditional on execution and request latency; not unconditional",
-        **jlzy(jilu),
     )

@@ -1,11 +1,14 @@
 {
-  "note": "Selected published v8 fast version (r4), frozen before layout cleanup. Request hashes exclude responses and wall timestamps.",
+  "description": "Synthetic case inputs for the reported offline results. These are not official simulator cases.",
   "cases": [
     {
-      "name": "q3-seed20260911",
+      "name": "q3-01",
+      "label": "S1",
       "problem": 3,
+      "category": "standard",
       "seed": 20260911,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 20,
           "position": [
@@ -151,34 +154,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 2940.545062270264,
-      "source_count": 16,
-      "counts": {
-        "measure": 90,
-        "clear": 16,
-        "successful_clear": 16,
-        "switch": 80
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "31af69e68ddab8dbeac0c0a4f49c82cafe7e8c6c4a5cbd5790a597770f500d30",
-      "suite": "matched",
-      "extreme": false,
-      "request_sha256": "5bf726d6e587bbf4a5c455844776789cc25728da6ed17892bd5f7b8d2dca97a7"
+      "extra_actions": 640
     },
     {
-      "name": "q3-seed20260912",
+      "name": "q3-02",
+      "label": "S2",
       "problem": 3,
+      "category": "standard",
       "seed": 20260912,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 14,
           "position": [
@@ -270,34 +256,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 3072.889485281752,
-      "source_count": 10,
-      "counts": {
-        "measure": 130,
-        "clear": 10,
-        "successful_clear": 10,
-        "switch": 119
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "4e674190dec7a00c483ce2af25b9b8c87a915233b3dd01779ecf84f3b1e023a0",
-      "suite": "matched",
-      "extreme": false,
-      "request_sha256": "a8e22579e822c38cc10d731dad5a2ec1d9236bf07686d6db50829026077ff9e6"
+      "extra_actions": 640
     },
     {
-      "name": "q4-seed20260911",
+      "name": "q4-01",
+      "label": "S1",
       "problem": 4,
+      "category": "standard",
       "seed": 20260911,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 20,
           "position": [
@@ -443,34 +412,17 @@
           "direction": 273.3373017897796
         }
       ],
-      "virtual_time_s": 4551.449727502708,
-      "source_count": 16,
-      "counts": {
-        "measure": 136,
-        "clear": 17,
-        "successful_clear": 16,
-        "switch": 122
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "b755ce7bd5de7657eab793a408e2a80358d6bd1faebb7034aac185f471d0dbcf",
-      "suite": "matched",
-      "extreme": false,
-      "request_sha256": "e8f946a6fa5adc24f96328498e4f18e1cbe2c508b25c11ac1f2ee1b78bd0eae8"
+      "extra_actions": 640
     },
     {
-      "name": "q4-seed20260912",
+      "name": "q4-02",
+      "label": "S2",
       "problem": 4,
+      "category": "standard",
       "seed": 20260912,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 14,
           "position": [
@@ -562,34 +514,17 @@
           "direction": 319.9951008182899
         }
       ],
-      "virtual_time_s": 6229.87763015866,
-      "source_count": 10,
-      "counts": {
-        "measure": 308,
-        "clear": 12,
-        "successful_clear": 10,
-        "switch": 281
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "d58a853e5ea4baf474fdee18312e715e6f124966cbe7d4edcf4eea163a46be69",
-      "suite": "matched",
-      "extreme": false,
-      "request_sha256": "57dec9342ca35ac8f9a55b68becd10c3334f238bfc259d39a498f9af51624998"
+      "extra_actions": 640
     },
     {
-      "name": "q3-validation-n10",
+      "name": "q3-03",
+      "label": "S3",
       "problem": 3,
+      "category": "standard",
       "seed": 20261070,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 7,
           "position": [
@@ -681,34 +616,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 2785.9899040467576,
-      "source_count": 10,
-      "counts": {
-        "measure": 113,
-        "clear": 10,
-        "successful_clear": 10,
-        "switch": 109
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "9d23440f65564daf3de990f71e1b5478eefc391c234f82132b1a51091d4db11e",
-      "suite": "validation",
-      "extreme": false,
-      "request_sha256": "1d10052246646c163946428f1f5cadc7457dd560cbf4bc39ad1ac996bac8e8f5"
+      "extra_actions": 640
     },
     {
-      "name": "q3-validation-n12",
+      "name": "q3-04",
+      "label": "S4",
       "problem": 3,
+      "category": "standard",
       "seed": 20261072,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 18,
           "position": [
@@ -818,34 +736,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 3084.8553540932535,
-      "source_count": 12,
-      "counts": {
-        "measure": 111,
-        "clear": 12,
-        "successful_clear": 12,
-        "switch": 101
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "8b554ea091706ab07e1618b5bd71ff2abbe30a429891fb9df5a924d772ea4fdf",
-      "suite": "validation",
-      "extreme": false,
-      "request_sha256": "c798bffa0760504558067ce991c9d165148c897d4c39ce8bcbb3921b8789ab3d"
+      "extra_actions": 640
     },
     {
-      "name": "q3-validation-n14",
+      "name": "q3-05",
+      "label": "S5",
       "problem": 3,
+      "category": "standard",
       "seed": 20261074,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 5,
           "position": [
@@ -973,34 +874,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 3243.217099742896,
-      "source_count": 14,
-      "counts": {
-        "measure": 115,
-        "clear": 14,
-        "successful_clear": 14,
-        "switch": 103
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "089b950f5b2e864d577344bad388a2d4bdff0f92abc8139a4f4a15d0d40a282b",
-      "suite": "validation",
-      "extreme": false,
-      "request_sha256": "1f5ce352b3575303b278516b50d63cf4f23581d748494f985887669e9cac531c"
+      "extra_actions": 640
     },
     {
-      "name": "q3-validation-n16",
+      "name": "q3-06",
+      "label": "S6",
       "problem": 3,
+      "category": "standard",
       "seed": 20261076,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 11,
           "position": [
@@ -1146,34 +1030,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 3318.7997262323665,
-      "source_count": 16,
-      "counts": {
-        "measure": 115,
-        "clear": 19,
-        "successful_clear": 16,
-        "switch": 106
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "dcff9f7b624e7b8e166b984703a95f9144a1818547e11a5408f29938f1389990",
-      "suite": "validation",
-      "extreme": false,
-      "request_sha256": "446c03b2d1ed488d1258f5257738d200cf243de56c2e24ddbdbeb90f810f18e5"
+      "extra_actions": 640
     },
     {
-      "name": "q4-validation-n10",
+      "name": "q4-03",
+      "label": "S3",
       "problem": 4,
+      "category": "standard",
       "seed": 20261090,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 12,
           "position": [
@@ -1265,34 +1132,17 @@
           "direction": 37.0319645956127
         }
       ],
-      "virtual_time_s": 6365.143342798296,
-      "source_count": 10,
-      "counts": {
-        "measure": 275,
-        "clear": 10,
-        "successful_clear": 10,
-        "switch": 254
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "99e251c27f64b845640c9b3c0fb2895eb2154e5ca459abce4eae2c3c57671a8f",
-      "suite": "validation",
-      "extreme": false,
-      "request_sha256": "4eebe04c73bf2e6b7eda115fb1f5ee704b711a59e87856bd38930e0c7d1ed88a"
+      "extra_actions": 640
     },
     {
-      "name": "q4-validation-n12",
+      "name": "q4-04",
+      "label": "S4",
       "problem": 4,
+      "category": "standard",
       "seed": 20261092,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 3,
           "position": [
@@ -1402,34 +1252,17 @@
           "direction": 100.95502164792696
         }
       ],
-      "virtual_time_s": 6534.045097264107,
-      "source_count": 12,
-      "counts": {
-        "measure": 288,
-        "clear": 30,
-        "successful_clear": 12,
-        "switch": 253
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "11a3a0bb82a8ece4e9ec162dffdbcadad8318c07fec168828479ddcf7a6a5430",
-      "suite": "validation",
-      "extreme": false,
-      "request_sha256": "371cea90ca1e3a1a2140a9391848e1a08ffc685f1d8feddd50d2611fa0d5360b"
+      "extra_actions": 640
     },
     {
-      "name": "q4-validation-n14",
+      "name": "q4-05",
+      "label": "S5",
       "problem": 4,
+      "category": "standard",
       "seed": 20261094,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 17,
           "position": [
@@ -1557,34 +1390,17 @@
           "direction": 229.70869995655465
         }
       ],
-      "virtual_time_s": 6399.300706024321,
-      "source_count": 14,
-      "counts": {
-        "measure": 245,
-        "clear": 15,
-        "successful_clear": 14,
-        "switch": 215
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "cac4689512bc82e4f52d01186c1b5410dbb8fc12cc23e595f71b1cc5144ecfe4",
-      "suite": "validation",
-      "extreme": false,
-      "request_sha256": "d5ee8267b421f7cff1275c60c900163244c76816d03f4768bd5d8d2cb4d2e5d3"
+      "extra_actions": 640
     },
     {
-      "name": "q4-validation-n16",
+      "name": "q4-06",
+      "label": "S6",
       "problem": 4,
+      "category": "standard",
       "seed": 20261096,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 6,
           "position": [
@@ -1730,34 +1546,17 @@
           "direction": 52.25439080062578
         }
       ],
-      "virtual_time_s": 6680.124256554478,
-      "source_count": 16,
-      "counts": {
-        "measure": 269,
-        "clear": 31,
-        "successful_clear": 16,
-        "switch": 240
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "6dadc4bc040f0e037549f5dd790997b6400e1558ef999c5f1bf9bf3ef17b8d63",
-      "suite": "validation",
-      "extreme": false,
-      "request_sha256": "6986790ac185c4344665a811320b0c39c922bcfa75a91158eac6602b6e47676c"
+      "extra_actions": 640
     },
     {
-      "name": "q3-fresh-n10",
+      "name": "q3-07",
+      "label": "S7",
       "problem": 3,
+      "category": "standard",
       "seed": 20261170,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 18,
           "position": [
@@ -1849,34 +1648,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 2948.39539133452,
-      "source_count": 10,
-      "counts": {
-        "measure": 127,
-        "clear": 12,
-        "successful_clear": 10,
-        "switch": 118
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "06fc6709b7d6d0199386073797bf9df27ba0d03579f863dfb9df28cd0c2e5c0c",
-      "suite": "fresh",
-      "extreme": false,
-      "request_sha256": "bc09f0c31fd4327f8fb2c4751f431e8c392123e224aef5f9f53728d7956f8542"
+      "extra_actions": 640
     },
     {
-      "name": "q3-fresh-n12",
+      "name": "q3-08",
+      "label": "S8",
       "problem": 3,
+      "category": "standard",
       "seed": 20261172,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 11,
           "position": [
@@ -1986,34 +1768,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 3160.657596870024,
-      "source_count": 12,
-      "counts": {
-        "measure": 111,
-        "clear": 13,
-        "successful_clear": 12,
-        "switch": 105
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "b0819b24b92afa744904a08d00ac01148cad8fbcc40b48929723234ff7c11087",
-      "suite": "fresh",
-      "extreme": false,
-      "request_sha256": "011aa1f47e1fc1c32641127c036681f2676a656feabdd3762efa60f558860f35"
+      "extra_actions": 640
     },
     {
-      "name": "q3-fresh-n14",
+      "name": "q3-09",
+      "label": "S9",
       "problem": 3,
+      "category": "standard",
       "seed": 20261174,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 5,
           "position": [
@@ -2141,34 +1906,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 2921.2021629661776,
-      "source_count": 14,
-      "counts": {
-        "measure": 114,
-        "clear": 18,
-        "successful_clear": 14,
-        "switch": 106
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "2bcb4a8c6f7d183ca04461acf056c0eb6921bf12cb107027ea74aa962aaba943",
-      "suite": "fresh",
-      "extreme": false,
-      "request_sha256": "b3ce1ae04f3f02c523f97ee104ae048e7a393642978bbe79c8c437b0c1d4e86e"
+      "extra_actions": 640
     },
     {
-      "name": "q3-fresh-n16",
+      "name": "q3-10",
+      "label": "S10",
       "problem": 3,
+      "category": "standard",
       "seed": 20261176,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 19,
           "position": [
@@ -2314,34 +2062,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 3124.70987132375,
-      "source_count": 16,
-      "counts": {
-        "measure": 96,
-        "clear": 17,
-        "successful_clear": 16,
-        "switch": 86
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "06a81859c73d17c6d0f68e9720ee68e2a63ee6a7dd50971fde71c03c4590820e",
-      "suite": "fresh",
-      "extreme": false,
-      "request_sha256": "aa7c65193aebaa7e76bc2d665a297b4b45cae7d8f8ff6ec84f9173e1c414686d"
+      "extra_actions": 640
     },
     {
-      "name": "q4-fresh-n10",
+      "name": "q4-07",
+      "label": "S7",
       "problem": 4,
+      "category": "standard",
       "seed": 20261190,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 18,
           "position": [
@@ -2433,34 +2164,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 6381.557738005267,
-      "source_count": 10,
-      "counts": {
-        "measure": 329,
-        "clear": 12,
-        "successful_clear": 10,
-        "switch": 300
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "db985e6be1da55a0d182001a3bacc2554e6be9805d12e642fcd4e3c20e8387be",
-      "suite": "fresh",
-      "extreme": false,
-      "request_sha256": "b4df75a0016182149fa4c092869ecff6c820d3b71c9b6b99bc7e804cda68bc93"
+      "extra_actions": 640
     },
     {
-      "name": "q4-fresh-n12",
+      "name": "q4-08",
+      "label": "S8",
       "problem": 4,
+      "category": "standard",
       "seed": 20261192,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 7,
           "position": [
@@ -2570,34 +2284,17 @@
           "direction": 74.93197651356901
         }
       ],
-      "virtual_time_s": 5939.680621425258,
-      "source_count": 12,
-      "counts": {
-        "measure": 250,
-        "clear": 13,
-        "successful_clear": 12,
-        "switch": 230
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "cf739eb9746e7d045a049fac0bd43890a82271b42da31064676dbccd6ae9fa84",
-      "suite": "fresh",
-      "extreme": false,
-      "request_sha256": "ef3f90e254493c574bf18cd99976f5f35a5074d6b83134370aa4593175e7b9e0"
+      "extra_actions": 640
     },
     {
-      "name": "q4-fresh-n14",
+      "name": "q4-09",
+      "label": "S9",
       "problem": 4,
+      "category": "standard",
       "seed": 20261194,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 15,
           "position": [
@@ -2725,34 +2422,17 @@
           "direction": 99.59169198496937
         }
       ],
-      "virtual_time_s": 6359.097747003178,
-      "source_count": 14,
-      "counts": {
-        "measure": 255,
-        "clear": 17,
-        "successful_clear": 14,
-        "switch": 230
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "9fc08c41d5a484b5a6b3645c60e8a74a994c179cb228cfdd6698f9a0e69c7aa2",
-      "suite": "fresh",
-      "extreme": false,
-      "request_sha256": "dab2cabf2e1b8e3c8d3cc2f58b7dca3c6499606c2904fd2658a0f49a64294b1c"
+      "extra_actions": 640
     },
     {
-      "name": "q4-fresh-n16",
+      "name": "q4-10",
+      "label": "S10",
       "problem": 4,
+      "category": "standard",
       "seed": 20261196,
-      "source_truth": [
+      "extreme": false,
+      "sources": [
         {
           "channel": 11,
           "position": [
@@ -2898,34 +2578,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 7176.6582893353425,
-      "source_count": 16,
-      "counts": {
-        "measure": 281,
-        "clear": 36,
-        "successful_clear": 16,
-        "switch": 239
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "f048e0348271ad1185f7e3c2000b6b8225a8fb865a4e0dde34ab3ca695be4c3a",
-      "suite": "fresh",
-      "extreme": false,
-      "request_sha256": "17fb05e346c9f884795774123333e0eb0a64adf18538a3e5dbc1f32cfb4ff0b6"
+      "extra_actions": 640
     },
     {
-      "name": "q3-boundary-n10",
+      "name": "q3-11",
+      "label": "B10",
       "problem": 3,
+      "category": "boundary",
       "seed": 10,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -3017,34 +2680,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 4402.570912272197,
-      "source_count": 10,
-      "counts": {
-        "measure": 144,
-        "clear": 12,
-        "successful_clear": 10,
-        "switch": 125
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "a2a3b36ef4c94a20e59ebd451a4680034f2039f1f3424a800492a746a85c836f",
-      "suite": "stress",
-      "extreme": true,
-      "request_sha256": "6c89aa900522e2394c656cf57657af988df21b23f4f211cf6f36bf0444d0b2dd"
+      "extra_actions": 640
     },
     {
-      "name": "q3-boundary-n16",
+      "name": "q3-12",
+      "label": "B16",
       "problem": 3,
+      "category": "boundary",
       "seed": 16,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -3190,34 +2836,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 4587.678843780542,
-      "source_count": 16,
-      "counts": {
-        "measure": 125,
-        "clear": 21,
-        "successful_clear": 16,
-        "switch": 119
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "538a5682219522b85d18c86fc5dc69e5604842205a4f9b8d4691bc8577144408",
-      "suite": "stress",
-      "extreme": true,
-      "request_sha256": "79495913ece7e84117f981b015a46c57777c41c5dc462dd11c88f72fb45df0e9"
+      "extra_actions": 640
     },
     {
-      "name": "q3-cluster-n10",
+      "name": "q3-13",
+      "label": "C10",
       "problem": 3,
+      "category": "cluster",
       "seed": 10,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -3309,34 +2938,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 2085.601666370665,
-      "source_count": 10,
-      "counts": {
-        "measure": 91,
-        "clear": 10,
-        "successful_clear": 10,
-        "switch": 85
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "a5d2a43f00d7b9ea6348ef640d8474509ffd1d040a154515b7a55fa56890f711",
-      "suite": "stress",
-      "extreme": true,
-      "request_sha256": "4bfbde1a79425e83907b5d2241205cf55b0300177abd10dc67d1bf6642252bac"
+      "extra_actions": 640
     },
     {
-      "name": "q3-cluster-n16",
+      "name": "q3-14",
+      "label": "C16",
       "problem": 3,
+      "category": "cluster",
       "seed": 16,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -3482,34 +3094,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 437.6672795466787,
-      "source_count": 16,
-      "counts": {
-        "measure": 33,
-        "clear": 16,
-        "successful_clear": 16,
-        "switch": 32
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "ba4eca556dff0b9aba4f0ab216422488481bc6e8eaeff576e1f1797296c68691",
-      "suite": "stress",
-      "extreme": true,
-      "request_sha256": "5e575021f677325d47bc72f23463cba2305ce746729925202e7b27f80bbdad53"
+      "extra_actions": 640
     },
     {
-      "name": "q4-boundary-n10",
+      "name": "q4-11",
+      "label": "B10",
       "problem": 4,
+      "category": "boundary",
       "seed": 10,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -3601,34 +3196,17 @@
           "direction": 324.013
         }
       ],
-      "virtual_time_s": 8060.391596029871,
-      "source_count": 10,
-      "counts": {
-        "measure": 397,
-        "clear": 26,
-        "successful_clear": 10,
-        "switch": 362
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "7380011b1d0a572ecaedbd9605ca6b396f3568926c98674411b1302b3c43f12a",
-      "suite": "stress",
-      "extreme": true,
-      "request_sha256": "793b9f5785a78701d772492061dbe892889daa5d903758d8aa493f329120921d"
+      "extra_actions": 640
     },
     {
-      "name": "q4-boundary-n16",
+      "name": "q4-12",
+      "label": "B16",
       "problem": 4,
+      "category": "boundary",
       "seed": 16,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -3774,34 +3352,17 @@
           "direction": 337.513
         }
       ],
-      "virtual_time_s": 9206.845310223584,
-      "source_count": 16,
-      "counts": {
-        "measure": 376,
-        "clear": 44,
-        "successful_clear": 16,
-        "switch": 327
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "769fe491e18b49802015e0d9527c454dedc5dc89afe183c5691d497743086685",
-      "suite": "stress",
-      "extreme": true,
-      "request_sha256": "5265c61783a3242738f620f73a49b39ede6f2613d1b1fe0af2dde26f58297bed"
+      "extra_actions": 640
     },
     {
-      "name": "q4-cluster-n10",
+      "name": "q4-13",
+      "label": "C10",
       "problem": 4,
+      "category": "cluster",
       "seed": 10,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -3893,34 +3454,17 @@
           "direction": 324.013
         }
       ],
-      "virtual_time_s": 7148.15619378453,
-      "source_count": 10,
-      "counts": {
-        "measure": 283,
-        "clear": 18,
-        "successful_clear": 10,
-        "switch": 243
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "8e9675677ae8b02c66f505beffc19e96f34a3af94386c9dca15e3818289d9f10",
-      "suite": "stress",
-      "extreme": true,
-      "request_sha256": "a9dd87d1d4550d375d151fe2763cd7786916f931ccbed5c29d5ae6214da535d6"
+      "extra_actions": 640
     },
     {
-      "name": "q4-cluster-n16",
+      "name": "q4-14",
+      "label": "C16",
       "problem": 4,
+      "category": "cluster",
       "seed": 16,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -4066,34 +3610,17 @@
           "direction": 337.513
         }
       ],
-      "virtual_time_s": 4290.260348140792,
-      "source_count": 16,
-      "counts": {
-        "measure": 133,
-        "clear": 53,
-        "successful_clear": 16,
-        "switch": 103
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 640,
-      "fallback_only": false,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "0ef4bbcce77c4c6eb01822170377687fd70fb19973197cd70e85914c3d185053",
-      "suite": "stress",
-      "extreme": true,
-      "request_sha256": "96258a6e25328da8239b707bb64f88a56a8bae48e7b5f7403fa7f82c6fe2d1ee"
+      "extra_actions": 640
     },
     {
-      "name": "q3-fallback-n10",
+      "name": "q3-15",
+      "label": "R10",
       "problem": 3,
+      "category": "fallback",
       "seed": 10,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -4185,34 +3712,17 @@
           "direction": null
         }
       ],
-      "virtual_time_s": 15348.443903207757,
-      "source_count": 10,
-      "counts": {
-        "measure": 660,
-        "clear": 259,
-        "successful_clear": 10,
-        "switch": 611
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 0,
-      "fallback_only": true,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "1639f2a0029d12c6aeff65016366942c128e628c86a8ec8926b2d3e7714bd483",
-      "suite": "fallback",
-      "extreme": true,
-      "request_sha256": "3a8342f324e79ea1804d09e39d99444ce51399c49fe2abfdbd895ef66f5133a3"
+      "extra_actions": 0
     },
     {
-      "name": "q4-fallback-n16",
+      "name": "q4-15",
+      "label": "R16",
       "problem": 4,
+      "category": "fallback",
       "seed": 16,
-      "source_truth": [
+      "extreme": true,
+      "sources": [
         {
           "channel": 1,
           "position": [
@@ -4358,28 +3868,8 @@
           "direction": 195
         }
       ],
-      "virtual_time_s": 17850.63099216369,
-      "source_count": 16,
-      "counts": {
-        "measure": 417,
-        "clear": 909,
-        "successful_clear": 16,
-        "switch": 391
-      },
       "planning_seconds": 0.2,
-      "extra_actions": 0,
-      "fallback_only": true,
-      "policy_revision": "20260912-shared-service-r4",
-      "policy_source_sha256": {
-        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "geometry.py": "2fa8bfa758244353d145ae12b2731317b7a6da2f6ba5ca99d322842d31076383",
-        "jiaozhun.py": "d2c5e49ff1e180601b702495a08868a90d9a1a167c3a3cfd8591f0f0b8a23ee9",
-        "suanfa.py": "32517db978432f6af94189c0d3caa04bf5f6bab30d9b9fe9cd52b26fe4647fe5"
-      },
-      "log_sha256": "32bbb79f7936a4321e156664dcb0e25d58898bd4482475a1c5fb7064b93f4570",
-      "suite": "fallback",
-      "extreme": true,
-      "request_sha256": "71cbee619a2350fceacb094a3ad0a9130f92b3a9db6e9e00c8c44d5df5f6cc99"
+      "extra_actions": 0
     }
   ]
 }

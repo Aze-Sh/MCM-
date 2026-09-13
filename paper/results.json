@@ -1,14 +1,10 @@
 {
   "cases": [
     {
-      "name": "q3-seed20260911",
-      "suite": "matched",
+      "name": "q3-01",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 2940.545062270264,
-      "identical_requests": true,
-      "request_sha256": "5bf726d6e587bbf4a5c455844776789cc25728da6ed17892bd5f7b8d2dca97a7",
-      "log_sha256": "7df48d9694be834496a27ccfb2dcfd9868e752f9e4e9a596d5247dacb2ff9cca",
       "counts": {
         "measure": 90,
         "clear": 16,
@@ -16,20 +12,17 @@
         "switch": 80
       },
       "moving_distance_m": 11652.725311351322,
-      "wall_s": 4.244868023786694,
       "mean_clear_s": 183.7840663918915,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S1"
     },
     {
-      "name": "q3-seed20260912",
-      "suite": "matched",
+      "name": "q3-02",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 3072.889485281752,
-      "identical_requests": true,
-      "request_sha256": "a8e22579e822c38cc10d731dad5a2ec1d9236bf07686d6db50829026077ff9e6",
-      "log_sha256": "94aa488e6d3cc103ccb7996c890dc88a885aea083fec5127b8802beffbbb4a4e",
       "counts": {
         "measure": 130,
         "clear": 10,
@@ -37,20 +30,17 @@
         "switch": 119
       },
       "moving_distance_m": 11269.447426408757,
-      "wall_s": 2.6041806368157268,
       "mean_clear_s": 307.2889485281752,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S2"
     },
     {
-      "name": "q4-seed20260911",
-      "suite": "matched",
+      "name": "q4-01",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 4551.449727502708,
-      "identical_requests": true,
-      "request_sha256": "e8f946a6fa5adc24f96328498e4f18e1cbe2c508b25c11ac1f2ee1b78bd0eae8",
-      "log_sha256": "5b6d1dd9f8be187968168593adbb067900b7cd7165e0f4d4f2f37ef2cf5bf889",
       "counts": {
         "measure": 136,
         "clear": 17,
@@ -58,20 +48,17 @@
         "switch": 122
       },
       "moving_distance_m": 18332.24863751354,
-      "wall_s": 11.234300173819065,
       "mean_clear_s": 284.46560796891924,
       "fallback": false,
-      "directional_count": 11
+      "directional_count": 11,
+      "category": "standard",
+      "label": "S1"
     },
     {
-      "name": "q4-seed20260912",
-      "suite": "matched",
+      "name": "q4-02",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 6229.87763015866,
-      "identical_requests": true,
-      "request_sha256": "57dec9342ca35ac8f9a55b68becd10c3334f238bfc259d39a498f9af51624998",
-      "log_sha256": "670e1c4098ef2759553d2a5c01b99950e2d34c6a804e9c17eb64b28a4ca5f004",
       "counts": {
         "measure": 308,
         "clear": 12,
@@ -79,20 +66,17 @@
         "switch": 281
       },
       "moving_distance_m": 21764.388150793304,
-      "wall_s": 6.950376522727311,
       "mean_clear_s": 622.987763015866,
       "fallback": false,
-      "directional_count": 8
+      "directional_count": 8,
+      "category": "standard",
+      "label": "S2"
     },
     {
-      "name": "q3-validation-n10",
-      "suite": "validation",
+      "name": "q3-03",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 2785.9899040467576,
-      "identical_requests": true,
-      "request_sha256": "1d10052246646c163946428f1f5cadc7457dd560cbf4bc39ad1ac996bac8e8f5",
-      "log_sha256": "a1afaebbe2a1c6596a91ac82093f4816e4993eefe77687380af916b24dba652f",
       "counts": {
         "measure": 113,
         "clear": 10,
@@ -100,20 +84,17 @@
         "switch": 109
       },
       "moving_distance_m": 10309.949520233788,
-      "wall_s": 2.6694890377111733,
       "mean_clear_s": 278.59899040467576,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S3"
     },
     {
-      "name": "q3-validation-n12",
-      "suite": "validation",
+      "name": "q3-04",
       "source_count": 12,
       "cleared_count": 12,
       "virtual_time_s": 3084.8553540932535,
-      "identical_requests": true,
-      "request_sha256": "c798bffa0760504558067ce991c9d165148c897d4c39ce8bcbb3921b8789ab3d",
-      "log_sha256": "0b84dd9100420cd34f907a10cc066b2545393802785442583d776c30c7a01e8b",
       "counts": {
         "measure": 111,
         "clear": 12,
@@ -121,20 +102,17 @@
         "switch": 101
       },
       "moving_distance_m": 11844.27677046627,
-      "wall_s": 3.3752829232253134,
       "mean_clear_s": 257.0712795077711,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S4"
     },
     {
-      "name": "q3-validation-n14",
-      "suite": "validation",
+      "name": "q3-05",
       "source_count": 14,
       "cleared_count": 14,
       "virtual_time_s": 3243.217099742896,
-      "identical_requests": true,
-      "request_sha256": "1f5ce352b3575303b278516b50d63cf4f23581d748494f985887669e9cac531c",
-      "log_sha256": "2f4a028b1513c469a09fbc4a592e021f895d0982d249b5aad080e8bc2420c70c",
       "counts": {
         "measure": 115,
         "clear": 14,
@@ -142,20 +120,17 @@
         "switch": 103
       },
       "moving_distance_m": 12476.085498714478,
-      "wall_s": 3.917336985003203,
       "mean_clear_s": 231.65836426734973,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S5"
     },
     {
-      "name": "q3-validation-n16",
-      "suite": "validation",
+      "name": "q3-06",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 3318.7997262323665,
-      "identical_requests": true,
-      "request_sha256": "446c03b2d1ed488d1258f5257738d200cf243de56c2e24ddbdbeb90f810f18e5",
-      "log_sha256": "ebf6a841e82c54affff7f289d2b154a4b9ffb6ec07e2beca0c1bc3966f7160ae",
       "counts": {
         "measure": 115,
         "clear": 19,
@@ -163,20 +138,17 @@
         "switch": 106
       },
       "moving_distance_m": 12743.998631161838,
-      "wall_s": 4.596320115961134,
       "mean_clear_s": 207.4249828895229,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S6"
     },
     {
-      "name": "q4-validation-n10",
-      "suite": "validation",
+      "name": "q4-03",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 6365.143342798296,
-      "identical_requests": true,
-      "request_sha256": "4eebe04c73bf2e6b7eda115fb1f5ee704b711a59e87856bd38930e0c7d1ed88a",
-      "log_sha256": "f35f5452e6eca608a3b4639207fecd00090fc2c4b48832bdc0fedb83f2964c09",
       "counts": {
         "measure": 275,
         "clear": 10,
@@ -184,20 +156,17 @@
         "switch": 254
       },
       "moving_distance_m": 23430.716713991467,
-      "wall_s": 7.727005110122263,
       "mean_clear_s": 636.5143342798295,
       "fallback": false,
-      "directional_count": 10
+      "directional_count": 10,
+      "category": "standard",
+      "label": "S3"
     },
     {
-      "name": "q4-validation-n12",
-      "suite": "validation",
+      "name": "q4-04",
       "source_count": 12,
       "cleared_count": 12,
       "virtual_time_s": 6534.045097264107,
-      "identical_requests": true,
-      "request_sha256": "371cea90ca1e3a1a2140a9391848e1a08ffc685f1d8feddd50d2611fa0d5360b",
-      "log_sha256": "75a3868c8f0381779a566536403a7745467349ca06af5963b81e8d75b700e261",
       "counts": {
         "measure": 288,
         "clear": 30,
@@ -205,20 +174,17 @@
         "switch": 253
       },
       "moving_distance_m": 23635.225486320534,
-      "wall_s": 10.301931181922555,
       "mean_clear_s": 544.5037581053423,
       "fallback": false,
-      "directional_count": 12
+      "directional_count": 12,
+      "category": "standard",
+      "label": "S4"
     },
     {
-      "name": "q4-validation-n14",
-      "suite": "validation",
+      "name": "q4-05",
       "source_count": 14,
       "cleared_count": 14,
       "virtual_time_s": 6399.300706024321,
-      "identical_requests": true,
-      "request_sha256": "d5ee8267b421f7cff1275c60c900163244c76816d03f4768bd5d8d2cb4d2e5d3",
-      "log_sha256": "7932fa7004148e49f246606d1fc57f7c5c4f424c991b5f561755d91f52553906",
       "counts": {
         "measure": 245,
         "clear": 15,
@@ -226,20 +192,17 @@
         "switch": 215
       },
       "moving_distance_m": 24431.503530121598,
-      "wall_s": 9.508614200167358,
       "mean_clear_s": 457.09290757316575,
       "fallback": false,
-      "directional_count": 14
+      "directional_count": 14,
+      "category": "standard",
+      "label": "S5"
     },
     {
-      "name": "q4-validation-n16",
-      "suite": "validation",
+      "name": "q4-06",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 6680.124256554478,
-      "identical_requests": true,
-      "request_sha256": "6986790ac185c4344665a811320b0c39c922bcfa75a91158eac6602b6e47676c",
-      "log_sha256": "7017cfe56b23fe1301f21889267475c3308bc8ec979cfa28af45dc0ca8d6a333",
       "counts": {
         "measure": 269,
         "clear": 31,
@@ -247,20 +210,17 @@
         "switch": 240
       },
       "moving_distance_m": 24850.621282772387,
-      "wall_s": 10.529852024745196,
       "mean_clear_s": 417.5077660346549,
       "fallback": false,
-      "directional_count": 16
+      "directional_count": 16,
+      "category": "standard",
+      "label": "S6"
     },
     {
-      "name": "q3-fresh-n10",
-      "suite": "fresh",
+      "name": "q3-07",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 2948.39539133452,
-      "identical_requests": true,
-      "request_sha256": "bc09f0c31fd4327f8fb2c4751f431e8c392123e224aef5f9f53728d7956f8542",
-      "log_sha256": "9782dbf488629fe15d20f0b0c322fbe9d0808bb3911363c8f6a1bb4e2dba973b",
       "counts": {
         "measure": 127,
         "clear": 12,
@@ -268,20 +228,17 @@
         "switch": 118
       },
       "moving_distance_m": 10696.9769566726,
-      "wall_s": 2.8237773589789867,
       "mean_clear_s": 294.839539133452,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S7"
     },
     {
-      "name": "q3-fresh-n12",
-      "suite": "fresh",
+      "name": "q3-08",
       "source_count": 12,
       "cleared_count": 12,
       "virtual_time_s": 3160.657596870024,
-      "identical_requests": true,
-      "request_sha256": "011aa1f47e1fc1c32641127c036681f2676a656feabdd3762efa60f558860f35",
-      "log_sha256": "1c1b105782532785d02bb63e0af428fa110aa3ebdb505f961d36d72b9b5ad671",
       "counts": {
         "measure": 111,
         "clear": 13,
@@ -289,20 +246,17 @@
         "switch": 105
       },
       "moving_distance_m": 12188.287984350121,
-      "wall_s": 3.273294539190829,
       "mean_clear_s": 263.388133072502,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S8"
     },
     {
-      "name": "q3-fresh-n14",
-      "suite": "fresh",
+      "name": "q3-09",
       "source_count": 14,
       "cleared_count": 14,
       "virtual_time_s": 2921.2021629661776,
-      "identical_requests": true,
-      "request_sha256": "b3ce1ae04f3f02c523f97ee104ae048e7a393642978bbe79c8c437b0c1d4e86e",
-      "log_sha256": "e4efbbcc39b0933d92b8f2c97fc8341d18e3b5adeeee4df9551b5c5613c48943",
       "counts": {
         "measure": 114,
         "clear": 18,
@@ -310,20 +264,17 @@
         "switch": 106
       },
       "moving_distance_m": 10816.01081483089,
-      "wall_s": 3.882487471681088,
       "mean_clear_s": 208.65729735472698,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S9"
     },
     {
-      "name": "q3-fresh-n16",
-      "suite": "fresh",
+      "name": "q3-10",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 3124.70987132375,
-      "identical_requests": true,
-      "request_sha256": "aa7c65193aebaa7e76bc2d665a297b4b45cae7d8f8ff6ec84f9173e1c414686d",
-      "log_sha256": "f77480bb6fb660b6d9e5074186e1702d32ee3cde339706ac70843713485f13d3",
       "counts": {
         "measure": 96,
         "clear": 17,
@@ -331,20 +282,17 @@
         "switch": 86
       },
       "moving_distance_m": 12378.54935661876,
-      "wall_s": 4.714614653028548,
       "mean_clear_s": 195.29436695773438,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "standard",
+      "label": "S10"
     },
     {
-      "name": "q4-fresh-n10",
-      "suite": "fresh",
+      "name": "q4-07",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 6381.557738005267,
-      "identical_requests": true,
-      "request_sha256": "b4df75a0016182149fa4c092869ecff6c820d3b71c9b6b99bc7e804cda68bc93",
-      "log_sha256": "b34f92f1dfb6c1082f0fcf5ab5462f13f79d500a43571d4f262c6be073ca9bd6",
       "counts": {
         "measure": 329,
         "clear": 12,
@@ -352,20 +300,17 @@
         "switch": 300
       },
       "moving_distance_m": 21902.78869002634,
-      "wall_s": 6.911922298371792,
       "mean_clear_s": 638.1557738005267,
       "fallback": false,
-      "directional_count": 6
+      "directional_count": 6,
+      "category": "standard",
+      "label": "S7"
     },
     {
-      "name": "q4-fresh-n12",
-      "suite": "fresh",
+      "name": "q4-08",
       "source_count": 12,
       "cleared_count": 12,
       "virtual_time_s": 5939.680621425258,
-      "identical_requests": true,
-      "request_sha256": "ef3f90e254493c574bf18cd99976f5f35a5074d6b83134370aa4593175e7b9e0",
-      "log_sha256": "7deac6f42347097e10ae15e5b448980283349f2d4b4a0b4740ff50927f52acd1",
       "counts": {
         "measure": 250,
         "clear": 13,
@@ -373,20 +318,17 @@
         "switch": 230
       },
       "moving_distance_m": 21983.403107126283,
-      "wall_s": 7.39558845711872,
       "mean_clear_s": 494.97338511877155,
       "fallback": false,
-      "directional_count": 8
+      "directional_count": 8,
+      "category": "standard",
+      "label": "S8"
     },
     {
-      "name": "q4-fresh-n14",
-      "suite": "fresh",
+      "name": "q4-09",
       "source_count": 14,
       "cleared_count": 14,
       "virtual_time_s": 6359.097747003178,
-      "identical_requests": true,
-      "request_sha256": "dab2cabf2e1b8e3c8d3cc2f58b7dca3c6499606c2904fd2658a0f49a64294b1c",
-      "log_sha256": "0ae6e8e6fab1eb48470281cbfc04e9d8c38da0c3a79db09d11473dec040eb8d1",
       "counts": {
         "measure": 255,
         "clear": 17,
@@ -394,20 +336,17 @@
         "switch": 230
       },
       "moving_distance_m": 23875.488735015875,
-      "wall_s": 8.905650274828076,
       "mean_clear_s": 454.2212676430841,
       "fallback": false,
-      "directional_count": 9
+      "directional_count": 9,
+      "category": "standard",
+      "label": "S9"
     },
     {
-      "name": "q4-fresh-n16",
-      "suite": "fresh",
+      "name": "q4-10",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 7176.6582893353425,
-      "identical_requests": true,
-      "request_sha256": "17fb05e346c9f884795774123333e0eb0a64adf18538a3e5dbc1f32cfb4ff0b6",
-      "log_sha256": "d62ad21843d306859483b9ef610720faf013a25cb1395be290b6641c9405c92f",
       "counts": {
         "measure": 281,
         "clear": 36,
@@ -415,20 +354,17 @@
         "switch": 239
       },
       "moving_distance_m": 26963.291446676703,
-      "wall_s": 12.457451344002038,
       "mean_clear_s": 448.5411430834589,
       "fallback": false,
-      "directional_count": 10
+      "directional_count": 10,
+      "category": "standard",
+      "label": "S10"
     },
     {
-      "name": "q3-boundary-n10",
-      "suite": "stress",
+      "name": "q3-11",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 4402.570912272197,
-      "identical_requests": true,
-      "request_sha256": "6c89aa900522e2394c656cf57657af988df21b23f4f211cf6f36bf0444d0b2dd",
-      "log_sha256": "1017c28b29a4f1a1e540f4dc19ea0db4ef931b311f4d0f6f73391bf1abea4a94",
       "counts": {
         "measure": 144,
         "clear": 12,
@@ -436,20 +372,17 @@
         "switch": 125
       },
       "moving_distance_m": 17507.85456136099,
-      "wall_s": 2.6375223016366363,
       "mean_clear_s": 440.25709122721975,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "boundary",
+      "label": "B10"
     },
     {
-      "name": "q3-boundary-n16",
-      "suite": "stress",
+      "name": "q3-12",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 4587.678843780542,
-      "identical_requests": true,
-      "request_sha256": "79495913ece7e84117f981b015a46c57777c41c5dc462dd11c88f72fb45df0e9",
-      "log_sha256": "c88b986e6304b82eac85310c5be02110778f78fc786f24604306a438ad8b4719",
       "counts": {
         "measure": 125,
         "clear": 21,
@@ -457,20 +390,17 @@
         "switch": 119
       },
       "moving_distance_m": 18743.39421890272,
-      "wall_s": 3.804489160887897,
       "mean_clear_s": 286.72992773628386,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "boundary",
+      "label": "B16"
     },
     {
-      "name": "q3-cluster-n10",
-      "suite": "stress",
+      "name": "q3-13",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 2085.601666370665,
-      "identical_requests": true,
-      "request_sha256": "4bfbde1a79425e83907b5d2241205cf55b0300177abd10dc67d1bf6642252bac",
-      "log_sha256": "8aacd039c2b11534bd78bc410892e654e8484bb026ba90807d439e81a95fb61a",
       "counts": {
         "measure": 91,
         "clear": 10,
@@ -478,20 +408,17 @@
         "switch": 85
       },
       "moving_distance_m": 7478.008331853323,
-      "wall_s": 2.8959924718365073,
       "mean_clear_s": 208.56016663706652,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "cluster",
+      "label": "C10"
     },
     {
-      "name": "q3-cluster-n16",
-      "suite": "stress",
+      "name": "q3-14",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 437.6672795466787,
-      "identical_requests": true,
-      "request_sha256": "5e575021f677325d47bc72f23463cba2305ce746729925202e7b27f80bbdad53",
-      "log_sha256": "532e6fa5964b4f06f761a5d031f25ffc57a8867f2119db365cb2e6f7aadc90bf",
       "counts": {
         "measure": 33,
         "clear": 16,
@@ -499,20 +426,17 @@
         "switch": 32
       },
       "moving_distance_m": 803.3363977333935,
-      "wall_s": 4.0127783780917525,
       "mean_clear_s": 27.354204971667418,
       "fallback": false,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "cluster",
+      "label": "C16"
     },
     {
-      "name": "q4-boundary-n10",
-      "suite": "stress",
+      "name": "q4-11",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 8060.391596029871,
-      "identical_requests": true,
-      "request_sha256": "793b9f5785a78701d772492061dbe892889daa5d903758d8aa493f329120921d",
-      "log_sha256": "d287c6cdd920671329be6c8099eb99b2a477834d62ed3d73876e87c0048bb63d",
       "counts": {
         "measure": 397,
         "clear": 26,
@@ -520,20 +444,17 @@
         "switch": 362
       },
       "moving_distance_m": 28076.95798014934,
-      "wall_s": 5.409413042943925,
       "mean_clear_s": 806.0391596029871,
       "fallback": false,
-      "directional_count": 10
+      "directional_count": 10,
+      "category": "boundary",
+      "label": "B10"
     },
     {
-      "name": "q4-boundary-n16",
-      "suite": "stress",
+      "name": "q4-12",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 9206.845310223584,
-      "identical_requests": true,
-      "request_sha256": "5265c61783a3242738f620f73a49b39ede6f2613d1b1fe0af2dde26f58297bed",
-      "log_sha256": "1df1b9140ed063795a1104c9c76a014bacc0a21ba87b94a7b8afe14bfadba289",
       "counts": {
         "measure": 376,
         "clear": 44,
@@ -541,20 +462,17 @@
         "switch": 327
       },
       "moving_distance_m": 34179.22655111792,
-      "wall_s": 8.928219471126795,
       "mean_clear_s": 575.427831888974,
       "fallback": false,
-      "directional_count": 16
+      "directional_count": 16,
+      "category": "boundary",
+      "label": "B16"
     },
     {
-      "name": "q4-cluster-n10",
-      "suite": "stress",
+      "name": "q4-13",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 7148.15619378453,
-      "identical_requests": true,
-      "request_sha256": "a9dd87d1d4550d375d151fe2763cd7786916f931ccbed5c29d5ae6214da535d6",
-      "log_sha256": "d8a854e6a0c76238bb57fb92a53e591efff1293cb999b16d006e731bdab1f8ee",
       "counts": {
         "measure": 283,
         "clear": 18,
@@ -562,20 +480,17 @@
         "switch": 243
       },
       "moving_distance_m": 27080.780968922627,
-      "wall_s": 8.093669129069895,
       "mean_clear_s": 714.815619378453,
       "fallback": false,
-      "directional_count": 10
+      "directional_count": 10,
+      "category": "cluster",
+      "label": "C10"
     },
     {
-      "name": "q4-cluster-n16",
-      "suite": "stress",
+      "name": "q4-14",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 4290.260348140792,
-      "identical_requests": true,
-      "request_sha256": "96258a6e25328da8239b707bb64f88a56a8bae48e7b5f7403fa7f82c6fe2d1ee",
-      "log_sha256": "5d8b78f141145e66b421c0edaaa2e786bff7133fc67cc1283f9f1825b6b7e2bc",
       "counts": {
         "measure": 133,
         "clear": 53,
@@ -583,20 +498,17 @@
         "switch": 103
       },
       "moving_distance_m": 16656.301740703948,
-      "wall_s": 12.417871782090515,
       "mean_clear_s": 268.1412717587995,
       "fallback": false,
-      "directional_count": 16
+      "directional_count": 16,
+      "category": "cluster",
+      "label": "C16"
     },
     {
-      "name": "q3-fallback-n10",
-      "suite": "fallback",
+      "name": "q3-15",
       "source_count": 10,
       "cleared_count": 10,
       "virtual_time_s": 15348.443903207757,
-      "identical_requests": true,
-      "request_sha256": "3a8342f324e79ea1804d09e39d99444ce51399c49fe2abfdbd895ef66f5133a3",
-      "log_sha256": "8772f5148873974621e53f566f9a0649a34947f9933f9659a1412cae34b3a941",
       "counts": {
         "measure": 660,
         "clear": 259,
@@ -604,20 +516,17 @@
         "switch": 611
       },
       "moving_distance_m": 53202.21951603873,
-      "wall_s": 7.049010690767318,
       "mean_clear_s": 1534.8443903207758,
       "fallback": true,
-      "directional_count": 0
+      "directional_count": 0,
+      "category": "fallback",
+      "label": "R10"
     },
     {
-      "name": "q4-fallback-n16",
-      "suite": "fallback",
+      "name": "q4-15",
       "source_count": 16,
       "cleared_count": 16,
       "virtual_time_s": 17850.63099216369,
-      "identical_requests": true,
-      "request_sha256": "71cbee619a2350fceacb094a3ad0a9130f92b3a9db6e9e00c8c44d5df5f6cc99",
-      "log_sha256": "d032b8634de796ef553d902c512bb2b4094b68a93ec13d04199c38170ce79c57",
       "counts": {
         "measure": 417,
         "clear": 909,
@@ -625,212 +534,11 @@
         "switch": 391
       },
       "moving_distance_m": 63078.15496081824,
-      "wall_s": 19.49778424622491,
       "mean_clear_s": 1115.6644370102306,
       "fallback": true,
-      "directional_count": 16
-    }
-  ],
-  "comparison": [
-    {
-      "name": "q3-seed20260911",
-      "problem": 3,
-      "sources": 16,
-      "v7_s": 3403.516921692843,
-      "v8_s": 2940.545062270264,
-      "saved_s": 462.97185942257875,
-      "meets_500_s": false,
-      "same_inputs": true
-    },
-    {
-      "name": "q3-seed20260912",
-      "problem": 3,
-      "sources": 10,
-      "v7_s": 3590.4333726305763,
-      "v8_s": 3072.889485281752,
-      "saved_s": 517.5438873488242,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-seed20260911",
-      "problem": 4,
-      "sources": 16,
-      "v7_s": 6963.044699015036,
-      "v8_s": 4551.449727502708,
-      "saved_s": 2411.594971512328,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-seed20260912",
-      "problem": 4,
-      "sources": 10,
-      "v7_s": 7073.775058591887,
-      "v8_s": 6229.87763015866,
-      "saved_s": 843.8974284332262,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q3-validation-n10",
-      "problem": 3,
-      "sources": 10,
-      "v7_s": 3276.7112069311647,
-      "v8_s": 2785.9899040467576,
-      "saved_s": 490.7213028844071,
-      "meets_500_s": false,
-      "same_inputs": true
-    },
-    {
-      "name": "q3-validation-n12",
-      "problem": 3,
-      "sources": 12,
-      "v7_s": 3693.156977834151,
-      "v8_s": 3084.8553540932535,
-      "saved_s": 608.3016237408974,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q3-validation-n14",
-      "problem": 3,
-      "sources": 14,
-      "v7_s": 3832.998014107321,
-      "v8_s": 3243.217099742896,
-      "saved_s": 589.7809143644249,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q3-validation-n16",
-      "problem": 3,
-      "sources": 16,
-      "v7_s": 3732.182782397549,
-      "v8_s": 3318.7997262323665,
-      "saved_s": 413.38305616518255,
-      "meets_500_s": false,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-validation-n10",
-      "problem": 4,
-      "sources": 10,
-      "v7_s": 7683.624043689201,
-      "v8_s": 6365.143342798296,
-      "saved_s": 1318.4807008909056,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-validation-n12",
-      "problem": 4,
-      "sources": 12,
-      "v7_s": 7790.1969550794565,
-      "v8_s": 6534.045097264107,
-      "saved_s": 1256.151857815349,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-validation-n14",
-      "problem": 4,
-      "sources": 14,
-      "v7_s": 7230.503995060643,
-      "v8_s": 6399.300706024321,
-      "saved_s": 831.2032890363225,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-validation-n16",
-      "problem": 4,
-      "sources": 16,
-      "v7_s": 6863.2994125947525,
-      "v8_s": 6680.124256554478,
-      "saved_s": 183.1751560402745,
-      "meets_500_s": false,
-      "same_inputs": true
-    },
-    {
-      "name": "q3-fresh-n10",
-      "problem": 3,
-      "sources": 10,
-      "v7_s": 3310.513849979756,
-      "v8_s": 2948.39539133452,
-      "saved_s": 362.11845864523593,
-      "meets_500_s": false,
-      "same_inputs": true
-    },
-    {
-      "name": "q3-fresh-n12",
-      "problem": 3,
-      "sources": 12,
-      "v7_s": 3590.445776129851,
-      "v8_s": 3160.657596870024,
-      "saved_s": 429.78817925982685,
-      "meets_500_s": false,
-      "same_inputs": true
-    },
-    {
-      "name": "q3-fresh-n14",
-      "problem": 3,
-      "sources": 14,
-      "v7_s": 3653.3931067480567,
-      "v8_s": 2921.2021629661776,
-      "saved_s": 732.190943781879,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q3-fresh-n16",
-      "problem": 3,
-      "sources": 16,
-      "v7_s": 3689.52635831198,
-      "v8_s": 3124.70987132375,
-      "saved_s": 564.8164869882298,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-fresh-n10",
-      "problem": 4,
-      "sources": 10,
-      "v7_s": 7005.08146290261,
-      "v8_s": 6381.557738005267,
-      "saved_s": 623.5237248973426,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-fresh-n12",
-      "problem": 4,
-      "sources": 12,
-      "v7_s": 6826.441369900466,
-      "v8_s": 5939.680621425258,
-      "saved_s": 886.760748475208,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-fresh-n14",
-      "problem": 4,
-      "sources": 14,
-      "v7_s": 7714.597062886812,
-      "v8_s": 6359.097747003178,
-      "saved_s": 1355.4993158836342,
-      "meets_500_s": true,
-      "same_inputs": true
-    },
-    {
-      "name": "q4-fresh-n16",
-      "problem": 4,
-      "sources": 16,
-      "v7_s": 6992.552892570891,
-      "v8_s": 7176.6582893353425,
-      "saved_s": -184.10539676445114,
-      "meets_500_s": false,
-      "same_inputs": true
+      "directional_count": 16,
+      "category": "fallback",
+      "label": "R16"
     }
   ],
   "summary": {
@@ -839,8 +547,6 @@
       "sources": 192,
       "cleared": 192,
       "normal_mean_s": 3060.1261654161763,
-      "paired_saved_mean_s": 517.1616712601486,
-      "paired_relative_reduction": 0.14456809037224294,
       "mean_move_fraction": 0.7601093026629147
     },
     "4": {
@@ -848,8 +554,6 @@
       "sources": 198,
       "cleared": 198,
       "normal_mean_s": 6261.693515607161,
-      "paired_saved_mean_s": 952.6181796220139,
-      "paired_relative_reduction": 0.1320456087656955,
       "mean_move_fraction": 0.7400505505574889
     }
   },
@@ -911,125 +615,9 @@
       "scope": "entire_feasible_angle_interval_at_fixed_movement_radius"
     }
   ],
-  "calibration": [
-    {
-      "worlds": 3,
-      "sources_per_world": 1,
-      "states": 16,
-      "exact_time_s": 34.0,
-      "exact_fraction": "34",
-      "first_action": [
-        "measure",
-        0,
-        1
-      ],
-      "bellman_passes": 3,
-      "rollout": [
-        {
-          "depth": 0,
-          "upper_s": 35.0,
-          "gap_s": 1.0
-        },
-        {
-          "depth": 1,
-          "upper_s": 35.0,
-          "gap_s": 1.0
-        },
-        {
-          "depth": 2,
-          "upper_s": 34.0,
-          "gap_s": 0.0
-        },
-        {
-          "depth": 3,
-          "upper_s": 34.0,
-          "gap_s": 0.0
-        }
-      ],
-      "scope": "exact only for these finite worlds and actions; fixed known N"
-    },
-    {
-      "worlds": 2,
-      "sources_per_world": 2,
-      "states": 42,
-      "exact_time_s": 37.0,
-      "exact_fraction": "37",
-      "first_action": [
-        "clear",
-        0,
-        0
-      ],
-      "bellman_passes": 4,
-      "rollout": [
-        {
-          "depth": 0,
-          "upper_s": 64.0,
-          "gap_s": 27.0
-        },
-        {
-          "depth": 1,
-          "upper_s": 43.0,
-          "gap_s": 6.0
-        },
-        {
-          "depth": 2,
-          "upper_s": 37.0,
-          "gap_s": 0.0
-        },
-        {
-          "depth": 3,
-          "upper_s": 37.0,
-          "gap_s": 0.0
-        }
-      ],
-      "scope": "exact only for these finite worlds and actions; fixed known N"
-    },
-    {
-      "worlds": 3,
-      "sources_per_world": 2,
-      "states": 99,
-      "exact_time_s": 49.0,
-      "exact_fraction": "49",
-      "first_action": [
-        "clear",
-        0,
-        0
-      ],
-      "bellman_passes": 5,
-      "rollout": [
-        {
-          "depth": 0,
-          "upper_s": 91.0,
-          "gap_s": 42.0
-        },
-        {
-          "depth": 1,
-          "upper_s": 70.0,
-          "gap_s": 21.0
-        },
-        {
-          "depth": 2,
-          "upper_s": 70.0,
-          "gap_s": 21.0
-        },
-        {
-          "depth": 3,
-          "upper_s": 67.0,
-          "gap_s": 18.0
-        }
-      ],
-      "scope": "exact only for these finite worlds and actions; fixed known N"
-    }
-  ],
-  "absence_cost": {
-    "3": 30,
-    "4": 35
-  },
   "practice": [
     {
       "file": "practice-p3-600678826991437102-4GC8-BUAN-JTNR-732X.jlog",
-      "sha256": "8d627c8ec2b879a9cf8421715e969173490f3393f3786bc68d299fbb74fe06e2",
-      "size_bytes": 33088,
       "problem": 3,
       "case_code": "4GC8-BUAN-JTNR-732X",
       "created_at_utc": "2026-09-13T01:48:40.042Z",
@@ -1040,12 +628,10 @@
       "reported_omnidirectional": 16,
       "reported_directional": 0,
       "reported_virtual_time_s": 3233,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     },
     {
       "file": "practice-p3-5595226058626180046-ZAJ4-Y9H4-X94F-84RF.jlog",
-      "sha256": "f18d0970a4d549c0b1b9be5b3d9c20d25482f0aa4ac2893582f11ca36cdb8e2c",
-      "size_bytes": 32065,
       "problem": 3,
       "case_code": "ZAJ4-Y9H4-X94F-84RF",
       "created_at_utc": "2026-09-13T01:49:12.231Z",
@@ -1056,12 +642,10 @@
       "reported_omnidirectional": 11,
       "reported_directional": 0,
       "reported_virtual_time_s": 2595,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     },
     {
       "file": "practice-p3-3586725726346535332-PXX5-MVVF-4U5N-RJ29.jlog",
-      "sha256": "6bd3e23b8f4591257d83e6dfb0445213d2f9e4894135c1fc06b1d5862cf0aeba",
-      "size_bytes": 35291,
       "problem": 3,
       "case_code": "PXX5-MVVF-4U5N-RJ29",
       "created_at_utc": "2026-09-13T01:49:47.243Z",
@@ -1072,12 +656,10 @@
       "reported_omnidirectional": 15,
       "reported_directional": 0,
       "reported_virtual_time_s": 3123,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     },
     {
       "file": "practice-p3-255595190380067262-YVXK-H49D-HS89-HBGH.jlog",
-      "sha256": "30c20311572b0c54036e577abf9a2a522c0e0b86eaa625ac1b8962651ce7b9a6",
-      "size_bytes": 32650,
       "problem": 3,
       "case_code": "YVXK-H49D-HS89-HBGH",
       "created_at_utc": "2026-09-13T01:50:18.624Z",
@@ -1088,12 +670,10 @@
       "reported_omnidirectional": 12,
       "reported_directional": 0,
       "reported_virtual_time_s": 2826,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     },
     {
       "file": "practice-p3-5098455061847845327-VD4K-3FT8-EMN3-KHMN.jlog",
-      "sha256": "673a3371a0885a1239c19681366088fae3ad2e4d4275ff77b6295641726a78e2",
-      "size_bytes": 33663,
       "problem": 3,
       "case_code": "VD4K-3FT8-EMN3-KHMN",
       "created_at_utc": "2026-09-13T01:50:44.893Z",
@@ -1104,12 +684,10 @@
       "reported_omnidirectional": 11,
       "reported_directional": 0,
       "reported_virtual_time_s": 3189,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     },
     {
       "file": "practice-p4-5040851690253723977-WZM3-U3MR-YW22-QHNK.jlog",
-      "sha256": "a54d85e51045a0615f1b6a957c9615e08235f0bab37cd4ce60652428146768f7",
-      "size_bytes": 73742,
       "problem": 4,
       "case_code": "WZM3-U3MR-YW22-QHNK",
       "created_at_utc": "2026-09-13T01:51:41.864Z",
@@ -1120,12 +698,10 @@
       "reported_omnidirectional": 0,
       "reported_directional": 14,
       "reported_virtual_time_s": 7570,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     },
     {
       "file": "practice-p4-4741371260893985363-ZG4N-CQJP-AZ7F-6M34.jlog",
-      "sha256": "e195e34580ac503c9e5e6268e22fdb9ae39ad2ee9aedd396261a23b8f5359c58",
-      "size_bytes": 45185,
       "problem": 4,
       "case_code": "ZG4N-CQJP-AZ7F-6M34",
       "created_at_utc": "2026-09-13T01:52:34.222Z",
@@ -1136,12 +712,10 @@
       "reported_omnidirectional": 14,
       "reported_directional": 2,
       "reported_virtual_time_s": 4559,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     },
     {
       "file": "practice-p4-1215453446557514175-2AA5-BWCU-M8MH-M9A2.jlog",
-      "sha256": "a70638d6523b81c02d3fbfd6a3d549564e531135aebd5553fafbd57e6fc5d2ba",
-      "size_bytes": 68402,
       "problem": 4,
       "case_code": "2AA5-BWCU-M8MH-M9A2",
       "created_at_utc": "2026-09-13T01:53:39.078Z",
@@ -1152,12 +726,10 @@
       "reported_omnidirectional": 3,
       "reported_directional": 8,
       "reported_virtual_time_s": 6439,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     },
     {
       "file": "practice-p4-9014621260152820717-C2MT-ZV9Z-3G7M-YE4G.jlog",
-      "sha256": "68b4e71dc4cc454acbafcf903a28e17081ba5fb48aa64e84e8e4ddb77e9304f8",
-      "size_bytes": 70578,
       "problem": 4,
       "case_code": "C2MT-ZV9Z-3G7M-YE4G",
       "created_at_utc": "2026-09-13T01:54:48.832Z",
@@ -1168,12 +740,10 @@
       "reported_omnidirectional": 2,
       "reported_directional": 9,
       "reported_virtual_time_s": 7191,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     },
     {
       "file": "practice-p4-1855568677764350783-6QJH-B56T-UGBD-NJZ3.jlog",
-      "sha256": "20e1366e9ecfc8f812934fe0cf3ead060c509df762ddd7baed0c3cf84d04a788",
-      "size_bytes": 64188,
       "problem": 4,
       "case_code": "6QJH-B56T-UGBD-NJZ3",
       "created_at_utc": "2026-09-13T01:56:30.772Z",
@@ -1184,23 +754,8 @@
       "reported_omnidirectional": 9,
       "reported_directional": 2,
       "reported_virtual_time_s": 6249,
-      "summary_basis": "User screenshot; row-to-log order confirmed by user; rounded integer times"
+      "summary_basis": "Practice screenshots; rows follow run order; times rounded to seconds"
     }
   ],
-  "policy_revision": "20260912-shared-service-r4",
-  "q3_outer_worst_m": 999.1106618753616,
-  "coverage": {
-    "3": {
-      "verified": true,
-      "nodes": 517,
-      "leaves": 228,
-      "unresolved_box": null
-    },
-    "4": {
-      "verified": true,
-      "nodes": 5013,
-      "leaves": 2448,
-      "unresolved_box": null
-    }
-  }
+  "q3_outer_worst_m": 999.1106618753616
 }

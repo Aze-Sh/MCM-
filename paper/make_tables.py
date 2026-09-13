@@ -5,21 +5,6 @@ PAPER = Path(__file__).resolve().parent
 data = json.loads((PAPER / "results.json").read_text(encoding="utf-8"))
 
 
-def case_label(case):
-    name = case["name"]
-    count = case["source_count"]
-    suite = case["suite"]
-    if suite == "matched":
-        return "M" + ("1" if "20260911" in name else "2")
-    if suite == "validation":
-        return f"V{count}"
-    if suite == "fresh":
-        return f"F{count}"
-    if suite == "fallback":
-        return f"R{count}"
-    return ("B" if "boundary" in name else "C") + str(count)
-
-
 for problem in (3, 4):
     rows = [r for r in data["cases"] if r["name"].startswith(f"q{problem}-")]
     if problem == 3:
@@ -42,12 +27,10 @@ for problem in (3, 4):
         n, t, counts = case["source_count"], case["virtual_time_s"], case["counts"]
         failure = counts["clear"] - counts["successful_clear"]
         if problem == 3:
-            line = f"{case_label(case)} & {n} & {t:.2f} & {t / n:.2f} & {counts['measure']} & {failure}"
+            line = f"{case['label']} & {n} & {t:.2f} & {t / n:.2f} & {counts['measure']} & {failure}"
         else:
             d = case["directional_count"]
-            line = (
-                f"{case_label(case)} & {n - d}/{d} & {t:.2f} & {t / n:.2f} & {failure}"
-            )
+            line = f"{case['label']} & {n - d}/{d} & {t:.2f} & {t / n:.2f} & {failure}"
         lines.append(line + r"\\")
     lines += [r"\bottomrule\end{tabular}", r"\end{table}"]
     (PAPER / f"table_q{problem}.tex").write_text(

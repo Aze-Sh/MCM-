@@ -2,15 +2,12 @@
 runs/
 .env
 .env.*
-!.env.example
 
 # Python and editor caches
 .venv/
 __pycache__/
 *.py[cod]
-.pytest_cache/
 .ruff_cache/
-*.egg-info/
 .idea/
 .vscode/
 
@@ -28,5 +25,3 @@ paper/.build/
 
 # Original simulator logs contain identity in signed headers; keep locally.
 submission_inputs/**/*.jlog
-submission_inputs/local_records/
-submission/.staging/

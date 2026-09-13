@@ -191,7 +191,7 @@ def xzd(origin, bearing, x, y):
     dx = abs(p[0] - mid[0]) + e[0] * abs(x) + e[1] * abs(y)
     dy = abs(p[1] - mid[1]) + e[1] * abs(x) + e[0] * abs(y)
     if dx * dx + dy * dy > 1:
-        raise ArithmeticError("Rotation exceeds the certified 1 m allowance")
+        raise ArithmeticError("Rotation exceeds the 1 m allowance")
     return p
 
 
@@ -244,11 +244,10 @@ def sswd():
 
 
 @cache(maxsize=256)
-def fgzm(radio, optical, problem, jdmax=2048, sdmax=12):
+def fgpd(radio, optical, problem, jdmax=2048, sdmax=12):
     radio, optical = (tuple(map(point, radio)), tuple(map(point, optical)))
     stack = [(juxing(-1800, -1800, 1800, 1800), 0)]
     nodes = 0
-    leaves = []
     rf = [(q, tuple((float(x) for x in q))) for q in radio]
     while stack and nodes < jdmax:
         box, depth = stack.pop()
@@ -260,7 +259,6 @@ def fgzm(radio, optical, problem, jdmax=2048, sdmax=12):
             continue
         hit = next((q for q in optical if ypbh(box, q, fs(20))), None)
         if hit is not None:
-            leaves.append(("optical", box, [hit]))
             continue
         bf = [tuple((float(x) for x in v)) for v in box]
         nearby = [
@@ -270,15 +268,13 @@ def fgzm(radio, optical, problem, jdmax=2048, sdmax=12):
             and ypbh(box, q, fs(1000))
         ]
         if problem == 3 and nearby:
-            leaves.append(("omni", box, nearby[:1]))
             continue
         if problem == 4 and len(nearby) >= 3:
             h = hull(nearby)
             if all((contains(h, v) for v in box)):
-                leaves.append(("directional_hull", box, h))
                 continue
         if depth >= sdmax:
-            return (False, nodes, tuple(map(float, (x0, y0, x1, y1))), ())
+            return False
         mx, my = ((x0 + x1) / 2, (y0 + y1) / 2)
         stack.extend(
             (
@@ -291,12 +287,4 @@ def fgzm(radio, optical, problem, jdmax=2048, sdmax=12):
                 )
             )
         )
-    if stack:
-        box, _ = stack[-1]
-        return (
-            False,
-            nodes,
-            (*tuple((float(x) for x in box[0])), *tuple((float(x) for x in box[2]))),
-            (),
-        )
-    return (True, nodes, None, tuple(leaves))
+    return not stack

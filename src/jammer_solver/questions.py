@@ -358,7 +358,7 @@ def main():
             ),
             guaranteed_diameter_bound_m=design["diameter_upper_m"],
             optimization=design,
-            selection_status="Minimum movement for the requested analytic diameter bound; certified remaining radius gap is reported"
+            selection_status="Minimum movement for the requested analytic diameter bound; remaining radius gap is reported"
             if "movement_m" not in data
             else "Analytic diameter bound optimized over the full feasible angle interval at the chosen movement radius",
             rule="movement_m is measured from first; nearest symmetric side if current supplied",
