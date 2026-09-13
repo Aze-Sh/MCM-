@@ -1,0 +1,28 @@
+{
+  "reviewed_on": "2026-09-13",
+  "main_pdf_sha256": "3f8ac7088ec1d0037ad86d91d7b22cf962351f7a6d8f7fe6aed98f94a88a6d85",
+  "page_count": 30,
+  "figures": 9,
+  "tables": 15,
+  "continuous_printed_page_numbers": true,
+  "all_pages_rendered_and_visually_reviewed": true,
+  "full_size_checks": [
+    1,
+    17,
+    19,
+    21,
+    27,
+    28
+  ],
+  "data_checks": {
+    "offline_cases": 30,
+    "sources_cleared": 390,
+    "paired_comparisons": 20,
+    "paired_faster": 19,
+    "screenshot_entries": 10
+  },
+  "formal_tests_run_during_writing": 0,
+  "unmeasured_fields_left_blank": true,
+  "full_program_listing_appendix_included": false,
+  "human_team_signoff": "pending"
+}

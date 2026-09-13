@@ -1,0 +1,22 @@
+{
+  "documents": [
+    {
+      "file": "main.pdf",
+      "pages": 30,
+      "expected_pages": 30,
+      "sha256": "3f8ac7088ec1d0037ad86d91d7b22cf962351f7a6d8f7fe6aed98f94a88a6d85",
+      "missing_glyphs": false,
+      "overfull_boxes": false,
+      "undefined_references": false
+    },
+    {
+      "file": "AI工具使用详情.pdf",
+      "pages": 2,
+      "expected_pages": 2,
+      "sha256": "ea488bf1e3d30a1af6ff79f16896444fe870358f3761687fef657b6c06301db1",
+      "missing_glyphs": false,
+      "overfull_boxes": false,
+      "undefined_references": false
+    }
+  ]
+}

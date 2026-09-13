@@ -1,0 +1,59 @@
+\documentclass[UTF8,a4paper,12pt,fontset=fandol]{ctexart}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array,tabularx,booktabs,enumitem,hyperref,fancyhdr}
+\hypersetup{hidelinks}
+\pagestyle{fancy}\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}
+\linespread{1.15}\setlength{\parindent}{2em}\setlist{nosep}
+\newcommand{\blank}{\underline{\hspace{3cm}}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\begin{center}{\zihao{2}\bfseries AI工具使用详情}\par\vspace{8pt}论文支撑材料草稿\end{center}
+\noindent 本文件据当前可见的讨论与工作记录整理，供参赛队核对、补充和确认。它不是已经签署的人工审查声明，也不把工具自动检查等同于参赛队理解并复核了相应内容。
+
+\section*{一、工具与时间记录}
+\par\noindent\begin{tabularx}{\linewidth}{p{.25\linewidth}Y}\toprule
+项目 & 当前可据实记录的信息\\\midrule
+本次工具 & OpenAI Codex；当前系统标识为基于GPT-6的编程代理\\
+本次整理时间 & 2026年9月13日\\
+先前辅助环节 & 当前任务可见历史包括算法讨论、代码编写、调试、重构及论文材料整理\\
+先前各次模型版本 & 未逐次核实；参赛队补充：\blank\\
+其他AI工具及日期 & 由参赛队核实是否存在，并补充：\blank\\\bottomrule
+\end{tabularx}
+
+\section*{二、使用目的与采纳范围}
+\begin{enumerate}
+\item \textbf{算法讨论与实现辅助。} 围绕全向与定向搜索、连续覆盖、几何定位、联合调度及光学清除讨论方案，辅助实现和修改程序。本文采用当前v8快速版，内部策略标识为\texttt{20260912-shared-service-r4}；代码整理提交为\texttt{5d789f1}。
+\item \textbf{程序检查与结果整理。} 辅助运行离线检查、重放证据日志，整理已有固定输入及历史对照。论文写作阶段未连接官方模拟器，也未进行正式测试。旧记录的完整生成过程应由参赛队结合本地记录复核。
+\item \textbf{资料与图表整理。} 从仓库历史提取工作流、绘图规则和获奖论文结构审读笔记，核对题目及接口材料，使用Python生成几何示意、离线决策图和数据图。结构借鉴不包括复制他人论文正文或数据。
+\item \textbf{论文初稿。} AI辅助组织并撰写摘要、建模推导、算法说明、结果分析与局限，编写LaTeX排版和本使用详情草稿。未测项目保留空栏；不得把留空项目作为已完成实验。
+\end{enumerate}
+
+\section*{三、验证方式及其边界}
+本次自动检查包括数值与保存记录核对、固定几何计算、图表数据检查、PDF编译和页数核查。可复现的30场离线验证和49项程序测试是已有实现检查证据，不能证明全部连续场景的最优性。公式证明、引用准确性、代码理解及符合提交要求仍需参赛队逐项人工确认。
+
+\clearpage
+\section*{四、代表性提示与处理过程}
+下列提示摘自当前可见的实际用户请求，不是全部交互的逐字记录。完整过程可由参赛队从任务记录导出后补充。
+\par\noindent\begin{tabularx}{\linewidth}{p{.48\linewidth}Y}\toprule
+实际请求摘录 & 辅助处理与采纳边界\\\midrule
+“先建立下界，用\textcircled{\scriptsize 1}做主算法、\textcircled{\scriptsize 3}做内部优化，再用\textcircled{\scriptsize 2}在小问题上校准” & 形成覆盖、内层定位与有限校准的工作方向。正文仅对已实现和可核对的模块作结果陈述。\\
+“尝试按照新的思路继续思考，但要求方法能确保找到所有干扰点” & 强调完整发现证据与有限备用过程；正文明确物理规则、通信和时间窗口等适用条件。\\
+“我要用的是v8快速版，不是r5” & 保持当前选择的r4实现，未把后来试验方向写作已采用方法。\\
+“帮我按照这个对代码进行去ai化” & 历史任务进行代码风格整理。风格变化不取消AI参与事实，本文件仍记录已知辅助范围。\\
+“借鉴他们的结构、排版、格式，帮我撰写一份30页的论文……还没有测的数据……先空出来” & 编写30页主稿，保留六次正式测试、敏感性、消融和部分演练指标空栏；另附待补清单。\\\bottomrule
+\end{tabularx}
+
+\section*{五、参赛队人工核查与修改记录（待填）}
+\par\noindent\begin{tabularx}{\linewidth}{p{.34\linewidth}Y}\toprule
+核查事项 & 实际修改、核查人代号及日期\\\midrule
+四问模型、推导和适用条件 & \blank\\[8pt]
+当前程序与论文描述一致性 & \blank\\[8pt]
+30场离线数据、图形与原始记录 & \blank\\[8pt]
+正式测试及演练指标补充 & \blank\\[8pt]
+参考文献原文和引用位置 & \blank\\[8pt]
+其他AI工具使用范围补充 & \blank\\[8pt]
+最终论文与完整源程序附录 & \blank\\[8pt]\bottomrule
+\end{tabularx}
+
+\noindent\small 填写时应据实说明“采纳、修改或未采纳”的内容，不能预填“全部核验通过”。论文正文、支撑文件、原始日志和本说明应保持一致。匿名评阅材料中不填写姓名、学校等身份信息；需要的身份确认按组委会指定材料另行处理。
+\end{document}

@@ -24,3 +24,4 @@ __pycache__/
 *.out
 *.synctex.gz
 *.toc
+paper/.build/

@@ -12,7 +12,7 @@
 | 本次代码风格整理 | [docs/code_style.md](docs/code_style.md) |
 | 测试结果与局限 | [docs/validation.md](docs/validation.md) |
 | 题目和附件 | [problem](problem/README.md) |
-| 论文参考稿 | [paper](paper/README.md) |
+| 30页论文草稿与源码 | [paper](paper/README.md) |
 | 安全与几何测试 | [tests](tests/)；统一入口 [check.py](check.py) |
 | 离线模拟与核查工具 | [tools](tools/README.md) |
 | 保留的验证数据 | [validation](validation/README.md) |
