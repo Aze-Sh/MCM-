@@ -9,6 +9,7 @@
 | 最终代码 | [src/jammer_solver](src/jammer_solver/) |
 | 使用说明 | [docs/running.md](docs/running.md) |
 | 算法及模块说明 | [docs/algorithm.md](docs/algorithm.md) |
+| 本次代码风格整理 | [docs/code_style.md](docs/code_style.md) |
 | 测试结果与局限 | [docs/validation.md](docs/validation.md) |
 | 题目和附件 | [problem](problem/README.md) |
 | 论文参考稿 | [paper](paper/README.md) |

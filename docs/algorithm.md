@@ -1,22 +1,19 @@
 # 最终算法：v8快速版（已发布的r4）
 
-用户明确选定提交 `8b2d232b5297976bee682be718f617f19dfbbd23` 的 `20260912-shared-service-r4`。后续本地r5没有采用。目录整理保留该版的决策、几何、参数与停止条件，主要调整导入、入口及文件分类。它是当前选用的工程版本，尚未证明接近理论最优，也没有达到所有场景稳定比v7省500秒的目标。
+用户明确选定提交 `8b2d232b5297976bee682be718f617f19dfbbd23` 的 `20260912-shared-service-r4`。后续本地r5没有采用。目录与代码风格整理保留该版的决策、几何、默认参数与停止条件；接口异常流程的简化见 [代码整理说明](code_style.md)。它是当前选用的工程版本，尚未证明接近理论最优，也没有达到所有场景稳定比v7省500秒的目标。
 
 ## 1. 代码阅读顺序
 
-`run_robot.py → src/jammer_solver/cli.py → solver.py`。
+`run_robot.py → src/jammer_solver/solver.py`。
 
 | 模块 | 作用 |
 |---|---|
-| `solver.py` | 主状态、真实观测、任务排序、RF与光学决策、执行与完成判断 |
+| `solver.py` | 搜索布局、路线和指派、清除投影、状态更新、RF与光学决策、执行与完成判断 |
 | `exact_geometry.py` | 有理数裁剪、保守三角函数界、源域及连续覆盖核查 |
-| `verification.py` | 证据日志回放、有限世界精确校准 |
-| `protocol.py` | HTTP接口、响应校验、幂等重试、明文日志 |
-| `search_design.py` | Q3环形布局辅助函数；Q4的21站布局在solver中 |
-| `route_planning.py`、`assignment.py` | 访问顺序与指派松弛 |
-| `clearance.py`、`clear_route.py` | 全区域可清除点及其移动优化 |
-| `bearing_geometry.py`、`geometry.py` | 距离、容差、Q2候选域及Q1楔形几何 |
-| `questions.py`、`q2_design.py`、`q2_budget.py` | 第一、二题离线求解与解析界优化 |
+| `protocol.py` | 过程式HTTP请求、响应校验与明文日志 |
+| `questions.py` | 第一、二题离线几何、候选域及解析界优化 |
+| `tools/verification.py` | 离线证据回放、有限世界精确校准 |
+
 
 主算法仍为过程式写法。`xin_zhuangtai`建立状态，`yunxing`推进整场，`xuan_dongzuo`选任务，`yuan_dongzuo`选源内动作，`zhixing_shijian`和`zhixing_yici`执行，`gengxin_jilu`仅根据真实返回更新账本，`huizong`输出摘要。
 

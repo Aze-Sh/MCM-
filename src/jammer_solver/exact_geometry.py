@@ -100,7 +100,9 @@ def contains(poly, p):
             cross(sub(poly[1], poly[0]), sub(p, poly[0])) == 0
             and dot(sub(p, poly[0]), sub(p, poly[1])) <= 0
         )
-    return all((cross(sub(b, a), sub(p, a)) >= 0 for a, b in zip(poly, poly[1:] + poly[:1])))
+    return all(
+        (cross(sub(b, a), sub(p, a)) >= 0 for a, b in zip(poly, poly[1:] + poly[:1]))
+    )
 
 
 @lru_cache(maxsize=4096)
@@ -110,8 +112,13 @@ def trig(degrees):
     d = degrees - 90 * quadrant
     x = d * (PI_LO + PI_HI) / 360
     err = abs(d) * (PI_HI - PI_LO) / 360
-    sin = sum(((-1) ** j * x ** (2 * j + 1) / math.factorial(2 * j + 1) for j in range(10)), F(0))
-    cos = sum(((-1) ** j * x ** (2 * j) / math.factorial(2 * j) for j in range(10)), F(0))
+    sin = sum(
+        ((-1) ** j * x ** (2 * j + 1) / math.factorial(2 * j + 1) for j in range(10)),
+        F(0),
+    )
+    cos = sum(
+        ((-1) ** j * x ** (2 * j) / math.factorial(2 * j) for j in range(10)), F(0)
+    )
     se = F(1, math.factorial(20)) + err
     ce = F(1, math.factorial(19)) + err
     c, s = ((cos - ce, cos + ce), (sin - se, sin + se))
@@ -151,7 +158,10 @@ def bearing_constraints(origin, lo, hi=None):
         return []
     ulo, elo = direction(F(lo) - EPS)
     uhi, ehi = direction(F(hi) + EPS)
-    return [((ulo[1], -ulo[0]), (elo[1], elo[0]), F(0)), ((-uhi[1], uhi[0]), (ehi[1], ehi[0]), F(0))]
+    return [
+        ((ulo[1], -ulo[0]), (elo[1], elo[0]), F(0)),
+        ((-uhi[1], uhi[0]), (ehi[1], ehi[0]), F(0)),
+    ]
 
 
 def apply_bearing(poly, origin, bearing, radius=F(1500), hi=None):
@@ -213,7 +223,12 @@ def verified_pair_cut(poly, positive, a, b):
     outside = clip(poly, (-normal[0], -normal[1]), -bound)
     if not outside:
         return (poly, False)
-    if not all((cross(va, sub(s, positive)) >= 0 and cross(sub(s, positive), vb) >= 0 for s in outside)):
+    if not all(
+        (
+            cross(va, sub(s, positive)) >= 0 and cross(sub(s, positive), vb) >= 0
+            for s in outside
+        )
+    ):
         return (poly, False)
     if not disk_contains(outside, a, F(1000)) or not disk_contains(outside, b, F(1000)):
         return (poly, False)
@@ -252,7 +267,8 @@ def coverage_certificate(radio, optical, problem, max_nodes=2048, max_depth=12):
         nearby = [
             q
             for q, qf in r_float
-            if all((math.dist(qf, v) < 1000.000001 for v in bf)) and disk_contains(box, q, F(1000))
+            if all((math.dist(qf, v) < 1000.000001 for v in bf))
+            and disk_contains(box, q, F(1000))
         ]
         if problem == 3 and nearby:
             leaves.append(("omni", box, nearby[:1]))
@@ -268,7 +284,12 @@ def coverage_certificate(radio, optical, problem, max_nodes=2048, max_depth=12):
         stack.extend(
             (
                 (rectangle(*v), depth + 1)
-                for v in ((x0, y0, mx, my), (mx, y0, x1, my), (x0, my, mx, y1), (mx, my, x1, y1))
+                for v in (
+                    (x0, y0, mx, my),
+                    (mx, y0, x1, my),
+                    (x0, my, mx, y1),
+                    (mx, my, x1, y1),
+                )
             )
         )
     if stack:

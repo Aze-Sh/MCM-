@@ -1,9 +1,12 @@
 import argparse
 import json
 from pathlib import Path
-from .protocol import validate_reply
-from . import exact_geometry as g
-from .solver import (
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from jammer_solver.protocol import validate_reply
+from jammer_solver import exact_geometry as g
+from jammer_solver.solver import (
     xin_jilu,
     pindao,
     gengxin_jilu,

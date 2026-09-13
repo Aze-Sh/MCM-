@@ -11,10 +11,11 @@ python tools/validate.py --suite matched
 
 第一条运行最终版相关的单元及集成测试；第二条复算四个固定案例，并核对与整理前v8快速版的请求和用时一致。完整30场验证用 `python tools/validate.py`，包含边界、密集、备用完成及全向、混合源输入。新日志保存在 `runs/validation-时间戳/`。
 
-只核查已经归档的30场，不重新运行策略：
+重新生成30场日志后，可只核查该目录：
 
 ```bash
-python tools/validate.py --verify-only
+python tools/validate.py --output runs/style-check
+python tools/validate.py --verify-only --output runs/style-check
 ```
 
 ## Windows演练
@@ -39,9 +40,11 @@ python tools/validate.py --verify-only
 
 - `metadata.json`：题号、案例编码、测试类型、策略及 `policy_revision`。
 - `actions.jsonl`：机器人侧明文动作、响应和证据记录。
-- `summary.json`：总用时、清除与完成状态、错误和未确认请求。
+- `summary.json`：正常完成后的总用时、清除与完成状态。
 
-三份文件需要一起保存；官方导出的加密日志另行保留原文件名。不要把一次运行的摘要与另一次运行的动作文件混在一起。`runs/`不自动进入Git。
+HTTP请求不自动重试。异常会直接抛出，已写入的日志保留，异常中止时不会生成 `summary.json`，也不会补发退出请求。算法和协议必要检查仍保留。
+
+正常完成后的三份文件需要一起保存；官方导出的加密日志另行保留原文件名。不要把一次运行的摘要与另一次运行的动作文件混在一起。`runs/`不自动进入Git。
 
 参数 `--output 路径`可以改变本地输出根目录，`--base-url`可以指定接口地址。不带 `--connect` 运行只检查参数，不发送请求。
 

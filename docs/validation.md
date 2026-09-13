@@ -2,7 +2,7 @@
 
 ## 本次保留哪个版本
 
-保留已发布的提交 `8b2d232b5297976bee682be718f617f19dfbbd23`，内部标识为 **`20260912-shared-service-r4`**。后续本地r5未采用。本次只整理该快速版的目录、依赖和启动入口，不把新算法改动混入其中。
+保留已发布的提交 `8b2d232b5297976bee682be718f617f19dfbbd23`，内部标识为 **`20260912-shared-service-r4`**。后续本地r5未采用。目录与代码风格整理均以该快速版为基础。接口和文件组织的变化见 [代码整理说明](code_style.md)。
 
 ## 快速版原有性能证据
 
@@ -21,9 +21,9 @@
 - 运行源码及日志哈希匹配；没有把旧日志改个版本号当成新运行。
 - 所有实际完整光学链通过连续覆盖、额度、整个事件预算和成功前缀核查。
 
-新日志与报告保留在 [validation/recorded](../validation/recorded/)，主报告为 [verification.json](../validation/recorded/verification.json)。运行 `python tools/validate.py --verify-only` 可以再次独立核查。
+新日志与报告保留在 [validation/recorded](../validation/recorded/)，主报告为 [verification.json](../validation/recorded/verification.json)。这些是上一次目录整理时的记录，源码哈希对应提交 `fae3c1a`。本次风格整理的新结果见 [style-refactor.json](../validation/style-refactor.json)；用 `python tools/validate.py --output runs/style-check` 生成当前源码的完整记录，再用 `--verify-only --output runs/style-check` 核查。
 
-当前相关测试用 `python check.py` 运行。旧策略、未选用r5的专项测试和通用工具库测试随对应实现移除；不沿用此前大仓库205项测试的数量。精简版包含48项测试，覆盖当前算法、协议、默认启动、几何、预算、全清和离线超时。
+当前相关测试用 `python check.py` 运行。旧策略、未选用r5的专项测试和通用工具库测试随对应实现移除；不沿用此前大仓库205项测试的数量。上一次精简版包含48项测试；本次更新为49项测试，取消重试测试，增加单次HTTP交互和异常直接抛出检查，继续覆盖当前算法、协议、默认启动、几何、预算、全清和离线超时。
 
 ## 用户提供的十场官方演练
 

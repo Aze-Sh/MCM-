@@ -1,4 +1,3 @@
-"""Run the final solver's offline tests. No official interface is used."""
 from pathlib import Path
 import sys
 import unittest

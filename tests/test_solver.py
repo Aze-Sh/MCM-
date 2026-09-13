@@ -1,13 +1,12 @@
 from jammer_solver import solver as v8
-from jammer_solver.verification import replay
+from verification import replay
 from fractions import Fraction as F
 import math
 import copy
 import itertools
 import unittest
 from jammer_solver import exact_geometry as g
-from jammer_solver.verification import build_graph, solve, calibrate
-from jammer_solver.protocol import RejectedAction, UncertainAction
+from verification import build_graph, solve, calibrate
 from jammer_solver.solver import search_points
 
 
@@ -56,7 +55,9 @@ class GeometryTests(unittest.TestCase):
         domain = g.source_domain()
         for angle in range(0, 360, 5):
             r = 1800 - 1e-9
-            p = g.point((r * math.cos(math.radians(angle)), r * math.sin(math.radians(angle))))
+            p = g.point(
+                (r * math.cos(math.radians(angle)), r * math.sin(math.radians(angle)))
+            )
             self.assertTrue(g.contains(domain, p))
         old = v8.xin_yuan((1000, 1000), 45, geometry_version=1)
         current = v8.xin_yuan((1000, 1000), 45, geometry_version=2)
@@ -64,7 +65,10 @@ class GeometryTests(unittest.TestCase):
         self.assertFalse(g.contains(current["polygon"], g.point((1700, 1700))))
         self.assertTrue(g.contains(current["polygon"], g.point((1200, 1200))))
         self.assertTrue(
-            any(g.contains(cell, g.point((1200, 1200))) for cell in current["cells"].values())
+            any(
+                g.contains(cell, g.point((1200, 1200)))
+                for cell in current["cells"].values()
+            )
         )
 
     def test_unknown_geometry_version_is_rejected(self):
@@ -84,12 +88,19 @@ class GeometryTests(unittest.TestCase):
             self.assertLess(distance, max(projected))
 
     def test_initial_cells_retain_edge_bearings_and_ranges(self):
-        for angle, r, error in ((0, 1500, 1), (359.99, 1499.99, -1), (90, 5.001, 1), (45, 1000, -1)):
+        for angle, r, error in (
+            (0, 1500, 1),
+            (359.99, 1499.99, -1),
+            (90, 5.001, 1),
+            (45, 1000, -1),
+        ):
             p = (r * math.cos(math.radians(angle)), r * math.sin(math.radians(angle)))
             bearing = round((angle + error) % 360, 2) % 360
             yuan = v8.xin_yuan((0, 0), bearing)
             self.assertTrue(g.contains(yuan["polygon"], g.point(p)))
-            self.assertTrue(any((g.contains(cell, g.point(p)) for cell in yuan["cells"].values())))
+            self.assertTrue(
+                any((g.contains(cell, g.point(p)) for cell in yuan["cells"].values()))
+            )
             self.assertLessEqual(len(yuan["cells"]), 183)
             for i, cell in yuan["cells"].items():
                 self.assertTrue(g.disk_contains(cell, yuan["points"][i], F(20)))
@@ -99,7 +110,12 @@ class GeometryTests(unittest.TestCase):
         poly = g.rectangle(-1800, -1800, 1800, 1800)
         outer = g.apply_bearing(poly, q, F(30), hi=F(40))
         for angle in (29.01, 30, 35, 40, 40.99):
-            p = g.point((1000 * math.cos(math.radians(angle)), 1000 * math.sin(math.radians(angle))))
+            p = g.point(
+                (
+                    1000 * math.cos(math.radians(angle)),
+                    1000 * math.sin(math.radians(angle)),
+                )
+            )
             self.assertTrue(g.contains(outer, p))
 
     def test_negative_pair_requires_previous_positive(self):
@@ -143,18 +159,26 @@ class EvidenceTests(unittest.TestCase):
 
             def call(self, path, q, c):
                 self.calls.append((path, q, c))
-                return dict(accepted=True, virtual_time_s=5.0, measure_result="no_signal")
+                return dict(
+                    accepted=True, virtual_time_s=5.0, measure_result="no_signal"
+                )
 
             def record(self, event):
                 pass
 
         io = IO()
-        state = v8.xin_zhuangtai(io, 3)
+        state = v8.xin_zhuangtai(
+            dict(pending=io.pending, call=io.call, record=io.record), 3
+        )
         state["position"] = (750.0, 750.0)
         ledger = state["ledger"]
-        v8.gengxin_jilu(ledger, "/measure", (0, 0), 1, dict(measure_result="direction", svd_deg=0))
+        v8.gengxin_jilu(
+            ledger, "/measure", (0, 0), 1, dict(measure_result="direction", svd_deg=0)
+        )
         source = ledger["channels"][1]["source"]
-        self.assertFalse(g.disk_contains(source["polygon"], g.point(state["position"]), F(999)))
+        self.assertFalse(
+            g.disk_contains(source["polygon"], g.point(state["position"]), F(999))
+        )
         self.assertTrue(v8.shunlu_celiang(state))
         self.assertEqual(io.calls, [("/measure", (750.0, 750.0), 1)])
         self.assertEqual(state["travel"], 0)
@@ -162,7 +186,9 @@ class EvidenceTests(unittest.TestCase):
         self.assertLess(max(float(q[0]) for q in source["polygon"]), 1000)
         self.assertEqual(ledger["channels"][1]["status"], "found")
 
-    def test_shared_station_has_no_movement_and_keeps_directional_negative_feasible(self):
+    def test_shared_station_has_no_movement_and_keeps_directional_negative_feasible(
+        self,
+    ):
         class IO:
             pending = None
 
@@ -171,16 +197,22 @@ class EvidenceTests(unittest.TestCase):
 
             def call(self, path, q, c):
                 self.calls.append((path, q, c))
-                return dict(accepted=True, virtual_time_s=5.0, measure_result="no_signal")
+                return dict(
+                    accepted=True, virtual_time_s=5.0, measure_result="no_signal"
+                )
 
             def record(self, event):
                 pass
 
         io = IO()
-        state = v8.xin_zhuangtai(io, 4)
+        state = v8.xin_zhuangtai(
+            dict(pending=io.pending, call=io.call, record=io.record), 4
+        )
         state["position"] = (750.0, 200.0)
         ledger = state["ledger"]
-        v8.gengxin_jilu(ledger, "/measure", (0, 0), 1, dict(measure_result="direction", svd_deg=0))
+        v8.gengxin_jilu(
+            ledger, "/measure", (0, 0), 1, dict(measure_result="direction", svd_deg=0)
+        )
         source = ledger["channels"][1]["source"]
         v8.xianding_fanwei(source, g.rectangle(700, -5, 800, 5))
         self.assertTrue(v8.shunlu_celiang(state))
@@ -205,12 +237,16 @@ class EvidenceTests(unittest.TestCase):
             for c in range(1, count + 1):
                 v8.gengxin_jilu(jilu, "/clear", (0, 0), c, dict(clear_result="success"))
             self.assertEqual(v8.quanbu_qingchu(jilu), count == 16)
-            self.assertEqual(len(v8.pindao(jilu, ("unknown",))), 0 if count == 16 else 10)
+            self.assertEqual(
+                len(v8.pindao(jilu, ("unknown",))), 0 if count == 16 else 10
+            )
 
     def test_unproductive_credits_never_reset(self):
         jilu = v8.xin_jilu(4, 2)
         for x in (1, 2):
-            receipt = v8.gengxin_jilu(jilu, "/measure", (x, 1), 1, negative(), prove=False)
+            receipt = v8.gengxin_jilu(
+                jilu, "/measure", (x, 1), 1, negative(), prove=False
+            )
             self.assertLess(receipt["after"], receipt["before"])
         self.assertEqual(jilu["extra"], 0)
         q = g.search_grid()[0]
@@ -230,9 +266,9 @@ class EvidenceTests(unittest.TestCase):
             def call(self, *args):
                 return dict(accepted=False)
 
-        zhuangtai = v8.xin_zhuangtai(IO(), 4)
+        zhuangtai = v8.xin_zhuangtai(dict(pending=IO.pending, call=IO().call), 4)
         rank = v8.shengyu_renwu(zhuangtai["ledger"])
-        with self.assertRaises(RejectedAction):
+        with self.assertRaises(RuntimeError):
             v8.zhixing(zhuangtai, "/measure", (100, 200), 1)
         self.assertEqual(zhuangtai["position"], (0, 0))
         self.assertEqual(v8.shengyu_renwu(zhuangtai["ledger"]), rank)
@@ -246,8 +282,13 @@ class EvidenceTests(unittest.TestCase):
             def call(self, *args):
                 raise AssertionError("No call allowed")
 
-        with self.assertRaises(UncertainAction):
-            v8.zhixing(v8.xin_zhuangtai(IO(), 3), "/measure", (0, 0), 1)
+        with self.assertRaises(RuntimeError):
+            v8.zhixing(
+                v8.xin_zhuangtai(dict(pending=IO.pending, call=IO().call), 3),
+                "/measure",
+                (0, 0),
+                1,
+            )
 
     def test_bad_cost_cannot_produce_a_certificate(self):
 
@@ -257,7 +298,7 @@ class EvidenceTests(unittest.TestCase):
             def call(self, *args):
                 return dict(accepted=True, virtual_time_s=999, measure_result="near")
 
-        zhuangtai = v8.xin_zhuangtai(IO(), 3)
+        zhuangtai = v8.xin_zhuangtai(dict(pending=IO.pending, call=IO().call), 3)
         with self.assertRaises(RuntimeError):
             v8.zhixing(zhuangtai, "/measure", (10, 0), 1)
         self.assertEqual(zhuangtai["position"], (10, 0))
@@ -266,8 +307,6 @@ class EvidenceTests(unittest.TestCase):
 
 
 class PlanningTests(unittest.TestCase):
-
-
     def test_directional_visibility_conditions_on_actual_negative_history(self):
         poly = g.rectangle(-1, -1, 1, 1)
         record = dict(
@@ -297,12 +336,18 @@ class PlanningTests(unittest.TestCase):
                 cell = source["polygon"]
                 for other in order:
                     if q != other:
-                        cell = g.clip(cell, g.sub(other, q), (g.dot(other, other) - g.dot(q, q)) / 2)
+                        cell = g.clip(
+                            cell,
+                            g.sub(other, q),
+                            (g.dot(other, other) - g.dot(q, q)) / 2,
+                        )
                 self.assertTrue(not cell or g.disk_contains(cell, q, F("19.8")))
 
     def test_optical_chain_is_rejected_before_action_when_credit_is_insufficient(self):
         state = v8.xin_zhuangtai(None, 4, extra_actions=1)
-        event = dict(kind="optical_chain", channel=1, points=(g.point((10, 0)), g.point((20, 0))))
+        event = dict(
+            kind="optical_chain", channel=1, points=(g.point((10, 0)), g.point((20, 0)))
+        )
         before = v8.shengyu_renwu(state["ledger"])
         self.assertFalse(v8.zhixing_yici(state, event))
         self.assertEqual(v8.shengyu_renwu(state["ledger"]), before)
@@ -318,10 +363,14 @@ class PlanningTests(unittest.TestCase):
             v8.gengxin_yuan(source, q, "no_signal", problem=4)
         self.assertFalse(v8.shuang_yinxing(source, source["anchor_point"], *pair))
         before = copy.deepcopy(source)
-        event = v8.yuan_dongzuo(state["planner"], source, 1, g.floating(pair[-1]), 1, 640)
+        event = v8.yuan_dongzuo(
+            state["planner"], source, 1, g.floating(pair[-1]), 1, 640
+        )
         self.assertIn(event["kind"], ("clear", "optical_chain"))
         self.assertEqual(source, before)
-        self.assertEqual(state["planner"]["statistics"]["repeated_negative_pairs_skipped"], 1)
+        self.assertEqual(
+            state["planner"]["statistics"]["repeated_negative_pairs_skipped"], 1
+        )
 
     def test_small_service_plan_matches_exhaustive_orders_and_modes(self):
         jobs = {}
@@ -331,7 +380,10 @@ class PlanningTests(unittest.TestCase):
             job = ("source", channel)
             jobs[job] = [
                 dict(
-                    job=job, entry=p, exit=(p[0] + 2 * channel, p[1] - channel), service=3 + channel + i
+                    job=job,
+                    entry=p,
+                    exit=(p[0] + 2 * channel, p[1] - channel),
+                    service=3 + channel + i,
                 )
                 for i, p in enumerate(points)
             ]
@@ -341,7 +393,8 @@ class PlanningTests(unittest.TestCase):
             for modes in itertools.product(*(jobs[job] for job in order)):
                 cost = math.dist(position, modes[0]["entry"]) / 5 + modes[0]["service"]
                 cost += sum(
-                    math.dist(a["exit"], b["entry"]) / 5 + b["service"] for a, b in zip(modes, modes[1:])
+                    math.dist(a["exit"], b["entry"]) / 5 + b["service"]
+                    for a, b in zip(modes, modes[1:])
                 )
                 exact = min(exact, cost)
         plan = v8.anpai_renwu(jobs, position, (("source", 99), ("source", 2)))
@@ -365,7 +418,10 @@ class CalibrationTests(unittest.TestCase):
                 self.assertEqual(values[s], 0)
                 continue
             expected = min(
-                (max((cost + values[t] for _, cost, t in edges)) for edges in actions.values())
+                (
+                    max((cost + values[t] for _, cost, t in edges))
+                    for edges in actions.values()
+                )
             )
             self.assertEqual(values[s], expected)
             for _, cost, t in actions[policy[s]]:
@@ -404,7 +460,10 @@ class IntegrationTests(unittest.TestCase):
                 ],
             )
             result, events = run_case(
-                case, planning_seconds=0, extra_actions=0 if fallback else 640, fallback_only=fallback
+                case,
+                planning_seconds=0,
+                extra_actions=0 if fallback else 640,
+                fallback_only=fallback,
             )
             cls.results.append((result, events))
 
@@ -419,8 +478,12 @@ class IntegrationTests(unittest.TestCase):
         self.assertTrue(result["summary"]["fallback_used"])
         self.assertEqual(result["summary"]["extra_actions_remaining"], 0)
         self.assertGreater(result["counts"]["clear"], result["source_count"])
-        self.assertLess(result["virtual_time_s"], result["summary"]["initial_fallback_upper_s"])
-        self.assertLessEqual(result["counts"]["measure"] + result["counts"]["clear"], 3908)
+        self.assertLess(
+            result["virtual_time_s"], result["summary"]["initial_fallback_upper_s"]
+        )
+        self.assertLessEqual(
+            result["counts"]["measure"] + result["counts"]["clear"], 3908
+        )
 
     def test_tampered_response_is_rejected_by_replay(self):
         events = copy.deepcopy(self.results[0][1])

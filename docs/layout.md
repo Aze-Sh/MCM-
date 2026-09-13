@@ -25,11 +25,11 @@ MCM-/
 
 | 原位置 | 新位置 |
 |---|---|
-| `solutions/adaptive/python/run_robot.py` | 根目录 `run_robot.py`；命令行实现为 `src/jammer_solver/cli.py` |
+| `solutions/adaptive/python/run_robot.py` | 根目录 `run_robot.py`；命令行实现已合入根目录入口 |
 | `near_optimal/suanfa.py` | `src/jammer_solver/solver.py` |
 | `near_optimal/geometry.py` | `src/jammer_solver/exact_geometry.py` |
-| `near_optimal/jiaozhun.py` | `src/jammer_solver/verification.py` |
-| 旧 `coverage.py`、`planning.py`、`service_graph.py` 等 | 只提取当前依赖，分别放入布局、路径、指派和清除模块 |
+| `near_optimal/jiaozhun.py` | `tools/verification.py` |
+| 旧 `coverage.py`、`planning.py`、`service_graph.py` 等 | 只提取当前依赖，现已合入 `src/jammer_solver/solver.py` |
 | `solutions/adaptive/python/solve_geometry.py` | 根目录 `solve_questions.py`；实现为 `src/jammer_solver/questions.py` |
 | `experiments/near-optimal/`中的有效工具 | `tools/` |
 | 多轮实验输出 | 最终依据集中到 `validation/`，新输出为 `runs/` |
@@ -61,10 +61,14 @@ Git历史保留，未做历史清除或强制推送。`.venv/`是本机被忽略
 
 整理前后已核对109个顶层函数/类的抽象语法树保持一致；另一个Q2函数只去掉无用局部变量绑定，保留原参数验证调用。主包文件的导入路径按新目录调整，详情见 [migration.json](../validation/migration.json)。
 
-第一、二题各一个相同输入在新旧入口输出完全一致，记录为 [questions-check.json](../validation/questions-check.json)。当前保留并新增的48项测试通过，包含默认启动v8快速版、无连接标志不创建HTTP接口、请求重试、几何、全清证据、预算和离线超时等检查。
+第一、二题各一个相同输入在新旧入口输出完全一致，记录为 [questions-check.json](../validation/questions-check.json)。上一次目录整理时的48项测试通过，包含默认启动v8快速版、无连接标志不创建HTTP接口、请求重试、几何、全清证据、预算和离线超时等检查。
 
 Q3/Q4以整理前选定v8快速版的30场输入做整场回归，结果及每条协议请求指纹核查见 [validation.md](validation.md)。这些检查用于确认整理没有改变选定算法，不能当成一次新的算法提速。
 
 ## 清理后的规模
 
 不含Git历史、本地虚拟环境及缓存，文件由1869个减少到122个，内容体积由约133.97 MiB减少到8.94 MiB。只保留当前30场完整验证，不再把多轮失败与重复试验留在主目录。统计见 [cleanup-summary.json](../validation/cleanup-summary.json)。
+
+## 本次代码风格合并
+
+按用户提供的文档，运行包进一步由16个文件合并为5个；启动流程合入根入口，离线回放移至工具目录，运行代码改为无类、无注释、无类型标注的过程式写法。接口取消捕获与重试，保留证明和协议必要检查。最新文件映射、行为变化和验证记录见 [code_style.md](code_style.md)。上文的109个函数核对、48项测试和122个文件统计属于此前目录整理的历史记录。

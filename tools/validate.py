@@ -8,7 +8,7 @@ from pathlib import Path
 
 from benchmark import ROOT, case_from_record, run_case
 from jammer_solver import solver
-from jammer_solver.verification import replay
+from verification import replay
 from verify_optical import audit_optical_chains
 
 

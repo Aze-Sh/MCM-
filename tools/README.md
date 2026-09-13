@@ -9,13 +9,15 @@
 | `simulator.py` | 合成源和计费环境，源真值不传给求解器 |
 | `directional_study.py` | 固定位置、半径、朝向及噪声，改变全向/定向比例；分解费用 |
 | `verify_optical.py` | 连续覆盖、试探额度、完整事件预算和光学成功前缀审计 |
+| `verification.py` | 证据回放和有限问题精确校准 |
 | `lower_bounds.py` | 不存在频道的必要操作成本下界 |
 
 从仓库根目录运行：
 
 ```bash
 python tools/validate.py --suite matched
-python tools/validate.py --verify-only
+python tools/validate.py --output runs/style-check
+python tools/validate.py --verify-only --output runs/style-check
 python tools/benchmark.py --suite stress --output runs/stress-check
 python tools/directional_study.py --seed 2026091303 --output runs/type-check
 ```

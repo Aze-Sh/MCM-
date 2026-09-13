@@ -1,4 +1,3 @@
-"""Offline Q1/Q2 geometry entry point."""
 from pathlib import Path
 import sys
 
