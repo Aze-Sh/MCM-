@@ -45,7 +45,7 @@ def main():
     parser.add_argument("--wall-limit", type=int, default=180)
     args = parser.parse_args()
     if args.output is None:
-        args.output = ROOT / "validation" / "recorded" if args.verify_only else ROOT / "runs" / f"validation-{datetime.now():%Y%m%d-%H%M%S-%f}"
+        args.output = ROOT / "validation" / "current" if args.verify_only else ROOT / "runs" / f"validation-{datetime.now():%Y%m%d-%H%M%S-%f}"
     args.output.mkdir(parents=True, exist_ok=True)
     frozen = json.loads((ROOT / "validation/expected-fast.json").read_text(encoding="utf-8"))
     records = [r for r in frozen["cases"] if args.suite == "all" or r["suite"] == args.suite]

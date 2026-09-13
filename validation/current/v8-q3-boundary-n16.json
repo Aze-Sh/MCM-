@@ -1,0 +1,290 @@
+{
+  "name": "q3-boundary-n16",
+  "algorithm": "v8",
+  "problem": 3,
+  "seed": 16,
+  "source_count": 16,
+  "source_truth": [
+    {
+      "channel": 1,
+      "position": [
+        1799.989953667948,
+        0.40840477253450913
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 2,
+      "position": [
+        1662.8175871796086,
+        689.2036505026539
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 3,
+      "position": [
+        1272.4963165221375,
+        1273.0738880903934
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 4,
+      "position": [
+        688.4490168820047,
+        1663.1301666599045
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 5,
+      "position": [
+        -0.4084047725345334,
+        1799.989953667948
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 6,
+      "position": [
+        -689.2036505026539,
+        1662.8175871796086
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 7,
+      "position": [
+        -1273.0738880903937,
+        1272.4963165221375
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 8,
+      "position": [
+        -1663.1301666599043,
+        688.4490168820048
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 9,
+      "position": [
+        -1799.989953667948,
+        -0.40840477253442314
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 10,
+      "position": [
+        -1662.8175871796088,
+        -689.2036505026537
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 11,
+      "position": [
+        -1272.4963165221375,
+        -1273.0738880903934
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 12,
+      "position": [
+        -688.4490168820041,
+        -1663.1301666599047
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 13,
+      "position": [
+        0.40840477253431295,
+        -1799.989953667948
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 14,
+      "position": [
+        689.2036505026529,
+        -1662.817587179609
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 15,
+      "position": [
+        1273.0738880903934,
+        -1272.4963165221377
+      ],
+      "radius": 1000.0,
+      "direction": null
+    },
+    {
+      "channel": 16,
+      "position": [
+        1663.1301666599038,
+        -688.4490168820057
+      ],
+      "radius": 1000.0,
+      "direction": null
+    }
+  ],
+  "noise": "fixed extreme +/-1 degree",
+  "kind": "synthetic only; not official simulator evidence",
+  "planning_seconds": 0.2,
+  "extra_actions": 640,
+  "fallback_only": false,
+  "wall_limit_s": 180,
+  "policy_revision": "20260912-shared-service-r4",
+  "policy_source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "exact_geometry.py": "bc459451bdf32b164cf305ffd89eee2c59c2bf26c84fb8a0417692d25301498f",
+    "protocol.py": "18f9141037ff812d06855bf28365a4dbb2d9b20d858bc43ffc3db6a6677a4079",
+    "questions.py": "598ae077caaa67f7e793f28791c90833760a81c6eb1406fb932776a7316b466c",
+    "solver.py": "8e4fc7826fcfd3912c597f9557f8e35c8fd1ac28a6f8e349cf12320c1ebf5c93"
+  },
+  "summary": {
+    "strategy": "event-rollout-certified-completion-v8",
+    "policy_revision": "20260912-shared-service-r4",
+    "problem": 3,
+    "reason": "certified_all_cleared",
+    "completion_certified": true,
+    "exit_confirmed": true,
+    "virtual_time_s": 4587.678844,
+    "moving_distance_m": 18743.39421890272,
+    "average_clear_time_s": 286.72992775,
+    "measures": 125,
+    "clear_attempts": 21,
+    "switches": 119,
+    "initial_fallback_upper_s": 41638.71700000001,
+    "fallback_used": false,
+    "budget_guard_checks": 153,
+    "planner": {
+      "decisions": 23,
+      "rollout_candidates": 24,
+      "rollout_timeouts": 0,
+      "continuous_clears": 10,
+      "radio_events": 3
+    },
+    "search_plan": {
+      "proofs": 102,
+      "deletions": 0,
+      "replacements": 0
+    },
+    "real_time_guarantee": "conditional on execution and request latency; not unconditional",
+    "discovered_channels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "cleared_channels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "unknown_channels": [],
+    "pending_channels": [],
+    "absent_channels": [
+      17,
+      18,
+      19,
+      20
+    ],
+    "extra_actions_remaining": 581,
+    "completion_rank": 581,
+    "rank_receipts": 146,
+    "absence_certificates": [
+      {
+        "channel": 17,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 18,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 19,
+        "basis": "source_count_upper_bound"
+      },
+      {
+        "channel": 20,
+        "basis": "source_count_upper_bound"
+      }
+    ]
+  },
+  "replay": {
+    "verified": true,
+    "actions": 146,
+    "virtual_time_s": 4587.678844
+  },
+  "error": null,
+  "wall_s": 3.804489160887897,
+  "cleared_count": 16,
+  "virtual_time_s": 4587.678843780542,
+  "average_clear_time_s": 286.72992773628386,
+  "counts": {
+    "measure": 125,
+    "clear": 21,
+    "successful_clear": 16,
+    "switch": 119
+  },
+  "event_counts": {
+    "v8_started": 1,
+    "event_selected": 41,
+    "evidence_observation": 146,
+    "rank_receipt": 146,
+    "discovered": 16,
+    "batch_observation_selected": 4,
+    "cleared": 16,
+    "shared_station_selected": 6,
+    "completion_checked": 1
+  },
+  "log_sha256": "c88b986e6304b82eac85310c5be02110778f78fc786f24604306a438ad8b4719"
+}

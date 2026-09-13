@@ -25,3 +25,8 @@ __pycache__/
 *.synctex.gz
 *.toc
 paper/.build/
+
+# Original simulator logs contain identity in signed headers; keep locally.
+submission_inputs/**/*.jlog
+submission_inputs/local_records/
+submission/.staging/

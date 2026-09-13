@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 
 PAPER = Path(__file__).resolve().parent
-data = json.loads((PAPER / 'results.json').read_text())
+data = json.loads((PAPER / 'results.json').read_text(encoding='utf-8'))
 
 
 def case_label(case):
@@ -44,7 +44,7 @@ for problem in (3, 4):
             line = f'{case_label(case)} & {n-d}/{d} & {t:.2f} & {t/n:.2f} & {failure}'
         lines.append(line + r'\\')
     lines += [r'\bottomrule\end{tabular}', r'\end{table}']
-    (PAPER / f'table_q{problem}.tex').write_text('\n'.join(lines) + '\n')
+    (PAPER / f'table_q{problem}.tex').write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
 lines = [
     r'\begin{table}[H]\centering\caption{十次演练截图的成绩汇总}\label{tab:practice}',
@@ -59,4 +59,4 @@ for problem in (3, 4):
             f'{row["reported_source_count"]} & {row["reported_virtual_time_s"]}' + r'\\'
         )
 lines += [r'\bottomrule\end{tabular}', r'\end{table}']
-(PAPER / 'table_practice.tex').write_text('\n'.join(lines) + '\n')
+(PAPER / 'table_practice.tex').write_text('\n'.join(lines) + '\n', encoding='utf-8')

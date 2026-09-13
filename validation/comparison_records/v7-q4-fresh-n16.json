@@ -1,0 +1,11 @@
+{
+  "name": "q4-fresh-n16",
+  "source_count": 16,
+  "cleared_count": 16,
+  "virtual_time_s": 6992.552892570891,
+  "expected_time_s": 6992.552892570891,
+  "matches": true,
+  "wall_s": 1.0892392760142684,
+  "scope": "offline synthetic comparison only",
+  "log_sha256": "4d19e80a11bb829e427b295a77c8a9d407fb9ac762244f831d3c348b3f7a80b2"
+}

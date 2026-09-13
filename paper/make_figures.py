@@ -15,7 +15,7 @@ sys.path[:0]=[str(ROOT/'src'),str(ROOT/'tools')]
 from jammer_solver import solver as v8, exact_geometry as g
 from jammer_solver.questions import optimize_angle, solve_wedges
 PAPER=ROOT/'paper'
-DATA=json.loads((PAPER/'results.json').read_text())
+DATA=json.loads((PAPER/'results.json').read_text(encoding='utf-8'))
 font_candidates = [
     os.environ.get('MCM_PAPER_FONT'),
     '/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf',
@@ -35,7 +35,6 @@ BLUE='#0072B2';RED='#D55E00';GREEN='#009E73';PURPLE='#7B61A8';GRAY='#555555'
 
 def save(fig,name):
     fig.savefig(PAPER/'figures'/f'{name}.pdf',bbox_inches='tight',pad_inches=.04)
-    fig.savefig(PAPER/'figures'/f'{name}.png',bbox_inches='tight',pad_inches=.04,dpi=180)
     plt.close(fig)
 
 def equal(ax,xlabel='东向坐标 / m',ylabel='北向坐标 / m'):
@@ -71,7 +70,7 @@ p=DATA['q2_minimum'];axs[0].plot(p['a_m'],p['b_m'],'*',ms=10,color=RED);axs[0].p
 axs[0].set_title('(a) 保证接收的候选区域');equal(axs[0],'前向位移 a / m','侧向位移 b / m')
 rs=np.linspace(500,999,50);vals=[optimize_angle(float(r))['diameter_upper_m'] for r in rs]
 axs[1].plot(rs,vals,color=BLUE);axs[1].axhline(163,ls='--',color=RED,lw=1.5);axs[1].plot(p['movement_m'],p['diameter_upper_m'],'o',color=RED)
-axs[1].set_xlabel('移动预算 ρ / m');axs[1].set_ylabel('解析直径上界 / m');axs[1].set_title('(b) 移动与定位精度的折中');axs[1].grid(alpha=.18)
+axs[1].set_xlabel('移动预算 \u03c1 / m');axs[1].set_ylabel('解析直径上界 / m');axs[1].set_title('(b) 移动与定位精度的折中');axs[1].grid(alpha=.18)
 save(fig,'q2_design')
 
 fig,axs=plt.subplots(1,2,figsize=(6.3,3.1),layout='constrained')
@@ -96,7 +95,7 @@ ax.set_xlim(-100,1350);ax.set_ylim(-500,500);equal(ax);ax.set_title('(b) 双阴�
 save(fig,'directional_proof')
 
 from fractions import Fraction
-snapshot=json.loads((PAPER/'figure-data.json').read_text())
+snapshot=json.loads((PAPER/'figure-data.json').read_text(encoding='utf-8'))
 chain=snapshot['event']
 poly=tuple(tuple(Fraction(x) for x in p) for p in snapshot['polygon_rational'])
 points=[g.point(p) for p in chain['points']]

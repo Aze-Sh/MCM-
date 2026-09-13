@@ -1,0 +1,247 @@
+[
+  {
+    "path": "run_robot.py",
+    "sha256": "91584470d1c79a8146069305f484e25bfd7ba075f342abb53c442fca0f5a2945",
+    "lines": 89
+  },
+  {
+    "path": "solve_questions.py",
+    "sha256": "2a59c150d55d2f7cef4818c225961850c13251598dec270ece155a526fe63a5b",
+    "lines": 8
+  },
+  {
+    "path": "start_robot.ps1",
+    "sha256": "2c7a26883af5e08c5b7adb65c73558f4c882711719d735a7cf758d5d20408421",
+    "lines": 21
+  },
+  {
+    "path": "check.py",
+    "sha256": "c1e0bcbb68751195f5c9b427f17b46f5087d569462a3721912f39a0039c8c66f",
+    "lines": 15
+  },
+  {
+    "path": "prepare_submission.py",
+    "sha256": "00fb352832d221c0e33630d89851bb97de690641630973f797d7a60f8423268e",
+    "lines": 225
+  },
+  {
+    "path": "src/jammer_solver/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lines": 0
+  },
+  {
+    "path": "src/jammer_solver/exact_geometry.py",
+    "sha256": "bc459451bdf32b164cf305ffd89eee2c59c2bf26c84fb8a0417692d25301498f",
+    "lines": 298
+  },
+  {
+    "path": "src/jammer_solver/protocol.py",
+    "sha256": "18f9141037ff812d06855bf28365a4dbb2d9b20d858bc43ffc3db6a6677a4079",
+    "lines": 104
+  },
+  {
+    "path": "src/jammer_solver/questions.py",
+    "sha256": "598ae077caaa67f7e793f28791c90833760a81c6eb1406fb932776a7316b466c",
+    "lines": 386
+  },
+  {
+    "path": "src/jammer_solver/solver.py",
+    "sha256": "8e4fc7826fcfd3912c597f9557f8e35c8fd1ac28a6f8e349cf12320c1ebf5c93",
+    "lines": 1889
+  },
+  {
+    "path": "tools/benchmark.py",
+    "sha256": "bb2f0c8f267a05f527b5c6811a6680f17683002c285c739b65748ae58f4457c7",
+    "lines": 352
+  },
+  {
+    "path": "tools/compare_baseline.py",
+    "sha256": "b603b803924648bc8568477aae3695e3093e77d11bf0cc8b48605abfdccc0b2b",
+    "lines": 56
+  },
+  {
+    "path": "tools/lower_bounds.py",
+    "sha256": "94ab239f39dbfd6d2373678e78002daeb9e32e9690f36d4c9c8d83224cdc11ee",
+    "lines": 34
+  },
+  {
+    "path": "tools/simulator.py",
+    "sha256": "854ad766b5378500c7689ac5f32adbc41581cc16248426f7e3c674c3b77606f7",
+    "lines": 110
+  },
+  {
+    "path": "tools/validate.py",
+    "sha256": "deca2b1f5256f0cb36a5753148e9b71a84d1b364992da7b497cdac9f98ecd25c",
+    "lines": 80
+  },
+  {
+    "path": "tools/verification.py",
+    "sha256": "1949eeaaef9e5cffe4885e8f0383d7073f606a8a157fc99d6dc9e0af5dc0ce82",
+    "lines": 248
+  },
+  {
+    "path": "tools/verify_optical.py",
+    "sha256": "7b451e82286c39242bc142ba26adee8a94175e12bd9dd66527f1b66c2ec5c93c",
+    "lines": 77
+  },
+  {
+    "path": "tests/test_entrypoint.py",
+    "sha256": "ab2b41840c9ba31ff5e68eabc2a4fed2fad4330d4c421ed3483489673732e79b",
+    "lines": 62
+  },
+  {
+    "path": "tests/test_helpers.py",
+    "sha256": "9888c2fe73d0f13caca4b177aa73b755beb0acfb1102514f33d020678acf8c0a",
+    "lines": 109
+  },
+  {
+    "path": "tests/test_offline_timeout.py",
+    "sha256": "36cde17ece022a226c5b1d049e07d398a7b2195b0c3aa8f68900b8030d225286",
+    "lines": 23
+  },
+  {
+    "path": "tests/test_solver.py",
+    "sha256": "19752ba1ab641afeccb45efa109ac0c59d529ebf3fa432d7371e69e3dbbc4e98",
+    "lines": 512
+  },
+  {
+    "path": "tests/test_submission.py",
+    "sha256": "f90433908133ec6b4ecb932162de99c26d85401fcab954e1c333cad412fd528a",
+    "lines": 97
+  },
+  {
+    "path": "validation/baseline_v7/adaptive.py",
+    "sha256": "5f70a1978622f77ec12e60801228c2ab38f2a5213b3656dd48bcbfa94d2622d0",
+    "lines": 245
+  },
+  {
+    "path": "validation/baseline_v7/adaptive_v6.py",
+    "sha256": "147c34a61a45c4483c1e54746da4b1dd7205b11d3a2cd49b8fedca5c95a29e07",
+    "lines": 261
+  },
+  {
+    "path": "validation/baseline_v7/adaptive_v7.py",
+    "sha256": "b3ab37fd1f29b1ad1294d20c1eddf6e4a8ec796d72fade79c92becb2e738e19d",
+    "lines": 243
+  },
+  {
+    "path": "validation/baseline_v7/cooperative.py",
+    "sha256": "c1b3672e62a6cc0cf3e62b23e12af17bc44a5467026a13a10327f319477a4b79",
+    "lines": 350
+  },
+  {
+    "path": "validation/baseline_v7/coverage.py",
+    "sha256": "e4b1003d927107547fdca2af1ace14bb5b8db0c24f9f7d367a27e2d4f221a626",
+    "lines": 72
+  },
+  {
+    "path": "validation/baseline_v7/coverage_v7.py",
+    "sha256": "ad6cad49267bd29f96c9384c6405d3ebd771eed0636c9aef3cef2d80fe22c28b",
+    "lines": 50
+  },
+  {
+    "path": "validation/baseline_v7/decision.py",
+    "sha256": "a27b390c3dbe6e18d612929514c352d26f83cc4266c00cea0f877a5cec2420e6",
+    "lines": 214
+  },
+  {
+    "path": "validation/baseline_v7/decision_v6.py",
+    "sha256": "23d9ca6e4c3e28509b13c33e2739006118edb3b5727f945a25b5ebce6b9d77be",
+    "lines": 184
+  },
+  {
+    "path": "validation/baseline_v7/evidence.py",
+    "sha256": "53c2d3785ab129cc1b861bad8ea133d7441d377d008437a142bff1cc7e4cc6f0",
+    "lines": 83
+  },
+  {
+    "path": "validation/baseline_v7/geometry.py",
+    "sha256": "d4658bf3179dfae1ad1e041936383983f463bd66bae309a648a9a9d9a9768211",
+    "lines": 100
+  },
+  {
+    "path": "validation/baseline_v7/interception.py",
+    "sha256": "1cf9b7b6eddf126fbbf62d643d2a3a899d601c2eee68b5d254ee34f1029a1e5b",
+    "lines": 107
+  },
+  {
+    "path": "validation/baseline_v7/joint_belief.py",
+    "sha256": "a855cd79f9a7892fd61273243ba925fda4313ee3f6cfbc5623e5aacbaabdabbe",
+    "lines": 342
+  },
+  {
+    "path": "validation/baseline_v7/optical_v7.py",
+    "sha256": "1717926d5b6f5ad3bf6da09ada6f242b8c1f0ae942fc42a954647d10d26d407f",
+    "lines": 69
+  },
+  {
+    "path": "validation/baseline_v7/planning.py",
+    "sha256": "6a9889fbdc5a31acb0630cb26062585cd606517c2c856a36f8949be1481e0c54",
+    "lines": 109
+  },
+  {
+    "path": "validation/baseline_v7/posterior.py",
+    "sha256": "9c7e7cd35cbaba81c9087b83c5d3b9caea0f893d7a3624631cfd32ce6add1f16",
+    "lines": 126
+  },
+  {
+    "path": "validation/baseline_v7/probe_frontier.py",
+    "sha256": "db70636e7b2f0eba3fe8c2c0c7b7d7af17a406b3191b4ee83e47914233ea5e13",
+    "lines": 44
+  },
+  {
+    "path": "validation/baseline_v7/refinement.py",
+    "sha256": "a3460c9be3e31d40da1c1f1803f33354ec607091b97526198f3240d566a38126",
+    "lines": 70
+  },
+  {
+    "path": "validation/baseline_v7/routing.py",
+    "sha256": "4dd90219e55d15ed7a0fbb2cde8fb3da54d94eed2fc5bc979fc788ab06bae2bd",
+    "lines": 76
+  },
+  {
+    "path": "validation/baseline_v7/service_graph.py",
+    "sha256": "89051e87202ac93e15dcb314db2e71a974cc5bf852c422e4d805a26bbe5c2784",
+    "lines": 203
+  },
+  {
+    "path": "validation/baseline_v7/solver.py",
+    "sha256": "c390394524e79670f8fc4613e6e14551b6079691fe42751d7818468117a58e3e",
+    "lines": 268
+  },
+  {
+    "path": "validation/baseline_v7/strategy.py",
+    "sha256": "955a26dbda7138992d6edf91a97410659e72438ee44ce8b99cf407257cf6c060",
+    "lines": 154
+  },
+  {
+    "path": "validation/baseline_v7/tail_search.py",
+    "sha256": "9fd461dac74e0713544ed87755faf0be7ea09881b39b9e89d3b32ade5b0e2dcf",
+    "lines": 79
+  },
+  {
+    "path": "paper/build.py",
+    "sha256": "b4e00b23b39423b9eae4a7d8f152dcf434466468819ca3f6b7083119353e41a2",
+    "lines": 77
+  },
+  {
+    "path": "paper/generate_appendix.py",
+    "sha256": "e05fc115cf934b477e3276dec391ef1c2118e7534b1b7189029dfc2fb99179f8",
+    "lines": 52
+  },
+  {
+    "path": "paper/make_figures.py",
+    "sha256": "b3f27070e63826d61dca083593a8ba914385e86246f1f2f06e8e64d8a0ae54f6",
+    "lines": 157
+  },
+  {
+    "path": "paper/make_formal_tables.py",
+    "sha256": "a37b29b663d8ccd3c614a470c9853617efee9d31db155adab66988f1e1d1b8e0",
+    "lines": 30
+  },
+  {
+    "path": "paper/make_tables.py",
+    "sha256": "ac5d093f9409dc7be92b2e8696136f3f0eda5ff3c069663044cc65f92cc5c248",
+    "lines": 62
+  }
+]

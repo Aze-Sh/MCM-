@@ -34,6 +34,8 @@ class EntrypointTests(unittest.TestCase):
                 "--case-code",
                 "offline",
                 "--connect",
+                "--robot-id",
+                "test-robot",
                 "--output",
                 folder,
             ]
@@ -50,3 +52,11 @@ class EntrypointTests(unittest.TestCase):
             self.assertIsNone(summary["error"])
             self.assertEqual(len(world.cleared), 10)
             self.assertFalse(world.active)
+
+    def test_connect_requires_explicit_identity_before_creating_transport(self):
+        argv = ["run_robot.py", "--problem", "3", "--case-code", "offline", "--connect"]
+        with patch.object(sys, "argv", argv), patch.object(cli, "xin_jiekou") as transport:
+            with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
+                cli.main()
+            self.assertEqual(error.exception.code, 2)
+            transport.assert_not_called()

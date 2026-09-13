@@ -3,7 +3,8 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,tabularx,graphicx,float,enumitem,xcolor}
 \usepackage[font=small,labelfont=bf,labelsep=quad]{caption}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
+\usepackage{fancyhdr,fvextra}
+\IfFileExists{src/jammer_solver/solver.py}{\def\RepoRoot{.}\def\PaperDir{paper}}{\def\RepoRoot{..}\def\PaperDir{.}}
 \pagestyle{fancy}\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}
 \setlength{\headheight}{0pt}\setlength{\headsep}{0pt}
 \linespread{1.16}\setlength{\parindent}{2em}\setlength{\parskip}{2pt}
@@ -19,7 +20,7 @@
 \newcommand{\dist}{\operatorname{dist}}
 \newcommand{\blank}{\underline{\hspace{1.4cm}}}
 \newcommand{\datagap}{\textbf{待实测：}\,}
-\newcommand{\fig}[3]{\begin{figure}[H]\centering\includegraphics[width=#2\linewidth]{figures/#1.pdf}\caption{#3}\end{figure}}
+\newcommand{\fig}[3]{\begin{figure}[H]\centering\includegraphics[width=#2\linewidth]{\PaperDir/figures/#1.pdf}\caption{#3}\end{figure}}
 \newcommand{\nextpage}{\clearpage}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \graphicspath{{figures/}}
@@ -430,7 +431,7 @@ $U$ & 已发现不同源达16个 & 依据题设数量上界转为$A$\\\bottomrul
 \subsection{问题三的离线结果}
 表\ref{tab:q3}列出当前快速版的15场固定离线输入，合计192个源，均获得实际清除成功响应并正常退出。匹配、验证与新输入各类场景分开保留；边界、密集和备用场景的分布及执行方式不同，不把它们混合为一个随机总体的性能估计。
 
-\input{table_q3.tex}
+\input{\PaperDir/table_q3.tex}
 
 表中M为两场固定匹配输入，V为验证输入，F为另行保留的新输入，B为边界压力输入，C为密集输入，R为强制备用过程；M1、M2为匹配案例编号，其余数字后缀为源个数。完整频道、位置、半径和噪声输入保留在结果记录中。$M$表示测向次数，$K_f$表示光学失败次数，均由协议记录统计。
 
@@ -564,7 +565,7 @@ Q_4={}&\{(0,0)\}\cup\{998u(k\pi/4):k=0,\ldots,7\}\\
 \subsection{问题四的离线结果与波动解释}
 当前15场Q4离线输入合计198个源，均实际清除。表\ref{tab:q4}报告总时间、平均每源时间及光学失败次数，含全定向、混合、边界、密集和强制备用输入。所有输入由独立模拟器持有，求解器只访问协议响应。
 
-\input{table_q4.tex}
+\input{\PaperDir/table_q4.tex}
 
 十场M、V、F常规输入平均总时间为6261.69秒，移动时间平均占比约74.01\%。与问题三相比，定向约束使“几何上接近”不再保证“可以测向”，进入新视角和排除未知频道的成本明显增加。相比仅根据源个数解释用时，接收结构和最终停止证据更有解释力。
 
@@ -597,7 +598,7 @@ $N=16$时可用数量上界停止，无源频道项改取0。该界未包含完�
 \subsection{结果与程序的一致性}
 30场验证覆盖固定输入、验证输入、新输入、边界、密集和强制备用过程。每场同时检查：模拟器中的实际源全部清除；程序主动退出；每个接受动作的时间增量符合式\eqref{eq:cost}；证据日志可独立重放；下降秩严格递减；完整光学链的连续覆盖、额度与成功前缀费用一致。合计390个源全部清除，实际选用的62条光学链通过审计。
 
-当前程序整理后的49项测试全部通过，并与原快速版核对30场完整请求指纹一致。该证据说明文件和代码风格调整没有改变这些固定输入上的算法行为，不属于一次新的性能提升，也不能证明全部未知输入上的绝对无差异。
+此前代码风格整理的49项测试全部通过，并与原快速版核对30场完整请求指纹一致。该证据说明文件和代码风格调整没有改变这些固定输入上的算法行为，不属于一次新的性能提升，也不能证明全部未知输入上的绝对无差异。
 
 \fig{performance}{0.99}{同输入性能与费用构成。左图每个点为同一源布局和噪声下的v7、v8总时间，虚线为两者相等；右图为两题各10场常规输入的平均费用，按移动、测向、切频、光学与清除分解。未加入误差条，因为这些点是固定案例，不是同一随机量的重复测量。}
 
@@ -644,7 +645,7 @@ Q4接收评分不使用历史阴性 & \blank & \blank & \blank\\\bottomrule
 \subsection{已经提供的演练记录}
 参赛队保存了两题各五份演练日志及按运行顺序排列的截图。当前可核对日志的案例编码、题号及时间等公开封装信息，正文为加密数据；尚未从中解析逐步动作与真实源布局。因此表\ref{tab:practice}仅记载截图报告的源个数和整数总时间，不声称已独立解密验证全清比例。
 
-\input{table_practice.tex}
+\input{\PaperDir/table_practice.tex}
 
 \fig{practice}{0.82}{十次演练截图的描述性比较，点旁数字为运行顺序。总时间为截图取整值；Q4横轴为报告的定向源数。不同点来自不同案例，未控制位置、半径、方向和噪声，因此未拟合因果趋势线。}
 
@@ -654,23 +655,19 @@ Q4接收评分不使用历史阴性 & \blank & \blank & \blank\\\bottomrule
 
 \nextpage
 \subsection{问题三正式测试结果}
-题目要求在充分演练后进行三次正式测试，并保留模拟器导出的原始日志\cite{problem,manual}。本稿未进行正式测试，以下六行结果均明确留空。测试完成后直接填写相应字段，不用其他演练或离线案例的数值占位。
+题目要求在充分演练后进行三次正式测试，并保留模拟器导出的原始日志\cite{problem,manual}。已取得的正式成绩列于下表，尚未取得的字段保留空栏。测试完成后据实填写相应字段，不用其他演练或离线案例的数值占位。
 
-\begin{table}[H]\centering\caption{问题三正式测试结果（待测）}\small
+\begin{table}[H]\centering\caption{问题三正式测试结果（空栏待实测）}\small
 \begin{tabularx}{\linewidth}{Yccc}\toprule
 测试案例编码 & 清除源个数 & 平均定位清除时间/s & 程序运行时间/s\\\midrule
-测试1：\blank & \blank & \blank & \blank\\[10pt]
-测试2：\blank & \blank & \blank & \blank\\[10pt]
-测试3：\blank & \blank & \blank & \blank\\[10pt]\bottomrule
+\input{\PaperDir/formal_q3.tex}
 \end{tabularx}\end{table}
 
 \subsection{问题四正式测试结果}
-\begin{table}[H]\centering\caption{问题四正式测试结果（待测）}\small
+\begin{table}[H]\centering\caption{问题四正式测试结果（空栏待实测）}\small
 \begin{tabularx}{\linewidth}{Yccc}\toprule
 测试案例编码 & 清除源个数 & 平均定位清除时间/s & 程序运行时间/s\\\midrule
-测试1：\blank & \blank & \blank & \blank\\[10pt]
-测试2：\blank & \blank & \blank & \blank\\[10pt]
-测试3：\blank & \blank & \blank & \blank\\[10pt]\bottomrule
+\input{\PaperDir/formal_q4.tex}
 \end{tabularx}\end{table}
 
 \subsection{取得数据后的计算与分析}
@@ -678,7 +675,7 @@ Q4接收评分不使用历史阴性 & \blank & \blank & \blank\\\bottomrule
 
 三次结果的分析同时报告均值、最大值和取值范围。样本数仅为3，不能据此稳定估计极端尾部概率；若一场明显较慢，应保留该场，检查是否由移动、定向阴性、光学失败或未知频道排除构成主要费用。若发生超时或未清完，则报告实际完成数、结束原因和已消耗时间，不只对成功场计算平均表现。
 
-六份正式日志的原始文件名分别待填入支撑材料清单，不改名、不补造文件。此前测试与当前论文写作均未启动正式模块。本节保留完整的数据取得、指标计算和结果分析框架，待实测数据到位后即可补写具体比较结论。
+六份正式日志的原始文件名分别待填入支撑材料清单，不改名、不补造文件。材料整理和论文编译过程均不启动正式模块。本节保留完整的数据取得、指标计算和结果分析框架，待实测数据到位后即可补写具体比较结论。
 
 \nextpage
 \section{模型评价与结论}
@@ -722,10 +719,13 @@ Q4接收评分不使用历史阴性 & \blank & \blank & \blank\\\bottomrule
 \texttt{solve\_questions.py} & 前两问JSON输入输出入口\\
 \texttt{check.py}、\texttt{tests/} & 几何、协议、全清条件和集成检查\\
 \texttt{tools/} & 独立模拟、证据回放、光学链审计与下界计算\\
-\texttt{validation/} & 固定输入、历史对照与代码整理验证记录\\
-\texttt{paper/results.json}、\texttt{figures/} & 论文数值汇总和可重生成图形\\
+\texttt{validation/} & 固定输入、离线记录与论文对照复算\\
+\texttt{paper/results.json}、\texttt{paper/figures/} & 论文数值汇总和可重生成图形\\
 \texttt{AI工具使用详情.pdf} & 已知AI使用环节及人工核验待填记录\\
 正式测试原始\texttt{.jlog} & 问题三、四各三份，\textbf{待实测生成}\\\bottomrule
 \end{tabularx}\end{table}
-\noindent\small 本稿为30页正文稿，尚未并入完整程序清单附录。正式提交时，需依当年格式要求补齐完整可运行源程序附录，并核对其与支撑材料、论文结果一致；上述正式日志和人工核验字段应据实补全。所有空栏表示未取得对应数据，不表示零值或测试失败。
+\noindent\small 正文及参考文献、材料索引共30页，之后为完整程序清单。正式原始日志放入\path{submission_inputs/formal/}下的六个对应目录；未测结果及人工核验事项据实补全。所有空栏表示尚未取得对应数据，不表示零值或测试失败。
+\label{main_end}
+\clearpage
+\input{\PaperDir/appendix_sources.tex}
 \end{document}

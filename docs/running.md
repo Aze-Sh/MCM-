@@ -32,7 +32,7 @@ python tools/validate.py --verify-only --output runs/style-check
 
 该脚本会要求输入CONNECT，沿用原有的人工连接步骤。脚本不会启动模拟器、登录账号或选择测试模式。`--run-kind`只记录本地元数据，不能控制官方界面。
 
-第三、四题默认就是 `20260912-shared-service-r4`。旧 `--v8`、`-V8`仍接受，作为兼容参数；v3～v7及baseline切换已经删除。原 `--v8-planning-seconds`、`--v8-extra-actions`兼容到现在的 `--planning-seconds`、`--extra-actions`，默认值仍为0.2和640。
+第三、四题默认就是 `20260912-shared-service-r4`。`--v8`、`-V8`仅为兼容参数，不切换算法。原 `--v8-planning-seconds`、`--v8-extra-actions`兼容到现在的 `--planning-seconds`、`--extra-actions`，默认值仍为0.2和640。
 
 ## 每场记录保存在哪里
 
@@ -68,3 +68,5 @@ python solve_questions.py --problem 2 输入.json --output 结果.json
 ```
 
 这两个入口均不连接模拟器。第二题报告的是解析直径界下的计算结果及剩余间隙，不是物理问题精确最优的证明。
+
+队号没有默认值，连接时必须通过`--robot-id`或PowerShell提示输入。提交源码不要写入队号或密码。`runs/`为本地原始记录，可能包含队号，不进入支撑包；正式`.jlog`的放置方法见`submission_inputs/README.md`。

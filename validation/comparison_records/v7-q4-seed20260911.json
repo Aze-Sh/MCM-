@@ -1,0 +1,11 @@
+{
+  "name": "q4-seed20260911",
+  "source_count": 16,
+  "cleared_count": 16,
+  "virtual_time_s": 6963.044699015036,
+  "expected_time_s": 6963.044699015036,
+  "matches": true,
+  "wall_s": 1.1518841120414436,
+  "scope": "offline synthetic comparison only",
+  "log_sha256": "5922dbbcdb8f3d0141fd64fd247ce7f7d672bf012f76017a6bad2f97a5597976"
+}

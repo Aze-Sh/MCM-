@@ -1188,7 +1188,6 @@
     }
   ],
   "policy_revision": "20260912-shared-service-r4",
-  "source_commit": "5d789f1cbcfe0305c374761ffc7a3112ccdd8c2e",
   "q3_outer_worst_m": 999.1106618753616,
   "coverage": {
     "3": {

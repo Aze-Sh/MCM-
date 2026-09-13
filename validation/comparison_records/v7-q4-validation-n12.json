@@ -1,0 +1,11 @@
+{
+  "name": "q4-validation-n12",
+  "source_count": 12,
+  "cleared_count": 12,
+  "virtual_time_s": 7790.1969550794565,
+  "expected_time_s": 7790.1969550794565,
+  "matches": true,
+  "wall_s": 0.9482159712351859,
+  "scope": "offline synthetic comparison only",
+  "log_sha256": "12979d9f8a0f786c85c162301bcb9b1d61af0fd89d75a99ad519199427588669"
+}

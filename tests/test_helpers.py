@@ -78,7 +78,7 @@ class HelperTests(unittest.TestCase):
             opener.open.return_value = response
             with path.open("x", encoding="utf-8") as log:
                 with patch("jammer_solver.protocol.build_opener", return_value=opener):
-                    transport = xin_jiekou("202612001024", log)
+                    transport = xin_jiekou("test-robot", log)
                 reply = transport["call"]("/measure", (12.5, -4), 7)
                 self.assertEqual(reply["measure_result"], "no_signal")
                 self.assertIsNone(transport["pending"])
@@ -99,7 +99,7 @@ class HelperTests(unittest.TestCase):
             opener.open.side_effect = URLError("fixed offline fixture")
             with path.open("x", encoding="utf-8") as log:
                 with patch("jammer_solver.protocol.build_opener", return_value=opener):
-                    transport = xin_jiekou("202612001024", log)
+                    transport = xin_jiekou("test-robot", log)
                 with self.assertRaises(URLError):
                     transport["call"]("/measure", (0, 0), 1)
                 self.assertIsNotNone(transport["pending"])

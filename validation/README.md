@@ -1,27 +1,18 @@
-# 保留的验证数据
+# 论文计算依据
 
-这里只保留最终版本的输入、回归依据、完整日志和必要结果摘要。
+这里只保留正文实际使用的数据与复现依赖。
 
-| 文件/目录 | 内容 |
+| 文件或目录 | 内容 |
 |---|---|
-| `expected-fast.json` | 按已发布提交固定的30场源真值、噪声配置、用时、操作次数和请求指纹；仅模拟器/核查器可用 |
-| `recorded/` | 整理后对相同30场重跑的结果、完整协议日志及独立审计 |
-| `migration.json` | 主算法、几何、协议及抽取依赖的函数体核对与前后文件哈希 |
-| `file-mapping.json` | 主要旧文件与新文件的对应关系 |
-| `test-summary.json`、`tests.txt` | 上一次目录整理时48项测试的结果和输出 |
-| `style-refactor.json` | 本次代码风格整理的规模、源码哈希、测试和整场回归摘要 |
-| `materials-sha256.json`、`questions-check.json` | 题目/论文原件哈希及第一二题新旧入口输出核对 |
-| `cleanup-summary.json` | 清理规模、选定提交及仓库外备份信息 |
-| `performance-comparison.json` | 选定快速版相对v7的20场同输入历史性能摘要 |
-| `input-inventory.json` | 用户十份加密官方演练附件的安全元数据与截图对应；不包含解密内容 |
+| `expected-fast.json` | 30场完整源输入、噪声、参数、预期请求指纹和成本 |
+| `current/` | 与当前r4核心源码对应的30场离线结果及完整事件记录 |
+| `performance-comparison.json` | 正文20场同输入v7/v8比较，包含一场变慢的结果 |
+| `baseline_v7/` | 上述v7对照所必需的依赖代码，仅通过离线模拟器调用 |
+| `comparison_records/` | 重新离线复算的20场v7结果、日志和验证汇总；不是正式日志，也不是历史原始日志副本 |
+| `questions-check.json` | 第一、二题样例输入、计算结果及一致性检查 |
 
-```bash
-python tools/validate.py --output runs/style-check
-python tools/validate.py --verify-only --output runs/style-check
-```
+复核30场现有记录：`python tools/validate.py --verify-only`。重新计算：`python tools/validate.py`，输出放本地`runs/`。
 
-`recorded/` 保留上一次目录整理的原始记录；其源码哈希对应当时的版本。本次完整输出保存在被Git忽略的 `runs/style-20260913/`，可用上述命令复现到新目录。
+复算20场v7对照：`python tools/compare_baseline.py`。已复算的20场全部清除且虚拟时间与正文历史表一致。所有输入都为离线合成，不连接官方接口。
 
-这些命令核对现有源码、日志、真实计费和全清依据。修改源码后，如哈希不一致，应在新的 `runs/` 目录重跑，不要手工修改历史哈希或覆盖原验证结论。
-
-求解器从不接收这里保存的源真值。真值仅由本地模拟器用于产生协议返回，由核查器用于验证实际清除。
+离线日志的`offline-v8`是固定占位标识，不是参赛队号。源真值只供离线环境和事后审计使用，求解器通过模拟通信接口获取观测。

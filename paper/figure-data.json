@@ -1,5 +1,5 @@
 {
-  "source_log": "runs/style-20260913/v8-q4-seed20260911.jsonl",
+  "source_log": "validation/current/v8-q4-seed20260911.jsonl",
   "source_log_sha256": "5b6d1dd9f8be187968168593adbb067900b7cd7165e0f4d4f2f37ef2cf5bf889",
   "event": {
     "event": "optical_chain_selected",

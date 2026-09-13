@@ -1,8 +1,0 @@
-{
-  "command": "python check.py",
-  "tests": 48,
-  "passed": true,
-  "scope": "Selected v8 fast revision and retained Q1/Q2 helpers; synthetic and mocked protocol only",
-  "source_commit": "8b2d232b5297976bee682be718f617f19dfbbd23",
-  "installed_path_verified": true
-}

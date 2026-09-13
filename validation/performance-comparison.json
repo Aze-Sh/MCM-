@@ -1,6 +1,5 @@
 {
-  "note": "Historical same-input v7 versus selected v8 fast (r4) comparisons; original raw files remain in Git history and the external backup.",
-  "source_commit": "8b2d232b5297976bee682be718f617f19dfbbd23",
+  "note": "Same-input v7 versus v8 fast r4. Fresh offline reproduction logs are in comparison_records; all 20 times match the historical table.",
   "cases": [
     {
       "name": "q3-seed20260911",

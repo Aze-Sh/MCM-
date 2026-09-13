@@ -13,7 +13,7 @@ def main():
     parser = argparse.ArgumentParser(description="2026 B题：v8 快速版")
     parser.add_argument("--problem", type=int, choices=(3, 4), required=True)
     parser.add_argument("--case-code", required=True, help="模拟器界面显示的案例编码")
-    parser.add_argument("--robot-id", default="202612001024")
+    parser.add_argument("--robot-id", help="运行时输入当前登录的队号，不写入提交源码")
     parser.add_argument("--base-url", default="http://127.0.0.1:2026")
     parser.add_argument(
         "--run-kind", choices=("rehearsal", "formal"), default="rehearsal"
@@ -31,6 +31,8 @@ def main():
     if not canshu.connect:
         print("未连接。确认模拟器处于对应演练模式且接口就绪后，加 --connect 运行。")
         return 0
+    if not canshu.robot_id or not canshu.robot_id.strip():
+        parser.error("连接模拟器时必须通过 --robot-id 输入当前登录的队号")
 
     mulu = (
         canshu.output

@@ -1,0 +1,6 @@
+# Keep verified source and event-log bytes stable on Windows clones.
+* text eol=lf
+*.csv text eol=lf
+*.pdf binary
+*.zip binary
+*.jlog binary

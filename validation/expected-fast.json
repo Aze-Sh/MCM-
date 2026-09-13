@@ -1,5 +1,4 @@
 {
-  "source_commit": "8b2d232b5297976bee682be718f617f19dfbbd23",
   "note": "Selected published v8 fast version (r4), frozen before layout cleanup. Request hashes exclude responses and wall timestamps.",
   "cases": [
     {

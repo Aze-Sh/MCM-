@@ -1,0 +1,11 @@
+{
+  "name": "q3-validation-n14",
+  "source_count": 14,
+  "cleared_count": 14,
+  "virtual_time_s": 3832.998014107321,
+  "expected_time_s": 3832.998014107321,
+  "matches": true,
+  "wall_s": 0.1044786898419261,
+  "scope": "offline synthetic comparison only",
+  "log_sha256": "1ae3575189c5a44c6f6b5c91ef1b1acdadc1c171bd90e34bbc72b198fca0db97"
+}

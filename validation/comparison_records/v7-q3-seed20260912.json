@@ -1,0 +1,11 @@
+{
+  "name": "q3-seed20260912",
+  "source_count": 10,
+  "cleared_count": 10,
+  "virtual_time_s": 3590.4333726305763,
+  "expected_time_s": 3590.4333726305763,
+  "matches": true,
+  "wall_s": 0.0792983639985323,
+  "scope": "offline synthetic comparison only",
+  "log_sha256": "9d93ebaafc367c02b2e3d3daadee8da1c127aad6d4ce3db21b4b087e59b1c83f"
+}
